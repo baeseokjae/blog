@@ -2,7 +2,8 @@
 title: "AI in Cybersecurity 2026: How Machine Learning Is Transforming Threat Detection and Defense"
 date: 2026-04-09T15:11:00+00:00
 tags: ["AI in cybersecurity 2026", "machine learning threat detection", "autonomous cyber attacks", "AI-driven defense", "federated learning cybersecurity", "quantum computing cybersecurity", "adversarial AI defense", "cybersecurity AI trends 2026"]
-description: "AI in cybersecurity 2026 is a $35-44B market where autonomous AI defends against AI-powered attacks, cutting threat detection time by 65% with ML, federated learning, and quantum-ready cryptography."
+description: "AI in cybersecurity 2026 is a $35-44B market where autonomous AI defends against AI-powered attacks, cutting threat detection by 65%."
+schema: "schema-ai-in-cybersecurity-2026"
 draft: false
 cover:
   image: "/blog/images/ai-in-cybersecurity-2026.png"
