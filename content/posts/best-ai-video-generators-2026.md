@@ -4,6 +4,10 @@ date: 2026-04-09T07:45:00+00:00
 tags: ["AI video generators", "Veo 3", "Runway", "Kling", "Sora", "AI video", "video generation", "AI content creation"]
 description: "Sora is shutting down. The best AI video generators in 2026 are Veo 3.1 for quality and native audio, Runway Gen-4 for professional workflows, and Kling 3.0 for value."
 draft: false
+cover:
+  image: "/blog/images/best-ai-video-generators.png"
+  alt: "Cover image for best-ai-video-generators-2026"
+  relative: false
 schema: "schema-best-ai-video-generators-2026"
 ---
 

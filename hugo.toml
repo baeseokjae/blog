@@ -22,3 +22,10 @@ theme = 'PaperMod'
 [params.homeInfoParams]
   Title = 'Stay ahead of AI.'
   Content = 'Honest reviews, comparisons, and guides on the tools actually worth your time.'
+
+[params.cover]
+  linkFullImages = true
+  responsiveImages = false
+
+[params.label]
+  text = "RockB"
