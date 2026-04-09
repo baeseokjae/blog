@@ -2,30 +2,55 @@ baseURL = 'https://baeseokjae.github.io/blog'
 languageCode = 'en-us'
 title = 'RockB'
 theme = 'PaperMod'
+
 [pagination]
   pagerSize = 10
 
 [params]
-  env = 'production'
-  description = 'AI-powered blog'
-  author = 'baeseokjae'
-  ShowReadingTime = true
-  ShowShareButtons = true
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
+  env            = 'production'
+  description    = 'Honest reviews, comparisons, and guides on AI tools actually worth your time.'
+  author         = 'baeseokjae'
+  images         = ['/blog/images/og-default.png']
+
+  ShowReadingTime     = true
+  ShowShareButtons    = true
+  ShowPostNavLinks    = true
+  ShowBreadCrumbs     = true
   ShowCodeCopyButtons = true
-  ShowToc = true
+  ShowToc             = true
+  ShowFullTextinRSS   = true
+
+  socialIcons = [
+    { name = "x",       url = "https://x.com/baeseokjae" },
+    { name = "github",  url = "https://github.com/baeseokjae" },
+    { name = "rss",     url = "/blog/index.xml" },
+  ]
+
+[params.homeInfoParams]
+  Title   = 'Stay ahead of AI.'
+  Content = 'Honest reviews, comparisons, and guides on the tools actually worth your time.'
+
+[params.cover]
+  linkFullImages    = true
+  responsiveImages  = false
+
+[params.label]
+  text = "RockB"
 
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
 
-[params.homeInfoParams]
-  Title = 'Stay ahead of AI.'
-  Content = 'Honest reviews, comparisons, and guides on the tools actually worth your time.'
+[[menu.main]]
+  name   = "Posts"
+  url    = "/blog/posts/"
+  weight = 1
 
-[params.cover]
-  linkFullImages = true
-  responsiveImages = false
+[[menu.main]]
+  name   = "Tags"
+  url    = "/blog/tags/"
+  weight = 2
 
-[params.label]
-  text = "RockB"
+[[menu.main]]
+  name   = "Search"
+  url    = "/blog/search/"
+  weight = 3
