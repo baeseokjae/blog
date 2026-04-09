@@ -18,3 +18,7 @@ theme = 'PaperMod'
 
 [outputs]
   home = ['HTML', 'RSS', 'JSON']
+
+[params.homeInfoParams]
+  Title = 'Stay ahead of AI.'
+  Content = 'Honest reviews, comparisons, and guides on the tools actually worth your time.'
