@@ -1,6 +1,6 @@
 ---
 title: "Blog Topics for SEO: What Should You Write About in 2026?"
-date: 2026-04-09
+date: 2026-04-09T05:33:04+00:00
 tags: ["SEO", "blog topics", "content strategy"]
 description: "The best blog topics for SEO match search intent, business goals, and low-competition long-tail keywords your audience already searches."
 draft: false

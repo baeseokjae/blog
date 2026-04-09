@@ -1,6 +1,6 @@
 ---
 title: "ChatGPT vs Claude vs Gemini: Which AI Is Best for Writing in 2026?"
-date: 2026-04-09
+date: 2026-04-09T07:01:09+00:00
 tags: ["ChatGPT", "Claude", "Gemini", "AI writing", "AI content creation", "GPT-5", "Claude Opus", "writing tools"]
 description: "Claude writes the best prose, ChatGPT is the most versatile, and Gemini is the strongest for research-backed content — but the smartest writers use all three."
 draft: false

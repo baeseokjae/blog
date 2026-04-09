@@ -1,6 +1,6 @@
 ---
 title: "Best AI Agent Frameworks in 2026: LangGraph vs CrewAI vs AutoGen"
-date: 2026-04-09
+date: 2026-04-09T06:33:51+00:00
 tags: ["AI agent frameworks", "LangGraph", "CrewAI", "AutoGen", "agentic AI", "multi-agent systems", "AI development", "OpenAI Agents SDK"]
 description: "The best AI agent frameworks in 2026 are LangGraph for production, CrewAI for fast prototyping, and AutoGen for conversational agents — but the real decision depends on your architecture."
 draft: false
