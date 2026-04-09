@@ -1,0 +1,31 @@
+{
+  "topic": "MCP vs RAG vs AI Agents: How They Work Together in 2026",
+  "slug": "mcp-vs-rag-vs-ai-agents-2026",
+  "keyword": "MCP vs RAG vs AI agents",
+  "type": "explainer",
+  "stats": [
+    {"fact": "10,000+ active public MCP servers; 97 million monthly SDK downloads", "source": "Anthropic / MCP blog"},
+    {"fact": "PulseMCP registry has 5,500+ servers listed", "source": "Zuplo MCP report"},
+    {"fact": "Remote MCP servers up nearly 4x since May 2026", "source": "Zuplo"},
+    {"fact": "MCP market expected to reach $1.8B in 2025, growing rapidly", "source": "CData"},
+    {"fact": "80%+ of Fortune 500 deploying active AI agents in production", "source": "CData"},
+    {"fact": "72% of current MCP adopters anticipate increased usage", "source": "MCP Manager"},
+    {"fact": "MCP donated to Linux Foundation's Agentic AI Foundation (AAIF) in Dec 2025", "source": "Various"},
+    {"fact": "MCP latency: ~400ms avg vs RAG ~120ms under similar load", "source": "Benchmark studies"},
+    {"fact": "All major AI providers (OpenAI, Anthropic, Google, Microsoft) standardized around MCP", "source": "Various"},
+    {"fact": "MCP called 'USB-C for AI' in early 2026", "source": "Multiple sources"}
+  ],
+  "research_date": "2026-04-09",
+  "sources": [
+    "https://modelcontextprotocol.io/docs/getting-started/intro",
+    "https://www.merge.dev/blog/rag-vs-mcp",
+    "https://www.truefoundry.com/blog/mcp-vs-rag",
+    "https://infranodus.com/docs/mcp-vs-rag-vs-ai-agents",
+    "https://clickup.com/blog/rag-vs-mcp-vs-ai-agents/",
+    "https://hyperight.com/agentic-data-architecture-graphrag-mcp-2026/",
+    "https://zuplo.com/mcp-report",
+    "https://www.cdata.com/blog/2026-year-enterprise-ready-mcp-adoption",
+    "https://aiworkflowlab.dev/article/rag-vs-ai-agents-vs-mcp-architecture-decision-guide-2026",
+    "https://cloud.google.com/discover/what-is-model-context-protocol"
+  ]
+}

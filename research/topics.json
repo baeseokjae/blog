@@ -45,7 +45,7 @@
     "keyword": "best AI video generators 2026",
     "type": "comparison",
     "priority": 6,
-    "published": false
+    "published": true
   },
   {
     "title": "MCP vs RAG vs AI Agents: How They Work Together in 2026",
@@ -61,6 +61,30 @@
     "keyword": "best AI workflow automation tools 2026",
     "type": "comparison",
     "priority": 8,
+    "published": false
+  },
+  {
+    "title": "Perplexity vs ChatGPT vs Google: The AI Search Engine Battle of 2026",
+    "slug": "perplexity-vs-chatgpt-vs-google-ai-search-2026",
+    "keyword": "Perplexity vs ChatGPT vs Google AI search",
+    "type": "comparison",
+    "priority": 9,
+    "published": false
+  },
+  {
+    "title": "Best AI Note-Taking Apps in 2026: Notion AI vs Mem vs Obsidian",
+    "slug": "best-ai-note-taking-apps-2026",
+    "keyword": "best AI note-taking apps 2026",
+    "type": "comparison",
+    "priority": 10,
+    "published": false
+  },
+  {
+    "title": "AI in Healthcare 2026: How Machine Learning Is Changing Diagnosis and Treatment",
+    "slug": "ai-in-healthcare-2026",
+    "keyword": "AI in healthcare 2026",
+    "type": "explainer",
+    "priority": 11,
     "published": false
   }
 ]
