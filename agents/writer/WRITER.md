@@ -11,6 +11,10 @@ Write a blog post following this mandatory structure:
    - tags (from research)
    - description (under 155 chars, direct answer)
    - draft: false
+   - cover:
+       image: "/blog/images/{slug}.png"
+       alt: "{post title}"
+       relative: false
 
 2. First paragraph: direct 30-60 word answer to the main question
 
