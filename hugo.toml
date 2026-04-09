@@ -58,6 +58,11 @@ theme = 'PaperMod'
   weight = 2
 
 [[menu.main]]
+  name   = "About"
+  url    = "/about/"
+  weight = 3
+
+[[menu.main]]
   name   = "Search"
   url    = "/search/"
-  weight = 3
+  weight = 4
