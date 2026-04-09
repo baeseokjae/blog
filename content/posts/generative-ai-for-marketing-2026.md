@@ -4,6 +4,7 @@ date: 2026-04-09T16:24:00+00:00
 tags: ["generative AI for marketing 2026", "AI content creation tools", "AI video marketing", "predictive SEO", "AI ad campaigns", "content marketing AI", "AI personalization", "AI marketing trends 2026"]
 description: "Generative AI for marketing 2026 is used by 93% of companies to cut costs, boost conversions 30-50%, and run hyper-personalized campaigns at scale."
 draft: false
+schema: "schema-generative-ai-for-marketing-2026"
 cover:
   image: "/images/generative-ai-for-marketing-2026.png"
   alt: "Generative AI for Marketing 2026: Best Tools for Content Creation and Campaigns"
