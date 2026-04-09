@@ -6,7 +6,7 @@ description: "AI in education 2026: personalized learning, AI tutors, and adapti
 draft: false
 schema: "schema-ai-in-education-2026"
 cover:
-  image: "/blog/images/ai-in-education-2026.png"
+  image: "/images/ai-in-education-2026.png"
   alt: "AI in Education 2026: How Personalized Learning and AI Tutors Are Reshaping Schools"
   relative: false
 ---

@@ -13,7 +13,7 @@ tags:
 description: "Multimodal AI in 2026 combines text, image, audio, and video processing. Compare GPT-5, Gemini 2.5 Flash, Claude 4, and Qwen3 VL on features, pricing, and performance."
 draft: false
 cover:
-  image: "/blog/images/multimodal-ai-2026.png"
+  image: "/images/multimodal-ai-2026.png"
   alt: "Multimodal AI 2026: GPT-5 vs Gemini 2.5 Flash vs Claude 4 — The Complete Comparison Guide"
   relative: false
 ---

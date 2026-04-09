@@ -6,7 +6,7 @@ description: "AI in cybersecurity 2026 is a $35-44B market where autonomous AI d
 schema: "schema-ai-in-cybersecurity-2026"
 draft: false
 cover:
-  image: "/blog/images/ai-in-cybersecurity-2026.png"
+  image: "/images/ai-in-cybersecurity-2026.png"
   alt: "AI in Cybersecurity 2026: How Machine Learning Is Transforming Threat Detection and Defense"
   relative: false
 ---

@@ -5,7 +5,7 @@ tags: ["AI hardware 2026", "NVIDIA H200 vs AMD MI300X", "Google TPU v5", "AI acc
 description: "AI hardware 2026 compared: NVIDIA H200, AMD MI300X, and Google TPU v5 across performance, price, memory bandwidth, and total cost of ownership."
 draft: false
 cover:
-  image: "/blog/images/ai-hardware-2026.png"
+  image: "/images/ai-hardware-2026.png"
   alt: "AI Hardware 2026: NVIDIA H200 vs AMD MI300X vs Google TPU v5 Compared"
   relative: false
 ---
