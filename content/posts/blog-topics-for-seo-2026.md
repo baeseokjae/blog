@@ -5,7 +5,7 @@ tags: ["SEO", "blog topics", "content strategy"]
 description: "The best blog topics for SEO match search intent, business goals, and low-competition long-tail keywords your audience already searches."
 draft: false
 cover:
-  image: "/blog/images/blog-topics-for-seo.png"
+  image: "/images/blog-topics-for-seo.png"
   alt: "Cover image for blog-topics-for-seo-2026"
   relative: false
 ---

@@ -5,7 +5,7 @@ tags: ["AI image generators", "Midjourney", "Flux", "DALL-E", "Stable Diffusion"
 description: "The best AI image generators in 2026 are Midjourney for artistic quality, Flux for photorealism, and GPT Image 1.5 for prompt comprehension — smart creators use two or more."
 draft: false
 cover:
-  image: "/blog/images/best-ai-image-generators.png"
+  image: "/images/best-ai-image-generators.png"
   alt: "Cover image for best-ai-image-generators-2026"
   relative: false
 schema: "schema-best-ai-image-generators-2026"
