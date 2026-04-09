@@ -5,7 +5,7 @@
     "keyword": "best AI agent frameworks 2026",
     "type": "comparison",
     "priority": 1,
-    "published": true
+    "status": "published"
   },
   {
     "title": "Best AI Image Generators in 2026: Midjourney vs Flux vs DALL-E",
@@ -13,7 +13,7 @@
     "keyword": "best AI image generators 2026",
     "type": "comparison",
     "priority": 2,
-    "published": true
+    "status": "published"
   },
   {
     "title": "ChatGPT vs Claude vs Gemini: Which AI Is Best for Writing in 2026?",
@@ -21,7 +21,7 @@
     "keyword": "ChatGPT vs Claude vs Gemini",
     "type": "comparison",
     "priority": 3,
-    "published": true
+    "status": "published"
   },
   {
     "title": "How to Run AI Models Locally: Ollama vs LM Studio in 2026",
@@ -29,7 +29,7 @@
     "keyword": "Ollama vs LM Studio",
     "type": "guide",
     "priority": 4,
-    "published": true
+    "status": "published"
   },
   {
     "title": "Agentic AI Explained: Why Autonomous AI Agents Are the Biggest Trend of 2026",
@@ -37,7 +37,7 @@
     "keyword": "agentic AI explained",
     "type": "explainer",
     "priority": 5,
-    "published": true
+    "status": "published"
   },
   {
     "title": "Best AI Video Generators in 2026: Veo 3 vs Runway vs Kling After Sora",
@@ -45,7 +45,7 @@
     "keyword": "best AI video generators 2026",
     "type": "comparison",
     "priority": 6,
-    "published": true
+    "status": "published"
   },
   {
     "title": "MCP vs RAG vs AI Agents: How They Work Together in 2026",
@@ -53,7 +53,7 @@
     "keyword": "MCP vs RAG vs AI agents",
     "type": "explainer",
     "priority": 7,
-    "published": true
+    "status": "published"
   },
   {
     "title": "Best AI Workflow Automation Tools in 2026: Zapier vs n8n vs Make",
@@ -61,7 +61,7 @@
     "keyword": "best AI workflow automation tools 2026",
     "type": "comparison",
     "priority": 8,
-    "published": true
+    "status": "published"
   },
   {
     "title": "Perplexity vs ChatGPT vs Google: The AI Search Engine Battle of 2026",
@@ -69,7 +69,7 @@
     "keyword": "Perplexity vs ChatGPT vs Google AI search",
     "type": "comparison",
     "priority": 9,
-    "published": true
+    "status": "published"
   },
   {
     "title": "Best AI Note-Taking Apps in 2026: Notion AI vs Mem vs Obsidian",
@@ -77,7 +77,7 @@
     "keyword": "best AI note-taking apps 2026",
     "type": "comparison",
     "priority": 10,
-    "published": true
+    "status": "published"
   },
   {
     "title": "AI in Healthcare 2026: How Machine Learning Is Changing Diagnosis and Treatment",
@@ -85,7 +85,7 @@
     "keyword": "AI in healthcare 2026",
     "type": "explainer",
     "priority": 11,
-    "published": true
+    "status": "published"
   },
   {
     "title": "Best AI Voice Cloning Tools in 2026: ElevenLabs vs Resemble vs Play.ht",
@@ -93,7 +93,7 @@
     "keyword": "best AI voice cloning tools 2026",
     "type": "comparison",
     "priority": 12,
-    "published": false
+    "status": "published"
   },
   {
     "title": "Best AI Coding Assistants in 2026: GitHub Copilot vs Claude Code vs Cursor",
@@ -101,7 +101,7 @@
     "keyword": "best AI coding assistants 2026",
     "type": "comparison",
     "priority": 13,
-    "published": false
+    "status": "published"
   },
   {
     "title": "AI in Cybersecurity 2026: How Machine Learning Is Transforming Threat Detection",
@@ -109,7 +109,7 @@
     "keyword": "AI in cybersecurity 2026",
     "type": "explainer",
     "priority": 14,
-    "published": false
+    "status": "published"
   },
   {
     "title": "Multimodal AI in 2026: GPT-5 vs Gemini 2.0 vs Claude 4 Compared",
@@ -117,7 +117,7 @@
     "keyword": "multimodal AI 2026",
     "type": "comparison",
     "priority": 15,
-    "published": false
+    "status": "published"
   },
   {
     "title": "AI Hardware 2026: NVIDIA H200 vs AMD MI300X vs Google TPU v5",
@@ -125,7 +125,7 @@
     "keyword": "AI hardware 2026",
     "type": "comparison",
     "priority": 16,
-    "published": false
+    "status": "published"
   },
   {
     "title": "Generative AI for Marketing 2026: Best Tools for Content Creation and Campaigns",
@@ -133,7 +133,7 @@
     "keyword": "generative AI for marketing 2026",
     "type": "guide",
     "priority": 17,
-    "published": false
+    "status": "published"
   },
   {
     "title": "AI in Education 2026: Personalized Learning and AI Tutors",
@@ -141,6 +141,22 @@
     "keyword": "AI in education 2026",
     "type": "explainer",
     "priority": 18,
-    "published": false
+    "status": "published"
+  },
+  {
+    "title": "AI in Finance 2026: Algorithmic Trading and Fraud Detection",
+    "slug": "ai-in-finance-2026",
+    "keyword": "AI in finance 2026",
+    "type": "explainer",
+    "priority": 19,
+    "status": "published"
+  },
+  {
+    "title": "AI in Gaming 2026: Procedural Content Generation and NPC Intelligence",
+    "slug": "ai-in-gaming-2026",
+    "keyword": "AI in gaming 2026",
+    "type": "explainer",
+    "priority": 20,
+    "status": "published"
   }
 ]
