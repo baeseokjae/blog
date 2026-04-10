@@ -1,0 +1,72 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Build an AI Test Generator with GPT-5 in 2026: Step-by-Step Guide",
+  "description": "Learn how to build an AI test generator using GPT-5 in 2026. Step-by-step tutorial covering setup, agent config, and CI/CD integration.",
+  "datePublished": "2026-04-10T14:09:00+00:00",
+  "dateModified": "2026-04-10T14:09:00+00:00",
+  "author": {
+    "@type": "Organization",
+    "name": "AI Dev Blog"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Dev Blog"
+  },
+  "image": "/images/build-ai-test-generator-gpt5-2026.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/posts/build-ai-test-generator-gpt5-2026/"
+  },
+  "keywords": ["GPT-5", "AI Testing", "Test Automation", "Python", "CI/CD", "Software Development"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is GPT-5 available for API access in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. GPT-5 is available through OpenAI's API as of 2026, including the Responses API which is recommended for agentic workflows like automated test generation. Access requires an OpenAI API key with appropriate tier permissions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does it cost to generate tests with GPT-5?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cost depends on token usage. A typical Python source file of 200 lines generates roughly 400–800 lines of tests. At GPT-5 pricing, expect approximately $0.01–$0.05 per file. For a 500-file codebase, a one-time generation run costs roughly $5–$25."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can GPT-5 generate tests for languages other than Python?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. GPT-5 generates tests for JavaScript/TypeScript (Jest, Vitest), Java (JUnit 5), Go (testing package), Rust (cargo test), and most mainstream languages. Adjust the system prompt and test_framework config parameter accordingly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use GPT-5 fine-tuning or prompt engineering for my specific domain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with prompt engineering — it's faster and cheaper. Add domain-specific terminology, naming conventions, and example tests to your system prompt. Only consider fine-tuning if you have a large internal test corpus and consistent quality issues after six months of prompt iteration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I prevent the AI from generating tests that always pass?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Include explicit instructions in your system prompt: \"Generate tests that would fail if the function returns the wrong value.\" Also run mutation testing with mutmut to verify that your tests actually catch bugs. A test that passes 100% of the time but catches 0 mutations is useless."
+      }
+    }
+  ]
+}
+</script>

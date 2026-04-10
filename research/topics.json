@@ -198,5 +198,61 @@
     "type": "comparison",
     "priority": 25,
     "status": "published"
+  },
+  {
+    "title": "Best AI Code Review Tools in 2026: DeepCode vs SonarQube AI vs CodeRabbit",
+    "slug": "best-ai-code-review-tools-2026",
+    "keyword": "best AI code review tools 2026",
+    "type": "comparison",
+    "priority": 26,
+    "status": "researched"
+  },
+  {
+    "title": "AI Test Generation Tools in 2026: Diffblue vs CodiumAI vs Testim",
+    "slug": "ai-test-generation-tools-2026",
+    "keyword": "AI test generation tools 2026",
+    "type": "comparison",
+    "priority": 27,
+    "status": "researched"
+  },
+  {
+    "title": "AI for DevOps and MLOps in 2026: Best Tools for CI/CD and Monitoring",
+    "slug": "ai-for-devops-mlops-2026",
+    "keyword": "AI for DevOps and MLOps 2026",
+    "type": "guide",
+    "priority": 28,
+    "status": "published"
+  },
+  {
+    "title": "AI Cloud Cost Optimization Tools in 2026: ProsperOps vs CAST AI vs Kubecost",
+    "slug": "ai-cloud-cost-optimization-tools-2026",
+    "keyword": "AI cloud cost optimization tools 2026",
+    "type": "comparison",
+    "priority": 29,
+    "status": "researched"
+  },
+  {
+    "title": "How to Build an AI-Powered Test Generator with GPT-5",
+    "slug": "build-ai-test-generator-gpt5-2026",
+    "keyword": "build AI test generator GPT‑5 2026",
+    "type": "tutorial",
+    "priority": 30,
+    "status": "researched"
+  },
+  {
+    "title": "Best AI Meeting Assistants in 2026: Otter.ai vs Fireflies.ai vs Supernormal",
+    "slug": "best-ai-meeting-assistants-2026",
+    "keyword": "best AI meeting assistants 2026",
+    "type": "comparison",
+    "priority": 31,
+    "status": "researched"
+  },
+  {
+    "title": "Local AI Model Serving Frameworks in 2026: vLLM vs TGI vs Ray Serve",
+    "slug": "local-ai-model-serving-frameworks-2026",
+    "keyword": "local AI model serving frameworks 2026",
+    "type": "comparison",
+    "priority": 32,
+    "status": "researched"
   }
 ]
