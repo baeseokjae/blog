@@ -5,7 +5,7 @@ tags: ["Ollama", "LM Studio", "local AI", "local LLM", "open source AI", "AI pri
 description: "Ollama is the developer's choice for local AI with 52 million monthly downloads. LM Studio is the best GUI for model exploration. Both are free — and most power users run both."
 draft: false
 cover:
-  image: "/images/ollama-vs-lm-studio.png"
+  image: "/images/ollama-vs-lm-studio-local-ai-2026.png"
   alt: "Cover image for ollama-vs-lm-studio-local-ai-2026"
   relative: false
 schema: "schema-ollama-vs-lm-studio-local-ai-2026"

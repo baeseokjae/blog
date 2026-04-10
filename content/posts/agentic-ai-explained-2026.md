@@ -5,7 +5,7 @@ tags: ["agentic AI", "AI agents", "autonomous AI", "AI trends 2026", "enterprise
 description: "Agentic AI is AI that acts, not just answers. In 2026, autonomous agents are handling customer service, fraud detection, and supply chains — here is what they are, how they work, and what can go wrong."
 draft: false
 cover:
-  image: "/images/agentic-ai-explained.png"
+  image: "/images/agentic-ai-explained-2026.png"
   alt: "Cover image for agentic-ai-explained-2026"
   relative: false
 schema: "schema-agentic-ai-explained-2026"
