@@ -213,7 +213,7 @@
     "keyword": "AI test generation tools 2026",
     "type": "comparison",
     "priority": 27,
-    "status": "researched"
+    "status": "in_progress"
   },
   {
     "title": "AI for DevOps and MLOps in 2026: Best Tools for CI/CD and Monitoring",
@@ -245,7 +245,7 @@
     "keyword": "best AI meeting assistants 2026",
     "type": "comparison",
     "priority": 31,
-    "status": "researched"
+    "status": "published"
   },
   {
     "title": "Local AI Model Serving Frameworks in 2026: vLLM vs TGI vs Ray Serve",
