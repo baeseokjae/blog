@@ -294,5 +294,69 @@
     "type": "guide",
     "priority": 37,
     "status": "published"
+  },
+  {
+    "title": "Best AI SEO Tools in 2026: Surfer SEO vs MarketMuse vs Clearscope",
+    "slug": "best-ai-seo-tools-2026",
+    "keyword": "best AI SEO tools 2026",
+    "type": "comparison",
+    "priority": 38,
+    "status": "researched"
+  },
+  {
+    "title": "Best AI Content Writing Tools in 2026: Jasper vs Copy.ai vs Writesonic",
+    "slug": "best-ai-content-writing-tools-2026",
+    "keyword": "best AI content writing tools 2026",
+    "type": "comparison",
+    "priority": 39,
+    "status": "researched"
+  },
+  {
+    "title": "AI for Affiliate Marketing in 2026: Best Tools for Link Building and Commission Optimization",
+    "slug": "ai-affiliate-marketing-tools-2026",
+    "keyword": "AI affiliate marketing tools 2026",
+    "type": "guide",
+    "priority": 40,
+    "status": "researched"
+  },
+  {
+    "title": "AI for Lead Generation in 2026: Best Tools for B2B Sales Prospecting",
+    "slug": "ai-lead-generation-tools-2026",
+    "keyword": "AI lead generation tools 2026",
+    "type": "guide",
+    "priority": 41,
+    "status": "researched"
+  },
+  {
+    "title": "AI for Project Management in 2026: Best Tools for Agile and Remote Teams",
+    "slug": "ai-project-management-tools-2026",
+    "keyword": "AI project management tools 2026",
+    "type": "comparison",
+    "priority": 42,
+    "status": "researched"
+  },
+  {
+    "title": "AI for Customer Success in 2026: Best Tools for Retention and Upsell",
+    "slug": "ai-customer-success-tools-2026",
+    "keyword": "AI customer success tools 2026",
+    "type": "guide",
+    "priority": 43,
+    "status": "researched"
+  },
+  {
+    "title": "AI for Sales Forecasting in 2026: Best Predictive Analytics Tools",
+    "slug": "ai-sales-forecasting-tools-2026",
+    "keyword": "AI sales forecasting tools 2026",
+    "type": "comparison",
+    "priority": 44,
+    "status": "researched"
+  },
+  {
+    "title": "AI for Code Documentation in 2026: Best Tools for Auto-Generating Docs",
+    "slug": "ai-code-documentation-tools-2026",
+    "keyword": "AI code documentation tools 2026",
+    "type": "comparison",
+    "priority": 45,
+    "status": "researched"
   }
 ]
