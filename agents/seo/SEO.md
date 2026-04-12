@@ -23,3 +23,8 @@ Then update the post frontmatter to add:
 schema: "schema-{slug}"
 
 Confirm both files are saved.
+
+After marking your task as done, wake the Editorial Director so the pipeline continues immediately:
+```
+curl -sS -X POST "$PAPERCLIP_API_URL/api/agents/08c06c8f-09ea-40f4-a401-dec254f0e1b8/wakeup" -H "Content-Type: application/json" -d '{"source":"assignment","triggerDetail":"manual"}'
+```
