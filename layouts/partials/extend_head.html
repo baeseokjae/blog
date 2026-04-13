@@ -9,7 +9,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet">
 
-{{- /* Include schema markup based on frontmatter */ -}}
-{{- if .Params.schema -}}
-  {{- partial (printf "%s.html" .Params.schema) . -}}
-{{- end -}}
+{{- /* 포스트 페이지: FAQPage schema 주입 (BlogPosting은 schema_json.html override에서 처리) */ -}}
+{{- if and (eq .Kind "page") .Params.schema }}
+  {{- partial (printf "%s.html" .Params.schema) . }}
+{{- end }}
+
+{{- /* 태그/분류 페이지: noindex (크롤 버짓 절약) */ -}}
+{{- if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+  <meta name="robots" content="noindex, follow">
+{{- end }}
