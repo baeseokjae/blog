@@ -1,4 +1,5 @@
 baseURL = 'https://baeseokjae.github.io/'
+googleAnalytics = 'G-BD3RL4QZ0E'
 languageCode = 'en-us'
 title = 'RockB'
 theme = 'PaperMod'
