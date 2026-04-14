@@ -60,6 +60,22 @@ Before any action, read ~/blog/state/supervisor/remediation-state.json (create i
      **AUTO-FIX** → Cancel the issue.
      Guardrail: Log which agent and issue.
 
+2b. Check for stuck "todo" sub-issues (silent failure detection):
+   ```
+   GET $PAPERCLIP_API_URL/api/companies/ab752c4f-0e8b-4669-8e76-2746d00ae8c9/issues?status=todo
+   ```
+   For each "todo" issue with an assigneeAgentId:
+   - If `updatedAt` is > 1 hour ago AND the assigned agent status is "idle":
+     → The agent was triggered but failed silently (run succeeded but task not completed)
+     **AUTO-FIX** → Wake the assigned agent:
+     ```bash
+     curl -sS -X POST "$PAPERCLIP_API_URL/api/agents/{assigneeAgentId}/wakeup" \
+       -H "Content-Type: application/json" \
+       -d '{"source":"assignment","triggerDetail":"supervisor-retry","forceFreshSession":true}'
+     ```
+     Guardrail: Circuit breaker — max 2 retries per issue per hour. After 2 → create HIGH issue for human.
+     Log: `[Supervisor] Re-woke {agentName} for stuck todo issue {issueId} (idle {elapsed}h)`
+
 3. Check agent statuses:
    ```
    GET $PAPERCLIP_API_URL/api/companies/ab752c4f-0e8b-4669-8e76-2746d00ae8c9/agents
