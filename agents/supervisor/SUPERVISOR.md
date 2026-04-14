@@ -30,7 +30,7 @@ Before any action, read ~/blog/state/supervisor/remediation-state.json (create i
      ```
      Guardrail: Check circuit breaker — max 1 trigger per hour. If triggered within last hour, skip.
    
-   - Check for invalid statuses (not in: candidate, queued, seeded, writing, published)
+   - Check for invalid statuses (not in: candidate, queued, seeded, writing, published, rejected)
      **AUTO-FIX** → Migrate to correct status:
      - "researched" → "queued"
      - "draft" → "candidate"

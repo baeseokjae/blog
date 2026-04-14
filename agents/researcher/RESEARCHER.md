@@ -78,7 +78,6 @@ import urllib.request, urllib.error, json
 
 task_id = os.environ.get("PAPERCLIP_TASK_ID", "")
 api_url = os.environ.get("PAPERCLIP_API_URL", "http://127.0.0.1:3100")
-api_key = os.environ.get("PAPERCLIP_API_KEY", "")
 
 try:
     data = json.dumps({"status": "done"}).encode()
@@ -88,11 +87,13 @@ try:
         method="PATCH",
         headers={
             "Content-Type": "application/json",
-            **({"Authorization": f"Bearer {api_key}"} if api_key else {})
+            "X-Paperclip-Local-Board": "true"
         }
     )
     with urllib.request.urlopen(req) as resp:
-        pass
+        result = json.loads(resp.read())
+        parent_id = result.get("parentId", "")
+        print(f"Task marked done. parentId={parent_id}")
 except Exception as e:
     print(f"ERROR: Failed to mark task done — {e}", file=sys.stderr)
     sys.exit(1)
@@ -100,38 +101,68 @@ except Exception as e:
 
 If this fails → exit 1.
 
-## Step 5: Wake the Writer
+## Step 5: Find and Assign the Write Sub-issue
+
+Use the `parentId` from the task response in Step 4. Find the Write sibling issue and assign it to the Writer:
 
 ```python
 import os, sys
 import urllib.request, json
 
 api_url = os.environ.get("PAPERCLIP_API_URL", "http://127.0.0.1:3100")
+company_id = "ab752c4f-0e8b-4669-8e76-2746d00ae8c9"
 writer_id = "b796bb1c-a6ef-4249-bfa2-554acfc61726"
+# parent_id was captured from Step 4 result above
 
 try:
+    # Get all backlog sub-issues under the same parent
+    url = f"{api_url}/api/companies/{company_id}/issues?parentId={parent_id}&status=backlog"
+    req = urllib.request.Request(url, headers={"X-Paperclip-Local-Board": "true"})
+    with urllib.request.urlopen(req) as resp:
+        siblings = json.loads(resp.read())
+
+    # Find the Write issue specifically (title starts with "Write:")
+    write_issue = next(
+        (s for s in siblings if s.get("title", "").startswith("Write:")),
+        None
+    )
+
+    if not write_issue:
+        print("WARNING: No Write sub-issue found in backlog — cannot assign Writer", file=sys.stderr)
+        sys.exit(0)  # Research is done; pipeline may handle this differently
+
+    write_id = write_issue["id"]
+    print(f"Found Write issue: {write_id} — {write_issue['title']}")
+
+    # Assign Write issue to Writer (status=todo triggers Writer automatically)
     data = json.dumps({
-        "source": "assignment",
-        "triggerDetail": "research-complete",
-        "forceFreshSession": True
+        "status": "todo",
+        "assigneeAgentId": writer_id
     }).encode()
     req = urllib.request.Request(
-        f"{api_url}/api/agents/{writer_id}/wakeup",
+        f"{api_url}/api/issues/{write_id}",
         data=data,
-        method="POST",
-        headers={"Content-Type": "application/json"}
+        method="PATCH",
+        headers={
+            "Content-Type": "application/json",
+            "X-Paperclip-Local-Board": "true"
+        }
     )
     with urllib.request.urlopen(req) as resp:
-        pass
-    print("Writer woken successfully")
+        print(f"Write issue assigned to Writer: {write_id}")
+
 except Exception as e:
-    print(f"WARNING: Failed to wake Writer — {e}", file=sys.stderr)
-    # Don't exit 1 here; task is already marked done
+    print(f"ERROR: Failed to assign Write issue — {e}", file=sys.stderr)
+    sys.exit(1)
 ```
+
+If this fails → exit 1. Do NOT touch Publish issues. Filter strictly for title starting with "Write:".
 
 ## Rules
 
 - NEVER proceed if PAPERCLIP_TASK_ID is missing or task fetch fails
 - NEVER report success without having saved the research file AND marked the task done
+- NEVER assign any issue other than the "Write:" sibling — skip Publish/other siblings
 - If any step fails, exit 1 so Paperclip records the run as failed
 - Use Python (urllib) for all HTTP calls — curl may not be available in this environment
+- Use X-Paperclip-Local-Board: true header — no API key needed for local board
