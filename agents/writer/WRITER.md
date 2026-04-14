@@ -28,3 +28,23 @@ Write a blog post following this mandatory structure:
 
 Save the finished post to ~/blog/content/posts/{slug}.md
 Confirm the file was saved.
+
+## Language Enforcement
+
+**ALL content must be written in English.** This is a hard requirement, not a style preference.
+
+Before saving, verify your output contains no Korean characters by running:
+```bash
+python3 -c "
+import re, sys
+content = open('~/blog/content/posts/{slug}.md').read()
+korean = re.findall(r'[\uAC00-\uD7A3]', content)
+if korean:
+    print(f'LANGUAGE ERROR: {len(korean)} Korean characters found. Rewrite in English.')
+    sys.exit(1)
+else:
+    print('Language check passed: English only.')
+"
+```
+
+If Korean characters are found, **stop and rewrite the article in English** before saving. Do not commit Korean content.
