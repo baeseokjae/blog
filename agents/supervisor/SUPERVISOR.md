@@ -60,7 +60,22 @@ Before any action, read ~/blog/state/supervisor/remediation-state.json (create i
      **AUTO-FIX** → Cancel the issue.
      Guardrail: Log which agent and issue.
 
-2b. Check for stuck "todo" sub-issues (silent failure detection):
+2b. Check for zombie "in_progress" issues (no active run):
+   ```
+   GET $PAPERCLIP_API_URL/api/companies/ab752c4f-0e8b-4669-8e76-2746d00ae8c9/issues?status=in_progress
+   ```
+   For each `in_progress` issue where `executionRunId` is null AND `startedAt` is > 30 minutes ago:
+   → This is a zombie issue: status says in_progress but no agent is actually running.
+   **AUTO-FIX** → Cancel immediately + create retry issue in backlog:
+   ```bash
+   curl -sS -X PATCH "$PAPERCLIP_API_URL/api/issues/{id}" \
+     -H "Content-Type: application/json" -d '{"status": "cancelled"}'
+   ```
+   Then recreate with same title/description/parentId in backlog for next dispatch cycle.
+   Guardrail: Max 2 retries per issue (check circuit breaker). After 2 → create HIGH issue for human.
+   Log: `[Supervisor] Cancelled zombie issue {identifier} (in_progress {elapsed}min, no run). Retry created.`
+
+2c. Check for stuck "todo" sub-issues (silent failure detection):
    ```
    GET $PAPERCLIP_API_URL/api/companies/ab752c4f-0e8b-4669-8e76-2746d00ae8c9/issues?status=todo
    ```
