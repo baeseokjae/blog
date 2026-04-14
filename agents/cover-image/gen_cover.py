@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """
 Cover image generator for RockB blog posts.
-Usage: python3 gen_cover.py <post-slug>
-Example: python3 gen_cover.py mcp-vs-rag-vs-ai-agents-2026
+Usage: python3 gen_cover.py <post-slug> [--output /path/to/output.png]
+
+Without --output: writes to ~/blog/static/images/{slug}.png (production)
+With --output:    writes to specified path only (safe for testing/debugging)
+
+Example:
+  python3 gen_cover.py mcp-vs-rag-vs-ai-agents-2026
+  python3 gen_cover.py mcp-vs-rag-vs-ai-agents-2026 --output /tmp/test.png
 """
 import sys, os, hashlib, re
 from PIL import Image, ImageDraw, ImageFont
@@ -84,7 +90,7 @@ def wrap_text(text, font, max_width, draw):
         if line: lines.append(line)
     return lines
 
-def generate(slug):
+def generate(slug, out_path=None):
     md_path = os.path.join(BLOG_DIR, "content", "posts", f"{slug}.md")
     if not os.path.exists(md_path):
         print(f"ERROR: {md_path} not found", file=sys.stderr)
@@ -172,13 +178,26 @@ def generate(slug):
         img  = Image.alpha_composite(img.convert("RGBA"), od2).convert("RGB")
         draw = ImageDraw.Draw(img)
 
-    out_path = os.path.join(BLOG_DIR, "static", "images", f"{slug}.png")
+    if out_path is None:
+        out_path = os.path.join(BLOG_DIR, "static", "images", f"{slug}.png")
+
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     img.save(out_path, "PNG", optimize=True)
     print(f"Cover image saved: {out_path}")
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Usage: python3 gen_cover.py <post-slug>")
+        print("Usage: python3 gen_cover.py <post-slug> [--output /path/to/output.png]")
         sys.exit(1)
-    generate(sys.argv[1])
+
+    slug = sys.argv[1]
+    out_path = None
+
+    if "--output" in sys.argv:
+        idx = sys.argv.index("--output")
+        if idx + 1 >= len(sys.argv):
+            print("ERROR: --output requires a path argument", file=sys.stderr)
+            sys.exit(1)
+        out_path = sys.argv[idx + 1]
+
+    generate(slug, out_path=out_path)
