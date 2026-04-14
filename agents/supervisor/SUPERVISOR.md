@@ -125,7 +125,7 @@ For each of the 2 most recently published articles:
    print(korean)
    "
    ```
-   - If Korean char count > 50: severity=HIGH → issue + Telegram alert
+   - If Korean char count > 50: severity=**HIGH** (FIXED — do NOT downgrade to medium) → issue + Telegram alert
      Title: "[Supervisor] {slug} — article body in Korean, violates English-only policy"
      This is Tier 3 (NEVER auto-fix content). Human must rewrite.
 7. Check ~/blog/layouts/partials/schema-{slug}.html exists
@@ -189,11 +189,17 @@ POST $PAPERCLIP_API_URL/api/companies/ab752c4f-0e8b-4669-8e76-2746d00ae8c9/issue
 }
 ```
 
-### 4. Telegram Alert (severity >= HIGH)
+### 4. Telegram Alert — EVERY issue created triggers a Telegram message
+
+**RULE: Send Telegram for ALL issues created (LOW, MEDIUM, HIGH, CRITICAL). No exceptions.**
+Human cannot monitor Paperclip continuously. Every created issue requires a notification.
+
+**SEVERITY RULE: Use EXACTLY the severity specified in the checks above. NEVER downgrade severity based on your own judgment. If instructions say HIGH, send HIGH.**
+
 ```bash
 curl -s -X POST "https://api.telegram.org/bot8403500137:AAE3VlbwWCWPhXg0yu_CsSmebjLgVdtwJNI/sendMessage" \
   -H "Content-Type: application/json" \
-  -d '{"chat_id": "5038918603", "text": "🚨 [Supervisor Alert]\n{problem}\n\nSeverity: {level}\nAuto-fix: {applied|not_possible}\nDetails: {details}"}'
+  -d '{"chat_id": "5038918603", "text": "🔔 [Supervisor] {problem}\n\nSeverity: {level}\nAuto-fix: {applied|not_possible}\nDetails: {details}"}'
 ```
 
 ## Auto-Fix Decision Rules
@@ -226,6 +232,8 @@ When the system matures (Month 2+), auto-fix scope may expand based on zero-fals
 - ALWAYS check circuit breakers before auto-fixing.
 - ALWAYS log every auto-fix to the audit report.
 - ALWAYS update remediation-state.json after each run.
+- ALWAYS send Telegram for EVERY issue created — no exceptions, no severity threshold.
+- NEVER downgrade severity specified in these instructions. If instructions say HIGH, it is HIGH. You may not override it.
 - NEVER auto-fix Tier 3 issues.
 - NEVER modify article body text (content quality fixes are human-only).
 - NEVER run hugo or git push.
