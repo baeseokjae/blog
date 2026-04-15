@@ -7,6 +7,8 @@
 > Site: https://baeseokjae.github.io/
 
 ## In-depth Guides & Reviews
+- [LangChain vs LlamaIndex 2026: Which RAG Framework Should You Choose?](https://baeseokjae.github.io/posts/langchain-vs-llamaindex-2026/) — LangChain vs LlamaIndex 2026 compared across RAG quality, agent workflows, performance, and enterprise readiness — with a clear decision guide.
+- [Vector Database Comparison 2026: Pinecone vs Weaviate vs Chroma vs pgvector](https://baeseokjae.github.io/posts/vector-database-comparison-2026/) — Pinecone, Weaviate, Chroma, and pgvector compared on performance, pricing, and use cases for production RAG systems in 2026.
 - [Advanced Prompt Engineering Techniques Every Developer Should Know in 2026](https://baeseokjae.github.io/posts/prompt-engineering-techniques-2026/) — Master advanced prompt engineering techniques for 2026—from Chain-of-Symbol to DSPy 3.0 compilation, with model-specific strategies for Claude 4.6, GPT-5.4, and Gemini 2.5.
 - [Fine-Tuning vs RAG vs Prompt Engineering: When to Use Which in 2026](https://baeseokjae.github.io/posts/fine-tuning-vs-rag-vs-prompt-engineering-2026/) — A practical decision framework for choosing between fine-tuning, RAG, and prompt engineering to customize LLMs in 2026.
 - [Vibe Coding Explained: The Complete Developer Guide for 2026](https://baeseokjae.github.io/posts/vibe-coding-guide-2026/) — The complete vibe coding guide for 2026: tools, workflows, prompts, and best practices for developers and non-technical builders.

@@ -1,4 +1,336 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>RAG on RockB</title><link>https://baeseokjae.github.io/tags/rag/</link><description>Recent content in RAG on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2026 22:48:45 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/rag/index.xml" rel="self" type="application/rss+xml"/><item><title>Fine-Tuning vs RAG vs Prompt Engineering: When to Use Which in 2026</title><link>https://baeseokjae.github.io/posts/fine-tuning-vs-rag-vs-prompt-engineering-2026/</link><pubDate>Tue, 14 Apr 2026 22:48:45 +0000</pubDate><guid>https://baeseokjae.github.io/posts/fine-tuning-vs-rag-vs-prompt-engineering-2026/</guid><description>A practical decision framework for choosing between fine-tuning, RAG, and prompt engineering to customize LLMs in 2026.</description><content:encoded><![CDATA[<p>Picking the wrong LLM customization strategy will cost you months of work and thousands in wasted compute. Fine-tuning, RAG, and prompt engineering solve fundamentally different problems — and in 2026, with 73% of enterprises now running some form of customized LLM, choosing the right tool from the start separates teams that ship in days from teams that rebuild for months.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>RAG on RockB</title><link>https://baeseokjae.github.io/tags/rag/</link><description>Recent content in RAG on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 15 Apr 2026 06:10:00 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/rag/index.xml" rel="self" type="application/rss+xml"/><item><title>LangChain vs LlamaIndex 2026: Which RAG Framework Should You Choose?</title><link>https://baeseokjae.github.io/posts/langchain-vs-llamaindex-2026/</link><pubDate>Wed, 15 Apr 2026 06:10:00 +0000</pubDate><guid>https://baeseokjae.github.io/posts/langchain-vs-llamaindex-2026/</guid><description>LangChain vs LlamaIndex 2026 compared across RAG quality, agent workflows, performance, and enterprise readiness — with a clear decision guide.</description><content:encoded><![CDATA[<p>Choose LangChain (via LangGraph) when you need stateful multi-agent orchestration with complex branching logic. Choose LlamaIndex when retrieval quality is your top priority — hierarchical chunking, sub-question decomposition, and auto-merging are built in, not bolted on. For most production systems in 2026, the best answer is both.</p>
+<h2 id="how-did-we-get-here-the-state-of-rag-frameworks-in-2026">How Did We Get Here: The State of RAG Frameworks in 2026</h2>
+<p>LangChain and LlamaIndex began with different identities and have been converging ever since. LangChain launched in late 2022 as a general-purpose LLM orchestration layer — a modular toolkit for chaining prompts, tools, and models. LlamaIndex (originally GPT Index) focused narrowly on document retrieval and indexing. By 2026, LangChain has effectively become LangGraph for production agent workflows, while LlamaIndex added Workflows for multi-step async agents. Yet their founding DNA still shapes how each framework performs in practice. LangChain reports 40% of Fortune 500 companies as users, 15 million weekly npm/PyPI downloads across packages, and over 119,000 GitHub stars. LlamaIndex has over 44,000 GitHub stars, 1.2 million npm downloads per week, and 250,000+ monthly active users inferred from PyPI data. Both are production-grade. The question is which fits your specific pipeline better — and whether you should use them together.</p>
+<h2 id="architecture-comparison-how-each-framework-is-structured">Architecture Comparison: How Each Framework Is Structured</h2>
+<p>LangChain&rsquo;s architecture in 2026 is a three-layer stack: <strong>LangChain Core</strong> provides base abstractions (runnables, callbacks, prompts); <strong>LangGraph</strong> handles stateful agent workflows with built-in persistence, human-in-the-loop support, and node/edge graph semantics; <strong>LangSmith</strong> provides first-party observability, tracing, and evaluation. This separation of concerns is powerful for complex systems but adds cognitive overhead — you are effectively learning three related but distinct APIs. LlamaIndex organizes around five core abstractions: <strong>connectors</strong> (data loaders from 300+ sources), <strong>parsers</strong> (document processing), <strong>indices</strong> (vector, keyword, knowledge graph), <strong>query engines</strong> (the retrieval interface), and <strong>Workflows</strong> (event-driven async orchestration). The five-layer model feels more coherent for data-heavy applications because every abstraction is oriented around the retrieval problem. LangChain requires 30–40% more code for equivalent RAG pipelines compared to LlamaIndex according to benchmark comparisons, because LangChain&rsquo;s component-based design requires manual assembly of pieces that LlamaIndex combines by default.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Dimension</th>
+          <th>LangChain / LangGraph</th>
+          <th>LlamaIndex</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Primary identity</td>
+          <td>Orchestration + agents</td>
+          <td>Data framework + RAG</td>
+      </tr>
+      <tr>
+          <td>Agent framework</td>
+          <td>LangGraph (stateful graph)</td>
+          <td>Workflows (event-driven async)</td>
+      </tr>
+      <tr>
+          <td>Observability</td>
+          <td>LangSmith (first-party)</td>
+          <td>Langfuse, Arize Phoenix (third-party)</td>
+      </tr>
+      <tr>
+          <td>GitHub stars</td>
+          <td>119K+</td>
+          <td>44K+</td>
+      </tr>
+      <tr>
+          <td>Integrations</td>
+          <td>500+</td>
+          <td>300+</td>
+      </tr>
+      <tr>
+          <td>Code for basic RAG</td>
+          <td>30–40% more</td>
+          <td>Less boilerplate</td>
+      </tr>
+      <tr>
+          <td>Pricing</td>
+          <td>Free core; LangGraph Cloud usage-based</td>
+          <td>Free core; LlamaCloud Pro $500/month</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="rag-capabilities-where-llamaindex-has-a-real-edge">RAG Capabilities: Where LlamaIndex Has a Real Edge</h2>
+<p>LlamaIndex&rsquo;s RAG capabilities in 2026 are its strongest competitive advantage. Hierarchical chunking, auto-merging retrieval, and sub-question decomposition are built into the framework as first-class primitives — not third-party add-ons or community recipes. Hierarchical chunking creates parent and child nodes from documents, enabling the retrieval system to return semantically coherent chunks rather than arbitrary token windows. Auto-merging retrieval detects when multiple child chunks from the same parent are retrieved and merges them back into the parent node, reducing redundancy and improving context quality. Sub-question decomposition breaks complex queries into targeted sub-queries, runs them in parallel, and synthesizes results — a significant accuracy improvement over naive top-k retrieval. In practical testing, these techniques meaningfully reduce answer hallucination rates on multi-document question answering tasks. LangChain supports RAG through integrations and community packages, but you typically assemble the pipeline yourself. This gives flexibility but requires knowing which retrieval strategies exist and how to implement them — knowledge that is built into LlamaIndex by default.</p>
+<h3 id="chunking-and-indexing-strategies">Chunking and Indexing Strategies</h3>
+<p>LlamaIndex supports semantic chunking (splitting on meaning rather than token count), sentence window retrieval, and knowledge graph indexing natively. LangChain&rsquo;s <code>TextSplitter</code> variants are effective but less sophisticated — recursive character splitting is the default, with semantic splitting available via community packages. For applications where retrieval quality directly impacts business outcomes (legal document search, medical literature review, financial analysis), LlamaIndex&rsquo;s built-in strategies typically outperform LangChain&rsquo;s default tooling without additional engineering work.</p>
+<h3 id="token-and-latency-overhead">Token and Latency Overhead</h3>
+<p>Framework overhead matters at scale. LangGraph adds approximately 14ms per invocation; LlamaIndex Workflows add approximately 6ms. Token overhead follows the same pattern: LangChain produces approximately 2,400 tokens of internal overhead per request, LlamaIndex approximately 1,600. At 1 million requests per day, the difference is 800 million tokens — potentially tens of thousands of dollars in API costs annually. These numbers come from third-party benchmarks and will vary with implementation, but the directional difference is consistent across multiple sources.</p>
+<h2 id="agent-frameworks-langgraph-vs-llamaindex-workflows">Agent Frameworks: LangGraph vs LlamaIndex Workflows</h2>
+<p>LangGraph and LlamaIndex Workflows represent fundamentally different architectural philosophies for building AI agents, and the difference matters when selecting a framework for production systems. LangGraph models agents as directed graphs: nodes are functions or LLM calls, edges are conditional transitions, and the entire graph has persistent state managed through checkpointers. Built-in features include human-in-the-loop interruption (pausing execution for human approval), time-travel debugging (rewinding to any prior state), and streaming support across all node types. This model is well-suited for workflows where agents need to branch, retry, or maintain long-running conversational state across multiple sessions. LlamaIndex Workflows uses event-driven async design: steps emit and receive typed events, execution order is determined by event subscriptions rather than explicit graph edges, and concurrency is handled through Python&rsquo;s async/await. This model is cleaner for pipelines that are primarily retrieval-oriented with light orchestration requirements. LangGraph agent latency has improved — 40% reduction in tested scenarios — but the architectural overhead is real, and for document retrieval pipelines with straightforward control flow, LlamaIndex Workflows is simpler to reason about and debug.</p>
+<h3 id="when-langgraph-wins">When LangGraph Wins</h3>
+<p>Complex multi-agent systems where agents need shared memory and coordination benefit from LangGraph&rsquo;s graph semantics. Production systems requiring human oversight (medical AI, legal review, financial approval workflows) benefit from built-in human-in-the-loop. Teams already using LangSmith for observability get tight integration with LangGraph&rsquo;s execution trace model.</p>
+<h3 id="when-llamaindex-workflows-wins">When LlamaIndex Workflows Wins</h3>
+<p>Async-first pipelines where multiple retrieval operations run concurrently benefit from LlamaIndex&rsquo;s event-driven design. Workflows with primarily linear or fan-out/fan-in patterns are easier to express as event subscriptions than as explicit graph edges. Teams prioritizing retrieval quality over orchestration complexity will spend less engineering time on boilerplate.</p>
+<h2 id="observability-and-production-tooling">Observability and Production Tooling</h2>
+<p>Observability is where LangChain has a clear structural advantage: LangSmith is a first-party product built specifically to trace LangChain executions. Every prompt, model call, chain step, and agent action is captured automatically. LangSmith provides evaluation datasets, automated testing against golden sets, and a playground for iterating on prompts. The tradeoff is vendor lock-in — if you move away from LangChain, you lose your observability tooling. LlamaIndex relies on third-party integrations: Langfuse, Arize Phoenix, and OpenTelemetry-compatible backends. These tools are powerful and framework-agnostic, but they require additional setup and the integration depth varies. For teams that expect to maintain a LangChain-based architecture long-term, LangSmith is a genuine productivity advantage. For teams that want observability independent of their LLM framework choice, LlamaIndex&rsquo;s third-party integrations are actually preferable. In 2026, both Langfuse and Arize Phoenix have deepened their LlamaIndex integrations to the point where automatic tracing is nearly as frictionless as LangSmith — the main gap is that LangSmith&rsquo;s evaluation harness is tighter and more opinionated, which is a feature if you want guidance and a constraint if you want flexibility.</p>
+<h2 id="enterprise-adoption-and-production-case-studies">Enterprise Adoption and Production Case Studies</h2>
+<p>Enterprise adoption data tells an interesting story about how organizations actually use these frameworks. LangChain is used by Uber, LinkedIn, and Replit — cases where complex agent orchestration and workflow management are the primary requirements. The 40% Fortune 500 statistic reflects LangChain&rsquo;s head start and ecosystem breadth, with 15 million weekly package downloads across its ecosystem and over $35 million in total funding at a $200M+ valuation. LlamaIndex reports 65% Fortune 500 usage (from a 2024 survey), with strongest adoption in document-heavy verticals: legal tech, financial services, healthcare, and enterprise knowledge management. LlamaIndex&rsquo;s Discord community grew to 25,000 members by 2024, and its 250,000+ monthly active users skew heavily toward teams building internal knowledge systems over customer-facing chatbots. This aligns with LlamaIndex&rsquo;s retrieval-first design. The divergence in adoption patterns is instructive: choose based on what problem you&rsquo;re primarily solving, not which framework has more GitHub stars. Both are mature, both are actively maintained, and both have production deployments at scale.</p>
+<h2 id="performance-benchmarks-what-the-numbers-actually-show">Performance Benchmarks: What the Numbers Actually Show</h2>
+<p>Performance differences between LangChain and LlamaIndex in 2026 are measurable and production-relevant, particularly at scale. LangGraph adds approximately 14ms of overhead per agent invocation; LlamaIndex Workflows adds approximately 6ms — a 57% latency advantage for LlamaIndex in retrieval-heavy pipelines. Token overhead tells a similar story: LangChain produces approximately 2,400 tokens of internal overhead per request, LlamaIndex approximately 1,600. That 800-token gap represents roughly $0.002 per request at current GPT-4o pricing — negligible at 10,000 requests/day, but $730/year at 1 million requests/day before any optimization. Code volume benchmarks consistently show LangChain requiring 30–40% more code for equivalent RAG pipelines, which affects maintenance burden and onboarding speed over the lifetime of a project.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>LangChain / LangGraph</th>
+          <th>LlamaIndex</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Framework overhead per request</td>
+          <td>~14ms</td>
+          <td>~6ms</td>
+      </tr>
+      <tr>
+          <td>Token overhead per request</td>
+          <td>~2,400 tokens</td>
+          <td>~1,600 tokens</td>
+      </tr>
+      <tr>
+          <td>Code volume for basic RAG</td>
+          <td>30–40% more lines</td>
+          <td>Baseline</td>
+      </tr>
+      <tr>
+          <td>Default chunking strategy</td>
+          <td>Recursive character</td>
+          <td>Hierarchical / semantic</td>
+      </tr>
+      <tr>
+          <td>Built-in retrieval strategies</td>
+          <td>Manual assembly</td>
+          <td>Hierarchical, auto-merge, sub-question</td>
+      </tr>
+      <tr>
+          <td>Agent persistence</td>
+          <td>Built-in (LangGraph)</td>
+          <td>External store required</td>
+      </tr>
+  </tbody>
+</table>
+<p>These benchmarks reflect general patterns from third-party comparisons. Actual performance depends heavily on implementation choices.</p>
+<h2 id="the-hybrid-approach-llamaindex-for-retrieval--langgraph-for-orchestration">The Hybrid Approach: LlamaIndex for Retrieval + LangGraph for Orchestration</h2>
+<p>The most sophisticated production RAG architectures in 2026 use both frameworks. This is not a hedge — it is an architectural pattern with specific technical justification. LlamaIndex&rsquo;s query engines expose a standard interface: <code>query_engine.query(&quot;your question&quot;)</code> returns a <code>Response</code> object with synthesized answer and source nodes. LangGraph nodes can call this interface directly, treating LlamaIndex as a retrieval service within a broader orchestration graph. The practical result: you get LlamaIndex&rsquo;s hierarchical chunking, sub-question decomposition, and semantic indexing for retrieval quality, combined with LangGraph&rsquo;s stateful persistence, human-in-the-loop support, and branching logic for workflow management. Setup requires maintaining two dependency sets and two abstraction models, but for applications where both retrieval quality and workflow complexity are requirements, the hybrid approach avoids false trade-offs.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Hybrid pattern: LlamaIndex retrieval inside a LangGraph node</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> llama_index.core <span style="color:#f92672">import</span> VectorStoreIndex, SimpleDirectoryReader
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> langgraph.graph <span style="color:#f92672">import</span> StateGraph
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># LlamaIndex handles retrieval</span>
+</span></span><span style="display:flex;"><span>documents <span style="color:#f92672">=</span> SimpleDirectoryReader(<span style="color:#e6db74">&#34;./data&#34;</span>)<span style="color:#f92672">.</span>load_data()
+</span></span><span style="display:flex;"><span>index <span style="color:#f92672">=</span> VectorStoreIndex<span style="color:#f92672">.</span>from_documents(documents)
+</span></span><span style="display:flex;"><span>query_engine <span style="color:#f92672">=</span> index<span style="color:#f92672">.</span>as_query_engine(
+</span></span><span style="display:flex;"><span>    similarity_top_k<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>    response_mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;tree_summarize&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># LangGraph handles orchestration</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">retrieve_node</span>(state):
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> query_engine<span style="color:#f92672">.</span>query(state[<span style="color:#e6db74">&#34;question&#34;</span>])
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {<span style="color:#e6db74">&#34;context&#34;</span>: response<span style="color:#f92672">.</span>response, <span style="color:#e6db74">&#34;sources&#34;</span>: response<span style="color:#f92672">.</span>source_nodes}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>graph <span style="color:#f92672">=</span> StateGraph(AgentState)
+</span></span><span style="display:flex;"><span>graph<span style="color:#f92672">.</span>add_node(<span style="color:#e6db74">&#34;retrieve&#34;</span>, retrieve_node)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ... add more nodes for routing, generation, validation</span>
+</span></span></code></pre></div><h2 id="when-to-choose-langchain-langgraph">When to Choose LangChain (LangGraph)</h2>
+<p>LangChain — specifically LangGraph — is the right choice when agent orchestration complexity is your primary engineering challenge, not document retrieval. LangGraph&rsquo;s stateful directed graph model handles conditional routing, multi-agent coordination, and long-running conversational state better than any alternative in 2026. Companies like Uber, LinkedIn, and Replit use LangChain in production precisely because their workflows require agents that branch, retry, escalate, and maintain context across sessions — not because they need the most efficient chunking algorithm. If you are building a customer service routing system where one agent handles order lookup, another handles escalation, and a human approval step exists between them, LangGraph&rsquo;s human-in-the-loop support and time-travel debugging justify the additional overhead. LangSmith&rsquo;s first-party observability also matters for teams that want a single cohesive toolchain rather than assembling separate logging and evaluation systems.</p>
+<p><strong>Choose LangChain/LangGraph when:</strong></p>
+<ul>
+<li>Your primary requirement is multi-agent orchestration with complex branching</li>
+<li>You need built-in human-in-the-loop approval flows (medical, legal, financial)</li>
+<li>Your team values first-party observability and LangSmith&rsquo;s evaluation tools</li>
+<li>You are building systems where agents need persistent state across long-running sessions</li>
+<li>Your organization already uses LangSmith and wants cohesive tooling</li>
+<li>Retrieval quality is secondary to workflow complexity</li>
+</ul>
+<p><strong>Real examples:</strong> Customer service routing systems, code review pipelines, multi-step research assistants with human approval gates, enterprise workflow automation with conditional routing.</p>
+<h2 id="when-to-choose-llamaindex">When to Choose LlamaIndex</h2>
+<p>LlamaIndex is the right choice when the quality and efficiency of document retrieval determines the value of your application. With 250,000+ monthly active users, a 20% market share in open-source RAG frameworks, and 65% Fortune 500 adoption in document-heavy verticals, LlamaIndex has established itself as the retrieval-first standard for knowledge management applications. Its five-abstraction model — connectors, parsers, indices, query engines, and workflows — maps directly to the retrieval pipeline, reducing the boilerplate required to build production systems. For applications processing millions of documents across legal, financial, or healthcare domains, LlamaIndex&rsquo;s built-in hierarchical chunking and auto-merging produce meaningfully higher answer quality than naive top-k retrieval without additional engineering investment. The 800-token overhead advantage per request also makes LlamaIndex the more cost-efficient choice for high-throughput retrieval workloads.</p>
+<p><strong>Choose LlamaIndex when:</strong></p>
+<ul>
+<li>Your primary requirement is retrieval quality over large document corpora</li>
+<li>You want hierarchical chunking, auto-merging, and sub-question decomposition without custom code</li>
+<li>Token efficiency matters — you process millions of queries and 800 tokens per request adds up</li>
+<li>You prefer framework-agnostic observability (Langfuse, Arize Phoenix)</li>
+<li>Your use case is document-heavy: legal, financial, healthcare, knowledge management</li>
+<li>You want a lower learning curve for RAG-specific problems</li>
+</ul>
+<p><strong>Real examples:</strong> Enterprise search over internal documents, legal contract analysis, financial report Q&amp;A, technical documentation chatbots, medical literature retrieval systems.</p>
+<h2 id="faq">FAQ</h2>
+<p>The most common questions about LangChain vs LlamaIndex in 2026 reflect a genuine decision problem: both frameworks are mature, both have strong enterprise adoption, and both have been expanding into each other&rsquo;s territory. The answers below cut through the marketing to give you the practical criteria that determine which framework fits a given project. The short version: LlamaIndex wins on retrieval quality and token efficiency, LangChain wins on orchestration complexity and first-party observability, and the hybrid approach wins when you need both. The deciding factor is almost always your primary problem — if retrieval accuracy drives business value, choose LlamaIndex; if workflow orchestration drives business value, choose LangGraph; if both do, use both. These five questions cover the scenarios developers most frequently encounter when selecting between the two frameworks for new and existing production systems in 2026.</p>
+<h3 id="is-langchain-or-llamaindex-better-for-rag-in-2026">Is LangChain or LlamaIndex better for RAG in 2026?</h3>
+<p>LlamaIndex is generally better for pure RAG use cases in 2026. It offers hierarchical chunking, auto-merging retrieval, and sub-question decomposition as built-in features, reduces token overhead by approximately 33% compared to LangChain, and requires 30–40% less code for equivalent retrieval pipelines. LangChain (via LangGraph) is better when complex agent orchestration — not retrieval quality — is the primary requirement.</p>
+<h3 id="can-you-use-langchain-and-llamaindex-together">Can you use LangChain and LlamaIndex together?</h3>
+<p>Yes, and many production systems do. The recommended pattern is using LlamaIndex&rsquo;s query engines for retrieval quality within LangGraph nodes for orchestration. LlamaIndex&rsquo;s <code>query_engine.query()</code> interface is clean enough to call from any Python context, making it easy to embed in LangGraph&rsquo;s node functions. This hybrid approach sacrifices simplicity for best-in-class performance on both retrieval and orchestration.</p>
+<h3 id="how-does-langgraph-compare-to-llamaindex-workflows-for-agents">How does LangGraph compare to LlamaIndex Workflows for agents?</h3>
+<p>LangGraph uses a stateful directed graph model with built-in persistence, human-in-the-loop, and time-travel debugging — better for complex multi-agent systems with branching logic. LlamaIndex Workflows uses event-driven async design — better for retrieval-heavy pipelines with concurrent data fetching. LangGraph adds ~14ms overhead vs ~6ms for LlamaIndex Workflows.</p>
+<h3 id="which-framework-has-better-enterprise-support-in-2026">Which framework has better enterprise support in 2026?</h3>
+<p>Both have significant enterprise adoption. LangChain (40% Fortune 500) is stronger in orchestration-heavy use cases at companies like Uber and LinkedIn. LlamaIndex (65% Fortune 500 per 2024 survey) dominates in document-heavy verticals — legal, financial services, healthcare. Enterprise support quality depends more on your specific use case than on the frameworks&rsquo; general reputations.</p>
+<h3 id="is-llamaindex-harder-to-learn-than-langchain">Is LlamaIndex harder to learn than LangChain?</h3>
+<p>For RAG-specific use cases, LlamaIndex has a lower learning curve than LangChain. Its five-abstraction model (connectors, parsers, indices, query engines, workflows) maps directly to the retrieval pipeline. LangChain&rsquo;s broader scope means more abstractions to learn before building a production RAG system. For agent orchestration use cases, LangGraph has a steeper learning curve than LlamaIndex Workflows.</p>
+]]></content:encoded></item><item><title>Vector Database Comparison 2026: Pinecone vs Weaviate vs Chroma vs pgvector</title><link>https://baeseokjae.github.io/posts/vector-database-comparison-2026/</link><pubDate>Wed, 15 Apr 2026 05:23:58 +0000</pubDate><guid>https://baeseokjae.github.io/posts/vector-database-comparison-2026/</guid><description>Pinecone, Weaviate, Chroma, and pgvector compared on performance, pricing, and use cases for production RAG systems in 2026.</description><content:encoded><![CDATA[<p>Picking the wrong vector database will cost you more than you expect — in migration pain, latency surprises, or bills that scale faster than your users. After testing Pinecone, Weaviate, Chroma, and pgvector across real RAG workloads in 2026, the short answer is: Pinecone for zero-ops production, Weaviate for hybrid search, pgvector if you already run Postgres, and Chroma for prototyping.</p>
+<h2 id="what-is-a-vector-database-and-why-does-it-matter-in-2026">What Is a Vector Database and Why Does It Matter in 2026?</h2>
+<p>A vector database is a purpose-built data store that indexes and retrieves high-dimensional numerical vectors — the mathematical representations that AI models use to encode the meaning of text, images, audio, and video. Unlike relational databases that match exact values, vector databases find &ldquo;nearest neighbors&rdquo; using distance metrics like cosine similarity or dot product. In 2026, they are the backbone of every retrieval-augmented generation (RAG) system, semantic search engine, and AI recommendation pipeline. The vector database market is projected to reach $5.6 billion in 2026 with a 17% CAGR, driven by the explosion of LLM-powered applications requiring real-time context retrieval. Choosing the right one is not a minor infrastructure decision: the wrong pick can mean 10x higher latency, 5x higher cost, or a painful migration when your index grows from 100K to 100M vectors. The four databases in this comparison — Pinecone, Weaviate, Chroma, and pgvector — cover the full spectrum from zero-ops managed SaaS to embedded Python libraries to PostgreSQL extensions.</p>
+<h2 id="pinecone-zero-ops-production-vector-database">Pinecone: Zero-Ops Production Vector Database</h2>
+<p>Pinecone is a fully managed, cloud-native vector database built exclusively for production AI workloads. It requires zero infrastructure management — no clusters to configure, no indexes to tune manually, no capacity planning. In 2026, Pinecone&rsquo;s serverless architecture delivers p99 latency around 47ms at 1 billion 768-dimension vectors, making it the fastest managed option at extreme scale. Serverless pricing is consumption-based: $0.33 per GB storage, $8.25 per million read units, and $2 per million write units. The Starter plan is free with 2GB storage; Standard plans start at $50/month minimum; Enterprise requires $500/month minimum. Teams at companies like Notion, Shopify, and Zapier use Pinecone for their production RAG pipelines because it eliminates the operational burden that comes with self-hosted alternatives. For a 1M-vector index, storage runs $1–5/month on serverless. The main tradeoff: you cannot self-host it, and vendor lock-in is real. If portability matters to your architecture, Pinecone is the wrong choice regardless of its performance advantages.</p>
+<h3 id="when-to-choose-pinecone">When to Choose Pinecone</h3>
+<p>Pinecone is the right call when your team lacks dedicated infrastructure engineers, when you need consistent sub-50ms latency at billion-vector scale, or when you&rsquo;re building a production RAG system and want to ship fast. It&rsquo;s also the best option for workloads with spiky traffic patterns, where serverless auto-scaling eliminates the need to provision for peak. Teams already paying for cloud infrastructure (AWS, GCP, Azure) can deploy Pinecone in the same region to minimize data transfer costs. The one hard constraint: budget. At high query volumes, Pinecone&rsquo;s per-operation pricing can exceed the cost of running a self-hosted Qdrant or Weaviate on a well-sized VM.</p>
+<h2 id="weaviate-hybrid-search-champion">Weaviate: Hybrid Search Champion</h2>
+<p>Weaviate is an open-source vector database written in Go that stands out for its native hybrid search — combining dense vector similarity with sparse BM25 keyword matching in a single query. No other database in this comparison handles hybrid retrieval as cleanly without external orchestration. Weaviate also supports built-in vectorization modules (OpenAI, Cohere, Hugging Face), meaning you can send raw text to Weaviate and let it handle embedding generation. At billion-vector scale, Weaviate latencies run around 123ms — higher than Pinecone but acceptable for most enterprise workloads. Weaviate Cloud (managed hosting) starts at $25/month after a 14-day free trial. Self-hosted is free. The GraphQL and REST APIs are mature, and a gRPC API was added in 2024 for lower-latency access. For teams building knowledge graphs, multi-modal search, or any system that needs vector similarity AND keyword relevance in the same result set, Weaviate is the only database that handles this natively without glue code.</p>
+<h3 id="when-to-choose-weaviate">When to Choose Weaviate</h3>
+<p>Weaviate wins when your use case requires hybrid search (vector + keyword) without building custom re-ranking pipelines. Enterprise document retrieval, e-commerce semantic search with facets, and knowledge graph RAG are all Weaviate&rsquo;s sweet spot. Self-host it on Kubernetes for full control, or use Weaviate Cloud when you want managed operations. The GraphQL API has a learning curve compared to Pinecone&rsquo;s simpler SDK, but the payoff is flexibility. If you&rsquo;re migrating from Elasticsearch and want to add semantic search capabilities without replacing your existing keyword search infrastructure, Weaviate&rsquo;s hybrid mode is the lowest-friction path.</p>
+<h2 id="chroma-the-developer-first-prototyping-database">Chroma: The Developer-First Prototyping Database</h2>
+<p>Chroma is an embedded, open-source vector database designed for developer productivity over production scale. It runs in-process with Python (or as a local server), requires zero infrastructure setup, and lets you go from zero to working semantic search in under 10 lines of code. In 2025, Chroma completed a Rust-core rewrite that delivered 4x faster writes and queries, significantly improving its standing as a lightweight development tool. However, Chroma is most reliable for collections under 1 million vectors — beyond that, you&rsquo;ll hit performance walls that self-hosted Qdrant or Weaviate handle more gracefully. Chroma&rsquo;s cloud offering exists but is not yet production-ready for high-throughput workloads. The real value proposition: if you&rsquo;re prototyping a RAG pipeline, testing embedding models, or building a demo, Chroma lets you skip infrastructure entirely and focus on the application layer.</p>
+<h3 id="when-to-choose-chroma">When to Choose Chroma</h3>
+<p>Chroma is the right tool when you&rsquo;re in the proof-of-concept phase, running experiments on datasets under 500K vectors, or need a zero-config local environment for development. It&rsquo;s the default choice for LangChain and LlamaIndex tutorials for a reason — it removes every barrier to getting started. Plan your migration path to Pinecone, Qdrant, or Weaviate before you hit production. Both LangChain and LlamaIndex provide nearly identical APIs across vector database backends, making this migration more straightforward than you might expect.</p>
+<h2 id="pgvector-vectors-inside-postgresql">pgvector: Vectors Inside PostgreSQL</h2>
+<p>pgvector is a PostgreSQL extension that adds vector similarity search to your existing Postgres database. If you&rsquo;re already running PostgreSQL, pgvector lets you store embeddings in the same database as your relational data — no new infrastructure, no new operational burden, no new bill. With pgvectorscale (Timescale&rsquo;s enhancement layer), pgvector achieves 471 QPS at 99% recall on 50 million vectors, making it competitive for moderate workloads. Standard pgvector works well for collections under 5 million vectors with 5–50ms latency using IVFFlat or HNSW indexes. Beyond 10 million vectors, you&rsquo;ll start to see query planning overhead and index build times that dedicated vector databases handle more gracefully. Managed Postgres providers (Supabase, Neon, RDS, Cloud SQL) all support pgvector, meaning you can add semantic search to an existing SaaS product without leaving your Postgres ecosystem.</p>
+<h3 id="when-to-choose-pgvector">When to Choose pgvector</h3>
+<p>pgvector is the pragmatic choice for teams with an existing PostgreSQL investment, workloads under 5–10 million vectors, and no dedicated ML infrastructure team. E-commerce product search, SaaS semantic features, and internal knowledge bases that don&rsquo;t need billion-vector scale are ideal use cases. The operational simplicity is real: one database to back up, one database to monitor, one database to scale. Use pgvectorscale or Timescale&rsquo;s vector extensions if you need higher performance without migrating to a dedicated vector database.</p>
+<h2 id="performance-benchmarks-how-they-stack-up">Performance Benchmarks: How They Stack Up</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Database</th>
+          <th>Latency (p99)</th>
+          <th>Scale</th>
+          <th>Self-Hosted</th>
+          <th>Managed</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Pinecone</td>
+          <td>~47ms @ 1B vectors</td>
+          <td>Billions</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Weaviate</td>
+          <td>~123ms @ 1B vectors</td>
+          <td>Hundreds of millions</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>pgvector</td>
+          <td>5–50ms @ 5M vectors</td>
+          <td>~10M practical</td>
+          <td>Yes</td>
+          <td>Yes (via Postgres providers)</td>
+      </tr>
+      <tr>
+          <td>Chroma</td>
+          <td>Variable</td>
+          <td>&lt;1M recommended</td>
+          <td>Yes</td>
+          <td>Beta</td>
+      </tr>
+      <tr>
+          <td>Qdrant</td>
+          <td>Competitive with Pinecone</td>
+          <td>Hundreds of millions</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+  </tbody>
+</table>
+<p>Latency numbers tell only part of the story. Pinecone&rsquo;s 47ms p99 is measured at 1 billion vectors on their managed infrastructure — comparing this to pgvector at 5 million vectors is not an apples-to-apples benchmark. What the numbers do tell you: Pinecone scales the furthest with the most predictable latency; Weaviate is the managed self-hosted option at extreme scale; pgvector competes at moderate datasets but degrades faster than purpose-built vector databases as you grow.</p>
+<h2 id="pricing-comparison-real-cost-analysis">Pricing Comparison: Real Cost Analysis</h2>
+<p>Understanding true cost requires thinking beyond list pricing. Here&rsquo;s what 1 million embedded documents actually costs across databases:</p>
+<p><strong>Embedding cost (one-time):</strong> OpenAI text-embedding-3-small at 1M documents runs $10–20. Storage for 1M 1536-dimension vectors: ~6GB raw, 15–30GB with indexes.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Database</th>
+          <th>Monthly Cost (1M vectors)</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Pinecone Serverless</td>
+          <td>$1–5 storage + query costs</td>
+          <td>Scales per operation</td>
+      </tr>
+      <tr>
+          <td>Weaviate Cloud</td>
+          <td>~$25/month baseline</td>
+          <td>Predictable flat pricing</td>
+      </tr>
+      <tr>
+          <td>pgvector (Supabase)</td>
+          <td>Included in existing Postgres plan</td>
+          <td>No additional cost if on Postgres</td>
+      </tr>
+      <tr>
+          <td>Qdrant Cloud</td>
+          <td>Free tier (1GB), then $25+/month</td>
+          <td>Competitive with Weaviate</td>
+      </tr>
+      <tr>
+          <td>Chroma Cloud</td>
+          <td>Beta pricing</td>
+          <td>Not production-ready</td>
+      </tr>
+      <tr>
+          <td>Self-hosted Qdrant</td>
+          <td>$50–100/month (16GB RAM VM)</td>
+          <td>You manage infrastructure</td>
+      </tr>
+  </tbody>
+</table>
+<p>For teams at the prototype stage, pgvector on Supabase or Chroma locally is free. For production at 10M–100M vectors, Weaviate Cloud or Qdrant Cloud typically beats Pinecone&rsquo;s per-operation pricing. At 1B+ vectors, Pinecone&rsquo;s operational advantage often outweighs the cost premium for teams without dedicated infrastructure engineers.</p>
+<h2 id="choosing-the-right-vector-database-decision-framework">Choosing the Right Vector Database: Decision Framework</h2>
+<p>The single most important question is not &ldquo;which is fastest&rdquo; — it&rsquo;s &ldquo;what does my team actually need to maintain?&rdquo;</p>
+<p><strong>Choose Pinecone if:</strong></p>
+<ul>
+<li>You need zero-ops production reliability at any scale</li>
+<li>Sub-50ms latency is a product requirement</li>
+<li>You have no dedicated infrastructure team</li>
+<li>You&rsquo;re okay with vendor lock-in in exchange for reliability</li>
+</ul>
+<p><strong>Choose Weaviate if:</strong></p>
+<ul>
+<li>You need hybrid vector + keyword search natively</li>
+<li>You want open-source flexibility with managed hosting option</li>
+<li>You&rsquo;re building multi-modal or knowledge graph RAG</li>
+<li>You&rsquo;re migrating from Elasticsearch and need semantic capabilities</li>
+</ul>
+<p><strong>Choose pgvector if:</strong></p>
+<ul>
+<li>You already run PostgreSQL</li>
+<li>Your dataset stays under 5–10 million vectors</li>
+<li>Operational simplicity is the top priority</li>
+<li>You want vectors co-located with relational data for JOIN queries</li>
+</ul>
+<p><strong>Choose Chroma if:</strong></p>
+<ul>
+<li>You&rsquo;re prototyping or building demos</li>
+<li>Your dataset is under 500K–1M vectors</li>
+<li>You need zero-config local development</li>
+<li>You&rsquo;re experimenting with embedding models</li>
+</ul>
+<p><strong>Choose Qdrant if:</strong></p>
+<ul>
+<li>You want open-source, high-performance, and self-hosted</li>
+<li>You need complex payload filtering with vector search</li>
+<li>You want a purpose-built vector database without managed lock-in</li>
+</ul>
+<h2 id="future-trends-what-changes-in-late-2026">Future Trends: What Changes in Late 2026</h2>
+<p>Three shifts are reshaping the vector database landscape in 2026. First, <strong>multi-modal indexing</strong> — all major databases are adding native support for image, audio, and video embeddings alongside text. Weaviate&rsquo;s module system is ahead here with direct integrations to CLIP and other multi-modal models. Second, <strong>AI agent integration</strong> — as agentic systems replace single-shot LLM calls, vector databases are evolving from static retrieval stores into active memory layers with TTL policies, provenance tracking, and real-time update streaming. Third, <strong>longer context windows</strong> are reducing the urgency of RAG for some use cases — but for private enterprise data at scale, vector retrieval remains faster and cheaper than putting everything in context. The databases that adapt fastest to agentic workflows (persistent memory, incremental indexing, real-time updates) will define the next generation of the market.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Can I use vector databases for real-time applications?</strong>
+Pinecone serverless and Qdrant both support real-time upserts with index updates completing in under 1 second for most workloads. pgvector handles real-time inserts natively as a PostgreSQL extension. Weaviate supports real-time indexing but may require tuning for high-throughput write scenarios. For streaming data pipelines, Pinecone and Qdrant have the most mature real-time ingestion patterns.</p>
+<p><strong>Q: Which vector database works best with LangChain and LlamaIndex?</strong>
+All four databases have first-class integrations in both LangChain and LlamaIndex. The APIs are nearly identical across backends, making it easy to swap databases. Chroma is the default in most tutorials because it requires no setup; in production, switching to Pinecone or Weaviate requires changing only a few lines of code.</p>
+<p><strong>Q: How do I estimate my vector database costs before committing?</strong>
+Start with your vector count (number of documents × chunks per document), embedding dimensions (1536 for OpenAI ada-002, 768 for many open-source models), and expected query volume (queries per second × hours per month). Use Pinecone&rsquo;s pricing calculator for serverless costs. For self-hosted options, benchmark a 16GB RAM VM running Qdrant against your actual query patterns before committing to managed hosting.</p>
+<p><strong>Q: Is pgvector fast enough for production?</strong>
+Yes, for datasets under 5 million vectors and with proper HNSW index configuration, pgvector delivers 5–50ms latency that is production-appropriate for most SaaS applications. With pgvectorscale, you can push this to 50 million vectors with 471 QPS at 99% recall. Beyond that, dedicated vector databases offer better performance without the PostgreSQL query planner overhead.</p>
+<p><strong>Q: What happens to my data if a managed vector database vendor goes down?</strong>
+Pinecone, Weaviate Cloud, and Qdrant Cloud all offer SLA-backed uptime guarantees (typically 99.9%+) and data export APIs. The practical mitigation: keep your source data (original documents + embedding pipeline) in your own storage so you can rebuild any vector index from scratch. Never treat a vector database as the source of truth — it&rsquo;s a derived index, and the source data should live in your control.</p>
+]]></content:encoded></item><item><title>Fine-Tuning vs RAG vs Prompt Engineering: When to Use Which in 2026</title><link>https://baeseokjae.github.io/posts/fine-tuning-vs-rag-vs-prompt-engineering-2026/</link><pubDate>Tue, 14 Apr 2026 22:48:45 +0000</pubDate><guid>https://baeseokjae.github.io/posts/fine-tuning-vs-rag-vs-prompt-engineering-2026/</guid><description>A practical decision framework for choosing between fine-tuning, RAG, and prompt engineering to customize LLMs in 2026.</description><content:encoded><![CDATA[<p>Picking the wrong LLM customization strategy will cost you months of work and thousands in wasted compute. Fine-tuning, RAG, and prompt engineering solve fundamentally different problems — and in 2026, with 73% of enterprises now running some form of customized LLM, choosing the right tool from the start separates teams that ship in days from teams that rebuild for months.</p>
 <h2 id="what-is-prompt-engineering--and-when-does-it-win">What Is Prompt Engineering — and When Does It Win?</h2>
 <p>Prompt engineering is the practice of crafting input instructions that guide a pre-trained LLM to produce the desired output without modifying any model weights or external retrieval. It requires no infrastructure, no training data, and no deployment pipeline — you change text, and results change immediately. This makes it the fastest path from idea to prototype: a capable engineer can design, test, and deploy a production prompt in hours. In 2026, prompt engineering techniques like chain-of-thought (CoT), few-shot examples, role prompting, and structured output constraints are mature and well-documented. The practical ceiling is the context window: GPT-4o supports 128K tokens, Claude 3.7 Sonnet supports 200K, and Gemini 1.5 Pro reaches 1M — meaning most knowledge that fits within those limits can be injected at inference time rather than requiring fine-tuning or retrieval. <strong>Start with prompt engineering unless you have a specific reason not to.</strong></p>
 <h3 id="prompt-engineering-techniques-that-actually-matter">Prompt Engineering Techniques That Actually Matter</h3>
