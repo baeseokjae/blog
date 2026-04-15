@@ -1,0 +1,146 @@
+{
+  "topic": "Devin AI vs Claude Code vs SWE-agent: Autonomous Coding Agents Compared",
+  "slug": "devin-vs-claude-code-vs-swe-agent-2026",
+  "keyword": "Devin vs Claude Code vs SWE-agent comparison 2026",
+  "type": "comparison",
+  "competitors": [
+    {
+      "url": "https://morphllm.com/best-ai-coding-agents-2026",
+      "title": "Best AI Coding Agents 2026: 14-Tool Comparison with Benchmarks",
+      "key_points": [
+        "Claude Code leads SWE-bench Verified at 80.8% with Agent Teams (multi sub-agent orchestration)",
+        "Claude Code uses 5.5x fewer tokens than Cursor for identical tasks",
+        "70% of developers use 2-4 AI coding tools simultaneously",
+        "OpenAI Codex scores 77.3% on Terminal-Bench 2.0, 56.8% on SWE-bench Pro",
+        "Devin is positioned as autonomous web agent for migrations/background tasks at $20/mo or $500/mo Teams",
+        "Aider is free open-source CLI achieving 52.7% on combined benchmarks",
+        "Google Jules offers free tier (15 tasks/day) with cloud-based agent",
+        "Augment Code scores 70.6% on SWE-bench with focus on large codebases"
+      ]
+    },
+    {
+      "url": "https://toolhalla.ai/blog/devin-vs-openhands-vs-swe-agent-2026",
+      "title": "Devin vs OpenHands vs SWE-agent: Top AI Coding Agents 2026",
+      "key_points": [
+        "Devin pricing: $20/mo Core (limited ACUs, $2.25/ACU extra), $500/mo Teams (250 ACUs, parallel sessions, API access)",
+        "Devin uses Agent Compute Units (ACUs) — simple bug fixes ~1 ACU, multi-file features 5-10 ACUs",
+        "OpenHands achieves 72% SWE-bench Verified with Claude 4, backed by $18.8M Series A funding",
+        "OpenHands uses event-stream architecture with multi-agent delegation and CodeAct agent",
+        "SWE-agent's Agent-Computer Interface (ACI) redesigns terminal interaction for LLMs",
+        "mini-SWE-agent achieves >74% SWE-bench Verified in just 100 lines of Python",
+        "SWE-agent includes EnIGMA cybersecurity mode for CTF challenges and vulnerability discovery",
+        "Devin has zero setup (2 min), OpenHands needs Docker (10 min), SWE-agent needs pip (15 min)",
+        "Recommended stack: SWE-agent in CI for auto-fixes, OpenHands for complex features, Devin for Slack-based task assignment"
+      ]
+    },
+    {
+      "url": "https://localaimaster.com/blog/openhands-vs-swe-agent",
+      "title": "OpenHands vs SWE-Agent: AI Coding Agents Compared",
+      "key_points": [
+        "OpenHands has 188+ contributors, $18.8M Series A from Madrona, adopted by AMD/Apple/Google/Amazon/Netflix/NVIDIA",
+        "OpenHands supports 15+ benchmarks: SWE-bench, HumanEvalFix, ML-Bench, WebArena, GAIA",
+        "SWE-agent is NeurIPS 2024 paper from Princeton/Stanford (John Yang, Shunyu Yao, Karthik Narasimhan)",
+        "SWE-agent's ACI provides simplified actions, guardrails, concise feedback, and context management (5 steps)",
+        "OpenHands + Claude 4.5 Extended Thinking scores 72% on SWE-bench Verified",
+        "mini-SWE-agent >74% on SWE-bench with just 100 lines of Python — architecture > complexity",
+        "SWE-bench-Live (fresh unseen issues): OpenHands 19.25%, SWE-agent 18.57% — real-world gap vs benchmarks",
+        "OpenHands enterprise features: RBAC, audit trails, quotas, VPC deployment — all free/open-source",
+        "SWE-agent supports SWE-ReX for remote execution on AWS, Modal, and cloud providers"
+      ]
+    },
+    {
+      "url": "https://af.net/realtime/claude-code-vs-devin-comparison-of-ai-coding-agents-in-2026/",
+      "title": "Claude Code vs Devin: Comparison of AI Coding Agents in 2026",
+      "key_points": [
+        "Claude Code costs $10-50/mo (usage-based) vs Devin at $500/mo Teams",
+        "Claude Code produces cleaner, higher-quality code suited for complex refactoring",
+        "Devin excels at autonomous task execution for narrow, well-defined tasks",
+        "Claude Code's Agent Teams feature spawns multiple sub-agents with dedicated context windows and git worktrees",
+        "Devin is better for teams wanting turnkey, no-config workflow integration",
+        "Claude Code is better for developers who want fine-grained control over code output"
+      ]
+    },
+    {
+      "url": "https://andrewjpyle.com/ai/atlas/stats/ai-agent-statistics-2026",
+      "title": "AI Agent Statistics 2026: 35+ Stats on Agentic AI Adoption",
+      "key_points": [
+        "Agentic AI market projected at $10.86B in 2026, growing at 43.8% CAGR to $199B by 2034",
+        "40% of enterprise apps will feature AI agents by end of 2026 (up from <5% in 2025)",
+        "62% of organizations experimenting with AI agents; 23% scaling",
+        "57.3% of developers have AI agents running in production (up from 51% in 2024)",
+        "535% growth in agent framework repositories on GitHub (14 to 89 with 1000+ stars)",
+        "Top SWE-bench Verified score: 80.9% (Claude Code with Opus 4.5)",
+        "67.3 percentage point SWE-bench improvement in one year (2023-2024)",
+        "88% of senior executives plan to increase AI budgets due to agentic AI"
+      ]
+    }
+  ],
+  "stats": [
+    {"fact": "Agentic AI market projected at $10.86B in 2026, growing at 43.8% CAGR to $199B by 2034", "source": "Precedence Research via andrewjpyle.com"},
+    {"fact": "40% of enterprise apps will feature AI agents by end of 2026, up from <5% in 2025 — an 8x increase", "source": "Gartner via andrewjpyle.com"},
+    {"fact": "57.3% of developers have AI agents running in production in 2026, up from 51% in 2024", "source": "LangChain via andrewjpyle.com"},
+    {"fact": "Top SWE-bench Verified score: 80.9% (Claude Code with Opus 4.5), up from ~4% when benchmark launched in 2023", "source": "SWE-bench / Anthropic via andrewjpyle.com"},
+    {"fact": "535% growth in agent framework GitHub repositories (14 to 89 with 1,000+ stars) from 2024 to 2026", "source": "GitHub ecosystem analysis via andrewjpyle.com"},
+    {"fact": "Claude Code Agent Teams uses 5.5x fewer tokens than Cursor for identical tasks", "source": "morphllm.com benchmark data"},
+    {"fact": "OpenHands raised $18.8M Series A funding (November 2025) led by Madrona; adopted by AMD, Apple, Google, Amazon, Netflix, NVIDIA", "source": "localaimaster.com / toolhalla.ai"},
+    {"fact": "mini-SWE-agent achieves >74% SWE-bench Verified in just ~100 lines of Python, outperforming complex solutions", "source": "toolhalla.ai / localaimaster.com"},
+    {"fact": "Devin pricing: $20/mo Core (limited ACUs, $2.25/extra ACU), $500/mo Teams (250 ACUs included, parallel sessions, API)", "source": "toolhalla.ai"},
+    {"fact": "SWE-bench-Live (fresh unseen issues): OpenHands 19.25%, SWE-agent 18.57% — significant gap vs benchmark scores", "source": "localaimaster.com"},
+    {"fact": "88% of senior executives plan to increase AI budgets due to agentic AI", "source": "OneReach AI via andrewjpyle.com"},
+    {"fact": "30% of enterprise app software revenue projected to come from agentic AI by 2035 (up from 2% in 2025)", "source": "Gartner via andrewjpyle.com"}
+  ],
+  "angles": [
+    "Agents vs Assistants vs Vibe Coders: The three-tier AI coding ecosystem in 2026 — autonomous agents (Devin/OpenHands/SWE-agent), IDE assistants (Cursor/Copilot/Cline), and rapid prototyping tools (bolt.new/Lovable)",
+    "The ACI Revolution: How SWE-agent's Agent-Computer Interface redesign changed how all coding agents interact with codebases — simplicity beats complexity",
+    "Self-Hosted vs Managed: Total cost comparison over 12 months — Devin $6,000/yr Teams vs OpenHands + self-hosted GPU vs SWE-agent + API costs",
+    "Benchmark Realism Gap: SWE-bench scores (74-81%) vs SWE-bench-Live (17-19%) — why benchmark performance doesn't translate to production reliability",
+    "The Multi-Agent Inflection: Claude Code Agent Teams and OpenHands delegation represent a shift from single-agent to orchestration architectures",
+    "Enterprise Readiness Spectrum: Devin (turnkey, managed) → OpenHands (self-hosted, enterprise features) → SWE-agent (CI/CD automation, research-grade)"
+  ],
+  "keywords": [
+    "Devin vs Claude Code vs SWE-agent 2026",
+    "autonomous coding agent comparison",
+    "AI coding agent benchmark 2026",
+    "SWE-bench Verified scores 2026",
+    "Devin AI pricing 2026",
+    "OpenHands vs SWE-agent",
+    "Claude Code Agent Teams",
+    "mini-SWE-agent 100 lines",
+    "AI software engineer tools",
+    "self-hosted AI coding agent",
+    "Agent-Computer Interface ACI",
+    "Devin ACU pricing",
+    "SWE-agent EnIGMA cybersecurity",
+    "OpenHands multi-agent delegation",
+    "agentic AI market size 2026",
+    "AI coding agent SWE-bench comparison"
+  ],
+  "outline": [
+    "Introduction: The Rise of Autonomous Coding Agents in 2026",
+    "Market Context: $10.86B Agentic AI Market and 8x Growth in Enterprise Adoption",
+    "The Three Heavyweights: Devin, Claude Code, and SWE-agent at a Glance",
+    "Devin: The Turnkey Commercial Agent",
+    "Claude Code: The Developer's Power Tool with Agent Teams",
+    "SWE-agent: The Research Powerhouse and ACI Pioneer",
+    "OpenHands: The Enterprise Open-Source Alternative (Bonus Contender)",
+    "SWE-bench Benchmark Deep Dive: What the Numbers Really Mean",
+    "The Realism Gap: Benchmark Scores vs Production Performance",
+    "Pricing Comparison: $20/mo to $500/mo vs Free and Self-Hosted",
+    "Architecture Comparison: Event-Stream vs ACI vs Session Model",
+    "Multi-Agent Orchestration: Agent Teams vs Delegation vs Single-Agent",
+    "Enterprise Readiness: RBAC, Audit Logs, SSO, and Self-Hosting",
+    "Security and Compliance: EnIGMA Mode, Self-Hosted Options, and Code Privacy",
+    "Real-World Use Cases: Bug Fixing, Feature Implementation, CI/CD, Security Auditing",
+    "The Three-Tier Ecosystem: When to Use Agents vs Assistants vs Vibe Coders",
+    "Decision Framework: Which Agent for Which Scenario?",
+    "Future Outlook: Multi-Agent Orchestration and the Convergence of Agents and Assistants"
+  ],
+  "research_date": "2026-04-15",
+  "sources": [
+    "https://morphllm.com/best-ai-coding-agents-2026",
+    "https://toolhalla.ai/blog/devin-vs-openhands-vs-swe-agent-2026",
+    "https://localaimaster.com/blog/openhands-vs-swe-agent",
+    "https://af.net/realtime/claude-code-vs-devin-comparison-of-ai-coding-agents-in-2026/",
+    "https://andrewjpyle.com/ai/atlas/stats/ai-agent-statistics-2026"
+  ]
+}
