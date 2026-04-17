@@ -1,14 +1,20 @@
 ---
-title: "Claude Code vs GitHub Copilot 2026: Terminal Agent vs IDE Assistant"
-date: 2026-04-14T04:05:00+00:00
-tags: ["Claude Code", "GitHub Copilot", "AI coding tools", "developer tools", "code generation"]
-description: "Claude Code vs GitHub Copilot 2026: Which AI coding tool wins for your workflow? Terminal agent vs IDE assistant—real comparisons, pricing, and when to use each."
-draft: false
 cover:
-  image: "/images/claude-code-vs-github-copilot-2026.png"
-  alt: "Claude Code vs GitHub Copilot 2026"
+  alt: Claude Code vs GitHub Copilot 2026
+  image: /images/claude-code-vs-github-copilot-2026.png
   relative: false
-schema: "schema-claude-code-vs-github-copilot-2026"
+date: 2026-04-14 04:05:00+00:00
+description: 'Claude Code vs GitHub Copilot 2026: terminal agent vs IDE assistant.
+  Real comparisons, pricing, and which to use.'
+draft: false
+schema: schema-claude-code-vs-github-copilot-2026
+tags:
+- Claude Code
+- GitHub Copilot
+- AI coding tools
+- developer tools
+- code generation
+title: 'Claude Code vs GitHub Copilot 2026: Terminal Agent vs IDE Assistant'
 ---
 
 Claude Code and GitHub Copilot solve the same problem—writing better code faster—but they do it in fundamentally different ways. Claude Code is an autonomous terminal agent that operates on your entire codebase; Copilot is an IDE extension that sits beside you as you type. Choosing between them depends on how you actually work, not which has the longer feature list.

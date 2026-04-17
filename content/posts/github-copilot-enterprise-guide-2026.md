@@ -1,14 +1,22 @@
 ---
-title: "GitHub Copilot Enterprise Guide 2026: Features, Setup, and ROI for Engineering Teams"
-date: 2026-04-17T13:33:37+00:00
-tags: ["github copilot enterprise", "ai coding tools", "developer productivity", "enterprise software", "github"]
-description: "Complete guide to GitHub Copilot Enterprise in 2026: features, setup steps, ROI analysis, and security for engineering teams of all sizes."
-draft: false
 cover:
-  image: "/images/github-copilot-enterprise-guide-2026.png"
-  alt: "GitHub Copilot Enterprise Guide 2026: Features, Setup, and ROI for Engineering Teams"
+  alt: 'GitHub Copilot Enterprise Guide 2026: Features, Setup, and ROI for Engineering
+    Teams'
+  image: /images/github-copilot-enterprise-guide-2026.png
   relative: false
-schema: "schema-github-copilot-enterprise-guide-2026"
+date: 2026-04-17 13:33:37+00:00
+description: 'Complete guide to GitHub Copilot Enterprise in 2026: features, setup
+  steps, ROI analysis, and security for engineering teams of all sizes.'
+draft: false
+schema: schema-github-copilot-enterprise-guide-2026
+tags:
+- github copilot enterprise
+- ai coding tools
+- developer productivity
+- enterprise software
+- github
+title: 'GitHub Copilot Enterprise Guide 2026: Features, Setup, and ROI for Engineering
+  Teams'
 ---
 
 GitHub Copilot Enterprise is GitHub's team-scale AI coding assistant that adds centralized management, private codebase training, SSO integration, and enterprise-grade security on top of the individual Copilot experience — giving engineering leaders a single control plane for AI-assisted development across their entire organization.

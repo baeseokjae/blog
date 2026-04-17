@@ -1,19 +1,20 @@
 ---
-title: "AI Lead Generation Tools 2026: Best Software for B2B Sales Prospecting"
-date: 2026-04-13T02:13:00+00:00
-tags:
-  - AI Tools
-  - B2B Sales
-  - Lead Generation
-  - Sales Automation
-  - SaaS
-description: "Top AI lead generation tools for 2026 ranked by accuracy, intent data, and ROI — with stacks for every B2B team size."
-schema: "schema-ai-lead-generation-tools-2026"
-draft: false
 cover:
-  image: "/images/ai-lead-generation-tools-2026.png"
-  alt: "AI Lead Generation Tools 2026: Best Software for B2B Sales Prospecting"
+  alt: 'AI Lead Generation Tools 2026: Best Software for B2B Sales Prospecting'
+  image: /images/ai-lead-generation-tools-2026.png
   relative: false
+date: 2026-04-13 02:13:00+00:00
+description: Top AI lead generation tools for 2026 ranked by accuracy, intent data,
+  and ROI — with stacks for every B2B team size.
+draft: false
+schema: schema-ai-lead-generation-tools-2026
+tags:
+- AI Tools
+- B2B Sales
+- Lead Generation
+- Sales Automation
+- SaaS
+title: 'AI Lead Generation Tools 2026: Best Software for B2B Sales Prospecting'
 ---
 
 The best AI lead generation tools in 2026 don't just find contacts — they identify the exact accounts showing buying signals right now, enrich them with verified data, and trigger personalized outreach automatically, all before a human SDR even opens their laptop.

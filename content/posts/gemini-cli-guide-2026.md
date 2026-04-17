@@ -1,14 +1,20 @@
 ---
-title: "Gemini CLI Guide 2026: How to Use Google Gemini from the Terminal"
-date: 2026-04-16T01:01:43+00:00
-tags: ["gemini-cli", "ai-coding-tools", "terminal", "google-gemini", "developer-tools"]
-description: "Complete Gemini CLI guide 2026: install, authenticate, and use Google Gemini in your terminal with 1M token context and a generous free tier."
-draft: false
 cover:
-  image: "/images/gemini-cli-guide-2026.png"
-  alt: "Gemini CLI Guide 2026: How to Use Google Gemini from the Terminal"
+  alt: 'Gemini CLI Guide 2026: How to Use Google Gemini from the Terminal'
+  image: /images/gemini-cli-guide-2026.png
   relative: false
-schema: "schema-gemini-cli-guide-2026"
+date: 2026-04-16 01:01:43+00:00
+description: 'Complete Gemini CLI guide 2026: install, authenticate, and use Google
+  Gemini in your terminal with 1M token context and a generous free tier.'
+draft: false
+schema: schema-gemini-cli-guide-2026
+tags:
+- gemini-cli
+- ai-coding-tools
+- terminal
+- google-gemini
+- developer-tools
+title: 'Gemini CLI Guide 2026: How to Use Google Gemini from the Terminal'
 ---
 
 Gemini CLI is Google's open-source terminal AI agent that gives you access to Gemini 2.5 Pro — with a 1 million token context window — for free, with no credit card required. Install it with one `npm` command, sign in with your Google account, and you're ready to query, code, and automate from the terminal within 60 seconds.

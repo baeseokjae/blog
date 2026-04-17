@@ -1,14 +1,25 @@
 ---
-title: "AI Hardware 2026: NVIDIA H200 vs AMD MI300X vs Google TPU v5 Compared"
-date: 2026-04-09T16:24:00+00:00
-tags: ["AI hardware 2026", "NVIDIA H200 vs AMD MI300X", "Google TPU v5", "AI accelerator comparison", "TFLOPS per dollar", "total cost of ownership", "AI chip market", "NVIDIA Blackwell B200", "AMD Instinct MI300X", "AI GPU benchmarks"]
-description: "AI hardware 2026 compared: NVIDIA H200, AMD MI300X, and Google TPU v5 across performance, price, memory bandwidth, and total cost of ownership."
-draft: false
 cover:
-  image: "/images/ai-hardware-2026.png"
-  alt: "AI Hardware 2026: NVIDIA H200 vs AMD MI300X vs Google TPU v5 Compared"
+  alt: 'AI Hardware 2026: NVIDIA H200 vs AMD MI300X vs Google TPU v5 Compared'
+  image: /images/ai-hardware-2026.png
   relative: false
-schema: "schema-ai-hardware-2026"
+date: 2026-04-09 16:24:00+00:00
+description: 'AI hardware 2026 compared: NVIDIA H200, AMD MI300X, and Google TPU v5
+  across performance, price, memory bandwidth, and total cost of ownership.'
+draft: false
+schema: schema-ai-hardware-2026
+tags:
+- AI hardware 2026
+- NVIDIA H200 vs AMD MI300X
+- Google TPU v5
+- AI accelerator comparison
+- TFLOPS per dollar
+- total cost of ownership
+- AI chip market
+- NVIDIA Blackwell B200
+- AMD Instinct MI300X
+- AI GPU benchmarks
+title: 'AI Hardware 2026: NVIDIA H200 vs AMD MI300X vs Google TPU v5 Compared'
 ---
 
 Choosing AI hardware in 2026 means navigating a more competitive market than ever before. NVIDIA still holds 80%+ market share thanks to the CUDA ecosystem, but AMD's MI300X delivers superior memory bandwidth at roughly half the price, while Google's TPU v5p and AWS Trainium 2 offer vertically integrated economics that can cut inference costs by 30–50%. The right choice depends on your workload, team expertise, and total cost of ownership — not just raw TFLOPS.

@@ -1,14 +1,20 @@
 ---
-title: "Activepieces Review 2026: The Open-Source Zapier That's Actually Free"
-date: 2026-04-17T06:14:50+00:00
-tags: ["automation", "open-source", "workflow", "Activepieces", "Zapier alternative"]
-description: "Activepieces 2026 review: MIT-licensed, self-hostable workflow automation with unlimited free tasks. See how it stacks up against Zapier, Make, and n8n."
-draft: false
 cover:
-  image: "/images/activepieces-review-2026.png"
-  alt: "Activepieces Review 2026: The Open-Source Zapier That's Actually Free"
+  alt: 'Activepieces Review 2026: The Open-Source Zapier That''s Actually Free'
+  image: /images/activepieces-review-2026.png
   relative: false
-schema: "schema-activepieces-review-2026"
+date: 2026-04-17 06:14:50+00:00
+description: 'Activepieces 2026 review: MIT-licensed, self-hostable workflow automation
+  with unlimited free tasks. See how it stacks up against Zapier, Make, and n8n.'
+draft: false
+schema: schema-activepieces-review-2026
+tags:
+- automation
+- open-source
+- workflow
+- Activepieces
+- Zapier alternative
+title: 'Activepieces Review 2026: The Open-Source Zapier That''s Actually Free'
 ---
 
 Activepieces is an MIT-licensed open-source workflow automation platform that lets you build multi-step automations visually and run them for free forever on your own server. For teams tired of Zapier's per-step pricing, it's the most credible alternative in 2026 — but real trade-offs exist.

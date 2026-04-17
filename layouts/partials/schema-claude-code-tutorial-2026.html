@@ -3,10 +3,10 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Claude Code Tutorial 2026: Complete Setup and Workflow Guide",
-  "description": "Complete Claude Code tutorial for 2026: installation, CLAUDE.md setup, memory, skills, hooks, MCP servers, and agentic workflows — everything you need to get productive.",
-  "image": "https://rocketcontent.ai/images/claude-code-tutorial-2026.png",
-  "datePublished": "2026-04-17T11:48:45+00:00",
-  "dateModified": "2026-04-17T11:48:45+00:00",
+  "description": "Claude Code 2026 tutorial: installation, setup, memory, skills, hooks, MCP servers, and agentic workflows for autonomous AI coding.",
+  "image": "/images/claude-code-tutorial-2026.png",
+  "datePublished": "2026-04-17 11:48:45+00:00",
+  "dateModified": "2026-04-17T20:02:01.455642",
   "author": {
     "@type": "Organization",
     "name": "RocketContent",
@@ -25,20 +25,15 @@
     "@type": "WebPage",
     "@id": "https://rocketcontent.ai/posts/claude-code-tutorial-2026/"
   },
+  "articleSection": "AI",
   "keywords": [
-    "claude code tutorial",
-    "claude code setup guide 2026",
-    "how to install claude code",
-    "claude code vs github copilot",
-    "claude code cli guide",
-    "claude code CLAUDE.md",
-    "claude code memory system",
-    "claude code hooks",
-    "claude code skills",
-    "agentic ai coding"
+    "claude-code",
+    "ai-coding-tools",
+    "developer-tools",
+    "cli",
+    "agentic-ai"
   ],
-  "articleSection": "AI Coding Tools",
-  "wordCount": 2800
+  "wordCount": 3619
 }
 </script>
 <script type="application/ld+json">
@@ -67,7 +62,7 @@
       "name": "How is CLAUDE.md different from a .cursorrules file?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Both serve as context documents for their respective tools, but CLAUDE.md is richer in scope: it covers shell commands, architecture decisions, memory pointers, and skill definitions, not just coding style rules. CLAUDE.md is also read recursively — subdirectory CLAUDE.md files add module-specific context on top of the root file, which .cursorrules does not support."
+        "text": "Both serve as context documents for their respective tools, but CLAUDE.md is richer in scope: it covers shell commands, architecture decisions, memory pointers, and skill definitions, not just coding style rules. CLAUDE.md is also read recursively \u2014 subdirectory CLAUDE.md files add module-specific context on top of the root file, which .cursorrules does not support."
       }
     },
     {
@@ -75,7 +70,7 @@
       "name": "Can multiple developers share Claude Code configuration?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Commit CLAUDE.md, .claude/settings.json, and .claude/skills/ to version control. Each developer installs Claude Code locally, but they all benefit from the shared context and skills. Personal preferences (API key, preferred model) stay in ~/.claude/ which is not committed."
+        "text": "Yes. Commit CLAUDE.md, `.claude/settings.json`, and `.claude/skills/` to version control. Each developer installs Claude Code locally, but they all benefit from the shared context and skills. Personal preferences (API key, preferred model) stay in `~/.claude/` which is not committed."
       }
     },
     {
@@ -83,7 +78,7 @@
       "name": "How do I stop Claude Code from making changes automatically without approval?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use /plan to enter Plan Mode, which makes Claude Code describe its intended changes and wait for your approval before executing. You can also configure hooks to require confirmation before any Write or Edit tool call. For highly sensitive codebases, run Claude Code with --permission-mode read-only to allow reads but block all file modifications and shell commands until you explicitly approve each one."
+        "text": "Use `/plan` to enter Plan Mode, which makes Claude Code describe its intended changes and wait for your approval before executing. You can also configure hooks to require confirmation before any Write or Edit tool call. For highly sensitive codebases, run Claude Code with `--permission-mode read-only` to allow reads but block all file modifications and shell commands until you explicitly approve each one."
       }
     }
   ]

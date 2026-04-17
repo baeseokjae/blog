@@ -1,14 +1,20 @@
 ---
-title: "Claude Code Tutorial 2026: Complete Setup and Workflow Guide"
-date: 2026-04-17T11:48:45+00:00
-tags: ["claude-code", "ai-coding-tools", "developer-tools", "cli", "agentic-ai"]
-description: "Complete Claude Code tutorial for 2026: installation, CLAUDE.md setup, memory, skills, hooks, MCP servers, and agentic workflows — everything you need to get productive."
-draft: false
 cover:
-  image: "/images/claude-code-tutorial-2026.png"
-  alt: "Claude Code Tutorial 2026: Complete Setup and Workflow Guide"
+  alt: 'Claude Code Tutorial 2026: Complete Setup and Workflow Guide'
+  image: /images/claude-code-tutorial-2026.png
   relative: false
-schema: "schema-claude-code-tutorial-2026"
+date: 2026-04-17 11:48:45+00:00
+description: 'Claude Code 2026 tutorial: installation, setup, memory, skills, hooks,
+  MCP servers, and agentic workflows for autonomous AI coding.'
+draft: false
+schema: schema-claude-code-tutorial-2026
+tags:
+- claude-code
+- ai-coding-tools
+- developer-tools
+- cli
+- agentic-ai
+title: 'Claude Code Tutorial 2026: Complete Setup and Workflow Guide'
 ---
 
 Claude Code is a terminal-native AI coding agent built by Anthropic that plans, edits, and executes multi-step coding tasks autonomously — it's not a snippet autocomplete tool, it's a full workflow partner. Install it in under five minutes with `npm install -g @anthropic-ai/claude-code`, point it at your codebase, and it can read files, edit code, run tests, and commit changes with minimal hand-holding.

@@ -1,14 +1,21 @@
 ---
-title: "Vector Database Comparison 2026: Pinecone vs Weaviate vs Chroma vs pgvector"
-date: 2026-04-15T05:23:58+00:00
-tags: ["vector-database", "RAG", "pinecone", "weaviate", "pgvector", "AI-infrastructure"]
-description: "Pinecone, Weaviate, Chroma, and pgvector compared on performance, pricing, and use cases for production RAG systems in 2026."
-draft: false
 cover:
-  image: "/images/vector-database-comparison-2026.png"
-  alt: "Vector Database Comparison 2026: Pinecone vs Weaviate vs Chroma vs pgvector"
+  alt: 'Vector Database Comparison 2026: Pinecone vs Weaviate vs Chroma vs pgvector'
+  image: /images/vector-database-comparison-2026.png
   relative: false
-schema: "schema-vector-database-comparison-2026"
+date: 2026-04-15 05:23:58+00:00
+description: Pinecone, Weaviate, Chroma, and pgvector compared on performance, pricing,
+  and use cases for production RAG systems in 2026.
+draft: false
+schema: schema-vector-database-comparison-2026
+tags:
+- vector-database
+- RAG
+- pinecone
+- weaviate
+- pgvector
+- AI-infrastructure
+title: 'Vector Database Comparison 2026: Pinecone vs Weaviate vs Chroma vs pgvector'
 ---
 
 Picking the wrong vector database will cost you more than you expect — in migration pain, latency surprises, or bills that scale faster than your users. After testing Pinecone, Weaviate, Chroma, and pgvector across real RAG workloads in 2026, the short answer is: Pinecone for zero-ops production, Weaviate for hybrid search, pgvector if you already run Postgres, and Chroma for prototyping.

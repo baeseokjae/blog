@@ -1,22 +1,25 @@
 ---
-title: "Best AI Tools for E-commerce Personalization in 2026: Dynamic Yield vs Klevu vs Nosto"
-date: 2026-04-10T06:39:13+00:00
-tags:
-  - ecommerce
-  - AI tools
-  - personalization
-  - Dynamic Yield
-  - Klevu
-  - Nosto
-  - product recommendations
-  - AI merchandising
-description: "Dynamic Yield leads for enterprises, Nosto excels with agentic AI, and Klevu (Athos Commerce) dominates AI search—here's the 2026 comparison."
-draft: false
-schema: "schema-best-ai-tools-for-ecommerce-personalization-2026"
 cover:
-  image: "/images/best-ai-tools-for-ecommerce-personalization-2026.png"
-  alt: "Best AI Tools for E-commerce Personalization in 2026: Dynamic Yield vs Klevu vs Nosto"
+  alt: 'Best AI Tools for E-commerce Personalization in 2026: Dynamic Yield vs Klevu
+    vs Nosto'
+  image: /images/best-ai-tools-for-ecommerce-personalization-2026.png
   relative: false
+date: 2026-04-10 06:39:13+00:00
+description: Dynamic Yield leads for enterprises, Nosto excels with agentic AI, and
+  Klevu (Athos Commerce) dominates AI search—here's the 2026 comparison.
+draft: false
+schema: schema-best-ai-tools-for-ecommerce-personalization-2026
+tags:
+- ecommerce
+- AI tools
+- personalization
+- Dynamic Yield
+- Klevu
+- Nosto
+- product recommendations
+- AI merchandising
+title: 'Best AI Tools for E-commerce Personalization in 2026: Dynamic Yield vs Klevu
+  vs Nosto'
 ---
 
 The best AI tools for e-commerce personalization in 2026 are **Dynamic Yield** (enterprise-grade, Mastercard-backed), **Nosto** (agentic AI via Huginn for autonomous merchandising), and **Klevu** (now part of Athos Commerce, best for AI-powered search). Each targets a different segment—choose based on your store size, stack, and ROI priorities.

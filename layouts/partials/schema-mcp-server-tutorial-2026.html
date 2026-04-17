@@ -4,60 +4,36 @@
   "@type": "Article",
   "headline": "MCP Server Tutorial 2026: Build Your First Model Context Protocol Server",
   "description": "Step-by-step MCP server tutorial: build, test, and deploy your first Model Context Protocol server using Python FastMCP or TypeScript in 2026.",
-  "datePublished": "2026-04-16T04:08:44Z",
-  "image": "/images/mcp-server-tutorial-2026.png"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "@id": "#faq-language-choice",
-      "name": "What language should I use to build an MCP server in 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Python with FastMCP is the fastest path to a working server — you can ship 2–3 tools in under 30 minutes with minimal boilerplate. Use TypeScript if your existing backend is Node.js, since you get compile-time schema validation and seamless integration with Express or Fastify. Go is the right choice for high-concurrency production services, but the SDK ecosystem is still maturing as of Q1 2026. Start with Python unless you have a specific reason to choose otherwise."
-      }
-    },
-    {
-      "@type": "Question",
-      "@id": "#faq-primitives",
-      "name": "What is the difference between MCP tools, resources, and prompts?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tools are callable functions the model can invoke with arguments — think POST endpoints. Resources are read-only data sources the client can query by URI, like GET endpoints with no side effects. Prompts are reusable message templates with parameters that produce structured system/user message pairs. Most servers only need Tools; add Resources if you're exposing queryable datasets, and Prompts if you want to standardize how the model approaches specific workflows."
-      }
-    },
-    {
-      "@type": "Question",
-      "@id": "#faq-testing",
-      "name": "How do I test my MCP server without integrating it into Claude?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use MCP Inspector: `npx @modelcontextprotocol/inspector python server.py`. This opens a browser UI where you can discover tools, set arguments, call them, and see raw JSON-RPC messages. It's the official testing tool from Anthropic and supports all three primitives (Tools, Resources, Prompts). Run every new tool through Inspector before adding it to a client."
-      }
-    },
-    {
-      "@type": "Question",
-      "@id": "#faq-transport",
-      "name": "What is the difference between STDIO and HTTP transport in MCP?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "STDIO transport runs your server as a local subprocess with ~1ms latency — best for developer tools on a single machine (Cursor plugins, CLI tools). HTTP transport (Streamable HTTP) exposes your server over a URL, enables multi-tenant deployments, and works across network boundaries at 10–100ms latency. Choose STDIO for local tools; choose HTTP when multiple users or cloud agents need to reach your server."
-      }
-    },
-    {
-      "@type": "Question",
-      "@id": "#faq-sql-injection",
-      "name": "How do I prevent SQL injection in an MCP database server?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Always use parameterized queries, never string-format user input into SQL. In `asyncpg`: use `conn.fetch(\"SELECT ... WHERE id = $1\", user_id)`. In `psycopg2`: use `cursor.execute(\"SELECT ... WHERE id = %s\", (user_id,))`. MCP tool arguments come from AI model outputs, which can be adversarially manipulated via prompt injection — treat them with the same distrust as user-supplied HTTP input. Add input validation (check types, enforce length limits) before passing anything to a database query."
-      }
+  "image": "/images/mcp-server-tutorial-2026.png",
+  "datePublished": "2026-04-16 04:08:44+00:00",
+  "dateModified": "2026-04-17T20:02:01.477069",
+  "author": {
+    "@type": "Organization",
+    "name": "RocketContent",
+    "url": "https://rocketcontent.ai"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RocketContent",
+    "url": "https://rocketcontent.ai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://rocketcontent.ai/images/logo.png"
     }
-  ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://rocketcontent.ai/posts/mcp-server-tutorial-2026/"
+  },
+  "articleSection": "AI",
+  "keywords": [
+    "MCP",
+    "Model Context Protocol",
+    "AI development",
+    "Python",
+    "TypeScript",
+    "tutorial"
+  ],
+  "wordCount": 3695
 }
 </script>

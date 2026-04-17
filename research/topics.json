@@ -210,7 +210,7 @@
     "keyword": "Claude API Python tutorial",
     "type": "how-to",
     "priority": "16",
-    "status": "seeded",
+    "status": "writing",
     "paperclip_issue": "ROC-379",
     "search_volume_est": "900",
     "kd_est": "7",
@@ -271,11 +271,12 @@
     "keyword": "how to set up Cursor AI",
     "type": "how-to",
     "priority": "21",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "600",
     "kd_est": "8",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-793"
   },
   {
     "title": "Aider AI Review 2026: The Terminal Coding Assistant That Actually Works",
@@ -283,11 +284,12 @@
     "keyword": "Aider AI review 2026",
     "type": "review",
     "priority": "22",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "350",
     "kd_est": "5",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-794"
   },
   {
     "title": "Replit Agent Review 2026: Build Full Apps from Plain English Prompts",
@@ -295,11 +297,12 @@
     "keyword": "Replit Agent review 2026",
     "type": "review",
     "priority": "23",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "500",
     "kd_est": "7",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-795"
   },
   {
     "title": "Claude Code + GitHub Workflow 2026: PR Reviews, Commits, and CI Integration",
@@ -307,11 +310,12 @@
     "keyword": "Claude Code GitHub workflow",
     "type": "how-to",
     "priority": "24",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "300",
     "kd_est": "6",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-796"
   },
   {
     "title": "Continue.dev Review 2026: Open-Source GitHub Copilot Alternative",
@@ -319,11 +323,12 @@
     "keyword": "Continue.dev review 2026",
     "type": "review",
     "priority": "25",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "300",
     "kd_est": "5",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-797"
   },
   {
     "title": "Cursor Rules Guide 2026: How to Write .cursorrules for Your Project",
@@ -331,11 +336,12 @@
     "keyword": "Cursor rules guide .cursorrules",
     "type": "how-to",
     "priority": "26",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "400",
     "kd_est": "6",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-798"
   },
   {
     "title": "AGENTS.md Guide 2026: How to Write AI Agent Instructions for Every Tool",
@@ -343,11 +349,12 @@
     "keyword": "AGENTS.md guide 2026",
     "type": "how-to",
     "priority": "27",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "250",
     "kd_est": "3",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-799"
   },
   {
     "title": "How to Set Up Windsurf IDE 2026: Installation, Config, and First Project",
@@ -355,11 +362,12 @@
     "keyword": "how to set up Windsurf IDE",
     "type": "how-to",
     "priority": "28",
-    "status": "queued",
+    "status": "seeded",
     "search_volume_est": "500",
     "kd_est": "7",
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-13"
+    "discovered_at": "2026-04-13",
+    "paperclip_issue": "ROC-800"
   },
   {
     "title": "Best Free AI Coding Tools 2026: Get 80% of Cursor at Zero Cost",
@@ -571,7 +579,7 @@
     "keyword": "how to build mcp server python 2026",
     "type": "how-to",
     "priority": "46",
-    "status": "seeded",
+    "status": "writing",
     "paperclip_issue": "ROC-418",
     "search_volume_est": "350",
     "kd_est": "5",
@@ -584,7 +592,7 @@
     "keyword": "bolt.new vs replit vs v0 comparison",
     "type": "comparison",
     "priority": "47",
-    "status": "seeded",
+    "status": "writing",
     "paperclip_issue": "ROC-419",
     "search_volume_est": "700",
     "kd_est": "9",
@@ -597,7 +605,7 @@
     "keyword": "claude code subagents parallel agents guide",
     "type": "how-to",
     "priority": "48",
-    "status": "seeded",
+    "status": "writing",
     "paperclip_issue": "ROC-420",
     "search_volume_est": "200",
     "kd_est": "3",
@@ -610,7 +618,7 @@
     "keyword": "openai codex cli guide 2026",
     "type": "how-to",
     "priority": "49",
-    "status": "seeded",
+    "status": "writing",
     "paperclip_issue": "ROC-421",
     "search_volume_est": "400",
     "kd_est": "6",
@@ -623,7 +631,7 @@
     "keyword": "llm api pricing comparison 2026",
     "type": "comparison",
     "priority": "50",
-    "status": "seeded",
+    "status": "writing",
     "paperclip_issue": "ROC-422",
     "search_volume_est": "900",
     "kd_est": "11",
@@ -636,7 +644,7 @@
     "keyword": "cursor vs windsurf vs antigravity comparison",
     "type": "comparison",
     "priority": "76",
-    "status": "queued",
+    "status": "writing",
     "paperclip_issue": "ROC-423",
     "search_volume_est": "300",
     "kd_est": "6",
@@ -1251,7 +1259,7 @@
     "keyword": "github copilot enterprise guide",
     "type": "guide",
     "priority": "128",
-    "status": "queued",
+    "status": "published",
     "search_volume_est": "500",
     "kd_est": "10",
     "cluster": "AI coding tools",
@@ -1625,7 +1633,7 @@
     "keyword": "AI Risk Management & Fraud Detection Tools 2026",
     "type": "comparison",
     "priority": 100,
-    "status": "seeded",
+    "status": "writing",
     "search_volume_est": 1900,
     "kd_est": 7,
     "cluster": "Finance & Legal AI",
@@ -1656,5 +1664,18 @@
     "cluster": "AI for developers",
     "discovered_at": "2026-04-15",
     "notes": "Published 2026-04-17"
+  },
+  {
+    "title": "Cursor + Claude Code Workflow 2026: Using Both Tools Together Effectively",
+    "slug": "cursor-claude-code-workflow-2026",
+    "keyword": "cursor claude code workflow together",
+    "type": "how-to",
+    "priority": "81",
+    "status": "writing",
+    "paperclip_issue": "ROC-424",
+    "search_volume_est": "400",
+    "kd_est": "7",
+    "cluster": "AI coding tools",
+    "discovered_at": "2026-04-15"
   }
 ]

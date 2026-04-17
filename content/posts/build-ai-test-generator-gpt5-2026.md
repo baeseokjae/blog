@@ -1,20 +1,21 @@
 ---
-title: "Build an AI Test Generator with GPT-5 in 2026: Step-by-Step Guide"
-date: 2026-04-10T14:09:00+00:00
-tags:
-  - GPT-5
-  - AI Testing
-  - Test Automation
-  - Python
-  - CI/CD
-  - Software Development
-description: "Learn how to build an AI test generator using GPT-5 in 2026. Step-by-step tutorial covering setup, agent config, and CI/CD integration."
-draft: false
-schema: "schema-build-ai-test-generator-gpt5-2026"
 cover:
-  image: "/images/build-ai-test-generator-gpt5-2026.png"
-  alt: "Build an AI Test Generator with GPT-5 in 2026: Step-by-Step Guide"
+  alt: 'Build an AI Test Generator with GPT-5 in 2026: Step-by-Step Guide'
+  image: /images/build-ai-test-generator-gpt5-2026.png
   relative: false
+date: 2026-04-10 14:09:00+00:00
+description: Learn how to build an AI test generator using GPT-5 in 2026. Step-by-step
+  tutorial covering setup, agent config, and CI/CD integration.
+draft: false
+schema: schema-build-ai-test-generator-gpt5-2026
+tags:
+- GPT-5
+- AI Testing
+- Test Automation
+- Python
+- CI/CD
+- Software Development
+title: 'Build an AI Test Generator with GPT-5 in 2026: Step-by-Step Guide'
 ---
 
 In 2026, building an AI test generator with GPT-5 means setting up a Python-based autonomous agent that connects to OpenAI's Responses API, configures `test_generation: true` in its workflow parameters, and runs automatically inside your CI/CD pipeline — generating unit, integration, and edge-case tests from source code in seconds, without writing a single test manually.

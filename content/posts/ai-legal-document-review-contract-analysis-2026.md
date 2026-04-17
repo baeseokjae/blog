@@ -1,14 +1,24 @@
 ---
-title: "AI Legal Document Review and Contract Analysis in 2026: Complete Guide"
-date: 2026-04-11T15:23:47+00:00
-tags: ["AI legal document review", "contract analysis AI 2026", "AI contract review tools", "legal AI market size 2026", "automated contract review", "AI for lawyers", "contract analysis software", "AI legal technology", "contract lifecycle management AI"]
-description: "AI legal document review in 2026 cuts manual contract review time by up to 80%, with the market growing to $5.59B—here are the best tools and workflows."
-draft: false
-schema: "schema-ai-legal-document-review-contract-analysis-2026"
 cover:
-  image: "/images/ai-legal-document-review-contract-analysis-2026.png"
-  alt: "AI Legal Document Review and Contract Analysis in 2026: Complete Guide"
+  alt: 'AI Legal Document Review and Contract Analysis in 2026: Complete Guide'
+  image: /images/ai-legal-document-review-contract-analysis-2026.png
   relative: false
+date: 2026-04-11 15:23:47+00:00
+description: AI legal document review in 2026 cuts manual contract review time by
+  up to 80%, with the market growing to $5.59B—here are the best tools and workflows.
+draft: false
+schema: schema-ai-legal-document-review-contract-analysis-2026
+tags:
+- AI legal document review
+- contract analysis AI 2026
+- AI contract review tools
+- legal AI market size 2026
+- automated contract review
+- AI for lawyers
+- contract analysis software
+- AI legal technology
+- contract lifecycle management AI
+title: 'AI Legal Document Review and Contract Analysis in 2026: Complete Guide'
 ---
 
 AI legal document review and contract analysis in 2026 is transforming how organizations handle legal work — cutting manual review time by up to 80%, enabling non-lawyers to understand complex agreements, and powering enterprise-scale contract lifecycle management. The market is growing at 22.3% CAGR, reaching $5.59 billion in 2026.

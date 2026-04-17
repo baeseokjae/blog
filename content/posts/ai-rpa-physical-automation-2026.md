@@ -1,23 +1,24 @@
 ---
-title: "AI RPA Physical Automation 2026: The Complete Developer Guide"
-date: 2026-04-12T14:02:05+00:00
-tags:
-  - RPA
-  - AI Automation
-  - Physical AI
-  - Agentic AI
-  - UiPath
-  - Automation Anywhere
-  - Power Automate
-  - Enterprise Automation
-  - Robotics
-description: "AI RPA physical automation in 2026 combines AI agents for cognition with RPA for deterministic execution—delivering 2–3× ROI over 3 years versus standalone bots."
-draft: false
 cover:
-  image: "/images/ai-rpa-physical-automation-2026.png"
-  alt: "AI RPA Physical Automation 2026: The Complete Developer Guide"
+  alt: 'AI RPA Physical Automation 2026: The Complete Developer Guide'
+  image: /images/ai-rpa-physical-automation-2026.png
   relative: false
-schema: "schema-ai-rpa-physical-automation-2026"
+date: 2026-04-12 14:02:05+00:00
+description: 'AI RPA in 2026: combine agents for cognition with RPA for execution,
+  delivering 2–3× ROI over 3 years versus standalone bots.'
+draft: false
+schema: schema-ai-rpa-physical-automation-2026
+tags:
+- RPA
+- AI Automation
+- Physical AI
+- Agentic AI
+- UiPath
+- Automation Anywhere
+- Power Automate
+- Enterprise Automation
+- Robotics
+title: 'AI RPA Physical Automation 2026: The Complete Developer Guide'
 ---
 
 AI-powered RPA and physical automation in 2026 has fundamentally shifted from brittle rule-based bots to hybrid architectures that pair deterministic RPA execution with AI agent cognition. The global RPA market hit $27.22 billion in 2026 and enterprises adopting this hybrid model report 50–70% reductions in manual intervention compared to legacy bot-only deployments.

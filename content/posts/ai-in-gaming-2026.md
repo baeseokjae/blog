@@ -1,14 +1,35 @@
 ---
-title: "AI in Gaming 2026: Procedural Content Generation and NPC Intelligence Explained"
-date: 2026-04-09T21:36:30+00:00
-tags: ["AI in gaming 2026", "procedural content generation 2026", "smart NPCs AI", "AI game development", "NVIDIA ACE", "Inworld AI", "AI director gaming", "procedural generation machine learning", "NPC artificial intelligence", "AI gaming market 2026", "game AI trends 2026", "AI in video games", "dynamic game worlds", "personalized gaming AI", "AI generated quests", "conversational AI NPCs", "reinforcement learning gaming", "AI gaming tools", "indie game AI", "ethical AI gaming"]
-description: "AI in gaming 2026 is a $4.54B market reshaping how games are built and played, from infinite procedural worlds to NPCs that remember you."
-draft: false
-schema: "schema-ai-in-gaming-2026"
 cover:
-  image: "/images/ai-in-gaming-2026.png"
-  alt: "AI in Gaming 2026: Procedural Content Generation and NPC Intelligence Explained"
+  alt: 'AI in Gaming 2026: Procedural Content Generation and NPC Intelligence Explained'
+  image: /images/ai-in-gaming-2026.png
   relative: false
+date: 2026-04-09 21:36:30+00:00
+description: AI in gaming 2026 is a $4.54B market reshaping how games are built and
+  played, from infinite procedural worlds to NPCs that remember you.
+draft: false
+schema: schema-ai-in-gaming-2026
+tags:
+- AI in gaming 2026
+- procedural content generation 2026
+- smart NPCs AI
+- AI game development
+- NVIDIA ACE
+- Inworld AI
+- AI director gaming
+- procedural generation machine learning
+- NPC artificial intelligence
+- AI gaming market 2026
+- game AI trends 2026
+- AI in video games
+- dynamic game worlds
+- personalized gaming AI
+- AI generated quests
+- conversational AI NPCs
+- reinforcement learning gaming
+- AI gaming tools
+- indie game AI
+- ethical AI gaming
+title: 'AI in Gaming 2026: Procedural Content Generation and NPC Intelligence Explained'
 ---
 
 AI in gaming 2026 is no longer a future promise — it is the present standard. With 90% of game developers now using AI in their workflows and the AI gaming market valued at $4.54 billion and growing at a 33.57% CAGR toward $81.19 billion by 2035, machine learning is transforming every layer of how games are created and experienced, from procedurally generated infinite worlds to NPCs that hold genuine conversations and remember your choices.

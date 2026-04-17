@@ -1,24 +1,25 @@
 ---
-title: "Local AI Model Serving Frameworks 2026: vLLM vs TGI vs Ray Serve Compared"
-date: 2026-04-10T14:13:00+00:00
-tags:
-  - local AI model serving frameworks 2026
-  - vLLM vs TGI vs Ray Serve
-  - LLM inference servers 2026
-  - on-premise LLM serving
-  - vLLM performance 2026
-  - TGI maintenance mode
-  - Ray Serve autoscaling
-  - SGLang RadixAttention
-  - TensorRT-LLM
-  - AI inference benchmarking
-description: "vLLM leads high-concurrency APIs, SGLang excels in multi-turn chat, Ray Serve adds enterprise orchestration, and TGI is in maintenance mode as of 2026."
-draft: false
-schema: "schema-local-ai-model-serving-frameworks-2026"
 cover:
-    image: "/images/local-ai-model-serving-frameworks-2026.png"
-    alt: "Local AI Model Serving Frameworks 2026: vLLM vs TGI vs Ray Serve Compared"
-    relative: false
+  alt: 'Local AI Model Serving Frameworks 2026: vLLM vs TGI vs Ray Serve Compared'
+  image: /images/local-ai-model-serving-frameworks-2026.png
+  relative: false
+date: 2026-04-10 14:13:00+00:00
+description: vLLM leads high-concurrency APIs, SGLang excels in multi-turn chat, Ray
+  Serve adds enterprise orchestration, and TGI is in maintenance mode as of 2026.
+draft: false
+schema: schema-local-ai-model-serving-frameworks-2026
+tags:
+- local AI model serving frameworks 2026
+- vLLM vs TGI vs Ray Serve
+- LLM inference servers 2026
+- on-premise LLM serving
+- vLLM performance 2026
+- TGI maintenance mode
+- Ray Serve autoscaling
+- SGLang RadixAttention
+- TensorRT-LLM
+- AI inference benchmarking
+title: 'Local AI Model Serving Frameworks 2026: vLLM vs TGI vs Ray Serve Compared'
 ---
 
 In 2026, **vLLM is the production standard** for local AI model serving, delivering 14–24× higher throughput than naive HuggingFace Transformers serving. SGLang edges ahead on pure batch inference benchmarks, Ray Serve adds enterprise-grade orchestration on top of vLLM, and TGI entered maintenance mode in December 2025—making the framework landscape clearer than ever for developers choosing where to invest.

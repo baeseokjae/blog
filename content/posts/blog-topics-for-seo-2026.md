@@ -1,14 +1,18 @@
 ---
-title: "Blog Topics for SEO: What Should You Write About in 2026?"
-date: 2026-04-09T05:33:04+00:00
-tags: ["SEO", "blog topics", "content strategy"]
-description: "The best blog topics for SEO match search intent, business goals, and low-competition long-tail keywords your audience already searches."
-draft: false
-schema: "schema-blog-topics-for-seo-2026"
 cover:
-  image: "/images/blog-topics-for-seo.png"
-  alt: "Cover image for blog-topics-for-seo-2026"
+  alt: Cover image for blog-topics-for-seo-2026
+  image: /images/blog-topics-for-seo.png
   relative: false
+date: 2026-04-09 05:33:04+00:00
+description: The best blog topics for SEO match search intent, business goals, and
+  low-competition long-tail keywords your audience already searches.
+draft: false
+schema: schema-blog-topics-for-seo-2026
+tags:
+- SEO
+- blog topics
+- content strategy
+title: 'Blog Topics for SEO: What Should You Write About in 2026?'
 ---
 
 The best blog topics for SEO in 2026 are topics your audience already searches, mapped to clear intent, and prioritized by business value and ranking difficulty. Focus on problem-solving, comparison, and decision-stage content clusters instead of random ideas, then update and interlink posts to compound traffic over time.

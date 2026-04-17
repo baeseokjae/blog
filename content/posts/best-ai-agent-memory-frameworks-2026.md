@@ -1,14 +1,22 @@
 ---
-title: "Best AI Agent Memory Frameworks in 2026: Mem0 vs Zep vs Letta Compared"
-date: 2026-04-15T13:01:50+00:00
-tags: ["AI agents", "memory frameworks", "Mem0", "Zep", "Letta", "LangChain", "developer tools"]
-description: "Compare Mem0, Zep, and Letta — the top AI agent memory frameworks in 2026 — with benchmarks, architecture breakdowns, and a decision framework."
-draft: false
 cover:
-  image: "/images/best-ai-agent-memory-frameworks-2026.png"
-  alt: "Best AI Agent Memory Frameworks in 2026: Mem0 vs Zep vs Letta Compared"
+  alt: 'Best AI Agent Memory Frameworks in 2026: Mem0 vs Zep vs Letta Compared'
+  image: /images/best-ai-agent-memory-frameworks-2026.png
   relative: false
-schema: "schema-best-ai-agent-memory-frameworks-2026"
+date: 2026-04-15 13:01:50+00:00
+description: Compare Mem0, Zep, and Letta — the top AI agent memory frameworks in
+  2026 — with benchmarks, architecture breakdowns, and a decision framework.
+draft: false
+schema: schema-best-ai-agent-memory-frameworks-2026
+tags:
+- AI agents
+- memory frameworks
+- Mem0
+- Zep
+- Letta
+- LangChain
+- developer tools
+title: 'Best AI Agent Memory Frameworks in 2026: Mem0 vs Zep vs Letta Compared'
 ---
 
 AI agents without persistent memory are stateless scripts — they forget every conversation, repeat themselves, and can't personalize across sessions. In 2026, the agent memory ecosystem has matured enough that your choice of framework directly determines whether your agent can recall facts from six months ago, track how a user's preferences changed over time, or accumulate institutional knowledge across thousands of interactions. Mem0 leads on community adoption (~48K GitHub stars), Zep leads on benchmark accuracy (63.8% LongMemEval vs Mem0's 49.0%), and Letta offers a fundamentally different OS-inspired architecture that lets agents manage their own memory like RAM and disk. This guide compares all three in depth — plus Cognee, LangMem, and Hindsight — so you can pick the right tool for your use case.

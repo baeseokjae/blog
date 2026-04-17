@@ -1,14 +1,21 @@
 ---
-title: "MCP Server Tutorial 2026: Build Your First Model Context Protocol Server"
-date: 2026-04-16T04:08:44+00:00
-tags: ["MCP", "Model Context Protocol", "AI development", "Python", "TypeScript", "tutorial"]
-description: "Step-by-step MCP server tutorial: build, test, and deploy your first Model Context Protocol server using Python FastMCP or TypeScript in 2026."
-draft: false
 cover:
-  image: "/images/mcp-server-tutorial-2026.png"
-  alt: "MCP Server Tutorial 2026: Build Your First Model Context Protocol Server"
+  alt: 'MCP Server Tutorial 2026: Build Your First Model Context Protocol Server'
+  image: /images/mcp-server-tutorial-2026.png
   relative: false
-schema: "schema-mcp-server-tutorial-2026"
+date: 2026-04-16 04:08:44+00:00
+description: 'Step-by-step MCP server tutorial: build, test, and deploy your first
+  Model Context Protocol server using Python FastMCP or TypeScript in 2026.'
+draft: false
+schema: schema-mcp-server-tutorial-2026
+tags:
+- MCP
+- Model Context Protocol
+- AI development
+- Python
+- TypeScript
+- tutorial
+title: 'MCP Server Tutorial 2026: Build Your First Model Context Protocol Server'
 ---
 
 You can build a working MCP server with 2–3 tools in under 30 minutes using Python FastMCP. This tutorial walks through every step — from installing the SDK to testing with MCP Inspector and deploying locally or to a remote server.
