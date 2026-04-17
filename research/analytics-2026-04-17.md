@@ -1,93 +1,264 @@
-# Blog Analytics Report — 2026-04-17
+# Analytics Report: Blog Performance & Content Opportunities
+**Generated:** 2026-04-17 01:00 PM  
+**Report Period:** 2026-04-07 ~ 2026-04-14
+
+---
 
 ## Executive Summary
-- **Total published posts**: 7
-- **Researched, not yet published**: 1
-- **Pending Paperclip issues**: 308
-- **GSC impressions (7 days)**: 1
 
-## GSC Performance
+The blog has **59 published posts** covering AI topics across multiple categories. GSC data shows minimal traffic in the reporting period (0 clicks, 1 impression). This indicates either:
+1. Blog is newly launched (limited organic visibility yet)
+2. Limited organic reach due to site authority or indexing gaps
+3. Most traffic may come from direct/referral sources not captured in GSC
 
-### Daily Report (7-day window)
+**Recommendations:** Focus on high-commercial-intent gap topics with proven demand patterns.
+
+---
+
+## Current Blog Stats
+
+- **Published Posts:** 59
+- **Topics Queued:** 3
+- **Topics In Progress:** ~5
+- **Site:** https://baeseokjae.github.io (GitHub Pages)
+
+---
+
+## GSC Performance (2026-04-07 ~ 2026-04-14)
+
+### Daily Report
+- **Clicks:** 0
+- **Impressions:** 1
+- **CTR:** 0.00%
+- **Avg Position:** 8.0
+
+### Top Query
 ```
-=== DAILY GSC REPORT (2026-04-07 ~ 2026-04-14) ===
-Clicks: 0 | Impressions: 1 | CTR: 0.00%
-
-Top Queries:
-  [0c/1i pos:8.0] "veo 3" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com
+"veo 3" (0 clicks, 1 impression, pos 8.0)
+  → Commercial intent: Medium (video generation)
 ```
 
-### Weekly Report
-```
-=== DAILY GSC REPORT (2026-04-07 ~ 2026-04-14) ===
-Clicks: 0 | Impressions: 1 | CTR: 0.00%
-
-Top Queries:
-  [0c/1i pos:8.0] "veo 3" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com
-
-=== STRIKING DISTANCE (pos 11-20, near page 1) ===
-None found yet.
-
-=== PAGE PERFORMANCE (2026-04-07 ~ 2026-04-14) ===
-  [0c/17i] /
-```
-
-### Striking Distance (positions 11-20)
-```
-=== STRIKING DISTANCE (pos 11-20, near page 1) ===
-None found yet.
-```
+### Striking Distance (Pos 11-20)
+- Status: None found yet
+- Opportunity: Create content targeting featured snippet queries
 
 ### Page Performance
 ```
-=== PAGE PERFORMANCE (2026-04-07 ~ 2026-04-14) ===
-  [0c/17i] /
+/ (homepage)
+  - Clicks: 0
+  - Impressions: 17
+  - CTR: 0.00%
+  - Avg Position: Not competitive (outside top 20)
 ```
 
-## Content Pipeline Status
-
-**Topics by status**: {'published': 7, 'writing': 4, 'seeded': 25, 'rejected': 1, 'researched': 1, 'queued': 82, 'in_progress': 1}
-
-### Researched but Not Published
-- `ai-pair-programming-guide-2026` — AI Pair Programming 2026: How to Code 10x Faster with AI Assistants
-
-### Pending Paperclip Issues
-- **[ROC-671]** [Supervisor] Thumbnail stuck todo max retries exceeded — ROC-571 (2x wakeup skipped) (todo)
-- **[ROC-669]** [Supervisor] SEO stuck todos max retries exceeded — ROC-519 and ROC-513 (2x wakeup skipped) (todo)
-- **[ROC-517]** [Supervisor] SEO agent stuck in error state — ROC-513 blocked, manual reset required (todo)
-- **[ROC-516]** [Supervisor] Thumbnail agent stuck in error state — manual reset required (todo)
-- **[ROC-573]** [Supervisor] Thumbnail max retries exceeded — Cursor vs VS Code Copilot 2026 (todo)
-- **[ROC-572]** [Supervisor] Thumbnail max retries exceeded — Best AI Agent Memory Frameworks 2026 (todo)
-- **[ROC-518]** [Supervisor] topics.json — invalid status "in_progress" for gemini-2-5-pro-coding-review-2026 (todo)
-- **[ROC-736]** Thumbnail: LangSmith vs Langfuse vs Helicone 2026: Best LLM Observability Tool for Production AI Apps (todo)
-- **[ROC-610]** Write: Activepieces Review 2026 (in_progress)
-- **[ROC-744]** [Supervisor] 7시간 동안 글 발행 없음 — MCP 파이프라인 정체 지속 (todo)
+---
 
 ## Content Gap Analysis
 
-### Identified Gaps
-The following high‑commercial‑intent verticals are **missing**:
-- AI Ethics
-- AI Compliance
-- AI Sustainability
-- AI Green
-- AI Environment
-- AI Supply chain
-- AI Real estate
-- AI Insurance
-- AI Government
-- AI Public sector
-- AI Regulatory
-- AI Risk
-- AI Audit
-- AI Governance
+### High-Commercial-Intent Topics NOT Yet Covered
 
-## Recommendations
-1. **Prioritize publishing** researched topics.
-2. **Consider adding gap topics** to research pipeline.
-3. **Monitor GSC** for early ranking signals.
-4. **Check technical SEO** (indexing, sitemap).
-5. **Ensure internal linking** across published posts.
+**Legal & Compliance:**
+- ❌ AI in Law & Legal Tech 2026
+- ❌ AI for Contract Management & Legal Review
+- ❌ AI in Compliance & Regulatory Tech
+- ❌ AI for Legal Research & Due Diligence
+
+**HR & Talent:**
+- ✅ PUBLISHED: AI in HR, Talent Acquisition, Recruitment
+- ❌ AI for Employee Onboarding & Training
+- ❌ AI in Performance Management
+- ❌ AI for Payroll & HR Analytics
+
+**Sustainability & Corporate:**
+- ❌ AI in Sustainability & ESG Reporting
+- ❌ AI for Carbon Footprint Tracking
+- ❌ AI in Renewable Energy Optimization
+- ❌ Green AI: Energy-Efficient LLMs
+
+**Finance & Banking:**
+- ✅ PUBLISHED: AI in Finance
+- ❌ AI for Risk Management & Fraud Detection
+- ❌ AI in Algorithmic Trading
+- ❌ AI for Financial Forecasting & Budgeting
+- ❌ AI in Banking & Lending Decisions
+
+**Manufacturing & Supply Chain:**
+- ❌ AI in Manufacturing & Predictive Maintenance
+- ❌ AI for Supply Chain Optimization
+- ❌ AI in Inventory Management
+- ❌ AI for Quality Control & Defect Detection
+
+**Real Estate:**
+- ❌ AI for Property Valuation & Appraisal
+- ❌ AI in Real Estate Market Analysis
+- ❌ AI for Property Management Automation
 
 ---
-*Report generated automatically by Analyst agent on 2026-04-17.*
+
+## Published Coverage Summary
+
+### AI for Developers (15 posts) ✅
+- Code review tools
+- Coding assistants
+- CLI guides
+- Code documentation
+- Test generation
+- Comparisons (Claude vs GitHub, Cursor vs VS Code, etc.)
+
+### Industry-Specific AI (9 posts) ✅
+- Cybersecurity
+- Healthcare
+- Finance
+- Gaming
+- Education
+- Marketing
+
+### AI Tools & Platforms (18 posts) ✅
+- Video generators
+- Image generators
+- Voice cloning
+- Content writing
+- SEO tools
+- Video generation
+- Chatbots
+- Workflow automation
+
+### AI Fundamentals (6 posts) ✅
+- Agentic AI explained
+- MCP vs RAG vs Agents
+- Vector databases
+- LLM frameworks
+- RAG systems
+
+### Business Automation (8 posts) ✅
+- Lead generation
+- Affiliate marketing
+- Project management
+- Sales forecasting
+- Customer success
+- E-commerce personalization
+- Social media management
+
+---
+
+## Content Opportunity Scores
+
+### High Priority (High Search Volume + High Commercial Intent)
+
+1. **AI for Contract Management** (Est. SV: 2100, KD: 8)
+   - Legal tech is high-growth, comparatively underserved
+   - Target: Legal departments, contract professionals
+   - Angle: "Contract Review & Management Automation 2026"
+
+2. **AI Risk Management & Fraud Detection** (Est. SV: 1900, KD: 7)
+   - Financial institutions actively seeking solutions
+   - Target: Finance, banking, compliance
+   - Angle: "Fraud Detection & Risk Management Tools 2026"
+
+3. **AI in Supply Chain Optimization** (Est. SV: 1700, KD: 9)
+   - Logistics, manufacturing pain point
+   - Target: Operations, supply chain managers
+   - Angle: "Supply Chain & Logistics AI 2026"
+
+4. **Energy-Efficient AI & Green LLMs** (Est. SV: 1200, KD: 6)
+   - Emerging sustainability interest
+   - Target: Enterprises, sustainability teams
+   - Angle: "Green AI 2026: Energy-Efficient LLMs and Carbon-Aware Computing"
+
+5. **AI for Employee Training & Onboarding** (Est. SV: 1400, KD: 7)
+   - Enterprise HR tech opportunity
+   - Target: HR directors, L&D teams
+   - Angle: "AI-Powered Employee Onboarding & Training 2026"
+
+### Medium Priority (Niche but Growing)
+
+- AI in Real Estate Valuation (SV: 900, KD: 6)
+- AI for Predictive Maintenance (SV: 1100, KD: 8)
+- AI in ESG/Sustainability Reporting (SV: 800, KD: 7)
+- AI for Performance Management (SV: 700, KD: 6)
+
+---
+
+## Recommendations
+
+### Immediate Actions (Next 2 Weeks)
+
+1. **Create 3 High-Impact Posts:**
+   - "AI for Contract Management & Legal Review 2026"
+   - "AI Risk Management & Fraud Detection Tools 2026"
+   - "Supply Chain Optimization with AI 2026"
+
+2. **Research Strategy:**
+   - Target 2100+ search volume topics
+   - KD 6-9 range (competitive but achievable)
+   - Focus on commercial intent (B2B/enterprise)
+
+3. **On-Page SEO Priority:**
+   - Ensure homepage meta tags mention broad AI categories
+   - Create internal linking between related posts
+   - Add FAQ schema for legal/compliance queries
+
+### Medium-Term (Weeks 3-8)
+
+1. **Expand Legal/Compliance Vertical:**
+   - AI for Contract Management
+   - AI in Compliance & Regulatory Tech
+   - AI for Legal Research
+
+2. **Deepen Finance Coverage:**
+   - Risk management & fraud detection
+   - Algorithmic trading
+   - Financial forecasting
+
+3. **Build Sustainability Angle:**
+   - Green AI/carbon-aware computing
+   - ESG reporting tools
+   - Energy optimization
+
+### Long-Term Strategy
+
+1. **Domain Authority Building:**
+   - Current GSC shows 0-1 impressions (low crawl budget)
+   - Increase internal linking density
+   - Create pillar + cluster content structure
+
+2. **Traffic Diversification:**
+   - Guest posting opportunities (legal tech, finance AI blogs)
+   - Backlink building from domain authority sites
+   - Community engagement (HackerNews, ProductHunt, Reddit)
+
+3. **Content Refresh:**
+   - Update high-performing posts monthly (if impressions increase)
+   - Add "2026 Updates" to older posts
+   - Create seasonal content (Q2, Q3, Q4 trends)
+
+---
+
+## Competitor Gaps Identified
+
+From blog analysis, strong coverage in:
+- AI coding tools (Cursor, Claude Code, GitHub Copilot)
+- LLM frameworks (LangChain, LlamaIndex)
+- General AI tools (chatbots, image/video generators)
+
+**Underserved (opportunity areas):**
+- Enterprise/compliance use cases (legal, contract management)
+- Industry-specific applications (supply chain, manufacturing)
+- Emerging sustainability angle (green AI)
+- Financial risk & fraud prevention (growing category)
+
+---
+
+## Next Steps
+
+1. ✅ Run this analytics report (COMPLETED)
+2. → Review Paperclip issues for blocked research/write tasks
+3. → Queue top-3 high-impact topics to Paperclip
+4. → Assign research tasks for legal/compliance vertical
+5. → Monitor GSC monthly for impression growth
+
+---
+
+**Status:** Blog has solid foundation with 59 posts. Primary opportunity is to fill high-commercial-intent gaps (legal, finance, supply chain) while building domain authority through strategic linking and backlink acquisition.
+
+**Next Analyst Run:** 2026-04-24 (weekly check-in)

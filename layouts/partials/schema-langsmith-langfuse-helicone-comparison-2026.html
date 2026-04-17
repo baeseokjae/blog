@@ -1,0 +1,61 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LangSmith vs Langfuse vs Helicone 2026: Best LLM Observability Tool for Production AI Apps",
+  "description": "LangSmith vs Langfuse vs Helicone compared for 2026: pricing, features, tracing depth, and which LLM observability tool fits your production stack.",
+  "datePublished": "2026-04-17T13:45:40+00:00",
+  "image": {
+    "@type": "ImageObject",
+    "url": "/images/langsmith-langfuse-helicone-comparison-2026.png"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is LangSmith free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LangSmith offers a free Developer tier with 5,000 traces per month. For teams needing more, the Plus plan starts at $39 per seat per month. Self-hosting requires an enterprise license, which is more complex than Langfuse's fully open-source self-hosted option."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Langfuse without self-hosting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Langfuse Cloud starts with a free Hobby tier of 50,000 observations per month with full platform features. The paid Pro plan at $59/month includes 1 million observations and multiple projects. Self-hosting is optional, not required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Helicone work with Anthropic Claude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Helicone supports Anthropic Claude, OpenAI GPT models, Azure OpenAI, Mistral, Cohere, and any OpenAI-compatible API. You change the base URL to Helicone's Anthropic gateway endpoint and add your Helicone API key to request headers — your application code is otherwise unchanged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which tool is best for RAG pipelines?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For RAG pipelines, Langfuse and LangSmith are the strongest choices because they support nested tracing — you can trace the retrieval step (embedding query, vector search, document ranking) as a separate span from the generation step. This granularity is essential for diagnosing whether quality issues originate in retrieval or generation. Helicone sees the final LLM call but not the retrieval steps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use multiple observability tools simultaneously?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and many teams do. A common pattern is using Helicone as a lightweight gateway for cost tracking and caching, while using Langfuse or LangSmith for deeper tracing on critical workflows. The tools are not mutually exclusive, though instrumentation complexity increases when running both SDKs."
+      }
+    }
+  ]
+}
+</script>
