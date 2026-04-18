@@ -1,162 +1,277 @@
 ---
-title: "How to Set Up Windsurf IDE 2026: Installation, Config, and First Project"
-date: 2026-04-17T23:15:00+00:00
-tags: ["windsurf", "ai-ide", "tutorial", "cascade", "developer-tools"]
-description: "Complete 2026 guide to installing and configuring Windsurf IDE — from download to your first Cascade flow in 20 minutes."
-draft: false
 cover:
-  image: "/images/windsurf-setup-tutorial-2026.png"
-  alt: "How to Set Up Windsurf IDE 2026"
+  alt: How to Set Up Windsurf IDE 2026
+  image: /images/windsurf-setup-tutorial-2026.png
   relative: false
-schema: "schema-windsurf-setup-tutorial-2026"
+date: 2026-04-18 05:16:15+00:00
+description: Complete guide to setup Windsurf IDE 2026 — install on macOS, Windows,
+  or Linux, configure .windsurfrules, and run your first Cascade flow.
+draft: false
+schema: schema-windsurf-setup-tutorial-2026
+tags:
+- windsurf
+- ide
+- ai-coding
+- tutorial
+- cascade
+title: 'How to Set Up Windsurf IDE 2026: Installation, Config, and First Project'
 ---
 
-Setting up Windsurf IDE in 2026 takes about 20 minutes — download the installer, run the onboarding wizard, create a `.windsurfrules` file, and flip Cascade to Codebase context mode. That sequence unlocks the AI features that make Windsurf worth using.
+Windsurf IDE is a production-ready AI-native code editor that reached 1M+ active users by March 2026. Unlike VS Code with an AI plugin bolted on, Windsurf was designed from scratch around Cascade — an autonomous agent that plans multi-step tasks, runs terminal commands, and iterates on its own. Setting it up correctly takes about 20 minutes and the defaults are conservative on purpose. Here's exactly how to do it.
 
-## Why Windsurf IDE in 2026?
+## What Makes Windsurf Different From Other AI Editors?
 
-Windsurf IDE is an AI-native code editor built around Cascade, an autonomous agent that plans multi-step tasks, executes terminal commands, and iterates without step-by-step instructions. As of March 2026, Windsurf has over 1 million active developers — double the user count from 2024 — and the AI writes 70 million lines of code per day across those sessions, with 94% of its code output being AI-generated. Over 4,000 enterprises now run Windsurf in production, including 59% of Fortune 500 companies. ServiceNow deployed it across roughly 7,000 engineers and reported a 10% productivity boost. Unlike VS Code with a Copilot plugin bolted on, Windsurf was designed from the ground up so the AI has deep access to your workspace: file tree, terminal, test runner, and diff view. The result is an IDE where you describe an outcome and Cascade figures out which files to create, edit, and test to get there. The $82M ARR Windsurf reported in mid-2025 reflects a market that's moved past curiosity into production adoption.
+Windsurf is an AI-native IDE built around Cascade, an autonomous agent that can plan multi-step workflows, execute terminal commands, read files across your entire repo, and iterate without waiting for step-by-step instructions. By March 2026, Windsurf had 1M+ active users generating 70M+ lines of AI-written code per day, with 94% of its code output being AI-generated. Unlike GitHub Copilot (which autocompletes inline) or Cursor (which focuses on precision edit suggestions), Windsurf's core value proposition is agentic autonomy: describe an outcome, and Cascade plans and executes the path to get there. ServiceNow deployed Windsurf across ~7,000 engineers and saw a 10% productivity boost. The fundamental distinction is philosophy — Windsurf optimizes for "describe what you want" workflows, while Cursor optimizes for "precise, surgical edits." If your team produces greenfield features or prototypes frequently, Windsurf's architecture pays off. If you do mostly targeted refactors on large mature codebases, the tradeoff is different.
 
-## System Requirements and Prerequisites
+## System Requirements Before You Install
 
-Before downloading, verify your machine meets the minimum specs for Windsurf IDE. Windsurf requires at least 8GB RAM to run comfortably — the AI completion engine and LSP servers consume meaningful memory even at idle, approximately 1.1GB just sitting open. For Codebase context mode, which indexes your entire project so Cascade can reason about it holistically, 16GB RAM is the recommended baseline. Projects over 50,000 lines will hit performance issues on 8GB machines in Codebase mode. The cold start time is 3.4 seconds on a modern machine, and AI completion latency averages 102ms in benchmarks from markaicode.com. Supported operating systems: macOS (minimum OS X Yosemite), Windows 10+, Ubuntu and other major Linux distributions. A Windsurf account is required for AI features; you can create one free during onboarding. The free tier includes 25 Cascade flow actions per month. Pro at $15/month removes the cap entirely.
+Before downloading, confirm your machine meets the minimum specs. Windsurf runs on any modern hardware but performs noticeably better with adequate RAM. The tool's idle memory footprint is ~1.1GB and cold start time is approximately 3.4 seconds on a modern machine — the AI completion latency runs 102ms, fast enough that it doesn't interrupt flow. On 8GB RAM machines running Codebase context mode on large repos, expect slowdown during the initial embedding scan because Windsurf indexes your entire repository before enabling full multi-file awareness.
 
-### Minimum vs. Recommended Specs
+**Minimum requirements:**
+- macOS: OS X Yosemite (10.10) or later
+- Windows: Windows 10 64-bit or later
+- Linux: Ubuntu 18.04+ or equivalent glibc 2.17+ distribution
+- RAM: 8GB minimum
+- RAM: 16GB recommended if you plan to use Codebase context mode on projects over 10k lines
 
-| Spec | Minimum | Recommended |
-|------|---------|-------------|
-| RAM | 8 GB | 16 GB |
-| OS | macOS Yosemite / Win 10 / Ubuntu 20.04 | macOS 13+ / Win 11 / Ubuntu 22.04 |
-| Storage | 2 GB free | 5 GB free |
-| Internet | Required for AI | Required for AI |
+If you're on 8GB RAM and plan to run Codebase context mode on large repos, expect some slowdown during the initial embedding scan. You can work around this with a `.codeiumignore` file to exclude `node_modules`, `dist`, `.git`, and other large generated directories from the index.
 
 ## Step 1: Download and Install Windsurf
 
-Windsurf IDE installation differs slightly per platform, but all paths take under five minutes once the download completes. Download the installer from the official Windsurf website. On macOS, the recommended approach is to drag the `.app` file into `/Applications`, though Homebrew also works: `brew install --cask windsurf`. On Ubuntu and Debian-based Linux, download the `.deb` package and install it with `sudo dpkg -i windsurf-*.deb`, then run `sudo apt-get install -f` if there are dependency issues. On Windows, run the `.exe` installer with default settings — no configuration is required during install. After installation, launch Windsurf; the onboarding wizard starts automatically on first run. If macOS Gatekeeper blocks the app with an "unidentified developer" warning, open System Preferences → Privacy & Security, and click "Open Anyway" in the General tab. This is a one-time step; subsequent launches are unblocked.
+Download Windsurf from the official site (windsurf.com) for your platform. All three major platforms are supported with native packages. Installation is straightforward but there are a few platform-specific gotchas worth knowing before you start, particularly on macOS where Gatekeeper may block the first launch and on Linux where the apt repository setup requires a few extra commands.
 
-### macOS Gatekeeper Fix
-
-If you see "Windsurf cannot be opened because the developer cannot be verified":
-
-1. Go to **System Preferences → Privacy & Security**
-2. Scroll to the "Security" section
-3. Click **Open Anyway** next to the Windsurf message
-4. Enter your system password and confirm
-
-## Step 2: Run the Onboarding Flow
-
-The first-launch wizard walks you through three decisions that shape your Windsurf experience: setup path, theme, and account sign-in. For the setup path, you have three choices — Start fresh, Import from VS Code, or Import from Cursor. If you're migrating from either editor, pick the import option; Windsurf reads your existing extensions, keybindings, and settings from the source editor's config folder and applies them automatically. For new users, Start fresh gives you a clean baseline without any legacy configuration. Theme selection is cosmetic — Light, Dark, or Windsurf default. Keybindings offer VS Code-style or Vim bindings; pick based on your muscle memory since relearning keybindings adds friction to the first week. After these choices, you'll be prompted to sign in or create a Windsurf account. The free tier activates immediately on account creation with no credit card required. Once signed in, the main editor opens and Cascade initializes in the sidebar, ready for your first prompt.
-
-## Step 3: Import VS Code or Cursor Configuration
-
-If you chose Import during onboarding but want to add more extensions or settings later, use the Command Palette (`Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows/Linux) and search for "Import Settings." Windsurf can pull extensions, snippets, and keybindings from VS Code and Cursor at any time — this is useful if you install a new extension in VS Code and want it in Windsurf without going through the extension marketplace again. One important caveat: some extensions are incompatible with Windsurf, specifically other AI code completion extensions (like GitHub Copilot or Tabnine) and certain proprietary extensions with closed binaries. Windsurf will warn you about conflicts during import; simply skip those extensions. If you were using a `.vscode/settings.json` file for workspace-level config, Windsurf reads it directly — no migration needed, since the file format is identical. Remote development via SSH works the same way VS Code handles it: install the Remote - SSH extension and connect to your server with the same connection strings.
-
-## Step 4: Create Your `.windsurfrules` File
-
-The `.windsurfrules` file is the single highest-leverage configuration change you can make in Windsurf IDE. It is a plain text file placed at your project root that tells Cascade your stack, coding conventions, and constraints — essentially a standing brief that the AI reads before every Cascade session in that project. Without it, Cascade makes reasonable guesses about your preferences, which means you spend the first few lines of every prompt re-establishing context. With a well-written `.windsurfrules` file, you cut prompt length roughly in half because that context is already loaded. Create the file at your project root: `touch .windsurfrules`. Then open it in Windsurf and write a structured brief covering: your language and framework ("TypeScript, Next.js 14, Tailwind CSS"), test setup ("Jest with React Testing Library, no snapshot tests"), deployment target ("Vercel, no Docker"), and explicit constraints ("never modify `lib/auth.ts` without asking first"). Commit this file to your repository so the whole team benefits from it.
-
-### Example `.windsurfrules` File
-
+**macOS:**
+```bash
+brew install --cask windsurf
 ```
-Stack: TypeScript, Next.js 14 (App Router), Tailwind CSS, Prisma, PostgreSQL
+Or download the `.dmg` directly. If macOS Gatekeeper blocks the app on first launch, go to **System Settings → Privacy & Security** and click "Open Anyway." This is expected for apps downloaded outside the App Store.
 
-Testing: Jest + React Testing Library. No snapshot tests. Tests live in __tests__ next to the component.
+**Ubuntu / Debian Linux:**
+```bash
+# Add the Codeium apt repository
+curl -fsSL https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg \
+  | sudo gpg --dearmor -o /usr/share/keyrings/windsurf-stable-archive-keyring.gpg
 
-Patterns:
-- Server Components by default. Client Components only when state/events are needed. Add "use client" explicitly.
-- All database access through lib/db/. Never import Prisma client directly in components.
-- API routes in app/api/ with Zod validation on all inputs.
+echo "deb [signed-by=/usr/share/keyrings/windsurf-stable-archive-keyring.gpg arch=amd64] \
+  https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main" \
+  | sudo tee /etc/apt/sources.list.d/windsurf.list > /dev/null
 
-Off-limits without asking: lib/auth.ts, prisma/schema.prisma, .env files
-
-Preferred response format: code-first, then explain what changed and why.
+sudo apt-get update && sudo apt-get install windsurf
 ```
 
-## Step 5: Configure Cascade Context Mode
+**Windows:**
+Download the `.exe` installer from windsurf.com and run it. Windsurf installs to `%LOCALAPPDATA%\Programs\Windsurf` by default.
 
-Cascade context mode determines how much of your project Windsurf's AI can see when it responds, and getting this setting right is the second most impactful configuration change after `.windsurfrules`. There are three modes. **File mode** (the default): Cascade only sees the file currently open and any files you explicitly reference with `@filename`. This is conservative and fast, and appropriate for single-file edits or machines with limited RAM. **Codebase mode**: Cascade indexes your entire project and can reason across all files without you specifying them — it answers "where does this endpoint get validated?" by actually reading your codebase rather than guessing. This is the right choice for any project under 50,000 lines on a 16GB machine. **Explicit references**: You manually drag files into the Cascade context or use `@` mentions. Good for surgical multi-file edits where you know exactly which files matter. To switch to Codebase mode, open Cascade in the sidebar, click the context selector at the top (shows "File" by default), and choose "Codebase." Windsurf will index your project; on a 10,000-line project this takes 10–30 seconds.
+## Step 2: Complete the Onboarding Flow
 
-### Context Mode Comparison
+When Windsurf launches for the first time, it walks you through a 4-step onboarding that sets up your core preferences. This is worth doing carefully — the choices here save you configuration time later. The onboarding sequence takes about 3-5 minutes, and you can import your existing VS Code or Cursor setup at this stage rather than rebuilding your configuration from scratch. Windsurf copies your extensions list, keybindings, and settings.json automatically during the import, which means most developers are functional within minutes rather than spending an hour reconfiguring their environment.
 
-| Mode | Best For | RAM Usage |
-|------|----------|-----------|
-| File | Single-file edits, < 8GB RAM | Low |
-| Codebase | Multi-file tasks, refactoring, Q&A | Medium–High |
-| Explicit (@) | Targeted multi-file edits | Medium |
+**Onboarding steps:**
+1. **Setup path** — Choose one: "Start fresh," "Import from VS Code," or "Import from Cursor." If you're migrating, pick the import option.
+2. **Theme selection** — Dark, light, or high-contrast. This can be changed anytime.
+3. **Keybindings** — Choose VS Code keybindings (default) or Vim bindings. Vim users: select this now.
+4. **Account creation / login** — Sign up for a free account at codeium.com or log in. The free tier gives you 25 Cascade flow actions per month.
 
-## Step 6: Run Your First Cascade Flow
+If you skipped the VS Code import during onboarding, trigger it afterward via the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`): search "Import VS Code Settings." Note that other AI completion extensions (GitHub Copilot, Tabnine) and proprietary language server extensions are incompatible with Windsurf and will be flagged during import.
 
-A Cascade flow is a multi-step AI task where Windsurf's Cascade agent reads files, writes code, runs terminal commands, and checks its own output — all without you manually switching between panels. To start a flow, open the Cascade sidebar and press `Cmd+Shift+L` (macOS) or `Ctrl+Shift+L` (Windows/Linux), or click the lightning bolt icon. The key insight for effective Cascade use is writing outcome-first prompts rather than instruction-first prompts. Instead of "edit the middleware to add rate limiting," write "add Redis-based rate limiting to all `/api/` routes: 100 req/minute per IP, return 429 with Retry-After header, environment variable for the limit." Cascade will read your existing route files, identify the middleware chain, install the Redis client if needed, write the middleware, wire it in, and run your tests. Devtoolsreview benchmarks show Cascade completing a Redis rate-limiting task in 3.5 minutes vs. 45–60 minutes manually. Cascade works correctly on clearly scoped tasks about 75–80% of the time. The most common failure mode is execution loops on ambiguous requirements — if Cascade has been running for more than 10 minutes without progress, cancel and refine your prompt.
+## Step 3: Create Your .windsurfrules File
 
-### Writing Effective Cascade Prompts
+The `.windsurfrules` file is the single highest-leverage configuration in Windsurf. It lives at your project root and tells Cascade your stack, coding conventions, file structure boundaries, and constraints — before every single prompt. Teams that skip this file spend 2-3x more tokens repeating context. Teams that write a good `.windsurfrules` file cut their prompt length in half and see dramatically more consistent output from Cascade. Think of it as a permanent system prompt that applies to every Cascade interaction in your project. Unlike one-off instructions in a chat window, `.windsurfrules` is committed to git, visible to your whole team, and applied automatically without requiring anyone to remember to include it.
 
-| Weak Prompt | Strong Prompt |
-|-------------|---------------|
-| "Add tests" | "Add Jest unit tests for `lib/pricing.ts` covering: free tier limit, Pro upgrade path, and invalid plan code — use the existing test fixture pattern in `__tests__/lib/`" |
-| "Fix the login" | "The login form at `app/(auth)/login/page.tsx` redirects to `/` instead of the originally-requested URL after sign-in. Fix it to use the `callbackUrl` query param, falling back to `/dashboard`" |
-| "Refactor the API" | "Extract the auth check repeated in `app/api/users/route.ts` and `app/api/posts/route.ts` into a shared `withAuth` wrapper in `lib/api/middleware.ts`" |
+Create it at your project root:
+```bash
+touch .windsurfrules
+```
 
-## Step 7: Configure Memories and Rules
+A practical starter template for a Node.js/TypeScript project:
+```
+# Stack
+- Node.js 22, TypeScript 5.4, Express 4.x
+- PostgreSQL via pg (raw SQL, no ORM)
+- Jest for tests, ESLint + Prettier for formatting
 
-Windsurf Memories allow Cascade to persist information about your project across sessions — architecture decisions, team conventions, or debugging notes you don't want to re-explain every time you open a new Cascade session. Rules are project-level or global instructions that Cascade always follows, similar to `.windsurfrules` but managed through the UI. Think of Memories as dynamic context that grows as you work, and Rules as standing constraints. To manage Memories, open Cascade settings (gear icon in the sidebar) and navigate to the Memories tab. You can see what Cascade has learned, delete irrelevant or stale entries, and add new ones manually. Rules can be global (applied across all projects) or scoped to the current workspace. For teams, `.windsurfrules` in the repo is usually better because it's version-controlled and shared; individual Memories are better for personal preferences that shouldn't affect your teammates. A common pattern: use Memories to track things Cascade discovered about your codebase ("the auth flow uses a custom JWT implementation, not NextAuth"), and use Rules for preferences ("always suggest error boundaries around async data fetches").
+# Conventions
+- Use async/await, never .then() chains
+- All database calls go in /src/db/*.ts files
+- Error handling: throw typed errors, catch at route level
+- Never commit console.log statements
 
-## Step 8: Set Up Workspace Snippets and prompts.md
+# File structure
+- /src/routes — Express route handlers
+- /src/db — database queries
+- /src/services — business logic
+- /src/types — shared TypeScript types
 
-For prompts you run repeatedly — generating a new API route, creating a component scaffold, running a standard code review checklist — save them as workspace snippets or in a `prompts.md` file at your project root. Windsurf reads `prompts.md` and makes those prompts available via `@prompts` in Cascade, so instead of typing a 200-word prompt from memory, you reference it in two words. Create `prompts.md` with named sections: `## new-api-route`, `## component-scaffold`, `## code-review`. Each section body is the full prompt text with any placeholders noted. When working in Cascade, type `@prompts/new-api-route` and Windsurf injects the prompt — you only fill in the specifics like the route name and expected inputs. This is especially valuable for onboarding new team members: give them a `prompts.md` with your team's standard operations and they can run Cascade workflows correctly from day one without needing to know the conventions by heart.
+# Boundaries
+- Do NOT modify any file in /migrations directly — write a new migration file instead
+- Do NOT change package.json or package-lock.json
+```
 
-## Step 9: Connect MCP Servers
+The more specific your rules, the better Cascade's output. Include your exact library versions, the things your team has decided never to do, and where each concern lives in the repo.
 
-Model Context Protocol (MCP) servers extend Windsurf's Cascade beyond your local file system, letting the AI interact with external tools — databases, APIs, documentation systems, issue trackers — using the same natural-language interface as local file operations. This is what separates a well-configured Windsurf setup from a basic one. To add an MCP server, open Windsurf settings (`Cmd+,`), navigate to the MCP section, and paste the server URL and any required authentication tokens. Windsurf ships with built-in MCP integrations for common tools, and the community maintains a registry of additional ones. Common setups include: a Postgres MCP server so Cascade can run queries and inspect schemas without you writing raw SQL in the chat, a GitHub MCP server so Cascade can read issues and open PRs directly from the editor, and a documentation MCP server so Cascade can fetch current library docs when it encounters unfamiliar APIs. After connecting an MCP server, test it in Cascade: "what tables are in the database?" or "list open issues in this repo." A working connection returns results within a few seconds.
+## Step 4: Configure Cascade Context Mode
 
-## Step 10: Create Your First Project End-to-End
+Cascade has three context modes that control how much of your codebase it reads before generating. Choosing the wrong one is the most common reason Windsurf feels slow or produces inaccurate suggestions. The default is File mode — Cascade reads only your currently open file — which is deliberately conservative. For most real development work where features span multiple files, you'll want to switch to Codebase mode. The mode you choose has a direct impact on both response quality and machine performance, so understanding the tradeoffs before you start using Cascade seriously is worth 5 minutes of your time.
 
-With your environment fully configured, run a complete first project to validate every piece of your Windsurf setup. Create a new folder, open it in Windsurf (`File → Open Folder`), and create your `.windsurfrules` file with your stack details. Switch Cascade to Codebase mode. Then write an outcome-first prompt describing the project: "Create a Next.js 14 App Router project with TypeScript and Tailwind that shows a list of blog posts from a JSON file. Include a `/posts/[slug]` dynamic route and basic dark mode support. Use the `shadcn/ui` card component for the post list." Cascade will scaffold the entire project structure, install dependencies, create the components, and wire up the routes — the same kind of task that benchmarks show completing in under 4 minutes. Review the diff Windsurf shows before accepting it; Cascade is accurate but not infallible, and reviewing its first major output in a new project helps you catch any mismatches between what you meant and what it understood. After accepting, run `npm run dev` and verify the result in your browser.
+| Mode | What It Reads | Best For |
+|------|--------------|----------|
+| **File** | Only the currently open file | Quick edits on isolated files |
+| **Codebase** | Embeds entire repo (< 50k lines) | Multi-file features, refactors |
+| **Explicit @file** | Only files you reference with @ | Targeted work on large repos |
 
-## Windsurf Pricing: Free, Pro, Teams, and Enterprise
+**To set context mode:** Open Cascade panel (`Cmd+L` / `Ctrl+L`), click the context dropdown at the top.
 
-Windsurf's pricing is tiered by Cascade usage, not by seat count or model access, which makes the math straightforward for teams trying to forecast costs. The **Free tier** ($0) includes 25 Cascade flow actions per month, basic AI completions, and all editor features. This is enough to evaluate the tool seriously but not for daily professional use — 25 flow actions disappears in two or three working sessions. **Pro** ($15/month) removes the flow action cap and adds priority access to the latest models — this is the right choice for individual developers who use Cascade regularly. **Teams** ($30/user/month) adds collaboration features, shared rules and snippets, centralized billing, and usage analytics. **Enterprise** pricing is custom and adds SSO (SAML, OIDC), FedRAMP High compliance, HIPAA, SOC 2 Type II, RBAC, hybrid deployment options, and dedicated support. The comparison to Cursor Pro at $20/month makes Windsurf 25% cheaper for agent-heavy workflows where you're primarily using the AI agent rather than the inline completion features.
+For projects under 50k lines, switch to Codebase mode. The first time you do this, Windsurf scans and indexes your repo — 30-120 seconds depending on size. After that, index updates are incremental.
 
-### Pricing at a Glance
+On repos over 50k lines or on 8GB RAM machines, use explicit `@file` references instead: `@src/auth/middleware.ts update this to support OAuth2 PKCE flow`.
 
-| Tier | Price | Cascade Actions | Best For |
-|------|-------|-----------------|----------|
-| Free | $0 | 25/month | Evaluation |
-| Pro | $15/month | Unlimited | Individual devs |
-| Teams | $30/user/month | Unlimited | Small–mid teams |
-| Enterprise | Custom | Unlimited | Large orgs, compliance |
+## Step 5: Run Your First Cascade Flow
+
+A Cascade Flow is a multi-step agentic task. You describe the outcome; Cascade reads the relevant files, writes a plan, executes it across multiple files, runs tests, fixes failures, and reports back. Open the Cascade panel with `Cmd+Shift+L` (macOS) or `Ctrl+Shift+L` (Windows/Linux). The key shift in mindset from Copilot or Cursor is that you stop describing steps and start describing end states. In benchmarks from devtoolsreview.com, Cascade completed a Redis rate-limiting implementation in 3.5 minutes versus 45-60 minutes manually — reading files, writing middleware, adding env vars, applying routes, writing tests, and fixing test failures autonomously. Cascade works correctly on clearly scoped tasks about 75-80% of the time.
+
+**Outcome-first prompt example:**
+```
+Add rate limiting middleware to all /api routes. Use Redis via ioredis.
+Limit to 100 requests per minute per IP. Return 429 with Retry-After header.
+Add integration tests in /tests/rate-limiting.test.ts.
+```
+
+**What to avoid:** Don't write step-by-step instructions like "First read middleware.ts, then add a new file..." — Cascade plans steps internally. Describe the end state, not the path.
+
+When Cascade enters a loop (you'll see it running the same commands repeatedly), interrupt with `Cmd+K` / `Ctrl+K` and break the task into smaller pieces.
+
+## Step 6: Set Up Memories and Rules for Persistent AI Behavior
+
+Windsurf has two persistence mechanisms beyond `.windsurfrules` that let you encode preferences once and have Cascade apply them automatically forever after. Memories are personal facts Cascade stores about your working style, stored in your Windsurf account and applying across all your projects. Global Rules are project-agnostic preferences that sit above your `.windsurfrules` in the priority chain. Together with `.windsurfrules`, these three layers let you encode your entire development philosophy once and stop repeating yourself every session. Understanding the priority order prevents confusion when Cascade seems to ignore something you've told it: Global Rules override everything, then `.windsurfrules`, then Memories, then your current prompt.
+
+**Memories** — Open Cascade → click the brain icon → "Manage Memories." Tell Cascade to remember something inline: `@Cascade remember: we never use moment.js, always date-fns`.
+
+**Global Rules** — Go to **Settings → Windsurf → Cascade → Rules** and add rules like "Always use TypeScript strict mode" or "Prefer functional components in React."
+
+The priority order is: Global Rules → .windsurfrules → Memories → your prompt.
+
+## Step 7: Set Up Workspace Snippets and prompts.md
+
+For prompts you type repeatedly, Windsurf supports a `prompts.md` shortcut system that saves keystrokes and ensures consistent prompting across your team. Create a `prompts.md` file at your repo root — each H2 heading becomes a named snippet accessible by typing `/` in the Cascade panel. This is one of the most underused features in Windsurf: teams that skip it end up with each developer writing their own variation of the same test-generation or code-review prompt, producing inconsistent Cascade outputs. A `prompts.md` committed to git means every developer uses the same tested, refined prompt templates for common tasks like writing tests, reviewing diffs, or generating documentation. It eliminates prompt quality variance that makes AI output inconsistent across team members, and it compounds over time as your team refines and improves the templates together.
+
+Example `prompts.md`:
+```markdown
+## write-test
+Write a Jest integration test for the function I have selected.
+Use supertest for HTTP tests. Mock external APIs with nock.
+
+## review-pr
+Review this diff for: security issues, missing error handling,
+N+1 queries, and consistency with our coding conventions.
+
+## explain
+Explain what this code does, including non-obvious side effects.
+Assume the reader knows the language but not this codebase.
+```
+
+Type `/write-test` in the Cascade panel to insert the full prompt template.
+
+## Step 8: Connect MCP Servers to Extend Cascade
+
+Model Context Protocol (MCP) servers let Cascade access external tools — databases, APIs, GitHub, Slack, file systems. This is one of Windsurf's most powerful but least-configured features among new users. Once connected, an MCP server gives Cascade live context it can't get from reading source code alone. A database MCP server, for example, lets Cascade query your actual schema before writing a migration — eliminating the column-name hallucinations that make AI-generated SQL unreliable. Teams that add a database MCP server on day one report Cascade generating syntactically correct SQL on first attempt over 80% of the time, compared to frequent schema mistakes without it.
+
+**To add an MCP server:** Go to **Settings → Windsurf → Cascade → MCP Servers** → click "Add Server."
+
+Example: connecting to a local PostgreSQL database:
+```json
+{
+  "name": "postgres",
+  "command": "npx",
+  "args": ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost:5432/mydb"]
+}
+```
+
+Common MCP servers to add early:
+- `@modelcontextprotocol/server-github` — PR creation, issue lookup
+- `@modelcontextprotocol/server-filesystem` — read/write access outside the current project
+- `@modelcontextprotocol/server-postgres` or `server-sqlite` — database access
+
+## Step 9: Creating Your First Full Project With Cascade
+
+Here's a concrete walkthrough: scaffolding a new Express API from scratch using Windsurf's built-in project generation. This covers the complete first-use experience from blank canvas to a working API with authentication and tests — the kind of greenfield task where Windsurf genuinely outperforms every other AI coding tool available in 2026. The goal isn't just to see Cascade write code; it's to build the habit of outcome-first prompting and understand where to intervene when Cascade needs guidance.
+
+1. Open Windsurf → click "Generate a project" from the welcome screen (or Command Palette: "Windsurf: New AI Project")
+2. Describe the project: `Express REST API with TypeScript, PostgreSQL, JWT auth, and Jest tests. Users can create accounts, login, and manage todos.`
+3. Windsurf generates the initial scaffold, installs dependencies, and opens the project
+4. Immediately create your `.windsurfrules` file with the stack details
+5. Switch Cascade to Codebase context mode
+6. Add your first feature: `Add the todo CRUD endpoints. Include validation with zod. All routes should require JWT authentication. Write tests.`
+
+Cascade will read the existing auth middleware, understand the schema, write route handlers, add zod validation, update the router index, and write tests. Review the diff before accepting — check migration files and security-critical paths carefully.
+
+## Windsurf Pricing: What You Get at Each Tier
+
+| Plan | Price | Cascade Flow Actions | Best For |
+|------|-------|---------------------|----------|
+| **Free** | $0/month | 25/month | Evaluation, hobby projects |
+| **Pro** | $15/month | Unlimited | Individual developers |
+| **Teams** | $30/user/month | Unlimited + collab | Small-to-mid teams |
+| **Enterprise** | Custom | Unlimited + private models | SOC2/FedRAMP/HIPAA needs |
+
+For context: Cursor Pro is $20/month. Windsurf Pro at $15/month is the more affordable option for developers who lean heavily on agentic flows. The free tier's 25 flow actions/month is enough to evaluate the tool but a typical workday of serious development burns 15-30 actions, making the free tier insufficient for daily use. Windsurf reported $82M ARR with 350+ enterprise customers as of July 2025, with 4,000+ enterprises in production and 59% of Fortune 500 companies building with it. Enterprise features include SSO, RBAC, audit logs, SOC 2 Type II compliance, FedRAMP High authorization, HIPAA compliance, and hybrid/on-premise deployment.
 
 ## Troubleshooting Common Setup Issues
 
-Most Windsurf setup problems fall into three categories that each have straightforward fixes. **macOS Gatekeeper blocks**: If Windsurf won't open because macOS "cannot verify the developer," open System Preferences → Privacy & Security and click "Open Anyway" — this is a one-time step and the app opens normally afterward. **Ubuntu dependency failures**: If Windsurf installs but won't launch on Ubuntu, run `sudo apt-get install -f` to pull any missing shared libraries, then relaunch. **Cascade execution loops**: If Cascade runs for more than 10 minutes without producing output or finishing, it has hit an ambiguous requirement or a circular dependency in its reasoning. Press `Esc` in the Cascade sidebar to cancel, reread your original prompt, identify what was unclear or contradictory, and break the task into smaller steps before re-running. The 75–80% success rate on clearly scoped tasks means the remaining 20–25% is almost always a prompt specificity problem, not a model limitation. **High memory usage**: if Windsurf is consuming excessive RAM, switch from Codebase mode to File mode for the current session — this disables the project-wide index and reduces memory footprint significantly.
+**macOS Gatekeeper blocks Windsurf on launch:**
+Go to System Settings → Privacy & Security → scroll down → "Open Anyway." One-time step for apps downloaded outside the App Store.
 
-## Windsurf vs. Cursor: Different Setup Philosophies
+**Cascade enters an execution loop:**
+Press `Cmd+K` / `Ctrl+K` to interrupt. The most common cause is an ambiguous task scope or a missing dependency. Break the task into smaller pieces and be explicit about constraints.
 
-Understanding the philosophical difference between Windsurf and Cursor setup helps you configure each one correctly — and helps you decide which fits your workflow before investing time in configuration. Cursor's setup emphasizes fine-grained control: you configure which files the AI can see, how much context to include, and when it can make unsupervised changes. It's a precision instrument designed for developers who want to review every AI suggestion before it lands. Windsurf's setup is about building contextual trust: you write a `.windsurfrules` file that gives Cascade enough background to act autonomously, then describe outcomes instead of steps. The practical difference shows up in autocomplete: Cursor's multi-line completions are immediately usable 68–72% of the time, while Windsurf's completions are more conservative but more accurate when they do appear. For developers who prefer reviewing every suggestion, Cursor feels more natural. For developers who want to describe an outcome and handle the result, Windsurf's Cascade delivers. At $15/month vs. Cursor's $20/month, Windsurf costs 25% less for agent-heavy users.
+**Codebase context mode is slow or crashes:**
+Add a `.codeiumignore` file (same syntax as `.gitignore`) to exclude `node_modules`, `dist`, `.git`, large binary assets, and generated files. Also exclude directories over 5MB.
 
-## Tips for Enterprise Teams
+**Extensions conflict with Windsurf:**
+Disable other AI completion extensions (Copilot, Tabnine, Codeium standalone). They compete for the same completion hooks and cause latency spikes or silent failures.
 
-Enterprise Windsurf deployments require a few additional setup steps beyond the standard installation process. SSO integration (SAML 2.0 or OIDC) is configured in the Windsurf enterprise admin console — you'll need the identity provider metadata URL and to whitelist Windsurf's assertion consumer service URL in your IdP. Plan for a 30–60 minute SSO setup session with your IT team. RBAC allows you to define which teams have access to which MCP servers and which Cascade capabilities; this is critical in regulated industries where you don't want developers querying production databases via Cascade without controls. FedRAMP High and HIPAA compliance are enabled at the tenant level, not the individual account level — coordinate with your Windsurf account team to activate these before your first production deployment, not after. The 4,000+ enterprises currently in production on Windsurf have largely standardized on centralized `.windsurfrules` files stored in a shared repository that teams fork for their specific projects. This is the fastest path to consistent AI behavior across a large engineering organization and eliminates the "everyone has different Cascade behavior" problem that emerges when teams configure independently.
+**VS Code settings didn't import correctly:**
+Open Command Palette → "Open User Settings (JSON)" and verify `~/.config/windsurf/User/settings.json`. Most VS Code settings keys work unchanged in Windsurf.
+
+## Windsurf vs Cursor Setup: Different Philosophies
+
+Windsurf and Cursor are both serious AI coding tools, but their setup process reveals fundamentally different workflow philosophies — and choosing the wrong one for your team's working style is a common source of frustration. Windsurf optimizes for autonomous, outcome-driven work: configure it once with `.windsurfrules` and context mode, then describe what you want to build. Cursor optimizes for precision: inline suggestions and targeted edits where you maintain tight control over each change. In benchmark tests, Windsurf's Cascade completed a Redis rate-limiting task in 3.5 minutes with zero step-by-step guidance; Cursor would have required more manual steering for the same task. Understanding which philosophy fits your team saves weeks of adapting to the wrong tool.
+
+| Aspect | Windsurf | Cursor |
+|--------|----------|--------|
+| **Core model** | Autonomous agent (Cascade) | Precision edit assistant |
+| **Setup config** | .windsurfrules + context mode | .cursorrules + context files |
+| **Autocomplete** | Conservative, high accuracy | Aggressive, 68-72% immediate usability |
+| **Best for** | Greenfield features, prototyping | Targeted refactors, surgical edits |
+| **Price** | $15/month Pro | $20/month Pro |
+| **Weakness** | Loops on multi-constraint tasks | Codebase-wide agentic tasks |
+
+Windsurf is better when you frequently build new features and prefer describing outcomes. Cursor is better when you work on mature, large codebases and want precise, predictable suggestions. Many teams use both.
+
+## Enterprise Teams: SSO, FedRAMP, and RBAC Setup
+
+For teams on the Enterprise plan, setup involves three additional steps beyond the standard installation that enable the compliance and access control features that make Windsurf viable in regulated industries. Windsurf achieved FedRAMP High authorization and HIPAA compliance in 2025, making it one of the few AI coding tools cleared for federal and healthcare environments. The enterprise setup process follows a standard identity provider integration pattern, so if your team already uses Okta, Azure AD, or Google Workspace, SSO configuration takes under 30 minutes. RBAC setup follows after SSO and controls which developers can use which Cascade features.
+
+**SSO configuration:** Admin panel → Settings → Authentication → "Enable SSO." Supports SAML 2.0 and OIDC. Paste your IdP metadata URL (Okta, Azure AD, Google Workspace all work). Test before rollout.
+
+**RBAC setup:** Admin panel → Policies → define roles. Typical setup: developers get full Cascade access, contractors get File context mode only, read-only reviewers can see AI suggestions but not trigger flows.
+
+**FedRAMP / HIPAA:** For government or healthcare deployments, contact enterprise sales for hybrid deployment — Cascade inference runs on-premise with your data never leaving your infrastructure.
+
+**Audit logs:** Admin panel → Audit Log. Captures every Cascade flow, every file written, every terminal command, and every external API call. Required for SOC 2 Type II reviews.
 
 ## FAQ
 
-These are the most common questions developers ask when setting up Windsurf IDE for the first time. Windsurf's free tier gives you 25 Cascade flow actions per month — enough for evaluation but not for sustained daily use. The Pro plan at $15/month removes that cap and adds priority model access, making it the right choice for anyone using Cascade more than a few times per week. The setup questions below — importing VS Code settings, configuring `.windsurfrules`, choosing the right context mode — are the configuration decisions that have the highest impact on your first week productivity. Getting them right before you start your first real project saves hours of re-prompting and configuration mid-task. The Cascade execution loop question is the most common support issue; the answer is almost always prompt specificity, not a model failure.
+**Can I use Windsurf without a paid subscription?**
+Yes. The free tier gives you 25 Cascade flow actions per month, unlimited autocomplete suggestions, and access to base models. For occasional or evaluation use, the free tier works. For daily development, most developers find they need Pro ($15/month) within the first week since a typical workday burns 15-30 flow actions.
 
-### Is Windsurf IDE free to use?
+**How do I import my VS Code extensions into Windsurf?**
+During onboarding, select "Import from VS Code." Afterward, use the Command Palette and search "Install Extensions from VS Code." Extensions requiring VS Code's proprietary APIs or competing AI completion extensions (Copilot, Tabnine) won't work and will be flagged automatically.
 
-Yes, Windsurf has a free tier that includes 25 Cascade flow actions per month, unlimited AI completions, and all editor features. The free tier is sufficient for evaluation but limited for daily professional use — 25 flow actions typically runs out within a few working sessions. Pro at $15/month removes the Cascade action cap entirely.
+**What's the difference between Cascade flows and regular chat?**
+Regular chat (`Cmd+L`) gives you a conversational interface for questions and suggestions you apply manually. Cascade flows (`Cmd+Shift+L`) give Cascade permission to read files, write code, run terminal commands, and execute multi-step plans autonomously. Flows consume from your monthly action quota; chat does not.
 
-### How do I import my VS Code settings into Windsurf?
+**How does .windsurfrules differ from Memories?**
+`.windsurfrules` is project-specific, checked into git, and applies to everyone on the team. Memories are personal, stored in your Windsurf account, and apply across all your projects. Use `.windsurfrules` for team conventions and stack definitions. Use Memories for personal preferences like "always add JSDoc to public functions."
 
-During the onboarding wizard, select "Import from VS Code." If you've already completed onboarding, open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`) and search "Import Settings." Windsurf reads extensions, keybindings, and settings from VS Code's config folder automatically. Incompatible extensions — other AI completions, some proprietary tools — will be flagged and skipped.
-
-### What is the `.windsurfrules` file and do I need one?
-
-The `.windsurfrules` file is a plain text file at your project root that tells Cascade your stack, coding conventions, and constraints before each session. You don't technically need one — Windsurf works without it — but it's the highest-leverage configuration you can make. It cuts prompt length roughly in half by eliminating the need to re-establish project context on every query.
-
-### When should I use Codebase context mode vs. File mode?
-
-Use Codebase mode for any multi-file task: refactoring, adding a feature that touches multiple files, debugging across modules, or asking architectural questions about your project. Use File mode for single-file edits on large projects (over 50,000 lines) where you need faster responses, or on machines with only 8GB RAM. Codebase mode is more powerful but requires 16GB RAM for comfortable use.
-
-### How do I stop Cascade from getting stuck in an execution loop?
-
-If Cascade runs for more than 10 minutes without completing, press `Esc` in the Cascade sidebar to cancel. Reread your original prompt and identify what was ambiguous — execution loops usually happen when requirements are contradictory or when the task has hidden preconditions, like a missing environment variable or an uninstalled dependency. Break the task into two smaller steps, add the missing constraint, and re-run.
+**Is Windsurf safe for codebases with proprietary or sensitive code?**
+Windsurf offers enterprise options with SOC 2 Type II, FedRAMP High, and HIPAA compliance, plus hybrid/on-premise deployment where Cascade inference runs within your infrastructure. For standard cloud plans, code is sent to Codeium's servers for AI inference. Review Windsurf's data processing agreement before using it on codebases with contractual data residency requirements.
