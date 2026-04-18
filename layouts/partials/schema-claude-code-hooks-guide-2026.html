@@ -1,0 +1,72 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Code Hooks Guide 2026: Automate Your Workflow with Shell Triggers",
+  "description": "Complete Claude Code hooks guide: configure shell triggers for auto-formatting, security gates, and CI/CD integration with all 18 hook events.",
+  "image": "/images/claude-code-hooks-guide-2026.png",
+  "datePublished": "2026-04-18T10:04:50Z",
+  "author": {
+    "@type": "Person",
+    "name": "AI Blog"
+  },
+  "articleSection": "Developer Tools",
+  "keywords": [
+    "claude code",
+    "developer tools",
+    "automation",
+    "AI coding",
+    "hooks",
+    "shell triggers",
+    "CI/CD integration"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between Claude Code hooks and CLAUDE.md instructions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CLAUDE.md is a text file that Claude reads as part of its context — it informs the model's behavior but is interpreted by the LLM, not enforced by the system. Hooks in `settings.json` are deterministic shell commands that run unconditionally at lifecycle events. Hooks cannot be forgotten, ignored, or misinterpreted. Use CLAUDE.md for project context and preferences; use hooks for policies that must never fail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude Code hooks block an action permanently, or just warn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Exit code 2 hard-blocks the tool call and surfaces an error message to the developer. The action never executes. Exit code 0 allows execution to proceed. Any other exit code logs a warning but does not block. To permanently block a pattern, use `exit 2` in a `PreToolUse` hook targeting the relevant tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I share hooks across my entire team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Create a `.claude/settings.json` file at your project root (not `~/.claude/settings.json`, which is user-level). Add your hooks there and commit it to version control. Every developer who clones the repository automatically gets the hooks applied to their Claude Code sessions for that project."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What changed in the March 2026 hook update?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The March 2026 update expanded the hook event system from 10 to 18 events. New events include `StopFailure`, `SubagentStart`, `SubagentStop`, `ConfigChange`, `PreCompact`, `PostCompact`, and two MCP elicitation support events. The update also added automatic subprocess credential scrubbing, which strips common credential patterns from hook environment variables before passing them to subprocess commands."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I debug a hook that silently fails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add explicit logging to stderr in your hook script: `echo \"[hook debug] Tool: $CLAUDE_TOOL_NAME, Path: $CLAUDE_TOOL_OUTPUT_PATH\" >&2`. Claude Code captures stderr output from hooks and displays it in the session. Then test the script manually by exporting the relevant environment variables and running the script directly in your terminal to isolate environment issues."
+      }
+    }
+  ]
+}
+</script>
