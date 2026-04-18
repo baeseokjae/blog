@@ -2665,5 +2665,58 @@
     "cluster": "LLM comparison",
     "discovered_at": "2026-04-18",
     "notes": "EU vs China open-weight showdown. Mistral Medium 3 (EU compliance) vs Qwen 3.6 Plus (coding leader). Different strengths, different licensing. Low KD comparison gap."
+  },
+  {
+    "title": "Anthropic Agentic Coding Trends Report 2026",
+    "slug": "anthropic-agentic-coding-trends-2026",
+    "keyword": "anthropic agentic coding trends 2026",
+    "type": "guide",
+    "priority": "234",
+    "status": "queued",
+    "search_volume_est": 400,
+    "kd_est": 6,
+    "cluster": "AI coding tools",
+    "discovered_at": "2026-04-18",
+    "notes": "Anthropic's official 2026 report. 8 trends: multi-agent systems, expanded task duration, engineering role shift. Key stat: devs use AI 60% of work but fully delegate only 0-20%. High developer interest, moderate competition."
+  },
+  {
+    "title": "Cursor Claude Code Codex Composable Stack 2026",
+    "slug": "cursor-claude-code-codex-stack-2026",
+    "keyword": "cursor claude code codex workflow integration",
+    "type": "guide",
+    "priority": "235",
+    "status": "queued",
+    "search_volume_est": 300,
+    "kd_est": 5,
+    "cluster": "AI coding tools",
+    "discovered_at": "2026-04-18",
+    "notes": "The New Stack article signals emerging trend: orchestration (Cursor) + execution (Claude Code) + review (Codex) layers used together. OpenAI published a Claude Code plugin. Early mover on the composable AI coding stack narrative."
+  },
+  {
+    "title": "OpenAI Agents SDK v2 Update Guide 2026",
+    "slug": "openai-agents-sdk-v2-guide-2026",
+    "keyword": "openai agents sdk update 2026",
+    "type": "guide",
+    "priority": "236",
+    "status": "queued",
+    "search_volume_est": 250,
+    "kd_est": 5,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-18",
+    "notes": "April 15, 2026 release. Configurable memory, sandbox-aware orchestration, Codex-like filesystem tools, standardized integrations. Complements existing openai-agents-sdk-tutorial-2026 (seeded) \u2014 update angle differentiated."
+  },
+  {
+    "title": "LLM Coding Workflow Guide 2026: How Top Developers Structure AI-Assisted Development",
+    "slug": "llm-coding-workflow-guide-2026",
+    "keyword": "LLM coding workflow 2026",
+    "type": "guide",
+    "priority": "237",
+    "status": "published",
+    "paperclip_issue": "ROC-478",
+    "search_volume_est": 1100,
+    "kd_est": 6,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-18",
+    "notes": "Published on 2026-04-18"
   }
 ]
