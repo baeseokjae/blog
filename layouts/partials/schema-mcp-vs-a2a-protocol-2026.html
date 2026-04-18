@@ -1,0 +1,66 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "MCP vs A2A Protocol 2026: Understanding the Two Standards for AI Agent Communication",
+  "description": "MCP connects agents to tools; A2A connects agents to agents. Here's how both protocols work, when to use each, and why production systems need both.",
+  "datePublished": "2026-04-18",
+  "dateModified": "2026-04-18",
+  "author": {
+    "@type": "Organization",
+    "name": "AI/Tech Blog"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI/Tech Blog"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is MCP or A2A better?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They serve different purposes, so \"better\" isn't the right framing. MCP is better for connecting an agent to tools and APIs. A2A is better for connecting agents to each other. Most production multi-agent systems in 2026 use both: MCP inside each agent for its specific capabilities, A2A between agents for coordination and delegation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use MCP without A2A?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. If you're building a single agent that calls external tools — a coding assistant, a research agent, a customer support bot — MCP alone is sufficient. You only need A2A when you have multiple agents that need to delegate work to each other. Many successful production systems use MCP without A2A."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need both MCP and A2A for a multi-agent system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. Small multi-agent systems with a fixed, well-known set of agents often communicate via direct function calls or a shared message queue without needing A2A. A2A adds value when agents need to cross organizational boundaries, when you need capability discovery via Agent Cards, or when task state tracking is important. Evaluate the complexity before adding A2A."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happened to IBM's ACP protocol?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IBM's Agent Communication Protocol (ACP), launched March 2025, merged into A2A by August 2025. IBM's ideas and contributions — particularly around stateful task lifecycle and enterprise governance — were incorporated into the A2A specification. IBM is now a contributor to A2A via the AAIF. This consolidation is healthy: fewer fragmented standards means more interoperability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is MCP secure enough for production use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With proper configuration, yes — but defaults are not secure. 53% of deployed MCP servers use static credentials instead of OAuth, and CVE-2025-6514 exposed 437,000+ installations to shell injection. For production deployment: require OAuth 2.0, sanitize all tool inputs, scope server permissions minimally, and audit third-party MCP servers before deploying them. The security tooling is maturing rapidly under AAIF governance."
+      }
+    }
+  ]
+}
+</script>
