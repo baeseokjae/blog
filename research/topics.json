@@ -2718,5 +2718,18 @@
     "cluster": "AI for developers",
     "discovered_at": "2026-04-18",
     "notes": "Published on 2026-04-18"
+  },
+  {
+    "title": "JetBrains AI vs GitHub Copilot vs Cursor 2026: Best AI IDE for Java and Kotlin Devs",
+    "slug": "jetbrains-ai-vs-github-copilot-vs-cursor-2026",
+    "keyword": "jetbrains ai vs github copilot 2026",
+    "type": "comparison",
+    "status": "published",
+    "paperclip_issue": "ROC-880",
+    "search_volume_est": 400,
+    "kd_est": 9,
+    "cluster": "AI coding tools",
+    "discovered_at": "2026-04-18",
+    "notes": "Published on 2026-04-18. Java/Kotlin focused comparison."
   }
 ]
