@@ -3,41 +3,28 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "How to Set Up Windsurf IDE 2026: Installation, Config, and First Project",
-  "description": "Complete guide to installing and configuring Windsurf IDE in 2026 — from download to your first Cascade flow in under 20 minutes.",
-  "datePublished": "2026-04-17T22:05:45+00:00",
-  "dateModified": "2026-04-17T22:05:45+00:00",
+  "description": "Complete 2026 guide to installing and configuring Windsurf IDE — from download to your first Cascade flow in 20 minutes.",
+  "image": "https://baeseokjae.github.io/images/windsurf-setup-tutorial-2026.png",
+  "datePublished": "2026-04-17T23:15:00+00:00",
+  "dateModified": "2026-04-17T23:15:00+00:00",
   "author": {
     "@type": "Organization",
-    "name": "RockyBlog"
+    "name": "RockB",
+    "url": "https://baeseokjae.github.io"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "RockyBlog"
+    "name": "RockB",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://baeseokjae.github.io/images/og-default.png"
+    }
   },
-  "image": "/images/windsurf-setup-tutorial-2026.png",
-  "keywords": "setup Windsurf IDE 2026, install Windsurf IDE, Windsurf tutorial 2026, Windsurf Cascade setup, .windsurfrules configuration, Windsurf IDE installation guide",
-  "articleSection": "Tutorial",
-  "about": {
-    "@type": "SoftwareApplication",
-    "name": "Windsurf IDE",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "macOS, Windows, Linux",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Free",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      {
-        "@type": "Offer",
-        "name": "Pro",
-        "price": "15",
-        "priceCurrency": "USD",
-        "billingIncrement": "P1M"
-      }
-    ]
-  }
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://baeseokjae.github.io/posts/windsurf-setup-tutorial-2026/"
+  },
+  "keywords": "setup Windsurf IDE 2026, install Windsurf IDE, Windsurf tutorial 2026, Windsurf Cascade setup, windsurfrules configuration, Windsurf IDE installation guide"
 }
 </script>
 <script type="application/ld+json">
@@ -47,42 +34,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How long does Windsurf setup take from download to first Cascade flow?",
+      "name": "Is Windsurf IDE free to use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "With a .windsurfrules file and Codebase context mode configured, the full setup takes 15-20 minutes — download, install, onboarding, and your first successful Cascade flow. Most of that time is indexing your project."
+        "text": "Yes, Windsurf has a free tier that includes 25 Cascade flow actions per month, unlimited AI completions, and all editor features. The free tier is sufficient for evaluation but limited for daily professional use — 25 flow actions typically runs out within a few working sessions. Pro at $15/month removes the Cascade action cap entirely."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use Windsurf if I'm already using GitHub Copilot?",
+      "name": "How do I import my VS Code settings into Windsurf?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, but you must disable GitHub Copilot (and any other AI autocomplete extension) in Windsurf. Both try to control the editor's completion API — running them simultaneously causes degraded suggestions from both. Use Windsurf with Codeium's completion engine, which is included."
+        "text": "During the onboarding wizard, select 'Import from VS Code.' If you've already completed onboarding, open the Command Palette (Cmd+Shift+P / Ctrl+Shift+P) and search 'Import Settings.' Windsurf reads extensions, keybindings, and settings from VS Code's config folder automatically. Incompatible extensions — other AI completions, some proprietary tools — will be flagged and skipped."
       }
     },
     {
       "@type": "Question",
-      "name": "What happens when Cascade runs out of free tier flow actions?",
+      "name": "What is the .windsurfrules file and do I need one?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "After 25 flow actions on the free tier, Cascade stops executing autonomous plans. Chat and single-file autocomplete still work. Upgrade to Pro ($15/month) for unlimited flow actions or wait for the monthly reset."
+        "text": "The .windsurfrules file is a plain text file at your project root that tells Cascade your stack, coding conventions, and constraints before each session. You don't technically need one — Windsurf works without it — but it's the highest-leverage configuration you can make. It cuts prompt length roughly in half by eliminating the need to re-establish project context on every query."
       }
     },
     {
       "@type": "Question",
-      "name": "Is Windsurf safe to use with sensitive codebases?",
+      "name": "When should I use Codebase context mode vs. File mode?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Windsurf sends code to Codeium's servers for context processing by default. Enterprise plan users can configure hybrid or on-premises deployment to keep code in their own infrastructure. SOC 2 Type II and FedRAMP High certifications are available for compliance documentation."
+        "text": "Use Codebase mode for any multi-file task: refactoring, adding a feature that touches multiple files, debugging across modules, or asking architectural questions about your project. Use File mode for single-file edits on large projects (over 50,000 lines) where you need faster responses, or on machines with only 8GB RAM. Codebase mode is more powerful but requires 16GB RAM for comfortable use."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the .windsurfrules file and do I need it?",
+      "name": "How do I stop Cascade from getting stuck in an execution loop?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": ".windsurfrules is a plain-text file at your project root that tells Cascade your stack, conventions, and limits before every interaction. You don't need it — Windsurf works without it — but it significantly improves Cascade output quality on existing codebases. Most experienced Windsurf users consider it the first configuration step, not an optional extra."
+        "text": "If Cascade runs for more than 10 minutes without completing, press Esc in the Cascade sidebar to cancel. Reread your original prompt and identify what was ambiguous — execution loops usually happen when requirements are contradictory or when the task has hidden preconditions, like a missing environment variable or an uninstalled dependency. Break the task into two smaller steps, add the missing constraint, and re-run."
       }
     }
   ]
