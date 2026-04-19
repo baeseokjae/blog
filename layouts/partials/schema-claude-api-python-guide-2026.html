@@ -4,76 +4,11 @@
   "@type": "Article",
   "headline": "How to Use Claude API in Python 2026: Complete Developer Guide",
   "description": "Step-by-step Claude API Python tutorial: install the SDK, send messages, use streaming, tool use, and prompt caching with real code examples.",
-  "image": "https://rocketcoding.com/images/claude-api-python-guide-2026.png",
-  "datePublished": "2026-04-18T08:46:52+00:00",
-  "dateModified": "2026-04-18T08:46:52+00:00",
+  "datePublished": "2026-04-18T08:46:52Z",
   "author": {
     "@type": "Organization",
-    "name": "Rocket Coding",
-    "url": "https://rocketcoding.com"
+    "name": "Blog"
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Rocket Coding",
-    "url": "https://rocketcoding.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://rocketcoding.com/images/logo.png"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://rocketcoding.com/posts/claude-api-python-guide-2026/"
-  },
-  "keywords": ["Claude API Python", "Anthropic SDK Python", "Claude API tutorial", "Python LLM integration", "Claude streaming Python", "tool use Claude API"],
-  "articleSection": "AI for Developers"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much does the Claude API cost in Python?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Claude API pricing as of 2026: Haiku 4.5 costs $0.80/MTok input and $4/MTok output. Sonnet 4.6 costs $3/MTok input and $15/MTok output. Opus 4.7 costs $15/MTok input and $75/MTok output. With prompt caching enabled, cached input tokens cost 90% less. A typical chatbot processing 1M tokens/month costs roughly $3-15 depending on model choice."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a free tier for the Claude API?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Anthropic offers new accounts $5 in free API credits to test the API. Beyond that, it's pay-as-you-go with no free tier. For prototyping on a budget, use Claude Haiku 4.5 — it's 75% cheaper than Sonnet while handling most straightforward tasks well."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I handle Claude API timeouts in Python?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Set timeout=60.0 on the Anthropic() client for a 60-second total timeout. For streaming requests that may run long, pass timeout=httpx.Timeout(60.0, read=300.0) to allow a longer read timeout while keeping the connection timeout short. The SDK raises anthropic.APITimeoutError on timeout, which you should catch and retry."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Claude API with LangChain or LlamaIndex?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Both LangChain and LlamaIndex have native Claude integrations. LangChain uses ChatAnthropic from langchain_anthropic. LlamaIndex uses Anthropic from llama_index.llms.anthropic. Both support streaming and tool use. However, using the raw anthropic SDK directly gives you access to features like prompt caching that framework wrappers sometimes lag in supporting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the maximum context window for Claude API in Python?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Claude's maximum context window is 200,000 tokens (~150,000 words). This covers a full codebase, a legal document, or many hours of transcript. The max_tokens parameter controls the output size — set it based on expected response length, not the input size. You pay for input tokens regardless of max_tokens; you only pay for output tokens that are actually generated."
-      }
-    }
-  ]
+  "image": "/images/claude-api-python-guide-2026.png"
 }
 </script>

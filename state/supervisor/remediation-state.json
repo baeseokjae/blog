@@ -1,0 +1,535 @@
+{
+  "circuit_breakers": {
+    "1833525a-1cf5-43b9-a4ce-e31a9b412880": {
+      "agent_name": "Analyst",
+      "error_resets": 1,
+      "last_reset": "2026-04-13T16:01:30Z",
+      "frozen_until": null
+    },
+    "d88ae332-76ca-464a-98fd-ace75d19c4fe": {
+      "agent_name": "Researcher",
+      "error_resets": 5,
+      "last_reset": "2026-04-18T06:04:20Z",
+      "frozen_until": null,
+      "note": "Reset at 06:04 (5th total reset). ROC-863 HIGH issue created for recurring error pattern. ROC-862 HIGH issue for max-retry stuck todos (ROC-429..444)."
+    },
+    "16f0b09a-d3f8-4885-aa2a-52e7d67d2267": {
+      "agent_name": "Thumbnail",
+      "error_resets": 3,
+      "last_reset": "2026-04-18T12:01:00Z",
+      "frozen_until": null,
+      "note": "Reset at 12:01 (3rd total reset). ROC-671 HIGH issue still open for config investigation. Next error SHOULD trigger frozen_until + CRITICAL."
+    },
+    "6dab6808-c362-4e11-819b-1f1647e84d40": {
+      "agent_name": "SEO",
+      "error_resets": 1,
+      "last_reset": "2026-04-16T16:05:21Z",
+      "frozen_until": null,
+      "note": "Was idle this run. HIGH issue ROC-669 still open."
+    },
+    "b796bb1c-a6ef-4249-bfa2-554acfc61726": {
+      "agent_name": "Writer",
+      "error_resets": 1,
+      "last_reset": "2026-04-18T00:01:30Z",
+      "frozen_until": null
+    },
+    "458d5ac7-e504-4b95-af7a-a9fdf7151895": {
+      "agent_name": "Strategist",
+      "last_triggered": "2026-04-17T10:04:43Z",
+      "trigger_count_this_hour": 0
+    },
+    "ROC-310": {
+      "issue_identifier": "ROC-310",
+      "issue_id": "8d286348-3408-4a98-824e-7a401d12faf8",
+      "retries": 1,
+      "last_retry": "2026-04-14T04:07:30Z",
+      "frozen_until": null,
+      "retry_issue_id": "e5de8d22-249d-4cd3-8ea7-d718b29959ce",
+      "retry_identifier": "ROC-386"
+    },
+    "ROC-315": {
+      "issue_identifier": "ROC-315",
+      "issue_id": "39c4b980-4611-414c-a6bb-4c043f9a0aae",
+      "retries": 1,
+      "last_retry": "2026-04-14T16:02:00Z",
+      "frozen_until": null,
+      "retry_issue_id": "6713afe4-173f-4c03-a279-18ae8faceafa",
+      "retry_identifier": "ROC-396"
+    },
+    "ROC-324": {
+      "issue_identifier": "ROC-324",
+      "issue_id": "ROC-324",
+      "type": "stuck_todo",
+      "retries": 1,
+      "last_retry": "2026-04-14T22:01:30Z",
+      "frozen_until": null,
+      "action": "woke_researcher"
+    },
+    "ROC-317": {
+      "issue_identifier": "ROC-317",
+      "issue_id": "74189002-cc7e-4717-ad2d-fe8794d659eb",
+      "type": "zombie",
+      "retries": 1,
+      "last_retry": "2026-04-15T04:07:00Z",
+      "frozen_until": null,
+      "retry_issue_id": "4db5f71c-6481-4a26-937b-bb712e4b6a62",
+      "retry_identifier": "ROC-407"
+    },
+    "ROC-351": {
+      "issue_identifier": "ROC-351",
+      "issue_id": "669c3b84-07f0-40b6-bf66-5517b0a76bff",
+      "type": "zombie",
+      "retries": 2,
+      "last_retry": "2026-04-16T10:02:50Z",
+      "frozen_until": null,
+      "retry_issue_id": "3570798b-afb1-4518-ae2e-89c1bcd5453d",
+      "retry_identifier": "ROC-414",
+      "note": "2nd retry ROC-455 also zombie+cancelled. Max retries exceeded. HIGH issue ROC-573 created."
+    },
+    "ROC-329": {
+      "issue_identifier": "ROC-329",
+      "type": "stuck_todo",
+      "retries": 1,
+      "last_retry": "2026-04-15T10:03:26Z",
+      "frozen_until": null,
+      "action": "woke_publisher"
+    },
+    "ROC-334": {
+      "issue_identifier": "ROC-334",
+      "issue_id": "81a61b7d-674e-4158-8a5a-6336873fc3f6",
+      "type": "zombie",
+      "retries": 2,
+      "last_retry": "2026-04-16T10:02:45Z",
+      "frozen_until": null,
+      "retry_issue_id": "46d4f00b-6d37-4817-9bb6-98314f96ee96",
+      "retry_identifier": "ROC-508",
+      "note": "2nd retry ROC-452 also zombie+cancelled. Max retries exceeded. HIGH issue ROC-572 created."
+    },
+    "ROC-520": {
+      "issue_identifier": "ROC-520",
+      "type": "zombie",
+      "retries": 1,
+      "last_retry": "2026-04-16T10:02:30Z",
+      "frozen_until": null,
+      "retry_issue_id": "276efa64-7503-40ef-9987-ff26d2ce7320",
+      "retry_identifier": "ROC-571"
+    },
+    "ROC-571": {
+      "issue_identifier": "ROC-571",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-16T22:02:00Z",
+      "result": "wakeup_skipped",
+      "frozen_until": null,
+      "note": "Max retries exceeded. HIGH issue ROC-671 created. Thumbnail wakeup skipped twice — config issue."
+    },
+    "ROC-519": {
+      "issue_identifier": "ROC-519",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-16T22:02:00Z",
+      "result": "wakeup_skipped",
+      "frozen_until": null,
+      "note": "Max retries exceeded. HIGH issue ROC-669 created. SEO wakeup skipped twice — config issue."
+    },
+    "ROC-513": {
+      "issue_identifier": "ROC-513",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-16T22:02:00Z",
+      "result": "wakeup_skipped",
+      "frozen_until": null,
+      "note": "Max retries exceeded. HIGH issue ROC-669 created (grouped with ROC-519). SEO wakeup skipped twice."
+    },
+    "ROC-610": {
+      "issue_identifier": "ROC-610",
+      "issue_id": "e9a6fbdc-b6b9-4293-baf3-e5538149c9f3",
+      "type": "zombie",
+      "retries": 1,
+      "last_retry": "2026-04-17T10:04:43Z",
+      "frozen_until": null,
+      "retry_issue_id": "2cb46774-d751-405f-ab7d-d137e600bee7",
+      "retry_identifier": "ROC-752"
+    },
+    "ROC-376": {
+      "issue_identifier": "ROC-376",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T00:02:58Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached. HIGH issue ROC-853 created."
+    },
+    "ROC-372": {
+      "issue_identifier": "ROC-372",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T00:02:58Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached. HIGH issue ROC-853 created."
+    },
+    "ROC-380": {
+      "issue_identifier": "ROC-380",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T00:02:58Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached. HIGH issue ROC-853 created."
+    },
+    "ROC-426": {
+      "issue_identifier": "ROC-426",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T00:02:58Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached. HIGH issue ROC-853 created."
+    },
+    "ROC-429": {
+      "issue_identifier": "ROC-429",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T04:04:20Z",
+      "action": "woke_researcher"
+    },
+    "ROC-432": {
+      "issue_identifier": "ROC-432",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T04:04:20Z",
+      "action": "woke_researcher"
+    },
+    "ROC-435": {
+      "issue_identifier": "ROC-435",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T04:04:20Z",
+      "action": "woke_researcher"
+    },
+    "ROC-438": {
+      "issue_identifier": "ROC-438",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T04:04:20Z",
+      "action": "woke_researcher"
+    },
+    "ROC-441": {
+      "issue_identifier": "ROC-441",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T04:04:20Z",
+      "action": "woke_researcher"
+    },
+    "ROC-444": {
+      "issue_identifier": "ROC-444",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T04:04:20Z",
+      "action": "woke_researcher"
+    },
+    "ROC-837": {
+      "issue_identifier": "ROC-837",
+      "issue_id": "4e9e010c-0af1-48ea-ba52-bdc2a5cd0995",
+      "type": "zombie",
+      "retries": 1,
+      "last_retry": "2026-04-18T00:02:00Z",
+      "frozen_until": null,
+      "retry_issue_id": "53ce3238-ff06-464f-8ed7-fbff6f7c3fda",
+      "retry_identifier": "ROC-846"
+    },
+    "ROC-447": {
+      "issue_identifier": "ROC-447",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T06:04:25Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached (2). No further auto-retry."
+    },
+    "ROC-523": {
+      "issue_identifier": "ROC-523",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T06:04:25Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached (2). No further auto-retry."
+    },
+    "ROC-761": {
+      "issue_identifier": "ROC-761",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T09:08:00Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached (2). If still stuck next run, create HIGH issue."
+    },
+    "ROC-760": {
+      "issue_identifier": "ROC-760",
+      "type": "stuck_todo",
+      "retries": 2,
+      "last_retry": "2026-04-18T09:08:00Z",
+      "action": "woke_researcher",
+      "note": "MAX RETRIES reached (2). If still stuck next run, create HIGH issue."
+    },
+    "ROC-535": {
+      "issue_identifier": "ROC-535",
+      "type": "stuck_todo",
+      "retries": 1,
+      "last_retry": "2026-04-18T18:02:15Z",
+      "action": "woke_researcher"
+    },
+    "ROC-541": {
+      "issue_identifier": "ROC-541",
+      "type": "stuck_todo",
+      "retries": 1,
+      "last_retry": "2026-04-19T00:03:58Z",
+      "action": "mention_comment_researcher",
+      "note": "wakeup API blocked; used @mention comment. 1st retry. RESOLVED — status=done."
+    },
+    "ROC-547": {
+      "issue_identifier": "ROC-547",
+      "issue_id": "008f779a-165c-48d6-a110-d4f7829dc245",
+      "type": "stuck_todo",
+      "retries": 1,
+      "last_retry": "2026-04-19T06:03:07Z",
+      "action": "mention_comment_researcher",
+      "comment_id": "938869a5-3b7e-4ad9-9b95-6288c0d2f0ef",
+      "note": "RESOLVED — status=done at 09:01:53. Research completed. ROC-548 Write task created."
+    },
+    "ROC-548": {
+      "issue_identifier": "ROC-548",
+      "issue_id": "a39c93ca-3e50-47d7-bd54-e0026dbc7165",
+      "type": "stuck_todo",
+      "retries": 1,
+      "last_retry": "2026-04-19T10:03:07Z",
+      "action": "mention_comment_writer",
+      "comment_id": "34801def-0069-4f72-b883-506722d778f7",
+      "note": "RESOLVED — Writer completed CrewAI Tutorial. ROC-551 Publish task created at 11:51. No further action needed."
+    },
+    "ROC-550": {
+      "issue_identifier": "ROC-550",
+      "issue_id": "4324da93-61f0-4fa6-8120-fed2e0134dd4",
+      "type": "stuck_todo",
+      "retries": 1,
+      "last_retry": "2026-04-19T16:03:45Z",
+      "action": "mention_comment_thumbnail",
+      "comment_id": "10d55c7e-f92c-4fec-a0a2-3c556f8dd923",
+      "note": "1st retry. Thumbnail idle 62min with todo task. @mention sent. If still stuck next run, create HIGH issue."
+    }
+  },
+  "last_run": "2026-04-19T16:00:58Z",
+  "last_auto_fixes": [
+    {
+      "action": "mention_comment_thumbnail_stuck_todo",
+      "issue": "ROC-550",
+      "method": "@mention comment (wakeup API blocked)",
+      "comment_id": "10d55c7e-f92c-4fec-a0a2-3c556f8dd923",
+      "retry_number": 1,
+      "log": "[Supervisor] Re-triggered Thumbnail for stuck todo ROC-550 via @mention (idle 62min)",
+      "timestamp": "2026-04-19T16:03:45Z"
+    },
+    {
+      "action": "migrate_topic_status",
+      "targets": ["ai-pair-programming-guide-2026","devin-vs-claude-code-vs-swe-agent-2026","openai-codex-vs-github-copilot-2026","llm-context-window-comparison-2026"],
+      "pre_state": "researched",
+      "post_state": "queued",
+      "log": "[Supervisor] Migrated 4 topics researched->queued",
+      "timestamp": "2026-04-19T16:01:30Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 7,
+      "size_note": "Thumbnail(1)+Writer(1)+Publisher(1)+Strategist(1)+ContentDirector(2)+SEO(1)",
+      "timestamp": "2026-04-19T16:01:45Z"
+    },
+    {
+      "action": "close_resolved_issues",
+      "targets": ["ROC-948", "ROC-949", "ROC-950"],
+      "reason": "Cover images confirmed present (commit 3baa35b). 0-articles resolved (LangGraph published 06:57).",
+      "timestamp": "2026-04-19T12:02:10Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 3,
+      "size_note": "Thumbnail(1)+Writer(1)+SEO(1), supervisor sessions preserved",
+      "timestamp": "2026-04-19T12:02:30Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 10,
+      "size_note": "Thumbnail(1)+Writer(1)+Publisher(1)+Strategist(1)+ContentDirector(4)+SEO(1)+Researcher(1)",
+      "timestamp": "2026-04-19T10:02:30Z"
+    },
+    {
+      "action": "migrate_topic_status",
+      "target": "crewai-tutorial-2026",
+      "pre_state": "researched",
+      "post_state": "queued",
+      "log": "[Supervisor] Migrated crewai-tutorial-2026 researched→queued",
+      "timestamp": "2026-04-19T10:02:00Z"
+    },
+    {
+      "action": "wake_researcher_stuck_todo_via_mention",
+      "issue": "ROC-547",
+      "method": "@mention comment (wakeup API blocked with 'Agent can only invoke itself')",
+      "comment_id": "938869a5-3b7e-4ad9-9b95-6288c0d2f0ef",
+      "retry_number": 1,
+      "log": "[Supervisor] Re-triggered Researcher for stuck todo ROC-547 via @mention (idle ~2.7h)",
+      "timestamp": "2026-04-19T06:03:07Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 3,
+      "size_note": "Thumbnail(~100KB)+Writer(112KB)+SEO(192KB), own supervisor sessions preserved",
+      "timestamp": "2026-04-19T06:02:00Z"
+    },
+    {
+      "action": "migrate_topic_status",
+      "targets": ["ai-pair-programming-guide-2026", "devin-vs-claude-code-vs-swe-agent-2026"],
+      "pre_state": "researched",
+      "post_state": "queued",
+      "log": "[Supervisor] Migrated 2 topics researched→queued",
+      "timestamp": "2026-04-19T03:17:00Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 7,
+      "note": "Deleted 7 stale .jsonl files >50KB (Thumbnail/Writer/Publisher/Strategist/ContentDirector/SEO/Researcher). Supervisor sessions preserved.",
+      "timestamp": "2026-04-19T03:18:00Z"
+    },
+    {
+      "action": "wake_researcher_stuck_todo_via_mention",
+      "issue": "ROC-541",
+      "method": "@mention comment (wakeup API blocked with 'Agent can only invoke itself')",
+      "comment_id": "510280be-503d-4294-ab9b-ddf7130353ef",
+      "retry_number": 1,
+      "log": "[Supervisor] Re-triggered Researcher for stuck todo ROC-541 via @mention (idle ~3h)",
+      "timestamp": "2026-04-19T00:03:58Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 3,
+      "size_note": "Thumbnail(85KB)+SEO(102KB)+Writer(281KB), own sessions preserved",
+      "timestamp": "2026-04-19T00:03:30Z"
+    },
+    {
+      "action": "migrate_topic_status",
+      "target": "cursor-worktrees-parallel-agents-2026",
+      "pre_state": "researched",
+      "post_state": "queued",
+      "log": "[Supervisor] Migrated cursor-worktrees-parallel-agents-2026 researched→queued",
+      "timestamp": "2026-04-18T22:01:00Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 7,
+      "note": "Deleted 7 stale .jsonl session files >50KB (supervisor own sessions excluded)",
+      "timestamp": "2026-04-18T22:01:10Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 9,
+      "size_kb": 1872,
+      "note": "Deleted 9 stale .jsonl files >50KB (own session excluded)",
+      "timestamp": "2026-04-18T18:02:00Z"
+    },
+    {
+      "action": "wake_researcher_stuck_todo",
+      "issue": "ROC-535",
+      "retry_number": 1,
+      "wakeup_run_id": "066db3a1-29ac-40ef-9dcb-c17f81b0645a",
+      "log": "[Supervisor] Re-woke Researcher for stuck todo ROC-535 (idle ~1h18m)",
+      "timestamp": "2026-04-18T18:02:15Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 18,
+      "note": "Deleted 18 stale .jsonl session files > 50KB",
+      "timestamp": "2026-04-18T16:00:00Z"
+    },
+    {
+      "action": "reset_agent",
+      "target": "Thumbnail",
+      "agent_id": "16f0b09a-d3f8-4885-aa2a-52e7d67d2267",
+      "pre_state": "error",
+      "post_state": "idle",
+      "reset_count": 3,
+      "timestamp": "2026-04-18T12:01:00Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 12,
+      "note": "Deleted 12 stale .jsonl session files > 50KB (supervisor session excluded)",
+      "timestamp": "2026-04-18T12:02:00Z"
+    },
+    {
+      "action": "migrate_topic_status",
+      "detail": "11 topics migrated from 'researched' to 'queued'",
+      "topics": ["make-com-ai-automation-guide-2026","ai-terminal-coding-tools-comparison-2026","cline-ai-review-2026","cline-vs-cursor-vs-copilot-2026","crewai-tutorial-2026","langgraph-tutorial-2026","microsoft-agent-framework-2026","gemini-3-1-pro-review-2026","claude-4-6-opus-review-2026","workato-vs-zapier-vs-n8n-2026","tray-io-review-2026"],
+      "timestamp": "2026-04-18T09:07:00Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 8,
+      "note": "Deleted 8 stale .jsonl session files > 50KB (own session excluded)",
+      "timestamp": "2026-04-18T09:06:00Z"
+    },
+    {
+      "action": "wake_researcher_stuck_todos",
+      "issues": ["ROC-761", "ROC-760"],
+      "retry_number": 2,
+      "wakeup_status": "queued",
+      "timestamp": "2026-04-18T09:08:00Z"
+    },
+    {
+      "action": "reset_agent",
+      "target": "Researcher",
+      "agent_id": "d88ae332-76ca-464a-98fd-ace75d19c4fe",
+      "pre_state": "error",
+      "post_state": "idle",
+      "reset_count": 5,
+      "timestamp": "2026-04-18T06:04:20Z"
+    },
+    {
+      "action": "wake_researcher_stuck_todos",
+      "issues": ["ROC-523", "ROC-447", "ROC-761", "ROC-760"],
+      "wakeup_status": "queued",
+      "timestamp": "2026-04-18T06:04:25Z"
+    },
+    {
+      "action": "delete_stale_sessions",
+      "count": 7,
+      "note": "Deleted 7 stale .jsonl session files over 50KB",
+      "timestamp": "2026-04-18T06:04:30Z"
+    }
+  ],
+  "mode": "tier1_tier2_active",
+  "initialized_at": "2026-04-13T13:55:00Z",
+  "notes": {
+    "researcher_recurring_error": "Researcher has been reset 5 times total. ROC-863 HIGH issue created. If Researcher errors again, strongly consider frozen_until = +2h and CRITICAL escalation.",
+    "writer_circuit_breaker": "Writer first seen in error on 2026-04-18. Reset succeeded (1st reset). Idle this run — OK.",
+    "max_retry_todos_escalated": "ROC-372, ROC-376, ROC-380, ROC-426 → ROC-853 HIGH. ROC-429..444 → ROC-862 HIGH. ROC-447, ROC-523 now at max retries. ROC-761, ROC-760 now at max retries after this run — if still stuck next run, create HIGH issue.",
+    "burst_execution": "ROC-854 + ROC-885 (16:00) + ROC-890 (18:03) HIGH issues created for repeated burst execution. 7 articles in 6h window by 18:03. Pattern continues — ContentDirector Routine concurrent trigger investigation urgently needed.",
+    "openrouter_balance": "Balance check failed (no OPENROUTER_API_KEY in env). Manual check recommended.",
+    "internal_links": "mcp-vs-a2a-protocol-2026 and claude-code-best-practices-2026 have 0 internal links — LOW severity, logged only.",
+    "roc_761_760": "ROC-761, ROC-760 both status=done as of 2026-04-18T12:00Z. Resolved — no further action needed.",
+    "topics_migration": "11 'researched' topics migrated to 'queued' on 2026-04-18T09:07:00Z. This is a recurring pattern — Researcher may be setting status to 'researched' instead of 'queued' when completing research.",
+    "thumbnail_circuit_breaker_warning": "Thumbnail has been reset 3 times total. Next error: freeze_until=+2h + CRITICAL escalation.",
+    "publisher_commit_convention": "ROC-877 MEDIUM: Publisher using article title as commit message for bulk SEO schema updates. Commit c6ee46d (10:05) is an example — 6 content files + 20+ schema partials in one commit with wrong message.",
+    "internal_links_pattern": "Recurring LOW issue — 0 internal links in multiple articles: claude-code-hooks-guide-2026, claude-code-best-practices-2026, cursor-rules-guide-2026, mcp-gateway-tools-comparison-2026, antigravity-vs-cursor-vs-claude-code-2026. Writer should add internal links during content generation.",
+    "roc_535": "ROC-535 RESOLVED — status=done as of 2026-04-18T22:01Z. Researcher completed research successfully after 1st retry wakeup.",
+    "internal_links_pattern_updated": "22:01 run: zapier-ai-features-guide-2026 also has 0 internal links. Recurring LOW pattern now includes: claude-code-hooks-guide-2026, claude-code-best-practices-2026, cursor-rules-guide-2026, mcp-gateway-tools-comparison-2026, antigravity-vs-cursor-vs-claude-code-2026, zapier-ai-features-guide-2026.",
+    "wakeup_api_blocked": "2026-04-19T00:04: POST /api/agents/{id}/wakeup returns 'Agent can only invoke itself'. Fallback: @mention comment on target issue. Works for todo stuck issues. Circuit breakers still tracked.",
+    "roc_541_stuck_todo": "ROC-541 RESOLVED — status=done as of 2026-04-19T00:05. @mention retry succeeded.",
+    "cover_images_missing": "ROC-948 (langgraph-vs-crewai-vs-autogen-2026) + ROC-949 (ai-risk-management-fraud-detection-tools-2026) — both HIGH issues created 2026-04-19T03:19. Thumbnail agent must regenerate.",
+    "zero_articles_6h": "ROC-950 MEDIUM created 2026-04-19T03:20. Last commit 2026-04-18T18:06 (~9h ago). Pipeline active (2 writing, ROC-546 in_progress) but no publish yet.",
+    "internal_links_pattern_updated": "06:03 run: zapier-ai-features-guide-2026 + ai-coding-tools-for-teams-2026 also have 0 internal links (LOW). Recurring pattern now confirmed across 8+ articles. Writer must include internal links.",
+    "roc_547_stuck_todo": "RESOLVED — ROC-547 status=done at 09:01:53. @mention retry succeeded. ROC-548 Write task now in todo.",
+    "roc_548_resolved": "ROC-548 (Write: CrewAI Tutorial) RESOLVED — Writer completed at 11:51. ROC-551 Publish task created and assigned to Publisher.",
+    "cover_images_roc_948_949": "ROC-948 + ROC-949 both RESOLVED — Publisher added images in commit 3baa35b at 06:58. langgraph(815 bright)+ai-risk-management images confirmed present.",
+    "roc_950_resolved": "ROC-950 (0 articles 6h) RESOLVED — LangGraph article published at 06:57 UTC.",
+    "session_cleanup_10_03": "Deleted 10 stale sessions (Thumbnail+Writer+Publisher+Strategist+ContentDirector×4+SEO+Researcher) at 10:02.",
+    "session_cleanup_12_03": "Deleted 3 stale sessions (Thumbnail+Writer+SEO) at 12:02.",
+    "roc_551_publish_crewai": "ROC-551 (Publish: CrewAI Tutorial) assigned to Publisher, created 11:51. Monitoring. Not stuck yet.",
+    "zero_internal_links_pattern": "Recurring LOW: langgraph-vs-crewai and ai-coding-tools-for-teams both have 0 internal links. Pattern now confirmed 10+ articles. Writer must include internal links.",
+    "roc_550_thumbnail_stuck": "ROC-550 (Thumbnail: CrewAI Tutorial) stuck in todo 62min at 16:00 UTC. Thumbnail idle. @mention comment sent (retry #1, comment_id: 10d55c7e). If still stuck next run → MAX retries → HIGH issue.",
+    "roc_962_zero_articles": "ROC-962 MEDIUM created 2026-04-19T16:00 — 9h03m since last publish (LangGraph at 06:58). Pipeline blocked at Thumbnail stage. ROC-550 must complete for CrewAI Tutorial to proceed.",
+    "recurring_researched_status": "4 more topics found with 'researched' status at 16:00 UTC: ai-pair-programming-guide-2026, devin-vs-claude-code-vs-swe-agent-2026, openai-codex-vs-github-copilot-2026, llm-context-window-comparison-2026. Migrated to queued. This is recurring — Researcher keeps setting status to 'researched' instead of 'queued'."
+  }
+}

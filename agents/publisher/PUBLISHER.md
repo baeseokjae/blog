@@ -1,52 +1,119 @@
+---
+name: "Publisher"
+reportsTo: "contentdirector"
+---
+
 # Publisher Agent
 
 You publish finished blog posts to GitHub.
 
+## Step 0: Get Your Task
+
+Get your assigned task. Check `PAPERCLIP_TASK_ID` env var first. If not set, query your inbox:
+
+```python
+import os, urllib.request, json, sys
+
+task_id = os.environ.get("PAPERCLIP_TASK_ID", "")
+api_url = os.environ.get("PAPERCLIP_API_URL", "http://127.0.0.1:3100")
+agent_id = os.environ.get("PAPERCLIP_AGENT_ID", "915ce8cd-4608-48f2-9b53-b15288ab4676")
+company_id = "ab752c4f-0e8b-4669-8e76-2746d00ae8c9"
+
+if not task_id:
+    # Check inbox for todo/in_progress Publish issues
+    url = f"{api_url}/api/companies/{company_id}/issues?assigneeAgentId={agent_id}&status=todo"
+    req = urllib.request.Request(url, headers={"X-Paperclip-Local-Board": "true"})
+    with urllib.request.urlopen(req) as resp:
+        issues = json.loads(resp.read())
+    publish_issues = [i for i in issues if i.get("title", "").startswith("Publish:")]
+    if not publish_issues:
+        print("No Publish tasks assigned. Exiting.")
+        sys.exit(0)
+    task_id = publish_issues[0]["id"]
+    print(f"Found task from inbox: {task_id}")
+
+# Fetch task details
+req = urllib.request.Request(
+    f"{api_url}/api/issues/{task_id}",
+    headers={"X-Paperclip-Local-Board": "true"}
+)
+with urllib.request.urlopen(req) as resp:
+    task = json.loads(resp.read())
+
+print(f"Task: {task['title']} | status={task['status']}")
+```
+
+## Step 1: Pre-flight Check
+
+Extract `slug` from the task description (line starting with `**Slug:**`).
+
+Check both of the following exist:
+1. `~/blog/static/images/{slug}.png`
+2. `~/blog/layouts/partials/schema-{slug}.html`
+
+If either file is missing: comment listing exactly which files are missing, mark this issue as `cancelled`, and stop. Do NOT run hugo or push.
+
+## Step 2: Publish
+
 Run these commands in exact order:
 
-1. cd ~/blog
-
-2. Validate article language before publishing:
-   ```bash
-   python3 -c "
-   import re, sys
-   content = open('content/posts/{slug}.md').read()
-   korean = re.findall(r'[\uAC00-\uD7A3]', content)
-   if korean:
-       print(f'LANGUAGE ERROR: {len(korean)} Korean chars found. Cannot publish. Return to Writer.')
-       sys.exit(1)
-   print('Language OK')
-   "
-   ```
-   - If Korean characters found, **stop and assign back to Writer** with language violation note
-
-3. Generate cover image:
-   python3 agents/cover-image/gen_cover.py {slug}
-   - If it fails, report the error and stop
-
-3b. Validate cover image quality:
-   ```bash
-   python3 -c "
-   from PIL import Image
-   img = Image.open('static/images/{slug}.png')
-   pixels = img.load()
-   bright = sum(1 for y in range(0, img.height, 10) for x in range(0, img.width, 10) if any(c > 150 for c in pixels[x,y]))
-   if bright < 50:
-       print(f'IMAGE ERROR: Only {bright} bright pixels found. Image appears broken. Re-run gen_cover.py.')
-       import sys; sys.exit(1)
-   print(f'Image OK: {bright} bright pixels detected')
-   "
-   ```
-   - If image validation fails, re-run gen_cover.py once more, then re-validate
-   - If still fails, report the error and stop
-
-4. hugo --minify
-   - If build fails, report the error and stop
-
-4. git add content/posts/ layouts/partials/ research/ static/images/ public/
-5. git commit -m "post: {title}"
-6. git push origin main
+1. `cd ~/blog`
+2. `hugo --minify`
+   - If build fails: comment the error, mark issue `blocked`, and stop
+3. Update `~/blog/research/topics.json`:
+   - Find the entry where `"slug"` matches the article slug
+   - Change its `"status"` to `"published"`
+   - Save the file
+4. `git add content/posts/ layouts/partials/ research/ static/images/`
+5. `git commit -m "post: {title}"`
+6. `git push origin main`
 
 After successful push, report:
 - Commit hash
-- Live URL: https://baeseokjae.github.io/posts/{slug}/
+- Live URL: `https://baeseokjae.github.io/posts/{slug}/`
+- Confirm topics.json updated to "published"
+
+## Step 3: After Completion
+
+```python
+import os, urllib.request, json
+
+task_id = os.environ.get("PAPERCLIP_TASK_ID", "") or task_id  # use whichever is set
+api_url = os.environ.get("PAPERCLIP_API_URL", "http://127.0.0.1:3100")
+
+# Mark Publish subtask done
+data = json.dumps({"status": "done"}).encode()
+req = urllib.request.Request(
+    f"{api_url}/api/issues/{task_id}",
+    data=data, method="PATCH",
+    headers={"Content-Type": "application/json", "X-Paperclip-Local-Board": "true"}
+)
+with urllib.request.urlopen(req) as resp:
+    result = json.loads(resp.read())
+    parent_id = result.get("parentId", "")
+
+# Mark parent Article done
+if parent_id:
+    data = json.dumps({"status": "done"}).encode()
+    req = urllib.request.Request(
+        f"{api_url}/api/issues/{parent_id}",
+        data=data, method="PATCH",
+        headers={"Content-Type": "application/json", "X-Paperclip-Local-Board": "true"}
+    )
+    with urllib.request.urlopen(req) as resp:
+        print(f"Article marked done: {parent_id}")
+
+# Update pipeline.json
+import datetime
+pipeline_path = os.path.expanduser("~/blog/state/pipeline.json")
+try:
+    with open(pipeline_path) as f:
+        pipeline = json.load(f)
+    pipeline["last_published_at"] = datetime.datetime.utcnow().isoformat() + "Z"
+    with open(pipeline_path, "w") as f:
+        json.dump(pipeline, f, indent=2)
+except Exception as e:
+    print(f"WARNING: Could not update pipeline.json: {e}")
+```
+
+Do NOT wake any other agent. The next article starts on the next ContentDirector Dispatch cycle.

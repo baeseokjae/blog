@@ -1,0 +1,1896 @@
+[2026-04-18 08:44:12 UTC] [INFO] ==================================================
+[2026-04-18 08:44:12 UTC] [INFO] Auto-reset check starting (DRY RUN)
+[2026-04-18 08:44:12 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 08:44:12 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 08:44:12 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 08:44:12 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 08:44:12 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 08:44:12 UTC] [INFO] Pipeline: done=413 backlog=262 todo=5 in_progress=1 cancelled=69 error=0
+[2026-04-18 08:44:12 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 08:44:12 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 08:44:19 UTC] [INFO] ==================================================
+[2026-04-18 08:44:19 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 08:44:19 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 08:44:19 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 08:44:19 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 08:44:20 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 08:44:20 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 08:44:20 UTC] [INFO] Pipeline: done=413 backlog=262 todo=5 in_progress=1 cancelled=69 error=0
+[2026-04-18 08:44:20 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 08:44:20 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 08:54:58 UTC] [INFO] ==================================================
+[2026-04-18 08:54:58 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 08:54:58 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 08:54:58 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 08:54:58 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 08:54:58 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 08:54:58 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 08:54:58 UTC] [INFO] Pipeline: done=415 backlog=260 todo=3 in_progress=1 cancelled=71 error=0
+[2026-04-18 08:54:58 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 08:54:58 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 09:05:24 UTC] [INFO] ==================================================
+[2026-04-18 09:05:24 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 09:05:24 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 09:05:24 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 09:05:24 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 09:05:24 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 09:05:24 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 09:05:24 UTC] [INFO] Pipeline: done=415 backlog=260 todo=3 in_progress=1 cancelled=71 error=0
+[2026-04-18 09:05:24 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 09:05:24 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 09:15:33 UTC] [INFO] ==================================================
+[2026-04-18 09:15:33 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 09:15:33 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 09:15:33 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 09:15:33 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 09:15:34 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 09:15:34 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 09:15:34 UTC] [INFO] Pipeline: done=415 backlog=260 todo=3 in_progress=1 cancelled=71 error=0
+[2026-04-18 09:15:34 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 09:15:34 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 09:25:44 UTC] [INFO] ==================================================
+[2026-04-18 09:25:44 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 09:25:44 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 09:25:44 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 09:25:44 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 09:25:44 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 09:25:44 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 09:25:44 UTC] [INFO] Pipeline: done=415 backlog=260 todo=3 in_progress=1 cancelled=71 error=0
+[2026-04-18 09:25:44 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 09:25:44 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 09:36:52 UTC] [INFO] ==================================================
+[2026-04-18 09:36:52 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 09:36:52 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 09:36:52 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 09:36:52 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 09:36:52 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 09:36:52 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 09:36:52 UTC] [INFO] Pipeline: done=415 backlog=260 todo=3 in_progress=1 cancelled=71 error=0
+[2026-04-18 09:36:52 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 09:36:52 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 09:47:44 UTC] [INFO] ==================================================
+[2026-04-18 09:47:44 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 09:47:44 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 09:47:44 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 09:47:44 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 09:47:44 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 09:47:44 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 09:47:44 UTC] [INFO] Pipeline: done=415 backlog=260 todo=3 in_progress=1 cancelled=71 error=0
+[2026-04-18 09:47:44 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 09:47:44 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 09:58:22 UTC] [INFO] ==================================================
+[2026-04-18 09:58:22 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 09:58:22 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 09:58:22 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 09:58:22 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 09:58:22 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 09:58:22 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 09:58:22 UTC] [INFO] Pipeline: done=415 backlog=260 todo=3 in_progress=1 cancelled=71 error=0
+[2026-04-18 09:58:22 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 09:58:22 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 10:09:09 UTC] [INFO] ==================================================
+[2026-04-18 10:09:09 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 10:09:09 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 10:09:09 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 10:09:09 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 10:09:09 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 10:09:09 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 10:09:09 UTC] [INFO] Pipeline: done=417 backlog=258 todo=2 in_progress=1 cancelled=72 error=0
+[2026-04-18 10:09:09 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 10:09:09 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 10:19:32 UTC] [INFO] ==================================================
+[2026-04-18 10:19:32 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 10:19:32 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 10:19:32 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 10:19:32 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 10:19:32 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 10:19:32 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 10:19:32 UTC] [INFO] Pipeline: done=417 backlog=258 todo=2 in_progress=1 cancelled=72 error=0
+[2026-04-18 10:19:32 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 10:19:32 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 10:29:43 UTC] [INFO] ==================================================
+[2026-04-18 10:29:43 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 10:29:43 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 10:29:43 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 10:29:43 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 10:29:43 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 10:29:43 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 10:29:43 UTC] [INFO] Pipeline: done=417 backlog=258 todo=2 in_progress=1 cancelled=72 error=0
+[2026-04-18 10:29:43 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 10:29:43 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 10:39:57 UTC] [INFO] ==================================================
+[2026-04-18 10:39:57 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 10:39:57 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 10:39:57 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 10:39:57 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 10:39:57 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 10:39:57 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 10:39:57 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 10:39:57 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 10:39:57 UTC] [INFO] Pipeline: done=421 backlog=254 todo=1 in_progress=2 cancelled=72 error=0
+[2026-04-18 10:39:57 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 10:39:57 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 10:50:14 UTC] [INFO] ==================================================
+[2026-04-18 10:50:14 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 10:50:14 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 10:50:14 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 10:50:14 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 10:50:14 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 10:50:14 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 10:50:14 UTC] [INFO] Pipeline: done=421 backlog=254 todo=1 in_progress=2 cancelled=72 error=0
+[2026-04-18 10:50:14 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 10:50:14 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 11:00:23 UTC] [INFO] ==================================================
+[2026-04-18 11:00:23 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 11:00:23 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 11:00:23 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 11:00:23 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 11:00:23 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 11:00:23 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 11:00:23 UTC] [INFO] Pipeline: done=421 backlog=254 todo=1 in_progress=2 cancelled=72 error=0
+[2026-04-18 11:00:23 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 11:00:23 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 11:10:28 UTC] [INFO] ==================================================
+[2026-04-18 11:10:28 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 11:10:28 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 11:10:28 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 11:10:28 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 11:10:28 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 11:10:28 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 11:10:28 UTC] [INFO] Pipeline: done=423 backlog=254 todo=1 in_progress=1 cancelled=72 error=0
+[2026-04-18 11:10:28 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 11:10:28 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 11:20:34 UTC] [INFO] ==================================================
+[2026-04-18 11:20:34 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 11:20:34 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 11:20:34 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 11:20:34 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 11:20:34 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 11:20:34 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 11:20:34 UTC] [INFO] Pipeline: done=425 backlog=252 todo=0 in_progress=1 cancelled=73 error=0
+[2026-04-18 11:20:34 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 11:20:34 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 11:30:42 UTC] [INFO] ==================================================
+[2026-04-18 11:30:42 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 11:30:42 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 11:30:42 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 11:30:42 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 11:30:42 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 11:30:42 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 11:30:42 UTC] [INFO] Pipeline: done=425 backlog=252 todo=0 in_progress=1 cancelled=73 error=0
+[2026-04-18 11:30:42 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 11:30:42 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 11:40:48 UTC] [INFO] ==================================================
+[2026-04-18 11:40:48 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 11:40:48 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 11:40:48 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 11:40:48 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 11:40:48 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 11:40:48 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 11:40:48 UTC] [INFO] Pipeline: done=425 backlog=248 todo=3 in_progress=2 cancelled=73 error=0
+[2026-04-18 11:40:48 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 11:40:48 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 11:51:10 UTC] [INFO] ==================================================
+[2026-04-18 11:51:10 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 11:51:10 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 11:51:10 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 11:51:10 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 11:51:10 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 11:51:10 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 11:51:11 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 11:51:11 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 11:51:11 UTC] [INFO] Pipeline: done=429 backlog=246 todo=1 in_progress=2 cancelled=73 error=0
+[2026-04-18 11:51:11 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 11:51:11 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 12:01:48 UTC] [INFO] ==================================================
+[2026-04-18 12:01:48 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 12:01:48 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 12:01:49 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 12:01:49 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 12:01:49 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 12:01:49 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 12:01:49 UTC] [INFO] Pipeline: done=429 backlog=246 todo=1 in_progress=2 cancelled=73 error=0
+[2026-04-18 12:01:49 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 12:01:49 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 12:13:24 UTC] [INFO] ==================================================
+[2026-04-18 12:13:24 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 12:13:24 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 12:13:24 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 12:13:24 UTC] [ACTION] Reset agent Analyst (1833525a...) from error to idle
+[2026-04-18 12:13:24 UTC] [WARN] Wakeup failed for Analyst: None
+[2026-04-18 12:13:24 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 12:13:24 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 12:13:24 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 12:13:24 UTC] [INFO] Pipeline: done=431 backlog=246 todo=1 in_progress=1 cancelled=73 error=0
+[2026-04-18 12:13:24 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 12:13:24 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 12:23:36 UTC] [INFO] ==================================================
+[2026-04-18 12:23:36 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 12:23:36 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 12:23:36 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 12:23:36 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 12:23:36 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 12:23:36 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 12:23:36 UTC] [INFO] Pipeline: done=431 backlog=246 todo=2 in_progress=1 cancelled=73 error=0
+[2026-04-18 12:23:36 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 12:23:36 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 12:34:13 UTC] [INFO] ==================================================
+[2026-04-18 12:34:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 12:34:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 12:34:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 12:34:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 12:34:13 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 12:34:13 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 12:34:13 UTC] [INFO] Pipeline: done=431 backlog=246 todo=2 in_progress=1 cancelled=73 error=0
+[2026-04-18 12:34:13 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 12:34:13 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 12:45:03 UTC] [INFO] ==================================================
+[2026-04-18 12:45:03 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 12:45:03 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 12:45:03 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 12:45:03 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 12:45:03 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 12:45:03 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 12:45:03 UTC] [INFO] Pipeline: done=431 backlog=246 todo=2 in_progress=1 cancelled=73 error=0
+[2026-04-18 12:45:03 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 12:45:03 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 12:55:08 UTC] [INFO] ==================================================
+[2026-04-18 12:55:08 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 12:55:08 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 12:55:08 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 12:55:08 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 12:55:08 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 12:55:08 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 12:55:08 UTC] [INFO] Pipeline: done=431 backlog=246 todo=2 in_progress=1 cancelled=73 error=0
+[2026-04-18 12:55:08 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 12:55:08 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 13:05:26 UTC] [INFO] ==================================================
+[2026-04-18 13:05:26 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 13:05:26 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 13:05:26 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 13:05:26 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 13:05:26 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 13:05:26 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 13:05:26 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 13:05:26 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 13:05:26 UTC] [INFO] Pipeline: done=433 backlog=244 todo=2 in_progress=1 cancelled=73 error=0
+[2026-04-18 13:05:26 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 13:05:26 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 13:16:54 UTC] [INFO] ==================================================
+[2026-04-18 13:16:54 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 13:16:54 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 13:16:54 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 13:16:54 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 13:16:54 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 13:16:54 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 13:16:54 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 13:16:54 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 13:16:54 UTC] [INFO] Pipeline: done=433 backlog=244 todo=2 in_progress=1 cancelled=73 error=0
+[2026-04-18 13:16:54 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 13:16:54 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 13:32:05 UTC] [INFO] ==================================================
+[2026-04-18 13:32:05 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 13:32:05 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 13:32:05 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 13:32:05 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 13:32:06 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 13:32:06 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 13:32:06 UTC] [INFO] Pipeline: done=433 backlog=244 todo=2 in_progress=1 cancelled=73 error=0
+[2026-04-18 13:32:06 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 13:32:06 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 13:42:18 UTC] [INFO] ==================================================
+[2026-04-18 13:42:18 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 13:42:18 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 13:42:18 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 13:42:18 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 13:42:18 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 13:42:18 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 13:42:18 UTC] [INFO] Pipeline: done=435 backlog=242 todo=3 in_progress=1 cancelled=73 error=0
+[2026-04-18 13:42:18 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 13:42:18 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 13:52:32 UTC] [INFO] ==================================================
+[2026-04-18 13:52:32 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 13:52:32 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 13:52:32 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 13:52:32 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 13:52:32 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 13:52:32 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 13:52:32 UTC] [INFO] Pipeline: done=435 backlog=242 todo=3 in_progress=1 cancelled=73 error=0
+[2026-04-18 13:52:32 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 13:52:32 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 14:03:47 UTC] [INFO] ==================================================
+[2026-04-18 14:03:47 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 14:03:47 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 14:03:47 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 14:03:47 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 14:03:47 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 14:03:47 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 14:03:47 UTC] [INFO] Pipeline: done=435 backlog=242 todo=3 in_progress=1 cancelled=73 error=0
+[2026-04-18 14:03:47 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 14:03:47 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 14:13:56 UTC] [INFO] ==================================================
+[2026-04-18 14:13:56 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 14:13:56 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 14:13:56 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 14:13:56 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 14:13:56 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 14:13:56 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 14:13:56 UTC] [INFO] Pipeline: done=436 backlog=241 todo=3 in_progress=1 cancelled=73 error=0
+[2026-04-18 14:13:56 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 14:13:56 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 14:24:07 UTC] [INFO] ==================================================
+[2026-04-18 14:24:07 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 14:24:07 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 14:24:07 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 14:24:07 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 14:24:07 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 14:24:07 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 14:24:07 UTC] [INFO] Pipeline: done=437 backlog=240 todo=2 in_progress=1 cancelled=74 error=0
+[2026-04-18 14:24:07 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 14:24:07 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 14:34:19 UTC] [INFO] ==================================================
+[2026-04-18 14:34:19 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 14:34:19 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 14:34:19 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 14:34:19 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 14:34:19 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 14:34:19 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 14:34:19 UTC] [INFO] Pipeline: done=437 backlog=240 todo=2 in_progress=1 cancelled=74 error=0
+[2026-04-18 14:34:19 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 14:34:19 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 14:45:08 UTC] [INFO] ==================================================
+[2026-04-18 14:45:08 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 14:45:08 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 14:45:08 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 14:45:08 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 14:45:08 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 14:45:08 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 14:45:08 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 14:45:08 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 14:45:08 UTC] [INFO] Pipeline: done=438 backlog=236 todo=3 in_progress=3 cancelled=74 error=0
+[2026-04-18 14:45:08 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 14:45:08 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 14:55:31 UTC] [INFO] ==================================================
+[2026-04-18 14:55:31 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 14:55:31 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 14:55:31 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 14:55:31 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 14:55:31 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 14:55:31 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 14:55:31 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 14:55:31 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 14:55:31 UTC] [INFO] Pipeline: done=439 backlog=236 todo=3 in_progress=2 cancelled=74 error=0
+[2026-04-18 14:55:31 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 14:55:31 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 15:05:46 UTC] [INFO] ==================================================
+[2026-04-18 15:05:46 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 15:05:46 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 15:05:46 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 15:05:46 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 15:05:46 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 15:05:46 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 15:05:46 UTC] [INFO] Pipeline: done=439 backlog=236 todo=3 in_progress=2 cancelled=74 error=0
+[2026-04-18 15:05:46 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 15:05:46 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 15:15:58 UTC] [INFO] ==================================================
+[2026-04-18 15:15:58 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 15:15:58 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 15:15:58 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 15:15:58 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 15:15:58 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 15:15:58 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 15:15:58 UTC] [INFO] Pipeline: done=442 backlog=235 todo=3 in_progress=1 cancelled=74 error=0
+[2026-04-18 15:15:58 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 15:15:58 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 15:26:13 UTC] [INFO] ==================================================
+[2026-04-18 15:26:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 15:26:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 15:26:13 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 15:26:13 UTC] [ACTION] Reset agent Writer (b796bb1c...) from error to idle
+[2026-04-18 15:26:13 UTC] [WARN] Wakeup failed for Writer: None
+[2026-04-18 15:26:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 15:26:13 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 15:26:13 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 15:26:13 UTC] [INFO] Pipeline: done=443 backlog=234 todo=2 in_progress=1 cancelled=75 error=0
+[2026-04-18 15:26:13 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 15:26:13 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 15:36:59 UTC] [INFO] ==================================================
+[2026-04-18 15:36:59 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 15:36:59 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 15:36:59 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 15:36:59 UTC] [ACTION] Reset agent Writer (b796bb1c...) from error to idle
+[2026-04-18 15:37:00 UTC] [WARN] Wakeup failed for Writer: None
+[2026-04-18 15:37:00 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 15:37:00 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 15:37:00 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 15:37:00 UTC] [INFO] Pipeline: done=443 backlog=234 todo=2 in_progress=1 cancelled=75 error=0
+[2026-04-18 15:37:00 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 15:37:00 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 15:47:38 UTC] [INFO] ==================================================
+[2026-04-18 15:47:38 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 15:47:38 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 15:47:38 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 15:47:38 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 15:47:38 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 15:47:38 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 15:47:38 UTC] [INFO] Pipeline: done=448 backlog=227 todo=5 in_progress=2 cancelled=74 error=0
+[2026-04-18 15:47:38 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 15:47:38 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 15:57:50 UTC] [INFO] ==================================================
+[2026-04-18 15:57:50 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 15:57:50 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 15:57:50 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 15:57:50 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 15:57:50 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 15:57:50 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 15:57:50 UTC] [INFO] Pipeline: done=452 backlog=225 todo=3 in_progress=1 cancelled=75 error=0
+[2026-04-18 15:57:50 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 15:57:50 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 16:07:58 UTC] [INFO] ==================================================
+[2026-04-18 16:07:58 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 16:07:58 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 16:07:58 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 16:07:58 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 16:07:58 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 16:07:58 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 16:07:58 UTC] [INFO] Pipeline: done=454 backlog=221 todo=6 in_progress=2 cancelled=74 error=0
+[2026-04-18 16:07:58 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 16:07:58 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 16:18:48 UTC] [INFO] ==================================================
+[2026-04-18 16:18:48 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 16:18:48 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 16:18:48 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 16:18:48 UTC] [ACTION] Reset agent Researcher (d88ae332...) from error to idle
+[2026-04-18 16:18:48 UTC] [WARN] Wakeup failed for Researcher: None
+[2026-04-18 16:18:48 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 16:18:48 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 16:18:48 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 16:18:48 UTC] [INFO] Pipeline: done=454 backlog=221 todo=6 in_progress=2 cancelled=74 error=0
+[2026-04-18 16:18:48 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 16:18:48 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 16:31:01 UTC] [INFO] ==================================================
+[2026-04-18 16:31:01 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 16:31:01 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 16:31:01 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 16:31:01 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 16:31:01 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 16:31:01 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 16:31:01 UTC] [INFO] Pipeline: done=456 backlog=219 todo=5 in_progress=2 cancelled=75 error=0
+[2026-04-18 16:31:01 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 16:31:01 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 16:42:58 UTC] [INFO] ==================================================
+[2026-04-18 16:42:58 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 16:42:58 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 16:42:58 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 16:42:58 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 16:42:59 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 16:42:59 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 16:42:59 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 16:42:59 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 16:42:59 UTC] [INFO] Pipeline: done=458 backlog=215 todo=6 in_progress=3 cancelled=75 error=0
+[2026-04-18 16:42:59 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 16:42:59 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 16:54:24 UTC] [INFO] ==================================================
+[2026-04-18 16:54:24 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 16:54:24 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 16:54:24 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 16:54:24 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 16:54:24 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 16:54:24 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 16:54:24 UTC] [INFO] Pipeline: done=458 backlog=215 todo=6 in_progress=3 cancelled=75 error=0
+[2026-04-18 16:54:24 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 16:54:24 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 17:04:57 UTC] [INFO] ==================================================
+[2026-04-18 17:04:57 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 17:04:57 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 17:04:57 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 17:04:57 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 17:04:57 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 17:04:57 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 17:04:57 UTC] [INFO] Pipeline: done=458 backlog=215 todo=6 in_progress=3 cancelled=75 error=0
+[2026-04-18 17:04:57 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 17:04:57 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 17:15:18 UTC] [INFO] ==================================================
+[2026-04-18 17:15:18 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 17:15:18 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 17:15:18 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 17:15:18 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 17:15:18 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 17:15:18 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 17:15:18 UTC] [INFO] Pipeline: done=460 backlog=215 todo=6 in_progress=2 cancelled=75 error=0
+[2026-04-18 17:15:18 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 17:15:18 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 17:26:28 UTC] [INFO] ==================================================
+[2026-04-18 17:26:28 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 17:26:28 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 17:26:28 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 17:26:28 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 17:26:28 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 17:26:28 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 17:26:28 UTC] [INFO] Pipeline: done=460 backlog=214 todo=6 in_progress=3 cancelled=75 error=0
+[2026-04-18 17:26:28 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 17:26:28 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 17:36:38 UTC] [INFO] ==================================================
+[2026-04-18 17:36:38 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 17:36:38 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 17:36:38 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 17:36:38 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 17:36:38 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 17:36:38 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 17:36:38 UTC] [INFO] Pipeline: done=461 backlog=213 todo=6 in_progress=2 cancelled=76 error=0
+[2026-04-18 17:36:38 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 17:36:38 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 17:46:54 UTC] [INFO] ==================================================
+[2026-04-18 17:46:54 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 17:46:54 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 17:46:54 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 17:46:54 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-18 17:46:54 UTC] [WARN] Wakeup failed for Thumbnail: None
+[2026-04-18 17:46:54 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 17:46:54 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 17:46:54 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 17:46:54 UTC] [INFO] Pipeline: done=463 backlog=211 todo=6 in_progress=2 cancelled=76 error=0
+[2026-04-18 17:46:54 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 17:46:54 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 17:57:21 UTC] [INFO] ==================================================
+[2026-04-18 17:57:21 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 17:57:21 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 17:57:21 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 17:57:21 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 17:57:21 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 17:57:21 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 17:57:21 UTC] [INFO] Pipeline: done=463 backlog=211 todo=6 in_progress=2 cancelled=76 error=0
+[2026-04-18 17:57:21 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 17:57:21 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 18:07:50 UTC] [INFO] ==================================================
+[2026-04-18 18:07:50 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 18:07:50 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 18:07:50 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 18:07:50 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 18:07:50 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 18:07:50 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 18:07:50 UTC] [INFO] Pipeline: done=469 backlog=211 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 18:07:50 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 18:07:50 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 18:19:18 UTC] [INFO] ==================================================
+[2026-04-18 18:19:18 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 18:19:18 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 18:19:18 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 18:19:18 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 18:19:18 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 18:19:18 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 18:19:18 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 18:19:18 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 18:19:18 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 18:30:05 UTC] [INFO] ==================================================
+[2026-04-18 18:30:05 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 18:30:05 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 18:30:05 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 18:30:05 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 18:30:05 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 18:30:05 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 18:30:05 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 18:30:05 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 18:30:05 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 18:41:26 UTC] [INFO] ==================================================
+[2026-04-18 18:41:26 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 18:41:26 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 18:41:26 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 18:41:26 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 18:41:26 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 18:41:26 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 18:41:26 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 18:41:26 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 18:41:26 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 18:52:00 UTC] [INFO] ==================================================
+[2026-04-18 18:52:00 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 18:52:00 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 18:52:00 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 18:52:00 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 18:52:00 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 18:52:00 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 18:52:00 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 18:52:00 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 18:52:00 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 19:02:05 UTC] [INFO] ==================================================
+[2026-04-18 19:02:05 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 19:02:05 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 19:02:05 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 19:02:05 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 19:02:05 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 19:02:05 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 19:02:05 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 19:02:05 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 19:02:05 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 19:12:26 UTC] [INFO] ==================================================
+[2026-04-18 19:12:26 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 19:12:26 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 19:12:27 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 19:12:27 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 19:12:27 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 19:12:27 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 19:12:27 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 19:12:27 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 19:12:27 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 19:23:03 UTC] [INFO] ==================================================
+[2026-04-18 19:23:03 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 19:23:03 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 19:23:03 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 19:23:03 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 19:23:03 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 19:23:03 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 19:23:03 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 19:23:03 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 19:23:03 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 19:33:11 UTC] [INFO] ==================================================
+[2026-04-18 19:33:11 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 19:33:11 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 19:33:11 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 19:33:11 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 19:33:11 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 19:33:11 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 19:33:11 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 19:33:11 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 19:33:11 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 19:43:46 UTC] [INFO] ==================================================
+[2026-04-18 19:43:46 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 19:43:46 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 19:43:46 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 19:43:46 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 19:43:46 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 19:43:46 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 19:43:46 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 19:43:46 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 19:43:46 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 19:53:59 UTC] [INFO] ==================================================
+[2026-04-18 19:53:59 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 19:53:59 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 19:53:59 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 19:53:59 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 19:53:59 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 19:53:59 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 19:53:59 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 19:53:59 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 19:53:59 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 20:04:18 UTC] [INFO] ==================================================
+[2026-04-18 20:04:18 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 20:04:18 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 20:04:18 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 20:04:18 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 20:04:18 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 20:04:18 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 20:04:18 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 20:04:18 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 20:04:18 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 20:14:53 UTC] [INFO] ==================================================
+[2026-04-18 20:14:53 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 20:14:53 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 20:14:53 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 20:14:53 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 20:14:53 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 20:14:53 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 20:14:53 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 20:14:53 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 20:14:53 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 20:25:03 UTC] [INFO] ==================================================
+[2026-04-18 20:25:03 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 20:25:03 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 20:25:03 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 20:25:03 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 20:25:03 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 20:25:03 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 20:25:03 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 20:25:03 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 20:25:03 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 20:35:09 UTC] [INFO] ==================================================
+[2026-04-18 20:35:09 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 20:35:09 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 20:35:09 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 20:35:09 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 20:35:09 UTC] [ACTION] Cancelled zombie issue ROC-534 (4.0h stale, no exec run)
+[2026-04-18 20:35:09 UTC] [INFO] Found 1 stale in_progress issue(s)
+[2026-04-18 20:35:09 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 20:35:09 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=1 cancelled=76 error=0
+[2026-04-18 20:35:09 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 20:35:09 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 20:45:21 UTC] [INFO] ==================================================
+[2026-04-18 20:45:21 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 20:45:21 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 20:45:21 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 20:45:21 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 20:45:21 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-18 20:45:21 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 20:45:21 UTC] [INFO] Pipeline: done=469 backlog=259 todo=2 in_progress=0 cancelled=77 error=0
+[2026-04-18 20:45:21 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 20:45:21 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 20:55:44 UTC] [INFO] ==================================================
+[2026-04-18 20:55:44 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 20:55:44 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 20:55:44 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 20:55:44 UTC] [ACTION] Reset agent SEO (6dab6808...) from error to idle
+[2026-04-18 20:55:44 UTC] [WARN] Wakeup failed for SEO: unknown
+[2026-04-18 20:55:44 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 20:55:44 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-18 20:55:44 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 20:55:44 UTC] [INFO] Pipeline: done=470 backlog=258 todo=2 in_progress=0 cancelled=77 error=0
+[2026-04-18 20:55:44 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 20:55:44 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 21:06:25 UTC] [INFO] ==================================================
+[2026-04-18 21:06:25 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 21:06:25 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 21:06:25 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 21:06:25 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 21:06:25 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-18 21:06:25 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 21:06:25 UTC] [INFO] Pipeline: done=470 backlog=258 todo=2 in_progress=0 cancelled=77 error=0
+[2026-04-18 21:06:25 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 21:06:25 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 21:16:45 UTC] [INFO] ==================================================
+[2026-04-18 21:16:45 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 21:16:45 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 21:16:45 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 21:16:45 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 21:16:45 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 21:16:45 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 21:16:45 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 21:16:45 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 21:16:45 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 21:26:58 UTC] [INFO] ==================================================
+[2026-04-18 21:26:58 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 21:26:58 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 21:26:58 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 21:26:58 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 21:26:58 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 21:26:58 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 21:26:58 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 21:26:58 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 21:26:58 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 21:37:25 UTC] [INFO] ==================================================
+[2026-04-18 21:37:25 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 21:37:25 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 21:37:26 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 21:37:26 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 21:37:26 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 21:37:26 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 21:37:26 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 21:37:26 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 21:37:26 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 21:49:24 UTC] [INFO] ==================================================
+[2026-04-18 21:49:24 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 21:49:24 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 21:49:24 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 21:49:24 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 21:49:24 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 21:49:24 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 21:49:24 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 21:49:24 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 21:49:24 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 22:00:19 UTC] [INFO] ==================================================
+[2026-04-18 22:00:19 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 22:00:19 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 22:00:19 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 22:00:19 UTC] [ACTION] Reset agent Analyst (1833525a...) from error to idle
+[2026-04-18 22:00:19 UTC] [WARN] Wakeup failed for Analyst: unknown
+[2026-04-18 22:00:19 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 22:00:19 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 22:00:19 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 22:00:19 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 22:00:19 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 22:00:19 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 22:10:31 UTC] [INFO] ==================================================
+[2026-04-18 22:10:31 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 22:10:31 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 22:10:31 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 22:10:31 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 22:10:31 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 22:10:31 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 22:10:31 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 22:10:31 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 22:10:31 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 22:21:00 UTC] [INFO] ==================================================
+[2026-04-18 22:21:00 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 22:21:00 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 22:21:00 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 22:21:00 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 22:21:00 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 22:21:00 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 22:21:00 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 22:21:00 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 22:21:00 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 22:31:11 UTC] [INFO] ==================================================
+[2026-04-18 22:31:11 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 22:31:11 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 22:31:12 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 22:31:12 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 22:31:12 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 22:31:12 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 22:31:12 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 22:31:12 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 22:31:12 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 22:41:46 UTC] [INFO] ==================================================
+[2026-04-18 22:41:46 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 22:41:46 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 22:41:46 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 22:41:46 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 22:41:47 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 22:41:47 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 22:41:47 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 22:41:47 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 22:41:47 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 22:52:59 UTC] [INFO] ==================================================
+[2026-04-18 22:52:59 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 22:52:59 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 22:52:59 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 22:52:59 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 22:52:59 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 22:52:59 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 22:52:59 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 22:52:59 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 22:52:59 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 23:03:10 UTC] [INFO] ==================================================
+[2026-04-18 23:03:10 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 23:03:10 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 23:03:10 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 23:03:10 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 23:03:10 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 23:03:10 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 23:03:10 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 23:03:10 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 23:03:10 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 23:13:19 UTC] [INFO] ==================================================
+[2026-04-18 23:13:19 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 23:13:19 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 23:13:19 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 23:13:19 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 23:13:19 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 23:13:19 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 23:13:19 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 23:13:19 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 23:13:19 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 23:23:29 UTC] [INFO] ==================================================
+[2026-04-18 23:23:29 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 23:23:29 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 23:23:29 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 23:23:29 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 23:23:29 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 23:23:29 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 23:23:29 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 23:23:29 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 23:23:29 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 23:33:38 UTC] [INFO] ==================================================
+[2026-04-18 23:33:38 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 23:33:38 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 23:33:38 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 23:33:38 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 23:33:38 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 23:33:38 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 23:33:38 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 23:33:38 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 23:33:38 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 23:43:45 UTC] [INFO] ==================================================
+[2026-04-18 23:43:45 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 23:43:45 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 23:43:45 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-18 23:43:45 UTC] [ACTION] Reset agent Writer (b796bb1c...) from error to idle
+[2026-04-18 23:43:45 UTC] [WARN] Wakeup failed for Writer: unknown
+[2026-04-18 23:43:45 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 23:43:45 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 23:43:45 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 23:43:45 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 23:43:45 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-18 23:43:45 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-18 23:43:50 UTC] [INFO] ==================================================
+[2026-04-18 23:43:50 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 23:43:50 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 23:43:50 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 23:43:50 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 23:43:50 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 23:43:50 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 23:43:50 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 23:43:50 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 23:43:50 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-18 23:54:06 UTC] [INFO] ==================================================
+[2026-04-18 23:54:06 UTC] [INFO] Auto-reset check starting 
+[2026-04-18 23:54:06 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-18 23:54:06 UTC] [INFO] No agents in error state. Clean!
+[2026-04-18 23:54:06 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-18 23:54:06 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-18 23:54:06 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-18 23:54:06 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-18 23:54:06 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-18 23:54:06 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 00:04:32 UTC] [INFO] ==================================================
+[2026-04-19 00:04:32 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 00:04:32 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 00:04:32 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 00:04:32 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 00:04:32 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 00:04:32 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 00:04:32 UTC] [INFO] Pipeline: done=470 backlog=253 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 00:04:32 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 00:04:32 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 00:14:50 UTC] [INFO] ==================================================
+[2026-04-19 00:14:50 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 00:14:50 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 00:14:50 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 00:14:50 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 00:14:50 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 00:14:50 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 00:14:50 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 00:14:50 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 00:14:50 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 00:24:56 UTC] [INFO] ==================================================
+[2026-04-19 00:24:56 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 00:24:56 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 00:24:56 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 00:24:56 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 00:24:57 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 00:24:57 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 00:24:57 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 00:24:57 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 00:24:57 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 00:35:08 UTC] [INFO] ==================================================
+[2026-04-19 00:35:08 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 00:35:08 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 00:35:08 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 00:35:08 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 00:35:08 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 00:35:08 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 00:35:08 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 00:35:08 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 00:35:08 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 00:45:13 UTC] [INFO] ==================================================
+[2026-04-19 00:45:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 00:45:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 00:45:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 00:45:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 00:45:13 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 00:45:13 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 00:45:13 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 00:45:13 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 00:45:13 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 00:55:20 UTC] [INFO] ==================================================
+[2026-04-19 00:55:20 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 00:55:20 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 00:55:20 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 00:55:20 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 00:55:21 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 00:55:21 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 00:55:21 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 00:55:21 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 00:55:21 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 01:05:28 UTC] [INFO] ==================================================
+[2026-04-19 01:05:28 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 01:05:28 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 01:05:28 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 01:05:28 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 01:05:28 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 01:05:28 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 01:05:28 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 01:05:28 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 01:05:28 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 01:15:37 UTC] [INFO] ==================================================
+[2026-04-19 01:15:37 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 01:15:37 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 01:15:37 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 01:15:37 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 01:15:37 UTC] [ACTION] Cancelled zombie issue ROC-540 (4.1h stale, no exec run)
+[2026-04-19 01:15:37 UTC] [INFO] Found 1 stale in_progress issue(s)
+[2026-04-19 01:15:37 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 01:15:37 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=1 cancelled=81 error=0
+[2026-04-19 01:15:37 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 01:15:37 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-19 01:25:49 UTC] [INFO] ==================================================
+[2026-04-19 01:25:49 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 01:25:49 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 01:25:49 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 01:25:49 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 01:25:49 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 01:25:49 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 01:25:49 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 01:25:49 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 01:25:49 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 01:35:57 UTC] [INFO] ==================================================
+[2026-04-19 01:35:57 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 01:35:57 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 01:35:57 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 01:35:57 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 01:35:57 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 01:35:57 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 01:35:57 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 01:35:57 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 01:35:57 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 01:46:04 UTC] [INFO] ==================================================
+[2026-04-19 01:46:04 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 01:46:04 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 01:46:04 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 01:46:04 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 01:46:04 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 01:46:04 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 01:46:04 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 01:46:04 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 01:46:04 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 01:56:13 UTC] [INFO] ==================================================
+[2026-04-19 01:56:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 01:56:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 01:56:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 01:56:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 01:56:13 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 01:56:13 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 01:56:13 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 01:56:13 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 01:56:13 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 02:06:20 UTC] [INFO] ==================================================
+[2026-04-19 02:06:20 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 02:06:20 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 02:06:20 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 02:06:20 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 02:06:20 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 02:06:20 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 02:06:20 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 02:06:20 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 02:06:20 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 02:16:28 UTC] [INFO] ==================================================
+[2026-04-19 02:16:28 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 02:16:28 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 02:16:28 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 02:16:28 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 02:16:28 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 02:16:28 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 02:16:28 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 02:16:28 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 02:16:28 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 02:26:36 UTC] [INFO] ==================================================
+[2026-04-19 02:26:36 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 02:26:36 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 02:26:36 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 02:26:36 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 02:26:37 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 02:26:37 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 02:26:37 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 02:26:37 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 02:26:37 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 02:36:43 UTC] [INFO] ==================================================
+[2026-04-19 02:36:43 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 02:36:43 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 02:36:43 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 02:36:43 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 02:36:43 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 02:36:43 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 02:36:43 UTC] [INFO] Pipeline: done=471 backlog=252 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 02:36:43 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 02:36:43 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 02:46:51 UTC] [INFO] ==================================================
+[2026-04-19 02:46:51 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 02:46:51 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 02:46:51 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 02:46:51 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 02:46:51 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 02:46:51 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 02:46:51 UTC] [INFO] Pipeline: done=472 backlog=251 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 02:46:51 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 02:46:51 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 03:01:00 UTC] [INFO] ==================================================
+[2026-04-19 03:01:00 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 03:01:00 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 03:01:00 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 03:01:00 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 03:01:00 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 03:01:00 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 03:01:00 UTC] [INFO] Pipeline: done=472 backlog=251 todo=2 in_progress=0 cancelled=82 error=0
+[2026-04-19 03:01:00 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 03:01:00 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 03:11:12 UTC] [INFO] ==================================================
+[2026-04-19 03:11:12 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 03:11:12 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 03:11:12 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 03:11:12 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 03:11:12 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 03:11:12 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 03:11:12 UTC] [INFO] Pipeline: done=472 backlog=251 todo=1 in_progress=0 cancelled=83 error=0
+[2026-04-19 03:11:12 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 03:11:12 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 03:21:39 UTC] [INFO] ==================================================
+[2026-04-19 03:21:39 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 03:21:39 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 03:21:39 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 03:21:39 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 03:21:39 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 03:21:39 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 03:21:39 UTC] [INFO] Pipeline: done=472 backlog=249 todo=2 in_progress=1 cancelled=83 error=0
+[2026-04-19 03:21:39 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 03:21:39 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 03:32:00 UTC] [INFO] ==================================================
+[2026-04-19 03:32:00 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 03:32:00 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 03:32:00 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 03:32:00 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 03:32:00 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 03:32:00 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 03:32:00 UTC] [INFO] Pipeline: done=472 backlog=249 todo=2 in_progress=1 cancelled=83 error=0
+[2026-04-19 03:32:00 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 03:32:00 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 03:42:09 UTC] [INFO] ==================================================
+[2026-04-19 03:42:09 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 03:42:09 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 03:42:09 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 03:42:09 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 03:42:09 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 03:42:09 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 03:42:09 UTC] [INFO] Pipeline: done=472 backlog=249 todo=2 in_progress=1 cancelled=83 error=0
+[2026-04-19 03:42:09 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 03:42:09 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 03:52:30 UTC] [INFO] ==================================================
+[2026-04-19 03:52:30 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 03:52:30 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 03:52:30 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 03:52:30 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 03:52:30 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 03:52:30 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 03:52:30 UTC] [INFO] Pipeline: done=472 backlog=249 todo=2 in_progress=1 cancelled=83 error=0
+[2026-04-19 03:52:30 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 03:52:30 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 04:02:39 UTC] [INFO] ==================================================
+[2026-04-19 04:02:39 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 04:02:39 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 04:02:39 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 04:02:39 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 04:02:39 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 04:02:39 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 04:02:39 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 04:02:39 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 04:02:39 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 04:12:48 UTC] [INFO] ==================================================
+[2026-04-19 04:12:48 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 04:12:48 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 04:12:48 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 04:12:48 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 04:12:48 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 04:12:48 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 04:12:48 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 04:12:48 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 04:12:48 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 04:22:57 UTC] [INFO] ==================================================
+[2026-04-19 04:22:57 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 04:22:57 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 04:22:57 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 04:22:57 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 04:22:57 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 04:22:57 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 04:22:57 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 04:22:57 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 04:22:57 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 04:33:56 UTC] [INFO] ==================================================
+[2026-04-19 04:33:56 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 04:33:56 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 04:33:56 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 04:33:56 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 04:33:56 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 04:33:56 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 04:33:56 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 04:33:56 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 04:33:56 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 04:45:46 UTC] [INFO] ==================================================
+[2026-04-19 04:45:46 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 04:45:46 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 04:45:46 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 04:45:46 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 04:45:46 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 04:45:46 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 04:45:46 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 04:45:46 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 04:45:46 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 04:56:21 UTC] [INFO] ==================================================
+[2026-04-19 04:56:21 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 04:56:21 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 04:56:21 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 04:56:21 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 04:56:21 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 04:56:21 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 04:56:21 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 04:56:21 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 04:56:21 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 05:06:29 UTC] [INFO] ==================================================
+[2026-04-19 05:06:29 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 05:06:29 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 05:06:29 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 05:06:29 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 05:06:29 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 05:06:29 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 05:06:29 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 05:06:29 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 05:06:29 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 05:16:37 UTC] [INFO] ==================================================
+[2026-04-19 05:16:37 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 05:16:37 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 05:16:37 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 05:16:37 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 05:16:38 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 05:16:38 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 05:16:38 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 05:16:38 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 05:16:38 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 05:26:50 UTC] [INFO] ==================================================
+[2026-04-19 05:26:50 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 05:26:50 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 05:26:50 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 05:26:50 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 05:26:50 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 05:26:50 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 05:26:50 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 05:26:50 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 05:26:50 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 05:37:13 UTC] [INFO] ==================================================
+[2026-04-19 05:37:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 05:37:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 05:37:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 05:37:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 05:37:14 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 05:37:14 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 05:37:14 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 05:37:14 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 05:37:14 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 05:47:20 UTC] [INFO] ==================================================
+[2026-04-19 05:47:20 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 05:47:20 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 05:47:20 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 05:47:20 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 05:47:20 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 05:47:20 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 05:47:20 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 05:47:20 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 05:47:20 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 05:57:26 UTC] [INFO] ==================================================
+[2026-04-19 05:57:26 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 05:57:26 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 05:57:26 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 05:57:26 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 05:57:26 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 05:57:26 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 05:57:26 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 05:57:26 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 05:57:26 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 06:08:03 UTC] [INFO] ==================================================
+[2026-04-19 06:08:03 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 06:08:03 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 06:08:03 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 06:08:03 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 06:08:03 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 06:08:03 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 06:08:03 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 06:08:03 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 06:08:03 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 06:19:05 UTC] [INFO] ==================================================
+[2026-04-19 06:19:05 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 06:19:05 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 06:19:05 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 06:19:05 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 06:19:05 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 06:19:05 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 06:19:05 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 06:19:05 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 06:19:05 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 06:29:13 UTC] [INFO] ==================================================
+[2026-04-19 06:29:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 06:29:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 06:29:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 06:29:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 06:29:13 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 06:29:13 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 06:29:13 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 06:29:13 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 06:29:13 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 06:40:14 UTC] [INFO] ==================================================
+[2026-04-19 06:40:14 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 06:40:14 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 06:40:14 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 06:40:14 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 06:40:14 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 06:40:14 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 06:40:14 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 06:40:14 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 06:40:14 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 06:50:56 UTC] [INFO] ==================================================
+[2026-04-19 06:50:56 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 06:50:56 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 06:50:56 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 06:50:56 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 06:50:56 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 06:50:56 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 06:50:56 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 06:50:56 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 06:50:56 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 06:55:37 UTC] [INFO] ==================================================
+[2026-04-19 06:55:37 UTC] [INFO] Auto-reset check starting (DRY RUN)
+[2026-04-19 06:55:37 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 06:55:37 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 06:55:37 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 06:55:37 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 06:55:37 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 06:55:37 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 06:55:37 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 06:55:37 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 07:01:06 UTC] [INFO] ==================================================
+[2026-04-19 07:01:06 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 07:01:06 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 07:01:06 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 07:01:06 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 07:01:06 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 07:01:06 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 07:01:06 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 07:01:06 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 07:01:06 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 07:11:35 UTC] [INFO] ==================================================
+[2026-04-19 07:11:35 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 07:11:35 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 07:11:35 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 07:11:35 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 07:11:35 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 07:11:35 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 07:11:35 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 07:11:35 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 07:11:35 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 07:22:23 UTC] [INFO] ==================================================
+[2026-04-19 07:22:23 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 07:22:23 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 07:22:23 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 07:22:23 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 07:22:23 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 07:22:23 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 07:22:23 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 07:22:23 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 07:22:23 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 07:34:20 UTC] [INFO] ==================================================
+[2026-04-19 07:34:20 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 07:34:20 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 07:34:20 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 07:34:20 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 07:34:20 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 07:34:20 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 07:34:20 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 07:34:20 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 07:34:20 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 07:44:27 UTC] [INFO] ==================================================
+[2026-04-19 07:44:27 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 07:44:27 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 07:44:27 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 07:44:27 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 07:44:27 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 07:44:27 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 07:44:27 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 07:44:27 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 07:44:27 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 07:54:33 UTC] [INFO] ==================================================
+[2026-04-19 07:54:33 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 07:54:33 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 07:54:33 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 07:54:33 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 07:54:33 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 07:54:33 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 07:54:33 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 07:54:33 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 07:54:33 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 08:05:09 UTC] [INFO] ==================================================
+[2026-04-19 08:05:09 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 08:05:09 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 08:05:09 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 08:05:09 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 08:05:09 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 08:05:09 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 08:05:09 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 08:05:09 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 08:05:09 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 08:15:15 UTC] [INFO] ==================================================
+[2026-04-19 08:15:15 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 08:15:15 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 08:15:15 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 08:15:15 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 08:15:15 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 08:15:15 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 08:15:15 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 08:15:15 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 08:15:15 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 08:25:23 UTC] [INFO] ==================================================
+[2026-04-19 08:25:23 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 08:25:23 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 08:25:23 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 08:25:23 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 08:25:23 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 08:25:23 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 08:25:23 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 08:25:23 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 08:25:23 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 08:35:31 UTC] [INFO] ==================================================
+[2026-04-19 08:35:31 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 08:35:31 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 08:35:31 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 08:35:31 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 08:35:31 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 08:35:31 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 08:35:31 UTC] [INFO] Pipeline: done=472 backlog=250 todo=5 in_progress=0 cancelled=83 error=0
+[2026-04-19 08:35:31 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 08:35:31 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 08:45:42 UTC] [INFO] ==================================================
+[2026-04-19 08:45:42 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 08:45:42 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 08:45:42 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 08:45:42 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 08:45:42 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 08:45:42 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 08:45:42 UTC] [INFO] Pipeline: done=472 backlog=249 todo=5 in_progress=1 cancelled=83 error=0
+[2026-04-19 08:45:42 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 08:45:42 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 08:55:52 UTC] [INFO] ==================================================
+[2026-04-19 08:55:52 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 08:55:52 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 08:55:52 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 08:55:52 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 08:55:52 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 08:55:52 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 08:55:52 UTC] [INFO] Pipeline: done=473 backlog=248 todo=6 in_progress=0 cancelled=83 error=0
+[2026-04-19 08:55:52 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 08:55:52 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 09:07:05 UTC] [INFO] ==================================================
+[2026-04-19 09:07:05 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 09:07:05 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 09:07:05 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-19 09:07:05 UTC] [ACTION] Reset agent SEO (6dab6808...) from error to idle
+[2026-04-19 09:07:05 UTC] [WARN] Wakeup failed for SEO: unknown
+[2026-04-19 09:07:05 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 09:07:05 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 09:07:05 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 09:07:05 UTC] [INFO] Pipeline: done=474 backlog=247 todo=6 in_progress=0 cancelled=83 error=0
+[2026-04-19 09:07:05 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-19 09:07:05 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-19 09:18:02 UTC] [INFO] ==================================================
+[2026-04-19 09:18:02 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 09:18:02 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 09:18:02 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 09:18:02 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 09:18:02 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 09:18:02 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 09:18:02 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 09:18:02 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 09:18:02 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 09:28:13 UTC] [INFO] ==================================================
+[2026-04-19 09:28:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 09:28:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 09:28:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 09:28:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 09:28:13 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 09:28:13 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 09:28:13 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 09:28:13 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 09:28:13 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 09:38:30 UTC] [INFO] ==================================================
+[2026-04-19 09:38:30 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 09:38:30 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 09:38:30 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 09:38:30 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 09:38:30 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 09:38:30 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 09:38:30 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 09:38:30 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 09:38:30 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 09:48:37 UTC] [INFO] ==================================================
+[2026-04-19 09:48:37 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 09:48:37 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 09:48:37 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 09:48:37 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 09:48:37 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 09:48:37 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 09:48:37 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 09:48:37 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 09:48:37 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 09:58:47 UTC] [INFO] ==================================================
+[2026-04-19 09:58:47 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 09:58:47 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 09:58:47 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 09:58:47 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 09:58:48 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 09:58:48 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 09:58:48 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 09:58:48 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 09:58:48 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 10:09:01 UTC] [INFO] ==================================================
+[2026-04-19 10:09:01 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 10:09:01 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 10:09:01 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 10:09:01 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 10:09:01 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 10:09:01 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 10:09:01 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 10:09:01 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 10:09:01 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 10:19:07 UTC] [INFO] ==================================================
+[2026-04-19 10:19:07 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 10:19:07 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 10:19:07 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 10:19:07 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 10:19:07 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 10:19:07 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 10:19:07 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 10:19:07 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 10:19:07 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 10:29:19 UTC] [INFO] ==================================================
+[2026-04-19 10:29:19 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 10:29:19 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 10:29:19 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 10:29:19 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 10:29:19 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 10:29:19 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 10:29:19 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 10:29:19 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 10:29:19 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 10:39:45 UTC] [INFO] ==================================================
+[2026-04-19 10:39:45 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 10:39:45 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 10:39:45 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 10:39:45 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 10:39:46 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 10:39:46 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 10:39:46 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 10:39:46 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 10:39:46 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 10:50:22 UTC] [INFO] ==================================================
+[2026-04-19 10:50:22 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 10:50:22 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 10:50:22 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 10:50:22 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 10:50:22 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 10:50:22 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 10:50:22 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 10:50:22 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 10:50:22 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 11:01:38 UTC] [INFO] ==================================================
+[2026-04-19 11:01:38 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 11:01:38 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 11:01:38 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 11:01:38 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 11:01:38 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 11:01:38 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 11:01:38 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 11:01:38 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 11:01:38 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 11:11:55 UTC] [INFO] ==================================================
+[2026-04-19 11:11:55 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 11:11:55 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 11:11:55 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 11:11:55 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 11:11:56 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 11:11:56 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 11:11:56 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 11:11:56 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 11:11:56 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 11:22:16 UTC] [INFO] ==================================================
+[2026-04-19 11:22:16 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 11:22:16 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 11:22:16 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 11:22:16 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 11:22:16 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 11:22:16 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 11:22:16 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 11:22:16 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 11:22:16 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 11:32:26 UTC] [INFO] ==================================================
+[2026-04-19 11:32:26 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 11:32:26 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 11:32:26 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 11:32:26 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 11:32:27 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 11:32:27 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 11:32:27 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 11:32:27 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 11:32:27 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 11:42:46 UTC] [INFO] ==================================================
+[2026-04-19 11:42:46 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 11:42:46 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 11:42:46 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 11:42:46 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 11:42:46 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 11:42:46 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 11:42:46 UTC] [INFO] Pipeline: done=474 backlog=247 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 11:42:46 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 11:42:46 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 11:52:58 UTC] [INFO] ==================================================
+[2026-04-19 11:52:58 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 11:52:58 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 11:52:58 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 11:52:58 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 11:52:59 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 11:52:59 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 11:52:59 UTC] [INFO] Pipeline: done=475 backlog=246 todo=5 in_progress=0 cancelled=84 error=0
+[2026-04-19 11:52:59 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 11:52:59 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 12:03:52 UTC] [INFO] ==================================================
+[2026-04-19 12:03:52 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 12:03:52 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 12:03:52 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 12:03:52 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 12:03:52 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 12:03:52 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 12:03:52 UTC] [INFO] Pipeline: done=478 backlog=246 todo=2 in_progress=0 cancelled=84 error=0
+[2026-04-19 12:03:52 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 12:03:52 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 12:14:24 UTC] [INFO] ==================================================
+[2026-04-19 12:14:24 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 12:14:24 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 12:14:24 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 12:14:24 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 12:14:24 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 12:14:24 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 12:14:24 UTC] [INFO] Pipeline: done=478 backlog=246 todo=1 in_progress=0 cancelled=85 error=0
+[2026-04-19 12:14:24 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 12:14:24 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 12:24:33 UTC] [INFO] ==================================================
+[2026-04-19 12:24:33 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 12:24:33 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 12:24:33 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 12:24:33 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 12:24:33 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 12:24:33 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 12:24:33 UTC] [INFO] Pipeline: done=478 backlog=246 todo=1 in_progress=0 cancelled=85 error=0
+[2026-04-19 12:24:33 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 12:24:33 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 12:34:42 UTC] [INFO] ==================================================
+[2026-04-19 12:34:42 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 12:34:42 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 12:34:42 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 12:34:42 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 12:34:42 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 12:34:42 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 12:34:42 UTC] [INFO] Pipeline: done=478 backlog=246 todo=1 in_progress=0 cancelled=85 error=0
+[2026-04-19 12:34:42 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 12:34:42 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 12:45:13 UTC] [INFO] ==================================================
+[2026-04-19 12:45:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 12:45:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 12:45:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 12:45:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 12:45:14 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 12:45:14 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 12:45:14 UTC] [INFO] Pipeline: done=478 backlog=246 todo=1 in_progress=0 cancelled=85 error=0
+[2026-04-19 12:45:14 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 12:45:14 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 12:56:06 UTC] [INFO] ==================================================
+[2026-04-19 12:56:06 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 12:56:06 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 12:56:06 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 12:56:06 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 12:56:06 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 12:56:06 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 12:56:06 UTC] [INFO] Pipeline: done=478 backlog=246 todo=1 in_progress=0 cancelled=85 error=0
+[2026-04-19 12:56:06 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 12:56:06 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 13:06:13 UTC] [INFO] ==================================================
+[2026-04-19 13:06:13 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 13:06:13 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 13:06:13 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 13:06:13 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 13:06:13 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 13:06:13 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 13:06:13 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 13:06:13 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 13:06:13 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 13:16:26 UTC] [INFO] ==================================================
+[2026-04-19 13:16:26 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 13:16:26 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 13:16:26 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 13:16:26 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 13:16:26 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 13:16:26 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 13:16:26 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 13:16:26 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 13:16:26 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 13:16:28 UTC] [INFO] ==================================================
+[2026-04-19 13:16:28 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 13:16:28 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 13:16:28 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 13:16:28 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 13:16:28 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 13:16:28 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 13:16:28 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 13:16:28 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 13:16:28 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 13:26:55 UTC] [INFO] ==================================================
+[2026-04-19 13:26:55 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 13:26:55 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 13:26:55 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 13:26:55 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 13:26:56 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 13:26:56 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 13:26:56 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 13:26:56 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 13:26:56 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 13:37:23 UTC] [INFO] ==================================================
+[2026-04-19 13:37:23 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 13:37:23 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 13:37:23 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 13:37:23 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 13:37:24 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 13:37:24 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 13:37:24 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 13:37:24 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 13:37:24 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 13:47:39 UTC] [INFO] ==================================================
+[2026-04-19 13:47:39 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 13:47:39 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 13:47:39 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 13:47:39 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 13:47:39 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 13:47:39 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 13:47:39 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 13:47:39 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 13:47:39 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 13:57:49 UTC] [INFO] ==================================================
+[2026-04-19 13:57:49 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 13:57:49 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 13:57:49 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 13:57:49 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 13:57:49 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 13:57:49 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 13:57:49 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 13:57:49 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 13:57:49 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 14:08:39 UTC] [INFO] ==================================================
+[2026-04-19 14:08:39 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 14:08:39 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 14:08:39 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 14:08:39 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 14:08:39 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 14:08:39 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 14:08:39 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 14:08:39 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 14:08:39 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 14:20:01 UTC] [INFO] ==================================================
+[2026-04-19 14:20:01 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 14:20:01 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 14:20:01 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 14:20:01 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 14:20:01 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 14:20:01 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 14:20:01 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 14:20:01 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 14:20:01 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 14:30:34 UTC] [INFO] ==================================================
+[2026-04-19 14:30:34 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 14:30:34 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 14:30:34 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 14:30:34 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 14:30:34 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 14:30:34 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 14:30:34 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 14:30:34 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 14:30:34 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 14:42:10 UTC] [INFO] ==================================================
+[2026-04-19 14:42:10 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 14:42:10 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 14:42:10 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 14:42:10 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 14:42:10 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 14:42:10 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 14:42:10 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 14:42:10 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 14:42:10 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 14:52:28 UTC] [INFO] ==================================================
+[2026-04-19 14:52:28 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 14:52:28 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 14:52:28 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 14:52:28 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 14:52:28 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 14:52:28 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 14:52:28 UTC] [INFO] Pipeline: done=478 backlog=245 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 14:52:28 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 14:52:28 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 15:03:10 UTC] [INFO] ==================================================
+[2026-04-19 15:03:10 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 15:03:10 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 15:03:10 UTC] [INFO] Found 1 agent(s) in error state
+[2026-04-19 15:03:10 UTC] [ACTION] Reset agent Thumbnail (16f0b09a...) from error to idle
+[2026-04-19 15:03:10 UTC] [WARN] Wakeup failed for Thumbnail: unknown
+[2026-04-19 15:03:10 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 15:03:10 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 15:03:10 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 15:03:10 UTC] [INFO] Pipeline: done=479 backlog=244 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 15:03:10 UTC] [INFO] Agents: 9 total, 1 in error state
+[2026-04-19 15:03:10 UTC] [INFO] Auto-reset complete. Actions taken: 1
+[2026-04-19 15:13:28 UTC] [INFO] ==================================================
+[2026-04-19 15:13:28 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 15:13:28 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 15:13:28 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 15:13:28 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 15:13:28 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 15:13:28 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 15:13:28 UTC] [INFO] Pipeline: done=479 backlog=244 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 15:13:28 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 15:13:28 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 15:24:33 UTC] [INFO] ==================================================
+[2026-04-19 15:24:33 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 15:24:33 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 15:24:33 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 15:24:33 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 15:24:33 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 15:24:33 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 15:24:33 UTC] [INFO] Pipeline: done=479 backlog=244 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 15:24:33 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 15:24:33 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 15:34:56 UTC] [INFO] ==================================================
+[2026-04-19 15:34:56 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 15:34:56 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 15:34:56 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 15:34:56 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 15:34:56 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 15:34:56 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 15:34:56 UTC] [INFO] Pipeline: done=479 backlog=244 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 15:34:56 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 15:34:56 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 15:45:21 UTC] [INFO] ==================================================
+[2026-04-19 15:45:21 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 15:45:21 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 15:45:21 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 15:45:21 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 15:45:21 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 15:45:21 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 15:45:21 UTC] [INFO] Pipeline: done=479 backlog=244 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 15:45:21 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 15:45:21 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 15:56:05 UTC] [INFO] ==================================================
+[2026-04-19 15:56:05 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 15:56:05 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 15:56:05 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 15:56:05 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 15:56:06 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 15:56:06 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 15:56:06 UTC] [INFO] Pipeline: done=479 backlog=244 todo=2 in_progress=0 cancelled=85 error=0
+[2026-04-19 15:56:06 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 15:56:06 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 16:06:25 UTC] [INFO] ==================================================
+[2026-04-19 16:06:25 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 16:06:25 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 16:06:25 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 16:06:25 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 16:06:25 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 16:06:25 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 16:06:25 UTC] [INFO] Pipeline: done=479 backlog=239 todo=5 in_progress=3 cancelled=85 error=0
+[2026-04-19 16:06:25 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 16:06:25 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 16:17:38 UTC] [INFO] ==================================================
+[2026-04-19 16:17:38 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 16:17:38 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 16:17:38 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 16:17:38 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 16:17:38 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-19 16:17:38 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 16:17:38 UTC] [INFO] Pipeline: done=479 backlog=239 todo=5 in_progress=3 cancelled=85 error=0
+[2026-04-19 16:17:38 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 16:17:38 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-19 16:28:27 UTC] [INFO] ==================================================
+[2026-04-19 16:28:27 UTC] [INFO] Auto-reset check starting 
+[2026-04-19 16:28:27 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-19 16:28:27 UTC] [INFO] No agents in error state. Clean!
+[2026-04-19 16:28:27 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-19 16:28:27 UTC] [INFO] No in_progress issues. Clean!
+[2026-04-19 16:28:27 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-19 16:28:27 UTC] [INFO] Pipeline: done=479 backlog=240 todo=7 in_progress=0 cancelled=85 error=0
+[2026-04-19 16:28:27 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-19 16:28:27 UTC] [INFO] Auto-reset complete. Actions taken: 0

@@ -47,13 +47,15 @@ Before any action, read ~/blog/state/supervisor/remediation-state.json (create i
    ```
    GET $PAPERCLIP_API_URL/api/companies/ab752c4f-0e8b-4669-8e76-2746d00ae8c9/issues?status=in_progress
    ```
-   - Any issue in_progress > 6 hours?
-     **AUTO-FIX** → Cancel stale issue and create retry:
+   - Any **subtask** issue (has `parentId` set) in_progress > 6 hours?
+     **SKIP parent Article issues** — parent Articles stay in_progress for the entire multi-stage pipeline (Research → Write → SEO → Thumbnail → Publish), which can legitimately take 15+ hours.
+     Only check subtask issues (Research, Write, SEO, Thumbnail, Publish) — these should each complete in under 2 hours.
+     **AUTO-FIX** → Cancel stale subtask and create retry:
      ```bash
      curl -sS -X PATCH "$PAPERCLIP_API_URL/api/issues/{id}" -H "Content-Type: application/json" \
        -d '{"status": "cancelled"}'
      ```
-     Then recreate with same title/description in backlog for next dispatch.
+     Then recreate with same title/description/parentId in backlog for next dispatch.
      Guardrail: Max 2 retries per issue (check circuit breaker). After 2 → create HIGH issue for human.
 
    - Issues assigned to disabled agents?
@@ -64,16 +66,19 @@ Before any action, read ~/blog/state/supervisor/remediation-state.json (create i
    ```
    GET $PAPERCLIP_API_URL/api/companies/ab752c4f-0e8b-4669-8e76-2746d00ae8c9/issues?status=in_progress
    ```
-   For each `in_progress` issue where `executionRunId` is null AND `startedAt` is > 30 minutes ago:
-   → This is a zombie issue: status says in_progress but no agent is actually running.
-   **AUTO-FIX** → Cancel immediately + create retry issue in backlog:
+   **IMPORTANT**: Only apply zombie detection to **subtask issues** (issues that have `assigneeAgentId` set AND `parentId` set).
+   Parent Article issues NEVER have an executionRunId — they are pipeline containers, not directly-executed tasks. Applying zombie detection to them would falsely cancel articles mid-pipeline.
+
+   For each `in_progress` **subtask** issue where `executionRunId` is null AND `assigneeAgentId` is set AND `startedAt` is > 30 minutes ago:
+   → This is a zombie subtask: status says in_progress but no agent is actually running.
+   **AUTO-FIX** → Cancel immediately + create retry subtask in backlog:
    ```bash
    curl -sS -X PATCH "$PAPERCLIP_API_URL/api/issues/{id}" \
      -H "Content-Type: application/json" -d '{"status": "cancelled"}'
    ```
    Then recreate with same title/description/parentId in backlog for next dispatch cycle.
    Guardrail: Max 2 retries per issue (check circuit breaker). After 2 → create HIGH issue for human.
-   Log: `[Supervisor] Cancelled zombie issue {identifier} (in_progress {elapsed}min, no run). Retry created.`
+   Log: `[Supervisor] Cancelled zombie subtask {identifier} (in_progress {elapsed}min, no run). Retry created.`
 
 2c. Check for stuck "todo" sub-issues (silent failure detection):
    ```
@@ -114,11 +119,9 @@ For each of the 2 most recently published articles:
    - If "/blog/" found: **AUTO-FIX** → Edit the file to remove "/blog/" prefix
      Guardrail: Only this specific string replacement. Log the change.
 5. Check ~/blog/static/images/{slug}.png exists
-   - If missing: **AUTO-FIX + NOTIFY** → Generate:
-     ```bash
-     python3 /home/ubuntu/blog/agents/cover-image/gen_cover.py {slug}
-     ```
-     Then create a notification issue: "[Supervisor] Auto-generated cover image for {slug} — needs editorial review"
+   - If missing: severity=HIGH → create issue + Telegram alert. **DO NOT generate the image.**
+     Image generation is the Thumbnail agent's responsibility. Supervisor only detects and reports.
+     Issue title: "[Supervisor] Cover image missing for {slug} — Thumbnail agent must regenerate"
 5b. Check cover image quality (even if it exists):
    ```bash
    python3 -c "
@@ -129,8 +132,8 @@ For each of the 2 most recently published articles:
    print(bright)
    "
    ```
-   - If bright pixel count < 50: image is broken → **AUTO-FIX + NOTIFY** → Re-generate with gen_cover.py
-     Then create notification issue: "[Supervisor] Regenerated broken cover image for {slug}"
+   - If bright pixel count < 50: image is broken → severity=HIGH → create issue + Telegram alert. **DO NOT regenerate.**
+     Issue title: "[Supervisor] Cover image broken for {slug} — Thumbnail agent must regenerate"
 6. Check article language (English-only policy):
    ```bash
    python3 -c "
@@ -229,8 +232,8 @@ curl -s -X POST "https://api.telegram.org/bot8403500137:AAE3VlbwWCWPhXg0yu_CsSme
 | Stale sessions (50KB+) | ✅ Tier 1 | Delete files | Log count/size |
 | Disabled agent has issues | ✅ Tier 1 | Cancel issues | Log |
 | /blog/ prefix in image path | ✅ Tier 1 | String replace | Exact match only |
-| Missing cover image | 🟡 Tier 2 | Auto-generate + notify | "Needs editorial review" flag |
-| Missing SEO schema | 🟡 Tier 2 | Create fix issue + assign | Notify human |
+| Missing cover image | 🔴 Tier 3 | NEVER generate — issue + alert only | Thumbnail agent's responsibility |
+| Missing SEO schema | 🔴 Tier 3 | NEVER generate — issue + alert only | SEO agent's responsibility |
 | Process violation | 🟡 Tier 2 | Reset to correct stage + audit | Repeated → human investigation |
 | Published article quality | 🔴 Tier 3 | NEVER auto-fix | Issue + alert only |
 | Paperclip down | 🔴 Tier 3 | NEVER auto-restart | Alert only |

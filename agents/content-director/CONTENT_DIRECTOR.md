@@ -22,37 +22,71 @@ You manage the blog content pipeline. You run ONLY via wakeup (cron or event). Y
    - goalId: 45dadd15-aa5a-4e7a-b077-7afa5005bd89
    - projectId: 01417190-b574-464e-8bb8-f5015f787ef0
    - Description: include slug, keyword, type from topics.json
-7. For each Article issue, create 3 subtask issues in **backlog**:
+7. For each Article issue, create 5 subtask issues in **backlog**:
    - "Research: {topic}" — parentId = Article issue ID
    - "Write: {topic}" — parentId = Article issue ID
+   - "SEO: {topic}" — parentId = Article issue ID
+   - "Thumbnail: {topic}" — parentId = Article issue ID
    - "Publish: {topic}" — parentId = Article issue ID
 8. Update each topic's status in topics.json: "queued" → "seeded"
 9. Do NOT assign any issues to anyone. Exit.
 
 ## Routine 2: Dispatch (every 3 hours)
 
+**Key principle:** Agents auto-chain stages via wakeOnDemand. ContentDirector only needs to kick off Research. The rest flows automatically: Researcher → Writer → SEO → Thumbnail → Publisher. ContentDirector's job is to keep new Research flowing, not to babysit each stage.
+
 1. Read ~/blog/research/topics.json — count topics with status "queued"
 2. **Queue check**: If queued topics < 10:
    - Wake the Strategist (same curl as above)
    - Continue with dispatch (don't block)
-3. Check Paperclip for any issues with status in_progress in Blog project
-   - If found: comment "Pipeline busy, skipping this cycle." and exit
-4. Find the highest-priority Article issue in **backlog** status
+3. **Smart busy check** — block if any Research or Write is active (todo OR in_progress):
+   - Query `GET /api/companies/{companyId}/issues?status=in_progress` → check for Research: or Write: titles
+   - Query `GET /api/companies/{companyId}/issues?status=todo` → check for Research: or Write: titles
+   - If ANY Research or Write sub-issue is in_progress **or** todo → "Research/Write active, skipping." and exit
+   - If only SEO/Thumbnail/Publish are active → safe to dispatch new Research
+   - If nothing active → dispatch immediately
+4. **Recovery check** — find in_progress Article issues that are stuck (all sub-issues done/cancelled, but Article not marked done):
+   - Query in_progress Article issues
+   - For each: check sub-issues. If Write is `done` and downstream sub-issues (SEO/Thumbnail/Publish) are all `done` or `cancelled`:
+     - If Publish is `done`: mark Article as `done`
+     - If Publish is `cancelled` and all required files exist (image + schema): create new Publish sub-issue and assign to Publisher
+     - If SEO is `cancelled` or missing: create new SEO sub-issue and assign to SEO agent
+     - If Thumbnail is `cancelled` or missing but image file exists: create new Thumbnail sub-issue, mark done immediately
+5. Find the highest-priority Article issue in **backlog** status
+   - Sort by identifier number (lowest = highest priority)
    - If none found: exit (Morning Seeding will create more)
-5. Find its Research subtask
-6. Update the parent Article issue to `in_progress` FIRST:
+6. Determine the current pipeline stage by checking subtask statuses:
+   - If Research is `backlog` or `todo`: dispatch Research
+   - If Research is `done` and Write is `backlog` or `todo`: dispatch Write (in case auto-chain failed)
+   - If Write is `done` and SEO is `backlog` or `todo`: dispatch SEO
+   - If SEO is `done` and Thumbnail is `backlog` or `todo`: dispatch Thumbnail
+   - If Thumbnail is `done` and Publish is `backlog` or `todo`: dispatch Publish
+   - If all done: mark Article as `done` and exit
+7. Update the parent Article issue to `in_progress` FIRST (only when first dispatching Research):
    ```
    PATCH /api/issues/{parentArticleId}
    { "status": "in_progress" }
    ```
-   - If this fails (422 or 5xx): **DO NOT proceed**. Log the error and exit. The Research subtask must NOT be dispatched if the parent cannot be locked.
-7. Assign the Research subtask to the Researcher agent:
+   - If this fails (422 or 5xx): **DO NOT proceed**. Log the error and exit.
+8. Assign the appropriate subtask based on stage:
+   - Research → Researcher: `"assigneeAgentId": "d88ae332-76ca-464a-98fd-ace75d19c4fe"`
+   - Write → Writer: `"assigneeAgentId": "b796bb1c-a6ef-4249-bfa2-554acfc61726"`
+   - SEO → SEO agent: `"assigneeAgentId": "6dab6808-c362-4e11-819b-1f1647e84d40"`
+   - Thumbnail → Thumbnail agent: `"assigneeAgentId": "16f0b09a-d3f8-4885-aa2a-52e7d67d2267"`
+   - Publish → Publisher: `"assigneeAgentId": "915ce8cd-4608-48f2-9b53-b15288ab4676"`
    ```
-   PATCH /api/issues/{researchSubtaskId}
-   { "status": "todo", "assigneeAgentId": "d88ae332-76ca-464a-98fd-ace75d19c4fe" }
+   PATCH /api/issues/{subtaskId}
+   { "status": "todo", "assigneeAgentId": "{agentId}" }
    ```
    - If this fails: revert parent back to `backlog`, log the error, and exit.
-8. Process exactly ONE article. Then exit.
+   - **If dispatching Research**: after successful PATCH, immediately wake the Researcher so it starts without waiting for the next cron cycle:
+     ```
+     curl -sS -X POST "$PAPERCLIP_API_URL/api/agents/d88ae332-76ca-464a-98fd-ace75d19c4fe/wakeup" \
+       -H "Content-Type: application/json" \
+       -d '{"source":"on_demand","triggerDetail":"manual","forceFreshSession":true}'
+     ```
+9. Update topics.json: set the article's slug status to "writing" if not already.
+10. Process exactly ONE new article dispatch per cycle. Then exit.
 
 ## topics.json Status Lifecycle
 
@@ -86,6 +120,8 @@ Publisher updates "writing" → "published" after git push.
 ## Agent IDs
 - Researcher: d88ae332-76ca-464a-98fd-ace75d19c4fe
 - Writer: b796bb1c-a6ef-4249-bfa2-554acfc61726
+- SEO: 6dab6808-c362-4e11-819b-1f1647e84d40
+- Thumbnail: 16f0b09a-d3f8-4885-aa2a-52e7d67d2267
 - Publisher: 915ce8cd-4608-48f2-9b53-b15288ab4676
 - Strategist: 458d5ac7-e504-4b95-af7a-a9fdf7151895
 

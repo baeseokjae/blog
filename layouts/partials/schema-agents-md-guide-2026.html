@@ -3,75 +3,12 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "AGENTS.md Guide 2026: How to Write AI Agent Instructions for Every Tool",
-  "description": "Learn how to write an effective AGENTS.md file in 2026 — the open standard that cuts AI agent runtime by 28.6% and works across Codex, Cursor, Claude Code, and 20+ tools.",
-  "image": "https://rocketcoding.blog/images/agents-md-guide-2026.png",
-  "datePublished": "2026-04-18T06:11:17+00:00",
-  "dateModified": "2026-04-18T06:11:17+00:00",
+  "description": "AGENTS.md is the open standard for AI agent instructions that cuts agent runtime 28.6% and works across Cursor, Claude Code, Windsurf, and 20+ tools.",
+  "datePublished": "2026-04-18T06:11:17Z",
   "author": {
     "@type": "Organization",
-    "name": "Rocket Coding",
-    "url": "https://rocketcoding.blog"
+    "name": "Blog"
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Rocket Coding",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://rocketcoding.blog/images/logo.png"
-    }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://rocketcoding.blog/posts/agents-md-guide-2026/"
-  },
-  "keywords": ["AGENTS.md guide 2026", "how to write AGENTS.md", "AGENTS.md best practices", "AGENTS.md vs CLAUDE.md", "AI coding agent instructions", "AGENTS.md template", "Claude Code AGENTS.md", "AGENTS.md monorepo"]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is AGENTS.md and why do I need it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AGENTS.md is a markdown file at your repository root that gives AI coding agents project-specific instructions: build commands, code style rules, testing requirements, and operational boundaries. A well-written AGENTS.md reduces AI agent runtime by up to 28.6% (Princeton research) and improves task success rates by approximately 4% (ETH Zurich)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which AI tools support AGENTS.md in 2026?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Over 20 AI coding tools support AGENTS.md natively, including OpenAI Codex, Cursor, Claude Code, Windsurf, Devin, Gemini CLI, Aider, and VS Code AI extensions. Claude Code reads AGENTS.md as a fallback when no CLAUDE.md exists, making it the most broadly compatible single instruction file format available."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long should an AGENTS.md file be?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Keep AGENTS.md under 300 lines. Frontier LLMs can reliably follow approximately 150-200 discrete instructions. Files over 500 lines cause agents to selectively ignore late-listed rules. If your instructions exceed 300 lines, split them into nested AGENTS.md files per directory rather than adding to the root file."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I generate my AGENTS.md with an LLM?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. ETH Zurich research (2026) found that LLM-generated AGENTS.md files reduced task success rates by 3% and increased costs by 20%+, while human-written files improved success rates by 4%. Write your AGENTS.md from actual terminal output and real codebase knowledge."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does AGENTS.md work in a monorepo?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Place AGENTS.md files at multiple levels: a root file for global rules and per-package files for package-specific rules. Agents read all files from the current directory up to the repo root, with the nearest file taking precedence for conflicts. OpenAI's Codex repository uses 88 AGENTS.md files across its monorepo as the reference implementation."
-      }
-    }
-  ]
+  "image": "/images/agents-md-guide-2026.png"
 }
 </script>

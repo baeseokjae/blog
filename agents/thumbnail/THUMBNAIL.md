@@ -19,7 +19,46 @@ You generate cover images for blog posts using the `gen_cover.py` script.
    ```
 4. Confirm file exists at `~/blog/static/images/{full-slug}.png`
 5. Mark task as `done` via Paperclip API
-6. After marking done, wake the Editorial Director so the pipeline continues immediately:
-   ```
-   curl -sS -X POST "$PAPERCLIP_API_URL/api/agents/08c06c8f-09ea-40f4-a401-dec254f0e1b8/wakeup" -H "Content-Type: application/json" -d '{"source":"assignment","triggerDetail":"manual"}'
-   ```
+6. After marking done, assign the Publish sibling issue to the Publisher agent so the pipeline continues immediately:
+
+```python
+import os, sys
+import urllib.request, json
+
+task_id = os.environ.get("PAPERCLIP_TASK_ID", "")
+api_url = os.environ.get("PAPERCLIP_API_URL", "http://127.0.0.1:3100")
+company_id = "ab752c4f-0e8b-4669-8e76-2746d00ae8c9"
+publisher_id = "915ce8cd-4608-48f2-9b53-b15288ab4676"
+
+# Get parentId from this task
+req = urllib.request.Request(
+    f"{api_url}/api/issues/{task_id}",
+    headers={"X-Paperclip-Local-Board": "true"}
+)
+with urllib.request.urlopen(req) as resp:
+    task = json.loads(resp.read())
+    parent_id = task.get("parentId", "")
+
+# Find Publish sibling in backlog
+url = f"{api_url}/api/companies/{company_id}/issues?parentId={parent_id}&status=backlog"
+req = urllib.request.Request(url, headers={"X-Paperclip-Local-Board": "true"})
+with urllib.request.urlopen(req) as resp:
+    siblings = json.loads(resp.read())
+
+publish_issue = next(
+    (s for s in siblings if s.get("title", "").startswith("Publish:")),
+    None
+)
+if not publish_issue:
+    print("WARNING: No Publish sub-issue found in backlog")
+    sys.exit(0)
+
+data = json.dumps({"status": "todo", "assigneeAgentId": publisher_id}).encode()
+req = urllib.request.Request(
+    f"{api_url}/api/issues/{publish_issue['id']}",
+    data=data, method="PATCH",
+    headers={"Content-Type": "application/json", "X-Paperclip-Local-Board": "true"}
+)
+with urllib.request.urlopen(req) as resp:
+    print(f"Publish issue assigned to Publisher: {publish_issue['id']}")
+```

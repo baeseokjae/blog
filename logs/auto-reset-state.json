@@ -1,0 +1,100 @@
+{
+  "resets": {
+    "16f0b09a-d3f8-4885-aa2a-52e7d67d2267": [
+      {
+        "time": "2026-04-18T10:39:57.088432+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T11:51:10.829792+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T13:05:26.691256+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T13:16:54.198500+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T14:45:08.432074+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T14:55:31.321898+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T16:42:58.942112+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T17:46:54.522004+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-19T15:03:10.612457+00:00",
+        "agent": "Thumbnail",
+        "from_status": "error"
+      }
+    ],
+    "1833525a-1cf5-43b9-a4ce-e31a9b412880": [
+      {
+        "time": "2026-04-18T12:13:24.414116+00:00",
+        "agent": "Analyst",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T22:00:19.547479+00:00",
+        "agent": "Analyst",
+        "from_status": "error"
+      }
+    ],
+    "b796bb1c-a6ef-4249-bfa2-554acfc61726": [
+      {
+        "time": "2026-04-18T15:26:13.270444+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T15:36:59.920580+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-18T23:43:45.655717+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      }
+    ],
+    "d88ae332-76ca-464a-98fd-ace75d19c4fe": [
+      {
+        "time": "2026-04-18T16:18:48.360914+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      }
+    ],
+    "6dab6808-c362-4e11-819b-1f1647e84d40": [
+      {
+        "time": "2026-04-18T20:55:44.257149+00:00",
+        "agent": "SEO",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-19T09:07:05.812834+00:00",
+        "agent": "SEO",
+        "from_status": "error"
+      }
+    ]
+  },
+  "last_run": "2026-04-19T16:28:27.198238+00:00"
+}
