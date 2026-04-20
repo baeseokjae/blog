@@ -2,7 +2,7 @@
 title: "Best LLM for Coding 2026: Claude Opus vs GPT-5 vs Gemini 3 Benchmarked"
 date: 2026-04-19T22:30:54+00:00
 tags: ["LLM", "coding", "benchmarks", "Claude", "GPT-5", "Gemini"]
-description: "Comprehensive 2026 benchmark comparison of top coding LLMs — Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro, and open-source challengers ranked by real-world performance."
+description: "Comprehensive 2026 benchmark of top coding LLMs — Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro, and open-source models ranked by real-world performance."
 draft: false
 cover:
   image: "/images/best-llm-for-coding-2026.png"
