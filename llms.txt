@@ -26,7 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
-- [Best LLM for Coding 2026: Claude Opus vs GPT-5 vs Gemini 3 Benchmarked](https://baeseokjae.github.io/posts/best-llm-for-coding-2026/) — Comprehensive 2026 benchmark comparison of top coding LLMs — Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro, and open-source challengers ranked by real-world performance.
+- [Best LLM for Coding 2026: Claude Opus vs GPT-5 vs Gemini 3 Benchmarked](https://baeseokjae.github.io/posts/best-llm-for-coding-2026/) — Comprehensive 2026 benchmark of top coding LLMs — Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro, and open-source models ranked by real-world performance.
 - [Gemini 3.1 Pro Review 2026: Developer Benchmark and Coding Performance](https://baeseokjae.github.io/posts/gemini-3-1-pro-review-2026/) — Gemini 3.1 Pro claims #1 on AI benchmarks with 77.1% ARC-AGI-2 — but 29s latency and enterprise gaps make it a nuanced choice for developers.
 - [Continue.dev Review 2026: Open-Source GitHub Copilot Alternative](https://baeseokjae.github.io/posts/continue-dev-review-2026/) — Comprehensive Continue.dev review 2026 — the pivot to Continuous AI agents, CLI-first architecture, local LLM support, and how it compares to Copilot and Cursor.
 - [Aider AI Review 2026: The Terminal Coding Assistant That Actually Works](https://baeseokjae.github.io/posts/aider-ai-review-2026/) — Aider AI review 2026: open-source terminal coding assistant with 40K&#43; GitHub stars, 75&#43; model providers, git-native commits, and voice coding mode.
@@ -122,7 +122,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
-- [Best LLM for Coding 2026: Claude Opus vs GPT-5 vs Gemini 3 Benchmarked](https://baeseokjae.github.io/posts/best-llm-for-coding-2026/) — Comprehensive 2026 benchmark comparison of top coding LLMs — Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro, and open-source challengers ranked by real-world performance.
+- [Best LLM for Coding 2026: Claude Opus vs GPT-5 vs Gemini 3 Benchmarked](https://baeseokjae.github.io/posts/best-llm-for-coding-2026/) — Comprehensive 2026 benchmark of top coding LLMs — Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro, and open-source models ranked by real-world performance.
 - [Gemini 3.1 Pro Review 2026: Developer Benchmark and Coding Performance](https://baeseokjae.github.io/posts/gemini-3-1-pro-review-2026/) — Gemini 3.1 Pro claims #1 on AI benchmarks with 77.1% ARC-AGI-2 — but 29s latency and enterprise gaps make it a nuanced choice for developers.
 - [Continue.dev Review 2026: Open-Source GitHub Copilot Alternative](https://baeseokjae.github.io/posts/continue-dev-review-2026/) — Comprehensive Continue.dev review 2026 — the pivot to Continuous AI agents, CLI-first architecture, local LLM support, and how it compares to Copilot and Cursor.
 - [LangGraph Tutorial 2026: Build Stateful AI Agents with Graphs](https://baeseokjae.github.io/posts/langgraph-tutorial-2026/) — Step-by-step LangGraph tutorial 2026: install, define state, build graph nodes, add memory, deploy production agents.
