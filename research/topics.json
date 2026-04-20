@@ -1364,7 +1364,7 @@
     "keyword": "gemini 3.1 pro review",
     "type": "review",
     "priority": 111,
-    "status": "writing",
+    "status": "published",
     "search_volume_est": 450,
     "kd_est": 9,
     "cluster": "LLM comparison",
