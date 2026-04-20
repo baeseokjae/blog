@@ -2,7 +2,7 @@
 title: "Zapier AI Features Guide 2026: Tables, Chatbots, and AI Actions Explained"
 date: 2026-04-18T17:26:39+00:00
 tags: ["zapier", "ai automation", "workflow automation", "no-code", "ai tools"]
-description: "The complete guide to Zapier AI features in 2026: AI Actions, Agents, Chatbots, Tables, MCP, and pricing — with real accuracy benchmarks and cost traps to avoid."
+description: "Complete Zapier AI guide 2026: AI Actions, Agents, Chatbots, Tables, MCP, pricing, accuracy benchmarks, and cost traps."
 draft: false
 cover:
   image: "/images/zapier-ai-features-guide-2026.png"
