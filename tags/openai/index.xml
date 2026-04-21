@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Openai on RockB</title><link>https://baeseokjae.github.io/tags/openai/</link><description>Recent content in Openai on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 21 Apr 2026 01:02:58 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/openai/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM Prompt Caching Guide 2026: Cut API Costs 70% with Anthropic and OpenAI</title><link>https://baeseokjae.github.io/posts/llm-prompt-caching-guide-2026/</link><pubDate>Tue, 21 Apr 2026 01:02:58 +0000</pubDate><guid>https://baeseokjae.github.io/posts/llm-prompt-caching-guide-2026/</guid><description>LLM prompt caching guide 2026: Anthropic, OpenAI, Gemini code examples, cost calculators, anti-patterns, and production monitoring tips.</description><content:encoded><![CDATA[<p>Prompt caching is the single highest-ROI optimization available for production LLM applications. If you run 10,000 requests per day with an 8K-token cached system prompt on Anthropic Claude, you save roughly $576/month — with a few lines of code change. OpenAI&rsquo;s automatic caching requires zero code changes and gives you a 50% discount on repeated input tokens. Anthropic&rsquo;s explicit caching offers up to 90% savings. This guide covers both, plus Gemini, with production code examples, real cost numbers, and the anti-patterns that silently destroy your cache hit rate.</p>
+<h2 id="how-prompt-caching-works-kv-cache-prefix-matching-and-why-order-matters">How Prompt Caching Works: KV Cache, Prefix Matching, and Why Order Matters</h2>
+<p>Prompt caching works by storing the key-value (KV) computation for a prefix of your prompt in GPU memory, then reusing those stored activations for subsequent requests that share the same prefix. When your request arrives, the provider checks whether the incoming prompt&rsquo;s beginning matches a cached prefix. If it does — a cache hit — the model skips recomputing that prefix and starts generating immediately. Hugging Face technical analysis measured roughly a 5.21x speedup on T4 GPUs from KV cache reuse alone. The cost reduction follows the same logic: you pay a lower rate for cached input tokens because the provider doesn&rsquo;t need to run full inference on that portion of the prompt.</p>
+<p><strong>Why order matters critically:</strong> Prefix matching is exact and sequential. If your prompt reads <code>system → context → user query</code>, the cache key covers everything from the start up to your designated breakpoint. Change anything before the breakpoint — even a single character — and the entire cached prefix is invalidated. This means timestamps, session IDs, or user-specific data embedded early in your prompt will kill your cache hit rate entirely. The universal rule: place static content first, dynamic content last. Tools definitions → system instructions → document context → few-shot examples → current conversation history → user query. This ordering directly determines your API bill.</p>
+<p>Minimum token requirements vary by provider: Anthropic requires at least 1,024 tokens in the cached prefix; OpenAI caches in 128-token increments with a 1,024-token minimum. Short prompts below these thresholds simply don&rsquo;t qualify for caching and should be excluded from your optimization planning.</p>
+<h2 id="provider-comparison-openai-vs-anthropic-vs-gemini">Provider Comparison: OpenAI vs Anthropic vs Gemini</h2>
+<p>Prompt caching is now supported by all three major LLM providers — OpenAI, Anthropic, and Google Gemini — but they implement it in fundamentally different ways with meaningfully different economics. OpenAI&rsquo;s caching is fully automatic: you write no special code, the API detects repeated prefixes, and you see a 50% discount on cached tokens with no TTL configuration available. Anthropic gives you the highest savings rate at 90% but requires explicit <code>cache_control</code> markers (simplified significantly by the February 2026 automatic caching update). Gemini sits between the two, offering implicit automatic caching for Gemini 2.5 models and named cache objects for explicit control with configurable TTL. Choosing between providers comes down to your optimization priorities: zero-friction savings (OpenAI), maximum cost reduction with fine-grained control (Anthropic), or configurable persistence for document-heavy workloads (Gemini). Most teams using Anthropic as their primary provider see the February 2026 changes as a reason to migrate previously-uncached workflows — the implementation barrier dropped significantly.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>OpenAI</th>
+          <th>Anthropic</th>
+          <th>Gemini</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Caching type</td>
+          <td>Automatic</td>
+          <td>Automatic + Explicit</td>
+          <td>Implicit + Explicit</td>
+      </tr>
+      <tr>
+          <td>Cost savings</td>
+          <td>50% on input</td>
+          <td>90% on input</td>
+          <td>~90% on input</td>
+      </tr>
+      <tr>
+          <td>TTL</td>
+          <td>5–10 min</td>
+          <td>5 min or 1 hour</td>
+          <td>Configurable</td>
+      </tr>
+      <tr>
+          <td>Minimum tokens</td>
+          <td>1,024 (128-token increments)</td>
+          <td>1,024</td>
+          <td>Varies</td>
+      </tr>
+      <tr>
+          <td>Code changes required</td>
+          <td>None</td>
+          <td>Minimal (cache_control)</td>
+          <td>Named cache objects</td>
+      </tr>
+      <tr>
+          <td>Control granularity</td>
+          <td>None (auto)</td>
+          <td>Up to 4 breakpoints</td>
+          <td>Named cache objects</td>
+      </tr>
+      <tr>
+          <td>2026 update</td>
+          <td>GPT-5.1: 24h retention</td>
+          <td>Feb 2026: auto caching</td>
+          <td>Gemini 2.5 implicit caching</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="openai-prompt-caching-automatic-zero-config">OpenAI Prompt Caching: Automatic, Zero-Config</h2>
+<p>OpenAI prompt caching is automatic and requires zero code changes — the API detects repeated input prefixes and applies a 50% discount on cached input tokens automatically. You don&rsquo;t set any flags; you just observe the discount in your usage dashboard and billing. The GPT-5.1 series introduced 24-hour cache retention, making it viable for system prompts used across long workdays or batch pipelines that span multiple processing windows. Cache hits appear in the <code>usage</code> object of the API response as <code>cached_tokens</code>, so you can monitor performance without any instrumentation changes.</p>
+<p>OpenAI caches in 128-token increments, meaning your cached prefix must be at least 1,024 tokens and matches extend in 128-token steps. A 1,100-token prefix gets cached at 1,024 tokens, with the remaining 76 tokens billed at full price. This granularity matters for borderline cases but rarely affects the economics of real system prompts, which typically run 2,000–10,000 tokens.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># No special configuration needed — caching is automatic</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>chat<span style="color:#f92672">.</span>completions<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    messages<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;system&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Static system prompt (1024+ tokens for caching eligibility)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;You are an expert software engineer specializing in Python...&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># ... (long static content)</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;content&#34;</span>: user_query  <span style="color:#75715e"># Dynamic — place last</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check cache hit in response</span>
+</span></span><span style="display:flex;"><span>cached_tokens <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>usage<span style="color:#f92672">.</span>prompt_tokens_details<span style="color:#f92672">.</span>cached_tokens
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cached tokens: </span><span style="color:#e6db74">{</span>cached_tokens<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p><strong>The tradeoff vs Anthropic:</strong> OpenAI&rsquo;s automatic approach is the right choice for teams that want savings with zero engineering overhead. You get 50% off repeated input tokens with no prompt restructuring. The downside is loss of control — you can&rsquo;t force specific breakpoints, can&rsquo;t choose TTL, and can&rsquo;t target multiple cache boundaries within a single prompt. For high-volume applications where every dollar matters, Anthropic&rsquo;s 90% savings on cache reads typically justifies the additional implementation work.</p>
+<h2 id="anthropic-prompt-caching-90-savings-with-explicit-breakpoints">Anthropic Prompt Caching: 90% Savings with Explicit Breakpoints</h2>
+<p>Anthropic prompt caching delivers up to 90% cost reduction on cached input tokens, the highest discount available from any major provider in 2026. Cache reads for Claude Sonnet 4.5 cost $0.30/1M tokens versus $3.00/1M for standard input — exactly a 10x reduction. The February 2026 automatic caching update simplified implementation significantly: a single top-level <code>cache_control</code> marker now causes the API to auto-place the breakpoint on the last cacheable block, eliminating the need to annotate every section individually. For most use cases, this single-marker approach is sufficient.</p>
+<p>For fine-grained control, Anthropic supports up to 4 explicit cache breakpoints per prompt. Automatic caching consumes 1 of those 4 slots — adding automatic caching plus 4 explicit breakpoints triggers a 400 error. The cache invalidation hierarchy is tools → system → messages: changing anything earlier in this chain invalidates caches for everything that follows. Place your least-changing content at the top (tool definitions), most-changing content at the bottom (current user message).</p>
+<p><strong>5-minute vs 1-hour TTL:</strong> Choose based on request cadence, not preference. If requests arrive more than every 5 minutes on average, 1-hour TTL pays for itself immediately — you pay 2x base input price on writes instead of 1.25x, but cache reads stay at 0.1x for both. The 1-hour write premium recovers after just 2 cache hits. If your traffic is bursty with long idle gaps, 5-minute TTL may be more economical. One team learned this the hard way: a library update silently changed their TTL from 1-hour to 5-minutes, causing a $13.86/day bill increase before anyone noticed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> anthropic
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> anthropic<span style="color:#f92672">.</span>Anthropic()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># February 2026 approach: single cache_control at top level (auto places breakpoint)</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>messages<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;claude-sonnet-4-5&#34;</span>,
+</span></span><span style="display:flex;"><span>    max_tokens<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>,
+</span></span><span style="display:flex;"><span>    system<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;text&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;You are an expert software engineer...&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># This triggers automatic cache placement on the last cacheable block</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;cache_control&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;ephemeral&#34;</span>}
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    messages<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: user_query}
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Monitor cache usage</span>
+</span></span><span style="display:flex;"><span>usage <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>usage
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Input tokens: </span><span style="color:#e6db74">{</span>usage<span style="color:#f92672">.</span>input_tokens<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cache creation tokens: </span><span style="color:#e6db74">{</span>usage<span style="color:#f92672">.</span>cache_creation_input_tokens<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Cache read tokens: </span><span style="color:#e6db74">{</span>usage<span style="color:#f92672">.</span>cache_read_input_tokens<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p><strong>Multi-turn conversation caching:</strong> In multi-turn chat, Anthropic&rsquo;s automatic caching advances the cache breakpoint forward as the conversation grows — without requiring you to update <code>cache_control</code> markers manually. The 20-block lookback window limits how far back the provider searches for matching prefixes. Keep your conversation history compaction logic in sync with this window to avoid unnecessary cache misses in very long conversations.</p>
+<h3 id="explicit-multi-breakpoint-example">Explicit Multi-Breakpoint Example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># For fine-grained control: multiple explicit breakpoints</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>messages<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;claude-sonnet-4-5&#34;</span>,
+</span></span><span style="display:flex;"><span>    max_tokens<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>,
+</span></span><span style="display:flex;"><span>    system<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;text&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;You are an expert software engineer...&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;cache_control&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;ephemeral&#34;</span>}  <span style="color:#75715e"># Breakpoint 1: system prompt</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    messages<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;content&#34;</span>: [
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;text&#34;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;text&#34;</span>: large_document_context,  <span style="color:#75715e"># Your reference docs</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;cache_control&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;ephemeral&#34;</span>}  <span style="color:#75715e"># Breakpoint 2: context</span>
+</span></span><span style="display:flex;"><span>                },
+</span></span><span style="display:flex;"><span>                {
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;text&#34;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;text&#34;</span>: user_query  <span style="color:#75715e"># Dynamic — no cache_control</span>
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h2 id="gemini-prompt-caching-implicit-caching-and-named-cache-objects">Gemini Prompt Caching: Implicit Caching and Named Cache Objects</h2>
+<p>Gemini prompt caching operates through two mechanisms: implicit caching (where the API automatically detects and reuses repeated content) and explicit named cache objects for precise control. Gemini 2.5 expanded implicit caching capabilities, making it the most hands-off option for teams already using Google&rsquo;s infrastructure. Named cache objects persist across requests with configurable TTL, behaving more like a traditional database cache than the prefix-matching approach used by OpenAI and Anthropic. Savings are approximately 90% on cached content, comparable to Anthropic&rsquo;s rates.</p>
+<p>The named cache approach works well for RAG pipelines that repeatedly query the same knowledge base — you cache the document corpus once, assign it a cache ID, and reference that ID in subsequent requests rather than retransmitting the full content. This makes Gemini caching particularly well-suited for document Q&amp;A applications where the reference material doesn&rsquo;t change between queries.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> google.generativeai <span style="color:#66d9ef">as</span> genai
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>genai<span style="color:#f92672">.</span>configure(api_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;YOUR_API_KEY&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create a named cache for long-lived content</span>
+</span></span><span style="display:flex;"><span>cache <span style="color:#f92672">=</span> genai<span style="color:#f92672">.</span>caching<span style="color:#f92672">.</span>CachedContent<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gemini-2.5-flash&#34;</span>,
+</span></span><span style="display:flex;"><span>    contents<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;parts&#34;</span>: [{<span style="color:#e6db74">&#34;text&#34;</span>: large_document_context}]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    ttl<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;3600s&#34;</span>  <span style="color:#75715e"># 1-hour TTL</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Reference the cache in subsequent requests</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> genai<span style="color:#f92672">.</span>GenerativeModel<span style="color:#f92672">.</span>from_cached_content(cache)
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>generate_content(user_query)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Clean up when done</span>
+</span></span><span style="display:flex;"><span>cache<span style="color:#f92672">.</span>delete()
+</span></span></code></pre></div><h2 id="production-cost-calculator-real-dollar-amounts">Production Cost Calculator: Real Dollar Amounts</h2>
+<p>Prompt caching economics depend on three variables: prompt length (in tokens), daily request volume, and cache hit rate. The formula is simple — compare (cache write cost + cache read cost × hit rate) against (full input cost × all requests). In practice, applications with 2,000-token system prompts running 100 requests/day save around $12/month on Anthropic; growth-stage applications with 8,000-token prefixes at 10,000 requests/day save over $6,000/month. At enterprise scale — 100,000 requests/day with a 10,000-token cached prefix — annual savings exceed $1M on Anthropic. OpenAI&rsquo;s 50% discount produces roughly half these savings for the same workload. The numbers below use Anthropic Claude Sonnet 4.5 pricing ($3.00/1M standard input, $0.30/1M cache read, $3.75/1M cache write) with a representative 85-90% cache hit rate, which healthy production systems consistently achieve.</p>
+<p>These calculations use Anthropic Claude Sonnet 4.5 pricing ($3.00/1M input, $0.30/1M cache read, $3.75/1M cache write) unless noted.</p>
+<h3 id="hobby-2k-system-prompt-100-requestsday">Hobby: 2K System Prompt, 100 Requests/Day</h3>
+<p>Without caching: 2,000 tokens × 100 requests = 200K tokens/day × $3.00/1M = $0.60/day ($18/month)</p>
+<p>With caching: 1 cache write ($0.0075) + 99 cache reads (2,000 × 99 × $0.30/1M = $0.059) + user query tokens ≈ $0.066/day</p>
+<p><strong>Monthly savings: ~$12.60/month</strong> (70% reduction)</p>
+<h3 id="growth-8k-cached-prefix-10k-requestsday">Growth: 8K Cached Prefix, 10K Requests/Day</h3>
+<p>Without caching: 8,000 × 10,000 = 80M tokens/day × $3.00/1M = $240/day ($7,200/month)</p>
+<p>With caching (90% hit rate): ~$19.20/day in cache reads vs $240/day baseline</p>
+<p><strong>Monthly savings: ~$6,240/month</strong></p>
+<h3 id="enterprise-10k-cached-prefix-100k-requestsday">Enterprise: 10K Cached Prefix, 100K Requests/Day</h3>
+<p>Without caching: 10,000 × 100,000 = 1B tokens/day × $3.00/1M = $3,000/day</p>
+<p>With caching (85% hit rate): ~$76.50/day in cache reads</p>
+<p><strong>Monthly savings: ~$87,600/month ($1.05M/year)</strong></p>
+<p>These numbers explain why prompt caching is treated as a P0 optimization by any team running LLMs at scale.</p>
+<h2 id="anti-patterns-that-kill-your-cache-hit-rate">Anti-Patterns That Kill Your Cache Hit Rate</h2>
+<p>Cache anti-patterns are the silent killers of LLM API budgets. A well-designed prompt structure can achieve 80-90% cache hit rates in production; the same application with anti-patterns typically sees 10-30% — meaning you&rsquo;re paying near-full price and getting none of the latency benefits. Below are the most common patterns to avoid, each with a concrete fix.</p>
+<p><strong>Anti-pattern 1: Timestamps or session IDs in the system prompt</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># WRONG — kills cache every request</span>
+</span></span><span style="display:flex;"><span>system <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;You are an AI assistant. Current time: </span><span style="color:#e6db74">{</span>datetime<span style="color:#f92672">.</span>now()<span style="color:#e6db74">}</span><span style="color:#e6db74">. Session: </span><span style="color:#e6db74">{</span>session_id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># RIGHT — put dynamic data elsewhere</span>
+</span></span><span style="display:flex;"><span>system <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;You are an AI assistant.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Inject time/session into the user message if needed</span>
+</span></span></code></pre></div><p><strong>Anti-pattern 2: User content before static content</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># WRONG — user name appears before the cacheable instructions</span>
+</span></span><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Hi, I&#39;m </span><span style="color:#e6db74">{</span>user_name<span style="color:#e6db74">}</span><span style="color:#e6db74">. </span><span style="color:#e6db74">{</span>user_query<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>}
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># RIGHT — static instructions in system, user identity in messages</span>
+</span></span><span style="display:flex;"><span>system <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;You are an expert assistant with access to the following knowledge base: [static docs]&#34;</span>
+</span></span><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> [{<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: user_query}]
+</span></span></code></pre></div><p><strong>Anti-pattern 3: Rotating few-shot examples</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># WRONG — shuffled examples invalidate cache every time</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>examples <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>sample(all_examples, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># RIGHT — fixed ordered examples in system prompt, random examples in user messages</span>
+</span></span><span style="display:flex;"><span>fixed_examples <span style="color:#f92672">=</span> all_examples[:<span style="color:#ae81ff">5</span>]  <span style="color:#75715e"># Static, always the same</span>
+</span></span></code></pre></div><p><strong>Anti-pattern 4: Dynamic tool definitions</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># WRONG — enabling different tools per user breaks prefix matching</span>
+</span></span><span style="display:flex;"><span>tools <span style="color:#f92672">=</span> get_user_tools(user_id)  <span style="color:#75715e"># Different per user</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># RIGHT — use a fixed superset of tools, filter in application logic</span>
+</span></span><span style="display:flex;"><span>tools <span style="color:#f92672">=</span> ALL_TOOLS  <span style="color:#75715e"># Identical for every request</span>
+</span></span></code></pre></div><p><strong>Anti-pattern 5: Prompts below minimum threshold</strong></p>
+<p>Short prompts (&lt; 1,024 tokens) don&rsquo;t qualify for caching on any major provider. If your system prompt is 800 tokens, add structured documentation, examples, or reasoning guidelines to push above the threshold — the cost of additional tokens is trivial compared to the caching savings you unlock.</p>
+<h2 id="monitoring-cache-hit-rates-in-production">Monitoring Cache Hit Rates in Production</h2>
+<p>Production systems should target 70-90% cache hit rates. Rates below 50% indicate a structural problem with your prompt ordering — revisit the anti-patterns section. Each provider exposes cache metrics differently, but all include the data in API responses.</p>
+<p><strong>Anthropic monitoring:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">track_cache_metrics</span>(response, metrics_client):
+</span></span><span style="display:flex;"><span>    usage <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>usage
+</span></span><span style="display:flex;"><span>    total_input <span style="color:#f92672">=</span> (usage<span style="color:#f92672">.</span>input_tokens <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>                   usage<span style="color:#f92672">.</span>cache_creation_input_tokens <span style="color:#f92672">+</span> 
+</span></span><span style="display:flex;"><span>                   usage<span style="color:#f92672">.</span>cache_read_input_tokens)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    hit_rate <span style="color:#f92672">=</span> usage<span style="color:#f92672">.</span>cache_read_input_tokens <span style="color:#f92672">/</span> total_input <span style="color:#66d9ef">if</span> total_input <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    metrics_client<span style="color:#f92672">.</span>gauge(<span style="color:#e6db74">&#34;llm.cache_hit_rate&#34;</span>, hit_rate)
+</span></span><span style="display:flex;"><span>    metrics_client<span style="color:#f92672">.</span>increment(<span style="color:#e6db74">&#34;llm.cache_reads&#34;</span>, usage<span style="color:#f92672">.</span>cache_read_input_tokens)
+</span></span><span style="display:flex;"><span>    metrics_client<span style="color:#f92672">.</span>increment(<span style="color:#e6db74">&#34;llm.cache_writes&#34;</span>, usage<span style="color:#f92672">.</span>cache_creation_input_tokens)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> hit_rate <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.5</span>:
+</span></span><span style="display:flex;"><span>        alert(<span style="color:#e6db74">&#34;Cache hit rate below 50% — check prompt structure&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> hit_rate
+</span></span></code></pre></div><p><strong>OpenAI monitoring:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">track_openai_cache</span>(response):
+</span></span><span style="display:flex;"><span>    details <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>usage<span style="color:#f92672">.</span>prompt_tokens_details
+</span></span><span style="display:flex;"><span>    cached <span style="color:#f92672">=</span> details<span style="color:#f92672">.</span>cached_tokens <span style="color:#66d9ef">if</span> details <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    total <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>usage<span style="color:#f92672">.</span>prompt_tokens
+</span></span><span style="display:flex;"><span>    hit_rate <span style="color:#f92672">=</span> cached <span style="color:#f92672">/</span> total <span style="color:#66d9ef">if</span> total <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> hit_rate
+</span></span></code></pre></div><p>Key metrics to track in production:</p>
+<ul>
+<li><strong>Cache hit rate</strong> (target: 70%+; alert threshold: 50%)</li>
+<li><strong>Cache creation cost</strong> (should be small relative to cache read savings)</li>
+<li><strong>Time-to-first-token</strong> (cache hits typically reduce TTFT by 40-80%)</li>
+<li><strong>Daily cache savings</strong> (compare cached read cost vs estimated uncached cost)</li>
+</ul>
+<p>Set up weekly cost attribution reports that separate cached vs uncached spending. This makes optimization work visible to stakeholders and helps justify the engineering investment in prompt structure.</p>
+<h2 id="prompt-caching-with-rag-multi-turn-chat-and-agentic-systems">Prompt Caching with RAG, Multi-Turn Chat, and Agentic Systems</h2>
+<p>Prompt caching interacts differently with each major LLM application pattern, and the configuration choices that maximize savings in a simple chatbot may perform poorly in an agentic system. RAG pipelines benefit most from caching the retrieval instructions and knowledge base preamble while letting retrieved documents flow through a second breakpoint. Multi-turn chat applications benefit from Anthropic&rsquo;s automatic cache advancement, which moves the cache boundary forward as conversation history grows — no manual re-marking needed. Agentic systems using tool-calling loops (AutoGen, LangGraph, CrewAI) require careful static/dynamic separation: cache the tool definitions and agent persona, let tool call results remain uncached. In all three patterns, the 31% semantic similarity rate observed across production LLM queries (Burnwise 2026 analysis) means that even applications with moderate request volumes see real cache hits — not just the high-frequency request patterns typically highlighted in provider documentation. Gemini&rsquo;s named cache objects are uniquely well-suited for document corpora shared across many different query types, making it the preferred choice for multi-tenant RAG deployments where the same document set serves many users.</p>
+<h3 id="rag-pipelines">RAG Pipelines</h3>
+<p>RAG applications are the ideal use case for prompt caching. The retrieved documents change per query, but your system prompt, retrieval instructions, and output format guidelines are static. Structure your RAG prompt as:</p>
+<ol>
+<li>System instructions (static, cached)</li>
+<li>Retrieved documents (semi-static per document set, explicitly cached with breakpoint)</li>
+<li>User question (dynamic, not cached)</li>
+</ol>
+<p>For Gemini, use named cache objects for your document corpus — create the cache once per document set and reference it by ID across all queries against that corpus.</p>
+<h3 id="multi-turn-conversations">Multi-Turn Conversations</h3>
+<p>Anthropic&rsquo;s automatic cache advancement handles multi-turn chat without manual cache_control updates per message. The breakpoint moves forward automatically as conversation history grows. Watch for the 20-block lookback window — conversations longer than ~20 exchanges may see the oldest context fall outside the cacheable window. Implement a summarization or context compaction step before hitting this limit.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Multi-turn with Anthropic — cache_control only on the system, </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># automatic caching handles the rest</span>
+</span></span><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> conversation_history  <span style="color:#75715e"># Growing list of messages</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>messages<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;claude-sonnet-4-5&#34;</span>,
+</span></span><span style="display:flex;"><span>    system<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;text&#34;</span>, <span style="color:#e6db74">&#34;text&#34;</span>: system_prompt, 
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;cache_control&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;ephemeral&#34;</span>}}],
+</span></span><span style="display:flex;"><span>    messages<span style="color:#f92672">=</span>messages,
+</span></span><span style="display:flex;"><span>    max_tokens<span style="color:#f92672">=</span><span style="color:#ae81ff">1024</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Append response to conversation_history for next turn</span>
+</span></span></code></pre></div><h3 id="agentic-systems">Agentic Systems</h3>
+<p>Agentic systems (AutoGen, LangGraph, CrewAI) make many tool calls in a loop, often with overlapping system prompts and tool definitions. Cache your tool registry and agent persona at the top of the prompt, and let the dynamic tool call results flow through the uncached portion. The consistency requirement is strict — if your tool definitions change between agent steps (e.g., tools are conditionally available), you&rsquo;ll get cache misses. Prefer a static superset of tools and handle conditional availability in application logic.</p>
+<h2 id="when-prompt-caching-genuinely-doesnt-help">When Prompt Caching Genuinely Doesn&rsquo;t Help</h2>
+<p>Prompt caching is not a universal win. Avoid optimizing for it in these scenarios:</p>
+<ul>
+<li><strong>Short prompts (&lt; 1,024 tokens):</strong> You don&rsquo;t meet the minimum threshold. Engineering time is better spent elsewhere.</li>
+<li><strong>Highly unique contexts:</strong> If every request has a completely different long context (e.g., analyzing a unique document per user), you write a cache but never read it — you pay the write premium for nothing.</li>
+<li><strong>Low request volume:</strong> At under 50 requests/day, cache writes may cost more than reads save. Run the math with your actual prompt length and request rate.</li>
+<li><strong>Frequently changing system prompts:</strong> If your system prompt changes every hour or day (A/B testing, personalization), TTL selection becomes tricky and hit rates drop.</li>
+<li><strong>One-off batch jobs:</strong> A batch that runs once and never repeats gets no cache reads. Use Anthropic&rsquo;s Batch API for cost savings instead.</li>
+</ul>
+<p>The honest assessment: if your system prompt is under 2K tokens and you run under 1,000 requests/day, the savings are real but modest (under $50/month on most providers). At that scale, model selection and prompt length optimization likely offer better ROI than caching architecture.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Does prompt caching work with streaming responses?</strong></p>
+<p>Yes. All three providers support prompt caching with streaming. The cache hit check happens before token generation begins, so your streaming latency still benefits from reduced time-to-first-token on cache hits. The usage statistics (including cache read tokens) appear in the final delta of the stream.</p>
+<p><strong>Q: What happens if I exceed Anthropic&rsquo;s 4-breakpoint limit?</strong></p>
+<p>The API returns a 400 error. If you&rsquo;re using automatic caching (which consumes one slot), you can add up to 3 explicit breakpoints. If you need more granularity, restructure your prompt to consolidate static sections rather than adding more breakpoints.</p>
+<p><strong>Q: Is prompt caching the same as semantic caching?</strong></p>
+<p>No. Prompt caching is exact prefix matching at the token level — it requires identical byte sequences to hit. Semantic caching (tools like GPTCache, Redis + embeddings) matches semantically similar queries and returns cached responses. They&rsquo;re complementary: use prompt caching to reduce per-request compute costs, and semantic caching to avoid calling the LLM at all for near-duplicate queries.</p>
+<p><strong>Q: Will using prompt caching affect response quality?</strong></p>
+<p>No. Cache hits use the exact same KV states that would have been computed fresh, so responses are statistically identical. The only observable difference is lower latency and cost. There&rsquo;s no quality-cost tradeoff involved.</p>
+<p><strong>Q: How do I choose between Anthropic and OpenAI for cost optimization?</strong></p>
+<p>Run the math with your actual numbers. OpenAI gives 50% savings with zero engineering work. Anthropic gives 90% savings with minimal implementation effort. At 10,000 requests/day with a 5K-token system prompt, Anthropic saves roughly twice as much per month despite higher base prices, assuming 80%+ cache hit rate. Below about 5,000 requests/day, the difference narrows significantly, and OpenAI&rsquo;s simplicity may win on total cost including engineering time.</p>
+]]></content:encoded></item><item><title>OpenAI Responses API Tutorial 2026: Build Stateful AI Apps in Python</title><link>https://baeseokjae.github.io/posts/openai-responses-api-tutorial-2026/</link><pubDate>Tue, 21 Apr 2026 00:11:38 +0000</pubDate><guid>https://baeseokjae.github.io/posts/openai-responses-api-tutorial-2026/</guid><description>Complete OpenAI Responses API tutorial 2026: stateful conversations, built-in tools, function calling, and migration from Chat Completions.</description><content:encoded><![CDATA[<p>The OpenAI Responses API is the new primary interface for building stateful, agentic AI applications — replacing the Assistants API (being sunset H1 2026) and extending beyond what Chat Completions can do. This tutorial walks through everything from your first API call to building multi-step agents with built-in tools like web search and file retrieval.</p>
+<h2 id="what-is-the-openai-responses-api">What Is the OpenAI Responses API?</h2>
+<p>The OpenAI Responses API is a stateful, tool-native interface for building AI agents and multi-turn applications — launched in March 2025 as OpenAI&rsquo;s replacement for the Assistants API and a significant evolution beyond Chat Completions. Unlike Chat Completions, which is stateless (every request requires you to resend the full conversation history), Responses API maintains conversation state server-side using <code>previous_response_id</code>. A 10-turn conversation with Chat Completions resends your entire history on turn 10, making it up to 5x more expensive for long dialogues. Responses API sends only the new message each turn — the server already holds context. Built-in tools (web search at $25–50/1K queries, file search at $2.50/1K queries) are first-class citizens rather than custom function definitions, and reasoning tokens from o3 and o4-mini are preserved between turns instead of being discarded. OpenAI has moved all example code in the openai-python repository to Responses API patterns — it is where the platform is going.</p>
+<h3 id="key-architecture-concepts">Key Architecture Concepts</h3>
+<p>The Responses API is built around three core primitives that differ from Chat Completions:</p>
+<ul>
+<li><strong>Response objects</strong> — Each API call returns a Response object with an <code>id</code> field. Pass this as <code>previous_response_id</code> in the next call to chain turns without resending history.</li>
+<li><strong>Built-in tools</strong> — <code>web_search_preview</code>, <code>file_search</code>, and <code>computer_use_preview</code> are activated by including them in the <code>tools</code> array. No custom server infrastructure required.</li>
+<li><strong>Semantic streaming events</strong> — Instead of raw token deltas, streaming emits structured events like <code>response.output_item.added</code>, <code>response.content_part.added</code>, and <code>response.done</code>.</li>
+</ul>
+<h2 id="chat-completions-vs-responses-api-vs-assistants-api">Chat Completions vs Responses API vs Assistants API</h2>
+<p>The Responses API occupies a distinct position: it is more capable than Chat Completions for stateful and agentic workflows, while being simpler and cheaper than the Assistants API that it is replacing. Understanding which to use requires knowing what each one manages for you versus what you manage yourself. Chat Completions gives you maximum control (you own all state, all persistence, all tool execution loops) at the cost of client-side complexity. Responses API moves state management and tool orchestration server-side while keeping the request/response model familiar. Assistants API managed Threads, Runs, and Files as persistent objects — a full lifecycle that developers found overly complex for most use cases. OpenAI is converging on Responses API as the primary stateful API.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Chat Completions</th>
+          <th>Responses API</th>
+          <th>Assistants API</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>State management</td>
+          <td>Client-side</td>
+          <td>Server-side</td>
+          <td>Server-side (Threads)</td>
+      </tr>
+      <tr>
+          <td>Built-in tools</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>Yes (Code Interpreter, etc.)</td>
+      </tr>
+      <tr>
+          <td>Reasoning token preservation</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Pricing overhead</td>
+          <td>Lowest</td>
+          <td>Medium</td>
+          <td>Highest</td>
+      </tr>
+      <tr>
+          <td>Streaming events</td>
+          <td>Raw token deltas</td>
+          <td>Semantic events</td>
+          <td>SSE stream</td>
+      </tr>
+      <tr>
+          <td>Status</td>
+          <td>Active</td>
+          <td>Active (primary)</td>
+          <td>Sunset H1 2026</td>
+      </tr>
+      <tr>
+          <td>Multi-provider support</td>
+          <td>Wide</td>
+          <td>Open Responses spec</td>
+          <td>OpenAI only</td>
+      </tr>
+  </tbody>
+</table>
+<p>The migration path from Assistants to Responses is the most urgent — H1 2026 sunset means any Threads/Runs code needs to be ported now.</p>
+<h2 id="getting-started-your-first-responses-api-call">Getting Started: Your First Responses API Call</h2>
+<p>Making your first Responses API call requires the <code>openai</code> Python package (version ≥ 1.66.0 for full Responses support) and an API key. The shape of the request is close to Chat Completions but uses a different method and a different response schema. The critical difference from Chat Completions is the <code>input</code> parameter instead of <code>messages</code>, and the <code>model</code> field supporting all GPT-4o, o3, and o4-mini identifiers. The response is a <code>Response</code> object with an <code>id</code> field that enables state chaining, <code>output</code> containing the model&rsquo;s reply, and usage statistics. You do not need to configure threads, assistants, or vector stores before making your first call — just the model and the input.</p>
+<p><strong>Install and authenticate:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install openai&gt;<span style="color:#f92672">=</span>1.66.0
+</span></span><span style="display:flex;"><span>export OPENAI_API_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sk-...&#34;</span>
+</span></span></code></pre></div><p><strong>Your first call (Python):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Explain the difference between Responses API and Chat Completions in one paragraph.&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(response<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Response ID: </span><span style="color:#e6db74">{</span>response<span style="color:#f92672">.</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e"># Save this for multi-turn</span>
+</span></span></code></pre></div><p><strong>JavaScript/TypeScript equivalent:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">OpenAI</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;openai&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">OpenAI</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">responses</span>.<span style="color:#a6e22e">create</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">model</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">input</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Explain the difference between Responses API and Chat Completions.&#34;</span>
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">output</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">content</span>[<span style="color:#ae81ff">0</span>].<span style="color:#a6e22e">text</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Response ID: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">id</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span></code></pre></div><p>The response object structure is different from <code>ChatCompletion</code> — <code>output</code> is a list of items, each with a <code>content</code> list. Text is at <code>response.output[0].content[0].text</code>.</p>
+<h2 id="server-side-state-management-with-previous_response_id">Server-Side State Management with previous_response_id</h2>
+<p>Server-side state management via <code>previous_response_id</code> is the most significant capability that Responses API adds over Chat Completions. When you pass a <code>previous_response_id</code> to a new request, the OpenAI server reconstructs the conversation context internally — you only send the new user message, not the full history. This eliminates the most expensive part of long conversations: re-tokenizing and re-encoding historical messages on every turn. For a 10-turn conversation with 500 tokens per turn, Chat Completions sends approximately 5,000 tokens on turn 10 (full history) while Responses API sends roughly 500 tokens (just the new input). At scale across thousands of daily active users, this is not a marginal difference. Reasoning tokens from o3 and o4-mini are also preserved — the model&rsquo;s internal chain-of-thought from turn 3 informs turn 7, producing more coherent agentic behavior than Chat Completions where that reasoning context is lost.</p>
+<p><strong>Multi-turn conversation example:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Turn 1</span>
+</span></span><span style="display:flex;"><span>response_1 <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;I&#39;m building a Python web scraper. Where should I start?&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Assistant:&#34;</span>, response_1<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Turn 2 — only send new message, server holds context</span>
+</span></span><span style="display:flex;"><span>response_2 <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    previous_response_id<span style="color:#f92672">=</span>response_1<span style="color:#f92672">.</span>id,
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Which HTTP library would you recommend for async scraping?&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Assistant:&#34;</span>, response_2<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Turn 3 — chain continues</span>
+</span></span><span style="display:flex;"><span>response_3 <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    previous_response_id<span style="color:#f92672">=</span>response_2<span style="color:#f92672">.</span>id,
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Show me a basic example using that library.&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Assistant:&#34;</span>, response_3<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text)
+</span></span></code></pre></div><p>Store <code>response.id</code> in your database alongside the user session. When the user returns, load their latest <code>response_id</code> and pass it as <code>previous_response_id</code> — the conversation resumes with full context.</p>
+<h3 id="managing-state-in-production">Managing State in Production</h3>
+<p>For production applications, treat <code>previous_response_id</code> like a foreign key in your session table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sqlite3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI()
+</span></span><span style="display:flex;"><span>db <span style="color:#f92672">=</span> sqlite3<span style="color:#f92672">.</span>connect(<span style="color:#e6db74">&#34;sessions.db&#34;</span>)
+</span></span><span style="display:flex;"><span>db<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#34;CREATE TABLE IF NOT EXISTS sessions (user_id TEXT, last_response_id TEXT)&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chat</span>(user_id: str, message: str) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    row <span style="color:#f92672">=</span> db<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#34;SELECT last_response_id FROM sessions WHERE user_id=?&#34;</span>, (user_id,))<span style="color:#f92672">.</span>fetchone()
+</span></span><span style="display:flex;"><span>    prev_id <span style="color:#f92672">=</span> row[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">if</span> row <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>        input<span style="color:#f92672">=</span>message,
+</span></span><span style="display:flex;"><span>        previous_response_id<span style="color:#f92672">=</span>prev_id
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    new_id <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>id
+</span></span><span style="display:flex;"><span>    db<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#34;INSERT OR REPLACE INTO sessions VALUES (?, ?)&#34;</span>, (user_id, new_id))
+</span></span><span style="display:flex;"><span>    db<span style="color:#f92672">.</span>commit()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text
+</span></span></code></pre></div><h2 id="built-in-tools-web-search-file-search-and-computer-use">Built-in Tools: Web Search, File Search, and Computer Use</h2>
+<p>Built-in tools in the Responses API replace custom infrastructure that developers previously had to build and maintain themselves. Web search (<code>web_search_preview</code>) lets the model query the live web and return cited results without you managing a search API key or result parsing logic. File search (<code>file_search</code>) enables semantic retrieval over uploaded documents using OpenAI-hosted vector stores — at $2.50 per 1,000 queries with the first gigabyte of storage free and $0.10/GB/day after that. Computer use (<code>computer_use_preview</code>) allows the model to control a browser or desktop environment, opening the door to automation workflows that were previously limited to specialized tools. These tools are activated by listing them in the <code>tools</code> array of your request — no separate SDK, no custom endpoints. The model decides when to invoke them based on the user&rsquo;s input, executes them server-side, and returns the enriched response in a single API call.</p>
+<p><strong>Web search tool:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;web_search_preview&#34;</span>}],
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;What are the latest OpenAI API pricing changes in 2026?&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Response includes citations</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>output:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> item<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;message&#34;</span>:
+</span></span><span style="display:flex;"><span>        print(item<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> item<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;web_search_call&#34;</span>:
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Searched: </span><span style="color:#e6db74">{</span>item<span style="color:#f92672">.</span>query<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p><strong>File search with vector store:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Upload files first</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;docs/api_reference.pdf&#34;</span>, <span style="color:#e6db74">&#34;rb&#34;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    file <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>files<span style="color:#f92672">.</span>create(file<span style="color:#f92672">=</span>f, purpose<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;assistants&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create vector store</span>
+</span></span><span style="display:flex;"><span>vs <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>vector_stores<span style="color:#f92672">.</span>create(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;API Docs&#34;</span>)
+</span></span><span style="display:flex;"><span>client<span style="color:#f92672">.</span>vector_stores<span style="color:#f92672">.</span>files<span style="color:#f92672">.</span>create(vector_store_id<span style="color:#f92672">=</span>vs<span style="color:#f92672">.</span>id, file_id<span style="color:#f92672">=</span>file<span style="color:#f92672">.</span>id)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Query with file search</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#f92672">=</span>[{
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;file_search&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;vector_store_ids&#34;</span>: [vs<span style="color:#f92672">.</span>id]
+</span></span><span style="display:flex;"><span>    }],
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;What are the rate limits for the Responses API?&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>print(response<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text)
+</span></span></code></pre></div><p><strong>Tool pricing summary:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Cost</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>web_search_preview</code></td>
+          <td>$25–50 per 1,000 queries</td>
+      </tr>
+      <tr>
+          <td><code>file_search</code></td>
+          <td>$2.50 per 1,000 queries + $0.10/GB/day storage (first GB free)</td>
+      </tr>
+      <tr>
+          <td><code>computer_use_preview</code></td>
+          <td>Billed at model token rates + compute</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="function-calling-with-the-responses-api">Function Calling with the Responses API</h2>
+<p>Function calling in the Responses API follows the same five-step loop as Chat Completions, but integrates cleanly with server-side state so you do not need to manually reconstruct conversation history after each tool execution. The loop is: define tools → send request → model returns <code>function_call</code> items in <code>output</code> → execute functions locally → send results back with <code>previous_response_id</code> → model generates final response. Strict mode (<code>strict: true</code>) uses constrained decoding at token generation time to guarantee 100% schema compliance — critical for production agents where a malformed JSON response would break your execution logic. Parallel tool calls allow the model to request multiple function executions in a single response; you run all of them simultaneously and return all results in one follow-up request.</p>
+<p><strong>Five-step function calling loop:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 1: Define tools</span>
+</span></span><span style="display:flex;"><span>tools <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;function&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;get_weather&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Get current weather for a city&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;city&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>},
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;units&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>, <span style="color:#e6db74">&#34;enum&#34;</span>: [<span style="color:#e6db74">&#34;celsius&#34;</span>, <span style="color:#e6db74">&#34;fahrenheit&#34;</span>]}
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;required&#34;</span>: [<span style="color:#e6db74">&#34;city&#34;</span>, <span style="color:#e6db74">&#34;units&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;additionalProperties&#34;</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;strict&#34;</span>: <span style="color:#66d9ef">True</span>  <span style="color:#75715e"># Step 1b: Enable strict mode</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: Send request</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#f92672">=</span>tools,
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;What&#39;s the weather in Tokyo and Berlin?&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: Check for tool calls</span>
+</span></span><span style="display:flex;"><span>tool_calls <span style="color:#f92672">=</span> [item <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>output <span style="color:#66d9ef">if</span> item<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;function_call&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 4: Execute functions</span>
+</span></span><span style="display:flex;"><span>results <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> tc <span style="color:#f92672">in</span> tool_calls:
+</span></span><span style="display:flex;"><span>    args <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(tc<span style="color:#f92672">.</span>arguments)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Your actual implementation</span>
+</span></span><span style="display:flex;"><span>    weather_data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;temperature&#34;</span>: <span style="color:#ae81ff">18</span>, <span style="color:#e6db74">&#34;condition&#34;</span>: <span style="color:#e6db74">&#34;partly cloudy&#34;</span>}
+</span></span><span style="display:flex;"><span>    results<span style="color:#f92672">.</span>append({
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;function_call_output&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;call_id&#34;</span>: tc<span style="color:#f92672">.</span>call_id,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;output&#34;</span>: json<span style="color:#f92672">.</span>dumps(weather_data)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 5: Send results, get final response</span>
+</span></span><span style="display:flex;"><span>final <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    previous_response_id<span style="color:#f92672">=</span>response<span style="color:#f92672">.</span>id,
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span>results
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>print(final<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text)
+</span></span></code></pre></div><h3 id="parallel-tool-calls">Parallel Tool Calls</h3>
+<p>When the model needs multiple data points, it can request them all at once. Execute in parallel and return all results together:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> asyncio
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">execute_tool</span>(tc):
+</span></span><span style="display:flex;"><span>    args <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(tc<span style="color:#f92672">.</span>arguments)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Async execution of each tool call</span>
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> fetch_data(args)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;function_call_output&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;call_id&#34;</span>: tc<span style="color:#f92672">.</span>call_id,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;output&#34;</span>: json<span style="color:#f92672">.</span>dumps(result)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tool_calls <span style="color:#f92672">=</span> [item <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>output <span style="color:#66d9ef">if</span> item<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;function_call&#34;</span>]
+</span></span><span style="display:flex;"><span>results <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> asyncio<span style="color:#f92672">.</span>gather(<span style="color:#f92672">*</span>[execute_tool(tc) <span style="color:#66d9ef">for</span> tc <span style="color:#f92672">in</span> tool_calls])
+</span></span></code></pre></div><p>For dependent operations (tool B requires tool A&rsquo;s output), set <code>parallel_tool_calls: False</code> or use o3/o4-mini which naturally sequences calls based on reasoning.</p>
+<h2 id="strict-mode-and-schema-enforcement-for-production">Strict Mode and Schema Enforcement for Production</h2>
+<p>Strict mode in the Responses API&rsquo;s function calling achieves 100% schema compliance by applying constrained decoding at the token generation level — the model cannot produce a token that would violate your JSON schema. This is fundamentally different from prompt-level instructions (&ldquo;always return valid JSON&rdquo;) which can fail under adversarial inputs or long context. For production agents processing thousands of tool call cycles, even a 0.1% JSON parse failure rate creates operational overhead: error logging, retry logic, fallback handling, user-facing error states. Strict mode eliminates this class of failure entirely at generation time. The requirement is that your schema uses only supported types (<code>string</code>, <code>number</code>, <code>boolean</code>, <code>object</code>, <code>array</code>, <code>null</code>), sets <code>additionalProperties: false</code> on all objects, and marks all properties as <code>required</code>. These constraints are strict mode&rsquo;s trade-off: less flexible schemas in exchange for guaranteed compliance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>tool_schema <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;function&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;create_ticket&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Create a support ticket in the system&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;title&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>},
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;priority&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>, <span style="color:#e6db74">&#34;enum&#34;</span>: [<span style="color:#e6db74">&#34;low&#34;</span>, <span style="color:#e6db74">&#34;medium&#34;</span>, <span style="color:#e6db74">&#34;high&#34;</span>, <span style="color:#e6db74">&#34;critical&#34;</span>]},
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;assignee_id&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: [<span style="color:#e6db74">&#34;string&#34;</span>, <span style="color:#e6db74">&#34;null&#34;</span>]},
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;tags&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;array&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;items&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>}
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;required&#34;</span>: [<span style="color:#e6db74">&#34;title&#34;</span>, <span style="color:#e6db74">&#34;priority&#34;</span>, <span style="color:#e6db74">&#34;assignee_id&#34;</span>, <span style="color:#e6db74">&#34;tags&#34;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;additionalProperties&#34;</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;strict&#34;</span>: <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>With <code>strict: True</code>, if the model cannot fit a value into your schema, it will use <code>null</code> for nullable fields rather than hallucinating invalid values.</p>
+<h2 id="streaming-with-semantic-events">Streaming with Semantic Events</h2>
+<p>Streaming in the Responses API uses structured semantic events rather than the raw <code>choices[0].delta.content</code> tokens you get from Chat Completions. This matters for building reactive UIs and agent orchestration loops: you know exactly when a tool call starts, when content is being added, and when the response is complete — without parsing partial JSON or managing your own buffer state. Semantic events include <code>response.output_item.added</code> (new output item starting), <code>response.content_part.added</code> (new content part), <code>response.output_text.delta</code> (token-by-token text), <code>response.tool_call.arguments.delta</code> (streaming tool call arguments), and <code>response.done</code> (full response complete with final object). This is a meaningful ergonomic improvement for streaming agents because tool call arguments arrive incrementally — you can start validation or UI feedback before the full JSON is assembled.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">with</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>stream(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;web_search_preview&#34;</span>}],
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search for the latest news on OpenAI Responses API&#34;</span>
+</span></span><span style="display:flex;"><span>) <span style="color:#66d9ef">as</span> stream:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> event <span style="color:#f92672">in</span> stream:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> event<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;response.output_text.delta&#34;</span>:
+</span></span><span style="display:flex;"><span>            print(event<span style="color:#f92672">.</span>delta, end<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>, flush<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> event<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;response.output_item.added&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> event<span style="color:#f92672">.</span>item<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;web_search_call&#34;</span>:
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">[Searching: </span><span style="color:#e6db74">{</span>event<span style="color:#f92672">.</span>item<span style="color:#f92672">.</span>query<span style="color:#e6db74">}</span><span style="color:#e6db74">]&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> event<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;response.done&#34;</span>:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Final response ID: </span><span style="color:#e6db74">{</span>event<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><h2 id="cost-architecture-when-to-use-which-api">Cost Architecture: When to Use Which API</h2>
+<p>The Responses API sits between Chat Completions (lowest cost) and Assistants API (highest overhead) in terms of cost structure. For short, single-turn interactions, Chat Completions is still cheaper — there is no state storage overhead and no per-query tool pricing. For conversations longer than 3–4 turns, Responses API often wins because you stop paying to re-tokenize history: a 10-turn conversation with 500 tokens of context per turn costs roughly 5,000 input tokens on Chat Completions turn 10 vs roughly 500 tokens on Responses API. The break-even point depends on your average conversation length and token costs for your chosen model. Built-in tools add per-use costs but replace infrastructure you would otherwise build: a self-hosted web search integration requires API keys, result parsing, prompt injection into context, and maintenance. At $25–50/1K queries, <code>web_search_preview</code> is often cheaper than developer time for low-to-medium volume applications.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Scenario</th>
+          <th>Recommended API</th>
+          <th>Reason</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Single-turn completions, high volume</td>
+          <td>Chat Completions</td>
+          <td>No state overhead</td>
+      </tr>
+      <tr>
+          <td>Multi-turn chat (3+ turns)</td>
+          <td>Responses API</td>
+          <td>Avoids history resend cost</td>
+      </tr>
+      <tr>
+          <td>Document Q&amp;A with file retrieval</td>
+          <td>Responses API + file_search</td>
+          <td>Built-in vector store</td>
+      </tr>
+      <tr>
+          <td>Web-augmented research agents</td>
+          <td>Responses API + web_search</td>
+          <td>No custom search infra</td>
+      </tr>
+      <tr>
+          <td>Legacy Assistants code</td>
+          <td>Migrate to Responses</td>
+          <td>Assistants sunset H1 2026</td>
+      </tr>
+      <tr>
+          <td>Multi-provider portability</td>
+          <td>Responses API (Open Responses spec)</td>
+          <td>Works on Ollama, vLLM, etc.</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="the-open-responses-specification">The Open Responses Specification</h2>
+<p>The Open Responses specification is a multi-provider API standard backed by OpenAI, Nvidia, Vercel, OpenRouter, Hugging Face, LM Studio, Ollama, and vLLM — defining a shared interface for stateful AI responses that any compatible server can implement. This matters for developers building on the Responses API because it means your code is not locked to OpenAI infrastructure. Ollama added Open Responses support in v0.13.3 (non-stateful flavor for local models), and vLLM ships a fully compatible server for self-hosted deployments. Azure OpenAI also supports the Responses API through its own hosted endpoint. The specification defines the request/response schema, streaming event format, and tool calling protocol — the same <code>previous_response_id</code> chaining, same <code>tools</code> array format, same semantic streaming events. Write once, run on OpenAI, Azure, local Ollama, or any vLLM deployment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Point to any Open Responses-compatible server</span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI(
+</span></span><span style="display:flex;"><span>    api_key<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ollama&#34;</span>,  <span style="color:#75715e"># or your local API key</span>
+</span></span><span style="display:flex;"><span>    base_url<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://localhost:11434/v1/responses&#34;</span>  <span style="color:#75715e"># local Ollama</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Same code works — just the endpoint changes</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;llama3.2&#34;</span>,
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Explain stateful conversation management.&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h2 id="migrating-from-chat-completions-to-responses-api">Migrating from Chat Completions to Responses API</h2>
+<p>Migrating from Chat Completions to Responses API is the most straightforward upgrade path because the model IDs are identical, the tool definition format is compatible, and you can migrate incrementally — route new features to Responses API while leaving existing Chat Completions code untouched. The surface-level change is <code>client.chat.completions.create()</code> → <code>client.responses.create()</code>, <code>messages</code> → <code>input</code>, and manually managed history → <code>previous_response_id</code>. For streaming, swap <code>for chunk in stream</code> token handling for semantic event processing. The deeper change is architectural: you stop owning conversation state in your database and delegate it to OpenAI&rsquo;s server, keeping only the <code>response_id</code> as a foreign key.</p>
+<p><strong>Before (Chat Completions):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>history <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chat</span>(message: str) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">.</span>append({<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: message})
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>chat<span style="color:#f92672">.</span>completions<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>        messages<span style="color:#f92672">=</span>history  <span style="color:#75715e"># Full history every time</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    reply <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>choices[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>message<span style="color:#f92672">.</span>content
+</span></span><span style="display:flex;"><span>    history<span style="color:#f92672">.</span>append({<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;assistant&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: reply})
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> reply
+</span></span></code></pre></div><p><strong>After (Responses API):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>last_response_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">chat</span>(message: str) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> last_response_id
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>        input<span style="color:#f92672">=</span>message,
+</span></span><span style="display:flex;"><span>        previous_response_id<span style="color:#f92672">=</span>last_response_id  <span style="color:#75715e"># Just the ID</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    last_response_id <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>id
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text
+</span></span></code></pre></div><h2 id="migrating-from-assistants-api-before-h1-2026-sunset">Migrating from Assistants API Before H1 2026 Sunset</h2>
+<p>The Assistants API is being sunset in H1 2026, which means any production code using Threads, Runs, Messages, or Assistants objects needs to be ported to Responses API before that date. The migration is not a one-to-one mapping — the conceptual model is different — but the capabilities are equivalent or improved. Threads (persistent conversation containers) map to <code>previous_response_id</code> chains. Runs (execution units with polling) are replaced by single synchronous or streaming Responses API calls. Messages objects (structured conversation history) are replaced by the <code>output</code> array in each Response. Assistants (reusable agent configurations with tools and system prompts) map to per-request <code>instructions</code> and <code>tools</code> parameters, or can be encapsulated in a Python class. The main operational change: you no longer poll for Run completion — Responses API calls block until complete (or stream incrementally).</p>
+<p><strong>Assistants API pattern (to replace):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># OLD: Assistants API (sunset H1 2026)</span>
+</span></span><span style="display:flex;"><span>thread <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>beta<span style="color:#f92672">.</span>threads<span style="color:#f92672">.</span>create()
+</span></span><span style="display:flex;"><span>client<span style="color:#f92672">.</span>beta<span style="color:#f92672">.</span>threads<span style="color:#f92672">.</span>messages<span style="color:#f92672">.</span>create(thread_id<span style="color:#f92672">=</span>thread<span style="color:#f92672">.</span>id, role<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;user&#34;</span>, content<span style="color:#f92672">=</span>message)
+</span></span><span style="display:flex;"><span>run <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>beta<span style="color:#f92672">.</span>threads<span style="color:#f92672">.</span>runs<span style="color:#f92672">.</span>create_and_poll(thread_id<span style="color:#f92672">=</span>thread<span style="color:#f92672">.</span>id, assistant_id<span style="color:#f92672">=</span>assistant_id)
+</span></span><span style="display:flex;"><span>messages <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>beta<span style="color:#f92672">.</span>threads<span style="color:#f92672">.</span>messages<span style="color:#f92672">.</span>list(thread_id<span style="color:#f92672">=</span>thread<span style="color:#f92672">.</span>id)
+</span></span><span style="display:flex;"><span>reply <span style="color:#f92672">=</span> messages<span style="color:#f92672">.</span>data[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text<span style="color:#f92672">.</span>value
+</span></span></code></pre></div><p><strong>Responses API equivalent:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># NEW: Responses API</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>    instructions<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;You are a helpful assistant specializing in Python development.&#34;</span>,
+</span></span><span style="display:flex;"><span>    tools<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;file_search&#34;</span>, <span style="color:#e6db74">&#34;vector_store_ids&#34;</span>: [vs_id]}],
+</span></span><span style="display:flex;"><span>    input<span style="color:#f92672">=</span>message,
+</span></span><span style="display:flex;"><span>    previous_response_id<span style="color:#f92672">=</span>prev_response_id  <span style="color:#75715e"># replaces Thread</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>reply <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text
+</span></span><span style="display:flex;"><span>prev_response_id <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>id  <span style="color:#75715e"># store for next turn</span>
+</span></span></code></pre></div><h2 id="building-a-complete-agent-end-to-end-tutorial">Building a Complete Agent: End-to-End Tutorial</h2>
+<p>A complete Responses API agent combines server-side state, built-in tools, and function calling into a workflow that handles multi-step reasoning without manual orchestration loops. The following agent answers research questions by searching the web, retrieving relevant files, and synthesizing a cited response — all in a single Responses API call that handles tool execution internally when using built-in tools, or across two calls when using custom functions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Agent configuration</span>
+</span></span><span style="display:flex;"><span>TOOLS <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;web_search_preview&#34;</span>},
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;function&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;save_to_notes&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;Save a research finding to the user&#39;s notes&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;parameters&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;object&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;title&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>},
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;content&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>},
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;tags&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;array&#34;</span>, <span style="color:#e6db74">&#34;items&#34;</span>: {<span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;string&#34;</span>}}
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;required&#34;</span>: [<span style="color:#e6db74">&#34;title&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>, <span style="color:#e6db74">&#34;tags&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;additionalProperties&#34;</span>: <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;strict&#34;</span>: <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SYSTEM_PROMPT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;You are a research assistant. When asked a question:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1. Search the web for current information
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2. Synthesize findings with citations
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3. If the user asks to save findings, use the save_to_notes function
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Always cite your sources.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ResearchAgent</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>notes <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>last_response_id <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self, user_message: str) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>        response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>            model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>            instructions<span style="color:#f92672">=</span>SYSTEM_PROMPT,
+</span></span><span style="display:flex;"><span>            tools<span style="color:#f92672">=</span>TOOLS,
+</span></span><span style="display:flex;"><span>            input<span style="color:#f92672">=</span>user_message,
+</span></span><span style="display:flex;"><span>            previous_response_id<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>last_response_id
+</span></span><span style="display:flex;"><span>        )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Handle function calls (built-in tools execute automatically)</span>
+</span></span><span style="display:flex;"><span>        function_calls <span style="color:#f92672">=</span> [i <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> response<span style="color:#f92672">.</span>output <span style="color:#66d9ef">if</span> i<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;function_call&#34;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> function_calls:
+</span></span><span style="display:flex;"><span>            results <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> fc <span style="color:#f92672">in</span> function_calls:
+</span></span><span style="display:flex;"><span>                args <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(fc<span style="color:#f92672">.</span>arguments)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> fc<span style="color:#f92672">.</span>name <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;save_to_notes&#34;</span>:
+</span></span><span style="display:flex;"><span>                    self<span style="color:#f92672">.</span>notes<span style="color:#f92672">.</span>append(args)
+</span></span><span style="display:flex;"><span>                    result <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;saved&#34;</span>: <span style="color:#66d9ef">True</span>, <span style="color:#e6db74">&#34;note_count&#34;</span>: len(self<span style="color:#f92672">.</span>notes)}
+</span></span><span style="display:flex;"><span>                results<span style="color:#f92672">.</span>append({
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;function_call_output&#34;</span>,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;call_id&#34;</span>: fc<span style="color:#f92672">.</span>call_id,
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;output&#34;</span>: json<span style="color:#f92672">.</span>dumps(result)
+</span></span><span style="display:flex;"><span>                })
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Get final response after function execution</span>
+</span></span><span style="display:flex;"><span>            response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>responses<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>                model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-4o&#34;</span>,
+</span></span><span style="display:flex;"><span>                previous_response_id<span style="color:#f92672">=</span>response<span style="color:#f92672">.</span>id,
+</span></span><span style="display:flex;"><span>                input<span style="color:#f92672">=</span>results
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>last_response_id <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>id
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span>output[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Usage</span>
+</span></span><span style="display:flex;"><span>agent <span style="color:#f92672">=</span> ResearchAgent()
+</span></span><span style="display:flex;"><span>print(agent<span style="color:#f92672">.</span>run(<span style="color:#e6db74">&#34;What are the key features of the OpenAI Responses API launched in 2025?&#34;</span>))
+</span></span><span style="display:flex;"><span>print(agent<span style="color:#f92672">.</span>run(<span style="color:#e6db74">&#34;Save those findings to my notes with the tag &#39;openai-api&#39;&#34;</span>))
+</span></span><span style="display:flex;"><span>print(agent<span style="color:#f92672">.</span>run(<span style="color:#e6db74">&#34;What questions do I still have based on what we&#39;ve discussed?&#34;</span>))
+</span></span></code></pre></div><hr>
+<h2 id="faq">FAQ</h2>
+<p>The OpenAI Responses API introduces a fundamentally different programming model compared to Chat Completions and the now-sunset Assistants API. The most common questions from developers migrating existing applications center on state management, cost implications, and tool compatibility. These answers address the questions that come up most frequently when teams evaluate or implement the Responses API in production systems — covering <code>previous_response_id</code> chaining, the Assistants API sunset timeline, multi-provider portability via the Open Responses specification, cost savings on long conversations, and the interaction between custom function calling and built-in tools. Each answer is self-contained and reflects the current Responses API behavior as of April 2026. The Responses API launched in March 2025 and has since become OpenAI&rsquo;s primary recommended interface for stateful and agentic applications, with the openai-python library updated to use Responses API patterns throughout its examples.</p>
+<h3 id="what-is-the-difference-between-openai-responses-api-and-chat-completions">What is the difference between OpenAI Responses API and Chat Completions?</h3>
+<p>The key difference is state management. Chat Completions is stateless — you send the full conversation history on every request and manage persistence yourself. Responses API maintains conversation state server-side via <code>previous_response_id</code>, so each turn only sends the new message. Responses API also includes built-in tools (web search, file search) that Chat Completions lacks, and preserves reasoning tokens between turns for o3 and o4-mini models.</p>
+<h3 id="when-will-the-assistants-api-be-sunset">When will the Assistants API be sunset?</h3>
+<p>OpenAI has announced the Assistants API will be sunset in H1 2026. This means any production code using Threads, Runs, Messages, or the Assistants beta endpoints needs to be migrated to the Responses API before that deadline. The migration is well-documented and the Responses API provides all equivalent capabilities — stateful conversations, file retrieval, and tool use.</p>
+<h3 id="is-the-openai-responses-api-available-on-azure-openai">Is the OpenAI Responses API available on Azure OpenAI?</h3>
+<p>Yes. Azure OpenAI supports the Responses API through its hosted endpoint. Additionally, the Open Responses specification backed by Nvidia, Vercel, OpenRouter, and others enables the same API surface on Ollama (v0.13.3+), vLLM, and other compatible servers. The <code>base_url</code> parameter in the OpenAI Python client lets you point to any compatible server.</p>
+<h3 id="how-does-previous_response_id-save-money-on-long-conversations">How does <code>previous_response_id</code> save money on long conversations?</h3>
+<p>In a 10-turn conversation with Chat Completions, turn 10 sends the entire 9-turn history plus the new message — potentially thousands of tokens of input. With Responses API, turn 10 only sends the new message (a few hundred tokens) because the server already holds the full context. OpenAI estimates Chat Completions can be up to 5x more expensive for long conversations due to this history re-tokenization cost.</p>
+<h3 id="can-i-use-both-function-calling-and-built-in-tools-in-the-same-responses-api-call">Can I use both function calling and built-in tools in the same Responses API call?</h3>
+<p>Yes. You can include both custom function definitions and built-in tools (like <code>web_search_preview</code> or <code>file_search</code>) in the same <code>tools</code> array. The model will call whichever tools are relevant to the user&rsquo;s request. Built-in tools execute server-side and their results appear automatically in <code>response.output</code>, while custom function calls require your client to execute them and return results via a follow-up request with <code>previous_response_id</code>.</p>
+]]></content:encoded></item></channel></rss>
