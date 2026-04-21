@@ -23,7 +23,7 @@ GitHub Copilot Workspace's journey from preview to production captures the broad
 
 ## Core Features Deep Dive
 
-GitHub Copilot Workspace and its successor tools share a set of capabilities that distinguish them from single-autocomplete tools like early Copilot versions. These features, when combined, create a workflow that handles low-to-medium complexity tasks end to end — generating specifications, writing code, validating output, and opening PRs — with minimal human involvement at each step. Below is a breakdown of the core feature set as it exists in 2026 across both the Coding Agent (cloud) and Agent Mode (VS Code local).
+GitHub Copilot Workspace and its successor tools share a set of capabilities that distinguish them from single-autocomplete tools like early Copilot versions. These features, when combined, create a workflow that handles low-to-medium complexity tasks end to end — generating specifications, writing code, validating output, and opening PRs — with minimal human involvement at each step. The key distinction from a simple code completion tool is that Copilot Workspace operates as an agent: it reasons about goals, uses external tools (file reads, terminal execution, test runners), and adapts its behavior based on results. In benchmark testing, the Coding Agent resolves 55% of real GitHub issues correctly versus 48% for Cursor multi-file mode and 42% for Aider — a meaningful lead for a tool that works entirely asynchronously within GitHub's native interface. Below is a breakdown of the core feature set as it exists in 2026 across both the Coding Agent (cloud) and Agent Mode (VS Code local), covering what each feature does and where it fits in a realistic developer workflow.
 
 ### Natural Language Task Descriptions → Specifications
 
@@ -101,6 +101,8 @@ The Coding Agent struggles with tasks that require cross-cutting architectural c
 For teams deeply embedded in GitHub, Copilot wins on price, native integration, and the async Coding Agent workflow. Cursor wins on the interactive multi-file editing experience in VS Code. Amazon Q wins in AWS-heavy organizations with CodeCatalyst integration. Cody wins on codebase semantic search depth for large monorepos.
 
 ## Who Should Use Copilot Workspace (And Who Shouldn't)
+
+GitHub Copilot Workspace and the Coding Agent are well-suited for specific team profiles and workflow patterns — and genuinely wrong for others. The clearest signal that Copilot Workspace is a good fit: your team already lives in GitHub (issues, PRs, Actions, Discussions), your codebase has meaningful test coverage, and your most common AI coding tasks are bounded and well-described. The Coding Agent thrives in these conditions because it can validate its own output using the existing test suite and submit a reviewable PR rather than a best-guess diff. Conversely, if your tasks routinely require sweeping architectural changes, if your codebase lacks tests, or if your version control is not on GitHub, the Coding Agent will disappoint. At $10/month for Pro, the entry cost is low enough to pilot without significant financial risk — but understanding the fit criteria before adopting saves wasted cycles. The following breakdown separates the use cases clearly.
 
 **Use Copilot Coding Agent / Workspace if:**
 - Your team works in GitHub with issues, PRs, and Actions already
