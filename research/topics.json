@@ -1340,7 +1340,7 @@
     "keyword": "langgraph tutorial",
     "type": "how-to",
     "priority": 109,
-    "status": "writing",
+    "status": "published",
     "search_volume_est": 450,
     "kd_est": 8,
     "cluster": "AI for developers",
@@ -2959,7 +2959,7 @@
     "note": "recovered from published post"
   },
   {
-    "title": "GPT-6 Review 2026: OpenAI's New Flagship Model — Benchmarks, API, and Developer Use Cases",
+    "title": "GPT-6 Review 2026: OpenAI's New Flagship Model \u2014 Benchmarks, API, and Developer Use Cases",
     "slug": "gpt-6-review-2026",
     "keyword": "gpt-6 review",
     "type": "review",
@@ -2969,7 +2969,7 @@
     "kd_est": 9,
     "cluster": "LLM comparison",
     "discovered_at": "2026-04-19",
-    "note": "Pre-positioned before release (pre-training complete March 24, release expected April 21–May 25)"
+    "note": "Pre-positioned before release (pre-training complete March 24, release expected April 21\u2013May 25)"
   },
   {
     "title": "OpenAI Codex Computer Use Guide 2026: Background Agents That Operate Your Mac",
@@ -4920,7 +4920,7 @@
     "discovered_at": "2026-04-20"
   },
   {
-    "title": "AI Agent Protocols in 2026: MCP vs A2A vs ACP — When to Use Each",
+    "title": "AI Agent Protocols in 2026: MCP vs A2A vs ACP \u2014 When to Use Each",
     "slug": "ai-agent-protocols-mcp-a2a-acp-2026",
     "keyword": "ai agent protocols mcp a2a acp",
     "type": "comparison",
@@ -5177,7 +5177,7 @@
     "kd_est": 5,
     "cluster": "AI for developers",
     "discovered_at": "2026-04-20",
-    "notes": "3-way: Python multi-agent, TypeScript SDK, MCP-native — comparison gap in SERPs"
+    "notes": "3-way: Python multi-agent, TypeScript SDK, MCP-native \u2014 comparison gap in SERPs"
   },
   {
     "title": "The Composable AI Coding Stack: Using Cursor, Claude Code, and Codex Together",
@@ -5216,7 +5216,7 @@
     "kd_est": 7,
     "cluster": "AI coding tools",
     "discovered_at": "2026-04-20",
-    "notes": "Market at $12.8B, Copilot 37% share, Claude Code 18% work adoption — data-driven"
+    "notes": "Market at $12.8B, Copilot 37% share, Claude Code 18% work adoption \u2014 data-driven"
   },
   {
     "title": "Windsurf vs Claude Code vs Cursor: Full Developer Workflow Comparison 2026",
@@ -5268,7 +5268,7 @@
     "kd_est": 5,
     "cluster": "AI coding tools",
     "discovered_at": "2026-04-20",
-    "notes": "Claude Code now powers GitHub Copilot enterprise tier — underreported, low competition"
+    "notes": "Claude Code now powers GitHub Copilot enterprise tier \u2014 underreported, low competition"
   },
   {
     "title": "AI Coding in the Terminal vs IDE: Which Workflow Is Right for You in 2026",
@@ -6146,7 +6146,7 @@
     "discovered_at": "2026-04-21"
   },
   {
-    "title": "Jellyfish Study: More AI Tokens ≠ Better Developer Productivity",
+    "title": "Jellyfish Study: More AI Tokens \u2260 Better Developer Productivity",
     "slug": "jellyfish-ai-coding-productivity-study-2026",
     "keyword": "Jellyfish AI coding productivity study",
     "type": "guide",
@@ -6602,7 +6602,7 @@
     "discovered_at": "2026-04-21"
   },
   {
-    "title": "AI Coding Tools: 51% of GitHub Code Is AI-Generated — What This Means for Developers",
+    "title": "AI Coding Tools: 51% of GitHub Code Is AI-Generated \u2014 What This Means for Developers",
     "slug": "ai-generated-github-code-statistics-2026",
     "keyword": "ai generated github code statistics",
     "type": "guide",
@@ -7564,7 +7564,7 @@
     "discovered_at": "2026-04-22"
   },
   {
-    "title": "AI-Generated Code Security Vulnerabilities: 45% of AI Code Has Bugs — How to Audit and Fix (2026)",
+    "title": "AI-Generated Code Security Vulnerabilities: 45% of AI Code Has Bugs \u2014 How to Audit and Fix (2026)",
     "slug": "ai-coding-security-vulnerabilities-2026",
     "keyword": "AI generated code security vulnerabilities audit fix",
     "type": "guide",
@@ -7684,7 +7684,7 @@
     "discovered_at": "2026-04-22"
   },
   {
-    "title": "Faros AI Coding Acceleration Study 2026: Bugs +54%, PR Review 5x Slower — Real Data",
+    "title": "Faros AI Coding Acceleration Study 2026: Bugs +54%, PR Review 5x Slower \u2014 Real Data",
     "slug": "faros-ai-coding-acceleration-study-2026",
     "keyword": "Faros AI coding productivity study bugs PR review 2026",
     "type": "guide",
@@ -8173,6 +8173,210 @@
     "search_volume_est": 310,
     "kd_est": 6,
     "cluster": "AI coding tools",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Google Opal Review 2026: Free AI Mini-App Builder from Google Labs",
+    "slug": "google-opal-review-2026",
+    "keyword": "google opal review",
+    "type": "review",
+    "priority": 673,
+    "status": "queued",
+    "search_volume_est": 400,
+    "kd_est": 5,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Google Opal vs Lovable vs Bolt 2026: Which No-Code AI App Builder Is Right for You?",
+    "slug": "google-opal-vs-lovable-vs-bolt-2026",
+    "keyword": "google opal vs lovable",
+    "type": "comparison",
+    "priority": 674,
+    "status": "queued",
+    "search_volume_est": 500,
+    "kd_est": 8,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "GPT-Image-2 API Developer Guide 2026: Text Rendering, Pricing, and Code Examples",
+    "slug": "gpt-image-2-api-developer-guide-2026",
+    "keyword": "gpt image 2 api",
+    "type": "how-to",
+    "priority": 675,
+    "status": "queued",
+    "search_volume_est": 350,
+    "kd_est": 5,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "ChatGPT Images 2.0 Complete Guide 2026: Features, API Access, and Use Cases",
+    "slug": "chatgpt-images-2-guide-2026",
+    "keyword": "chatgpt images 2.0",
+    "type": "guide",
+    "priority": 676,
+    "status": "queued",
+    "search_volume_est": 300,
+    "kd_est": 6,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Windmill Review 2026: Open-Source Code-First Workflow Automation for Developer Teams",
+    "slug": "windmill-review-2026",
+    "keyword": "windmill workflow automation",
+    "type": "review",
+    "priority": 677,
+    "status": "queued",
+    "search_volume_est": 300,
+    "kd_est": 6,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Windmill vs n8n 2026: Which Open-Source Automation Platform Should You Choose?",
+    "slug": "windmill-vs-n8n-2026",
+    "keyword": "windmill vs n8n",
+    "type": "comparison",
+    "priority": 678,
+    "status": "queued",
+    "search_volume_est": 400,
+    "kd_est": 7,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Inngest Developer Guide 2026: Event-Driven AI Workflows and Step Functions",
+    "slug": "inngest-guide-2026",
+    "keyword": "inngest guide",
+    "type": "how-to",
+    "priority": 679,
+    "status": "queued",
+    "search_volume_est": 250,
+    "kd_est": 5,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Trigger.dev Review 2026: Open-Source Background Jobs and AI Workflow Orchestration",
+    "slug": "trigger-dev-review-2026",
+    "keyword": "trigger.dev review",
+    "type": "review",
+    "priority": 680,
+    "status": "queued",
+    "search_volume_est": 250,
+    "kd_est": 5,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Inngest vs Trigger.dev vs Temporal 2026: Best Background Job Platform for AI Workflows",
+    "slug": "inngest-vs-trigger-dev-2026",
+    "keyword": "inngest vs trigger.dev",
+    "type": "comparison",
+    "priority": 681,
+    "status": "queued",
+    "search_volume_est": 300,
+    "kd_est": 6,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Relay.app Review 2026: Simple No-Code AI Agent Workflow Builder",
+    "slug": "relay-app-review-2026",
+    "keyword": "relay app automation",
+    "type": "review",
+    "priority": 682,
+    "status": "queued",
+    "search_volume_est": 200,
+    "kd_est": 5,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Best n8n Alternatives 2026: Zapier, Make, Windmill, Relay, and More Compared",
+    "slug": "n8n-alternatives-2026",
+    "keyword": "n8n alternatives",
+    "type": "comparison",
+    "priority": 683,
+    "status": "queued",
+    "search_volume_est": 600,
+    "kd_est": 8,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Hatchet Workflow Engine 2026: Durable AI Task Orchestration for Complex Agents",
+    "slug": "hatchet-workflow-engine-2026",
+    "keyword": "hatchet workflow engine",
+    "type": "review",
+    "priority": 684,
+    "status": "queued",
+    "search_volume_est": 200,
+    "kd_est": 4,
+    "cluster": "AI workflow automation",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Kimi Code K2.6 Preview 2026: 5x Cheaper Than Claude for AI Coding Tasks",
+    "slug": "kimi-code-k2-6-preview-2026",
+    "keyword": "kimi code k2.6",
+    "type": "review",
+    "priority": 685,
+    "status": "queued",
+    "search_volume_est": 250,
+    "kd_est": 4,
+    "cluster": "LLM comparison",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Multi-Model LLM Architecture Guide 2026: When to Use Claude, GPT-6, Gemini, and Qwen Together",
+    "slug": "multi-model-llm-architecture-guide-2026",
+    "keyword": "multi-model llm architecture",
+    "type": "guide",
+    "priority": 686,
+    "status": "queued",
+    "search_volume_est": 400,
+    "kd_est": 8,
+    "cluster": "LLM comparison",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "AI Developer Code Review Study 2026: Why Devs Now Spend More Time Reviewing Than Writing",
+    "slug": "ai-developer-code-review-study-2026",
+    "keyword": "ai code review time developers",
+    "type": "guide",
+    "priority": 687,
+    "status": "queued",
+    "search_volume_est": 300,
+    "kd_est": 5,
+    "cluster": "AI coding tools",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Canva AI Agentic Design Suite 2026: What Developers Need to Know",
+    "slug": "canva-ai-agentic-suite-2026",
+    "keyword": "canva ai agentic design",
+    "type": "review",
+    "priority": 688,
+    "status": "queued",
+    "search_volume_est": 300,
+    "kd_est": 6,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-22"
+  },
+  {
+    "title": "Google Opal Tutorial 2026: Build Your First AI Mini-App in 20 Minutes",
+    "slug": "google-opal-tutorial-2026",
+    "keyword": "google opal tutorial",
+    "type": "how-to",
+    "priority": 689,
+    "status": "queued",
+    "search_volume_est": 350,
+    "kd_est": 5,
+    "cluster": "AI for developers",
     "discovered_at": "2026-04-22"
   }
 ]
