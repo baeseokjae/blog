@@ -7,18 +7,7 @@ description: "A complete guide to building production AI applications with the V
 cover:
   image: "/images/vercel-ai-sdk-guide-2026.png"
   alt: "Vercel AI SDK Guide 2026 — Build Production AI Apps with TypeScript"
-schema:
-  - "@context": https://schema.org
-    "@type": BlogPosting
-    headline: "Vercel AI SDK Guide 2026: Build Production AI Apps with TypeScript"
-    datePublished: "2026-04-21"
-    description: "A complete guide to building production AI applications with the Vercel AI SDK in 2026."
-    author:
-      "@type": Person
-      name: "Seokjae Bae"
-    publisher:
-      "@type": Organization
-      name: "baeseokjae.github.io"
+schema: "vercel-ai-sdk-guide-2026"
 ---
 
 The Vercel AI SDK has become the default way to build AI-powered applications in TypeScript. With 11.5 million weekly npm downloads, support for 100+ models across 16 providers, and a growing ecosystem of Workflows and Sandbox tooling, it handles the plumbing so you can focus on your product logic.

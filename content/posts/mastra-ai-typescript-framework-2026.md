@@ -14,18 +14,7 @@ draft: false
 cover:
   image: /images/mastra-ai-typescript-framework-2026.png
   alt: "Mastra AI TypeScript Framework for 2026 – agents, tools, workflows, and production deployment"
-schema:
-  - "@context": https://schema.org
-  - "@type": TechArticle
-  - headline: "Mastra AI: The TypeScript AI Agent Framework for 2026"
-  - description: "A practical guide to Mastra AI, the TypeScript-first framework for building production AI agents."
-  - datePublished: "2026-04-21"
-  - author:
-      "@type": Person
-      name: "Bae Seokjae"
-  - publisher:
-      "@type": Person
-      name: "Bae Seokjae"
+schema: "mastra-ai-typescript-framework-2026"
 ---
 
 ## Introduction: Why Mastra Is the TypeScript AI Framework to Watch in 2026

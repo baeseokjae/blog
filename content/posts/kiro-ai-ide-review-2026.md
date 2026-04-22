@@ -2,7 +2,7 @@
 title: "Kiro AI IDE Review 2026: AWS's New Coding Agent Tested in Real Projects"
 date: 2026-04-21T16:04:48+00:00
 tags: ["kiro", "ai-ide", "aws", "spec-driven", "coding-tools"]
-description: "Hands-on review of Kiro, AWS's spec-driven AI IDE — how its Specs, Hooks, and Steering Files stack up against Cursor and Claude Code in 2026."
+description: "Deep review of Kiro, AWS's spec-driven AI IDE. Specs, Hooks, Steering Files vs Cursor and Claude Code. Pricing, safety, enterprise use cases."
 draft: false
 cover:
   image: "/images/kiro-ai-ide-review-2026.png"
