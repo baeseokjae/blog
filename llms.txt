@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Replit Agent Review 2026: Build Full Apps from Plain English Prompts](https://baeseokjae.github.io/posts/replit-agent-review-2026/) — Honest Replit Agent V2 review 2026: pricing, benchmarks, autonomous debugging, and how it stacks up against Cursor, Bolt, and Lovable.
 - [LLM Context Window Comparison 2026: GPT-4o vs Claude vs Gemini](https://baeseokjae.github.io/posts/llm-context-window-comparison-2026/) — GPT-4.1, Claude Opus 4.6, and Gemini 2.5 Pro compared on context window size, effective performance, pricing cliffs, and real-world use cases.
 - [vLLM vs Ollama vs LM Studio 2026: Which Local LLM Serving Stack Actually Scales?](https://baeseokjae.github.io/posts/vllm-vs-ollama-vs-lm-studio-2026/) — vLLM, Ollama, and LM Studio compared on throughput, hardware requirements, and production readiness for 2026 developers.
 - [Best Free AI Coding Tools 2026: Get 80% of Cursor at Zero Cost](https://baeseokjae.github.io/posts/best-free-ai-coding-tools-2026/) — The best free AI coding tools in 2026 compared honestly — including free tiers, open-source options, and practical $0 setups that rival paid tools.
@@ -142,6 +143,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Replit Agent Review 2026: Build Full Apps from Plain English Prompts](https://baeseokjae.github.io/posts/replit-agent-review-2026/) — Honest Replit Agent V2 review 2026: pricing, benchmarks, autonomous debugging, and how it stacks up against Cursor, Bolt, and Lovable.
 - [LLM Context Window Comparison 2026: GPT-4o vs Claude vs Gemini](https://baeseokjae.github.io/posts/llm-context-window-comparison-2026/) — GPT-4.1, Claude Opus 4.6, and Gemini 2.5 Pro compared on context window size, effective performance, pricing cliffs, and real-world use cases.
 - [vLLM vs Ollama vs LM Studio 2026: Which Local LLM Serving Stack Actually Scales?](https://baeseokjae.github.io/posts/vllm-vs-ollama-vs-lm-studio-2026/) — vLLM, Ollama, and LM Studio compared on throughput, hardware requirements, and production readiness for 2026 developers.
 - [Vercel AI SDK Guide 2026: Build Streaming AI Apps in TypeScript With One SDK](https://baeseokjae.github.io/posts/vercel-ai-sdk-guide-2026/) — Complete guide to Vercel AI SDK in 2026 — streaming, tool calling, structured output, agents, and production deployment with code examples.
