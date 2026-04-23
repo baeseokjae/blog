@@ -1,9 +1,9 @@
 {
-  "last_published_at": "2026-04-23T18:31:34.703Z",
-  "last_published_slug": "vllm-vs-ollama-vs-lm-studio-2026",
-  "last_published_commit": "18965da",
-  "last_publisher_run": "2026-04-23T18:06:59+00:00",
-  "last_published_article": "vllm-vs-ollama-vs-lm-studio-2026",
-  "last_checked_at": "2026-04-23T12:24:23.754585Z",
-  "ready_articles_checked": "2026-04-23T12:24:23.754585Z"
+  "last_published_at": 1776979023.623277490,
+  "last_published_slug": "claude-code-github-workflow-2026",
+  "last_published_commit": "6aa08f5",
+  "last_publisher_run": "2026-04-23T21:17:03+00:00",
+  "last_published_article": "Claude Code + GitHub Workflow 2026: PR Reviews, Commits, and CI Integration",
+  "last_checked_at": "2026-04-23T21:17:03.626Z",
+  "ready_articles_checked": "2026-04-23T21:17:03.627Z"
 }
