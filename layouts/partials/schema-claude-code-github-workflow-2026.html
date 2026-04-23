@@ -1,0 +1,87 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Claude Code GitHub Workflow 2026: PR Reviews, Commits, and CI Integration",
+  "description": "Set up Claude Code GitHub Actions for automated PR reviews, CI failure auto-fix, and cost-effective AI code review under $5/month.",
+  "image": "https://claudecode.blog/images/claude-code-github-workflow-2026.png",
+  "datePublished": "2026-04-23T01:17:24+00:00",
+  "dateModified": "2026-04-23T01:17:24+00:00",
+  "author": {
+    "@type": "Organization",
+    "name": "ClaudeCode.blog"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ClaudeCode.blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://claudecode.blog/images/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://claudecode.blog/posts/claude-code-github-workflow-2026/"
+  },
+  "keywords": [
+    "Claude Code GitHub workflow",
+    "Claude Code GitHub Actions",
+    "claude-code-action",
+    "automated PR review AI",
+    "Claude Code CI CD integration",
+    "AI code review GitHub",
+    "Anthropic GitHub Actions",
+    "Claude Code automated code review",
+    "GitHub Actions AI code review 2026",
+    "Claude Code PR review setup"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need a Claude Max plan to use Claude Code GitHub Actions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The action works with a standard Anthropic API key on any plan. A Claude Max OAuth token is an option for teams that prefer subscription billing, but it is not required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Claude Code GitHub Actions push commits directly to my main branch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not unless you explicitly configure it to. The CI auto-fix pattern creates a new branch and opens a PR — it does not push to protected branches. You retain full merge control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does anthropics/claude-code-action@v1 differ from the old v0 action?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In v1, mode is auto-detected (no more mode: tag), direct_prompt was renamed to prompt, and CLI options moved from dedicated parameters to claude_args. Any v0 workflow needs these three changes before upgrading."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if Claude's auto-fix PR is also broken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The loop prevention guard prevents the action from triggering on its own fix branch. A broken fix PR shows up in your queue as any other PR — a human reviews and merges or closes it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude Code GitHub Actions safe to run on public repositories?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with caution. The primary risk on public repos is prompt injection via malicious PR content. Scope the action's GitHub token permissions to the minimum necessary, and consider restricting the trigger to PRs from team members only."
+      }
+    }
+  ]
+}
+</script>
