@@ -1,4 +1,1357 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>MCP on RockB</title><link>https://baeseokjae.github.io/tags/mcp/</link><description>Recent content in MCP on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 18 Apr 2026 15:15:31 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/mcp/index.xml" rel="self" type="application/rss+xml"/><item><title>MCP Gateway Tools Comparison 2026: Top 10 Tools for Enterprise AI Agent Workflows</title><link>https://baeseokjae.github.io/posts/mcp-gateway-tools-comparison-2026/</link><pubDate>Sat, 18 Apr 2026 15:15:31 +0000</pubDate><guid>https://baeseokjae.github.io/posts/mcp-gateway-tools-comparison-2026/</guid><description>Compare the top 10 MCP gateway tools for enterprise AI in 2026 — covering Bifrost, Composio, TrueFoundry, Kong, Cloudflare, and more.</description><content:encoded><![CDATA[<p>The best MCP gateway for most enterprise teams in 2026 is <strong>Composio</strong> (for managed, fast time-to-value), <strong>Bifrost</strong> (for self-hosted, lowest-latency performance), or <strong>Kong AI Gateway</strong> (if you already run Kong). Choosing depends on whether you want managed SaaS, open-source control, or existing infrastructure reuse.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mcp on RockB</title><link>https://baeseokjae.github.io/tags/mcp/</link><description>Recent content in Mcp on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 23 Apr 2026 01:25:01 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/mcp/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenAgents Framework Guide: Build Persistent AI Agent Networks with MCP and A2A Support</title><link>https://baeseokjae.github.io/posts/openagents-framework-guide-2026/</link><pubDate>Thu, 23 Apr 2026 01:25:01 +0000</pubDate><guid>https://baeseokjae.github.io/posts/openagents-framework-guide-2026/</guid><description>Complete guide to OpenAgents framework — build persistent AI agent networks with native MCP and A2A protocol support in 2026.</description><content:encoded><![CDATA[<p>OpenAgents is an open-source framework for building persistent AI agent networks — systems where agents continue to exist, learn, and collaborate long after an initial task completes. Unlike LangGraph or CrewAI, which treat agents as stateless task runners, OpenAgents gives every agent a durable identity, a shared workspace with a persistent URL, and native support for both MCP (Model Context Protocol) and A2A (Agent-to-Agent) protocols from day one.</p>
+<h2 id="what-is-the-openagents-framework">What Is the OpenAgents Framework?</h2>
+<p>OpenAgents is an open-source Python framework designed specifically for building persistent, interoperable AI agent networks. Launched in early 2026, it addresses the fundamental limitation of most agent frameworks: agents disappear once a task finishes, losing all learned context. OpenAgents agents maintain a durable workspace accessible at a stable URL (e.g., <code>workspace.openagents.org/abc123</code>), enabling teams to bookmark a network and return to an evolved, context-rich system days or weeks later. The framework ships with three core components — Workspace, Launcher, and Network SDK — and natively implements both the MCP and A2A protocols, which means agents built with different underlying frameworks can collaborate without custom glue code. In 2026, as 85% of developers regularly use AI tooling, the demand for long-running, team-aware agent infrastructure has grown sharply, and OpenAgents is purpose-built to fill that gap. The key distinction from alternatives is its architectural commitment: persistence and interoperability are first-class features, not afterthoughts bolted on via plugins.</p>
+<h2 id="openagents-vs-langgraph-vs-crewai-vs-autogen">OpenAgents vs LangGraph vs CrewAI vs AutoGen</h2>
+<p>OpenAgents occupies a distinct position among AI agent frameworks because it prioritizes network persistence and protocol interoperability over workflow orchestration or role-based task assignment. LangGraph excels at stateful, graph-based workflows where you need fine-grained control over execution paths — it&rsquo;s the right choice when your problem maps cleanly to a DAG. CrewAI is optimized for role-based crews where each agent has a defined persona and job, making it popular for content pipelines and structured research tasks. AutoGen (now AG2) focuses on conversation-driven multi-agent patterns with strong support for human-in-the-loop interactions. OpenAgents wins when the requirement is a long-running agent network that must persist state between sessions, support agent discovery across framework boundaries, and integrate natively with MCP tool servers or A2A-compliant agents from other organizations. A practical rule of thumb: if your agents need to be alive tomorrow and collaborate with agents you didn&rsquo;t build, use OpenAgents. If you&rsquo;re orchestrating a one-shot pipeline, LangGraph or CrewAI may be simpler.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Framework</th>
+          <th>Persistence</th>
+          <th>MCP Support</th>
+          <th>A2A Support</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>OpenAgents</td>
+          <td>Native</td>
+          <td>Native</td>
+          <td>Native</td>
+          <td>Long-running networks</td>
+      </tr>
+      <tr>
+          <td>LangGraph</td>
+          <td>Manual checkpoints</td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>Workflow orchestration</td>
+      </tr>
+      <tr>
+          <td>CrewAI</td>
+          <td>Task-scoped</td>
+          <td>Plugin</td>
+          <td>No</td>
+          <td>Role-based crews</td>
+      </tr>
+      <tr>
+          <td>AutoGen (AG2)</td>
+          <td>Conversation history</td>
+          <td>Plugin</td>
+          <td>Experimental</td>
+          <td>Conversational agents</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="core-concepts-workspace-launcher-and-network-sdk">Core Concepts: Workspace, Launcher, and Network SDK</h2>
+<p>OpenAgents is built around three components that together form its persistent network model. The <strong>Workspace</strong> is a shared environment that persists at a stable URL — every agent in a network shares access to a common state store, message history, and tool registry. This is what makes &ldquo;return to yesterday&rsquo;s agent network&rdquo; possible. The <strong>Launcher</strong> is the entry point for starting and resuming agent sessions; it handles authentication, context restoration, and agent discovery, so picking up a paused network feels like reopening a browser tab rather than re-running a script. The <strong>Network SDK</strong> is the Python library that lets you define agent behavior, register tools via MCP, expose capabilities to other A2A-compliant agents, and subscribe to real-time events from peers. Together these components solve the three hard problems in production multi-agent systems: where does shared state live, how do new agents find existing ones, and how do you add human oversight without breaking automation. The Workspace URL is the anchor; the Launcher is the runtime entry point; the Network SDK is the developer surface.</p>
+<h3 id="workspace-persistence-model">Workspace Persistence Model</h3>
+<p>A Workspace is more than a key-value store — it maintains versioned agent state, a shared tool registry, a message bus, and an audit log. Each Workspace gets a globally unique identifier, and all agents in a network read from and write to the same Workspace. When an agent restarts or a new agent joins, it calls <code>workspace.restore()</code> to hydrate its local state from the Workspace snapshot, ensuring continuity even after crashes or planned shutdowns.</p>
+<h3 id="network-sdk-fundamentals">Network SDK Fundamentals</h3>
+<p>The Network SDK exposes a <code>@agent</code> decorator pattern similar to FastAPI routes. You define agent capabilities as async functions, annotate them with <code>@agent.tool</code> for MCP exposure or <code>@agent.skill</code> for A2A advertisement, and the SDK handles serialization, routing, and protocol negotiation. This keeps agent code readable and framework-agnostic — the same skill can be called by a Claude-powered agent, a GPT-based peer, or a human via the Workspace UI.</p>
+<h2 id="why-persistence-matters-for-ai-agents">Why Persistence Matters for AI Agents</h2>
+<p>Persistence is the feature that separates toy multi-agent demos from production agent infrastructure. In a non-persistent system, every task run starts from zero: the agent reloads its tools, re-fetches context, and has no memory of what it learned or decided in previous sessions. For one-off automations, this is fine. For knowledge-intensive workflows — ongoing research, continuous monitoring, evolving codebases — it compounds costs and errors rapidly. OpenAgents addresses this by treating the Workspace as a first-class persistence layer: agents write intermediate results, learned preferences, and accumulated tool knowledge back to the Workspace after every significant action. When the same agent (or a successor) wakes up tomorrow, it picks up exactly where it left off. The practical impact: a research agent that spent three sessions mapping a competitive landscape doesn&rsquo;t re-crawl the same sources on session four. A coding agent that learned your team&rsquo;s naming conventions applies them immediately without re-prompting. In 2026, as the global AI agents market matures and teams run agents continuously rather than on-demand, persistence transitions from a nice-to-have to a hard architectural requirement.</p>
+<h3 id="memory-vs-state-vs-context">Memory vs. State vs. Context</h3>
+<p>These three terms are often conflated but OpenAgents treats them distinctly. <strong>State</strong> is structured data written to the Workspace store (tool results, decisions, flags). <strong>Memory</strong> is the agent&rsquo;s compressed semantic history, managed by the Network SDK&rsquo;s built-in summarization pipeline. <strong>Context</strong> is the window assembled at inference time from state and memory. Keeping these separate allows OpenAgents to scale agent history indefinitely without hitting LLM context limits.</p>
+<h2 id="installing-and-setting-up-openagents">Installing and Setting Up OpenAgents</h2>
+<p>Setting up OpenAgents takes under ten minutes on a standard Python 3.11+ environment. Install the core package via pip, authenticate against the OpenAgents cloud (or point at a self-hosted Workspace server), and you&rsquo;re ready to define your first agent network.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install openagents
+</span></span><span style="display:flex;"><span>openagents login          <span style="color:#75715e"># OAuth flow, stores token in ~/.openagents/config.json</span>
+</span></span><span style="display:flex;"><span>openagents workspace new my-research-network
+</span></span></code></pre></div><p>The <code>workspace new</code> command returns a persistent URL and a workspace ID you&rsquo;ll use in all subsequent SDK calls. For self-hosted deployments, set <code>OPENAGENTS_WORKSPACE_URL</code> to your server address before running <code>openagents login</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> openagents <span style="color:#f92672">import</span> Agent, Workspace
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ws <span style="color:#f92672">=</span> Workspace<span style="color:#f92672">.</span>connect(<span style="color:#e6db74">&#34;my-research-network&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ws.agent</span>(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;researcher&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ResearchAgent</span>(Agent):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_start</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> self<span style="color:#f92672">.</span>restore()   <span style="color:#75715e"># hydrate from Workspace snapshot</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Agent.tool</span>(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search the web for a query&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">web_search</span>(self, query: str) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>For teams, pin the OpenAgents version in <code>pyproject.toml</code> and commit the workspace ID (not the token) to version control so every developer connects to the same persistent network.</p>
+<h2 id="building-your-first-persistent-agent-network">Building Your First Persistent Agent Network</h2>
+<p>A minimal but realistic OpenAgents network consists of at least two agents with complementary roles — a planner that breaks tasks into subtasks and a worker that executes them — connected via the Workspace message bus. The key architectural decision is defining which state lives in the Workspace (shared, durable) versus which is local to an agent instance (ephemeral).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> openagents <span style="color:#f92672">import</span> Agent, Workspace, Message
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ws <span style="color:#f92672">=</span> Workspace<span style="color:#f92672">.</span>connect(<span style="color:#e6db74">&#34;my-first-network&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ws.agent</span>(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;planner&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlannerAgent</span>(Agent):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle</span>(self, msg: Message):
+</span></span><span style="display:flex;"><span>        subtasks <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> self<span style="color:#f92672">.</span>llm<span style="color:#f92672">.</span>plan(msg<span style="color:#f92672">.</span>content)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> task <span style="color:#f92672">in</span> subtasks:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> self<span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;worker&#34;</span>, task)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">await</span> ws<span style="color:#f92672">.</span>state<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;task_log&#34;</span>, task)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ws.agent</span>(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;worker&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WorkerAgent</span>(Agent):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle</span>(self, msg: Message):
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> self<span style="color:#f92672">.</span>execute(msg<span style="color:#f92672">.</span>content)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> ws<span style="color:#f92672">.</span>state<span style="color:#f92672">.</span>set(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;result:</span><span style="color:#e6db74">{</span>msg<span style="color:#f92672">.</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>, result)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">await</span> self<span style="color:#f92672">.</span>send(<span style="color:#e6db74">&#34;planner&#34;</span>, <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Done: </span><span style="color:#e6db74">{</span>result<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ws<span style="color:#f92672">.</span>launch(agents<span style="color:#f92672">=</span>[PlannerAgent, WorkerAgent])
+</span></span></code></pre></div><p>This pattern gives you persistence (all tasks and results written to <code>ws.state</code>), resumability (agents call <code>restore()</code> on startup to replay missed messages), and auditability (the Workspace logs every message and state mutation).</p>
+<h3 id="handling-agent-failures-gracefully">Handling Agent Failures Gracefully</h3>
+<p>OpenAgents implements an at-least-once delivery guarantee on the message bus. If a worker crashes mid-task, the Workspace re-delivers the message when the agent restarts. Agents signal completion by calling <code>msg.ack()</code>; unacknowledged messages are retried after a configurable timeout (default: 60 seconds).</p>
+<h2 id="mcp-and-a2a-protocol-integration">MCP and A2A Protocol Integration</h2>
+<p>OpenAgents natively supports both MCP (Model Context Protocol) and A2A (Agent-to-Agent) protocols, which is its strongest differentiator from LangGraph, CrewAI, and AutoGen in 2026. MCP is the emerging standard for exposing tools to AI models in a structured, discoverable way — instead of hardcoding API wrappers, you register tools as MCP servers, and any MCP-compatible agent can discover and invoke them. A2A is the cross-framework agent communication standard championed by Google and adopted across major agent platforms; it defines how agents advertise skills, negotiate tasks, and exchange results regardless of what underlying LLM or framework they use. OpenAgents implements both protocols out of the box, meaning an OpenAgents-built researcher agent can call tools from a standalone MCP server (like a web scraper or code executor) and delegate subtasks to a CrewAI or Semantic Kernel agent that exposes an A2A endpoint — all without writing custom serialization or transport code. In practice, this makes OpenAgents the natural hub in heterogeneous enterprise environments where multiple teams use different frameworks.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Register an MCP server as a tool source</span>
+</span></span><span style="display:flex;"><span>ws<span style="color:#f92672">.</span>register_mcp_server(<span style="color:#e6db74">&#34;https://mcp.example.com/filesystem&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Expose an agent skill via A2A</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@ws.agent</span>(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;code-reviewer&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CodeReviewer</span>(Agent):
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Agent.skill</span>(a2a<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Review Python code for bugs&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">review_code</span>(self, code: str) <span style="color:#f92672">-&gt;</span> dict:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>After registration, <code>review_code</code> is discoverable by any A2A-compatible agent on the network — it appears in the Workspace skill registry with its schema and endpoint.</p>
+<h3 id="mcp-tool-discovery">MCP Tool Discovery</h3>
+<p>OpenAgents automatically polls registered MCP servers for tool updates on a configurable interval (default: 5 minutes). New tools appear in <code>ws.tools</code> without requiring an agent restart. This is valuable in dynamic environments where teams add new MCP servers (database connectors, internal APIs) regularly.</p>
+<h2 id="real-time-human-agent-collaboration">Real-Time Human-Agent Collaboration</h2>
+<p>OpenAgents includes built-in support for human participants in agent networks — not just as prompt senders, but as first-class network members who can observe agent state, inject messages, approve decisions, and receive escalations. The Workspace UI (accessible at the persistent Workspace URL) shows a live activity feed, the current state store, and message history, so a human team member can understand what agents are doing without reading logs. For approval workflows, agents can call <code>await self.request_approval(action, timeout=300)</code>, which pauses execution and notifies the designated human via the Workspace UI or a connected webhook (Slack, email). If no approval arrives within the timeout, the agent falls back to a safe default. This human-in-the-loop pattern is more robust than asking an agent to self-decide whether to escalate, because the framework enforces the pause rather than relying on the LLM&rsquo;s judgment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#a6e22e">@Agent.tool</span>(description<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Execute a database migration&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run_migration</span>(self, sql: str) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    approval <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> self<span style="color:#f92672">.</span>request_approval(
+</span></span><span style="display:flex;"><span>        action<span style="color:#f92672">=</span><span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Run SQL: </span><span style="color:#e6db74">{</span>sql[:<span style="color:#ae81ff">100</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">...&#34;</span>,
+</span></span><span style="display:flex;"><span>        approvers<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;dba-team&#34;</span>],
+</span></span><span style="display:flex;"><span>        timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">600</span>
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> approval<span style="color:#f92672">.</span>granted:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Migration cancelled by human reviewer&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> self<span style="color:#f92672">.</span>db<span style="color:#f92672">.</span>execute(sql)
+</span></span></code></pre></div><p>The Workspace logs approvals and rejections as immutable audit entries, satisfying compliance requirements for human-oversight-in-AI policies.</p>
+<h2 id="scaling-openagents-for-production">Scaling OpenAgents for Production</h2>
+<p>Running OpenAgents at production scale requires thinking about three dimensions: Workspace throughput, agent concurrency, and cost. For throughput, OpenAgents supports sharded Workspaces — a root Workspace federates to child Workspaces for different domains (e.g., one per team or project), with cross-Workspace message routing handled by the Launcher. This avoids a single Workspace becoming a bottleneck as message volume grows. For agent concurrency, the Network SDK supports running multiple instances of the same agent class; the Workspace message bus distributes messages across instances using consistent hashing on the message key, ensuring related messages go to the same instance (important for stateful agents). For cost, OpenAgents exposes per-agent token usage via <code>ws.usage</code>, which you can route to your observability stack. Teams at scale typically set agent-level token budgets and use the <code>on_budget_exceeded</code> hook to throttle or swap to a cheaper model for low-priority tasks.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Production Workspace config</span>
+</span></span><span style="display:flex;"><span>ws <span style="color:#f92672">=</span> Workspace<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;production-network&#34;</span>,
+</span></span><span style="display:flex;"><span>    shard_count<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>    max_agents_per_shard<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+</span></span><span style="display:flex;"><span>    default_model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;claude-sonnet-4-6&#34;</span>,
+</span></span><span style="display:flex;"><span>    budget_hook<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> agent, usage: alert_if_over_budget(agent, usage)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>For infrastructure, the OpenAgents Workspace server is stateless except for its backing store — you can run it on any container orchestration platform (Kubernetes, ECS) and scale horizontally behind a load balancer. The backing store requires a Redis-compatible service for the message bus and a PostgreSQL-compatible database for durable state.</p>
+<h2 id="use-cases-research-coding-and-content-creation">Use Cases: Research, Coding, and Content Creation</h2>
+<p>OpenAgents&rsquo; persistent network model maps well to three high-value use cases where agents need to accumulate knowledge over multiple sessions. <strong>Research networks</strong> are the most common production deployment: a planner agent breaks a research question into sub-queries, dispatches workers to specialized sources (web, internal docs, databases), and synthesizes results into a Workspace knowledge base that grows with each session. A research network that&rsquo;s been running for a month has accumulated source credibility scores, known-unreliable domains, and a map of the information landscape — context a stateless agent can never build. <strong>Coding networks</strong> maintain a persistent understanding of a codebase: naming conventions, architectural patterns, test coverage gaps, and the history of past decisions. A persistent coding agent doesn&rsquo;t re-learn your project on every PR. <strong>Content creation networks</strong> track brand voice, past topics, audience feedback, and competitive content gaps across sessions, enabling a content agent to produce genuinely differentiated output rather than generic drafts. In all three cases, the ROI of persistence compounds over time: the network gets better at its domain with each session, reducing the manual context-setting that makes stateless AI tools tedious at scale.</p>
+<h3 id="combining-use-cases-in-one-network">Combining Use Cases in One Network</h3>
+<p>OpenAgents&rsquo; A2A support lets you compose multi-domain networks where a research agent, a coding agent, and a content agent share a Workspace. A product team might run a network where the researcher monitors competitor releases, the coding agent tracks the internal backlog, and the content agent drafts release notes — with a planner agent coordinating across all three. Each specialist agent maintains its domain knowledge in the shared Workspace, and cross-domain queries route via A2A skill calls.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>What programming language does OpenAgents support?</strong>
+OpenAgents provides a Python SDK as its primary developer interface. Python 3.11 or later is required. The Workspace server API is REST/WebSocket-based, so agents in other languages can interact with the Workspace directly without the Python SDK, but community SDKs for TypeScript and Go are in early development as of mid-2026.</p>
+<p><strong>How is OpenAgents different from LangGraph?</strong>
+LangGraph is a graph-based orchestration framework optimized for stateful, step-by-step workflows with fine control over execution branches. OpenAgents is optimized for persistent agent networks where agents have long-running identities, share a durable state store, and need to interoperate with agents from other frameworks. LangGraph fits better when you&rsquo;re building a defined workflow pipeline; OpenAgents fits better when you&rsquo;re building infrastructure that agents live in over time.</p>
+<p><strong>Does OpenAgents support local LLMs?</strong>
+Yes. The Network SDK&rsquo;s <code>Agent.llm</code> client is configurable — you can point it at any OpenAI-compatible endpoint, including Ollama, LM Studio, or a vLLM server. Cloud models (Claude, GPT-4o, Gemini) work out of the box with API key config. This makes OpenAgents viable for air-gapped deployments with local models.</p>
+<p><strong>What is the A2A protocol and why does it matter?</strong>
+A2A (Agent-to-Agent) is an open standard for cross-framework agent communication. It defines how an agent advertises its skills, how peers discover it, and how task requests and results are structured. Without A2A, agents from different frameworks (e.g., a LangGraph agent talking to a CrewAI agent) require custom integration code. With A2A, any compliant agent can call any other compliant agent using a standard schema. OpenAgents implements A2A natively, making it an interoperability hub for heterogeneous enterprise agent environments.</p>
+<p><strong>Is OpenAgents suitable for production workloads in 2026?</strong>
+OpenAgents is production-ready for teams willing to self-host the Workspace server or use the managed cloud offering. The framework handles at-least-once message delivery, agent failure recovery, human approval workflows, and horizontal scaling. Early adopters in research, content, and internal tooling teams report stable multi-week agent network deployments. For mission-critical financial or healthcare workloads, additional observability and compliance tooling on top of OpenAgents is recommended.</p>
+]]></content:encoded></item><item><title>Best MCP Servers for Developers 2026: 15 Tools Worth Installing</title><link>https://baeseokjae.github.io/posts/best-mcp-servers-developers-2026/</link><pubDate>Thu, 23 Apr 2026 01:07:41 +0000</pubDate><guid>https://baeseokjae.github.io/posts/best-mcp-servers-developers-2026/</guid><description>The 15 best MCP servers for developers in 2026, ranked by production-readiness, security, and real-world impact on dev workflows.</description><content:encoded><![CDATA[<p>The Model Context Protocol (MCP) has become the de facto way to wire AI assistants into real tools. Instead of every AI client writing bespoke integrations for every tool — N clients × M tools = NxM integrations — MCP defines a single interface that any client can call. As of April 2026, there are over 10,000 public MCP servers across GitHub, npm, and PyPI, with 97 million+ monthly SDK downloads. This guide cuts through the noise and identifies the 15 servers that actually earn a place in a production developer workflow.</p>
+<h2 id="what-is-mcp-and-why-does-it-matter-in-2026">What Is MCP and Why Does It Matter in 2026?</h2>
+<p>MCP (Model Context Protocol) is an open standard that lets AI clients — Claude Desktop, Cursor, Windsurf, VS Code, and 300+ others — connect to external tools through a uniform JSON-RPC interface. Anthropic open-sourced the protocol in late 2024; by early 2025, OpenAI and Google DeepMind adopted it. The Linux Foundation&rsquo;s Agentic AI Foundation now governs MCP, making it the closest thing the industry has to a stable, vendor-neutral standard for AI tool integration. The numbers confirm adoption: Claude alone processes 1 billion+ MCP tool calls per month, and 67% of enterprise AI teams are actively using or evaluating MCP deployments at companies like Block, Bloomberg, Amazon, and Pinterest. The core value is write-once, use-everywhere: a GitHub MCP server you configure once works in Claude Desktop, Cursor, and Windsurf without touching the server code. For developers tired of maintaining custom integrations, MCP is the USB-C of AI tooling.</p>
+<h3 id="how-mcp-transport-works-in-2026">How MCP Transport Works in 2026</h3>
+<p>MCP initially shipped with two transport options: stdio (for local processes) and SSE (Server-Sent Events for remote servers). SSE was deprecated in the March 2025 spec revision. The current standard for remote and production servers is <strong>Streamable HTTP</strong>, which supports both request-response and streaming patterns over a single connection. Local servers still use stdio — it&rsquo;s simpler, lower overhead, and appropriate when the server runs on the same machine as the client.</p>
+<h2 id="mcp-vs-alternatives-openapi-function-calling-plugins">MCP vs. Alternatives: OpenAPI, Function Calling, Plugins</h2>
+<p>MCP is not the only way to give AI models tool access. Understanding the tradeoffs helps you decide when to reach for an MCP server versus other patterns.</p>
+<p><strong>MCP vs. Function Calling:</strong> OpenAI-style function calling embeds tool definitions in the model prompt. It&rsquo;s flexible but client-specific — you define tools per API call, per model, per provider. MCP externalizes tool definitions to a server, making them reusable across any MCP-compatible client without prompt changes. If you&rsquo;re building tools for your own application, function calling is fine. If you want tools that work across Claude Desktop, Cursor, and VS Code simultaneously, MCP wins.</p>
+<p><strong>MCP vs. OpenAPI/REST:</strong> REST APIs require the AI to know how to authenticate, construct requests, and parse responses from scratch each time. MCP servers wrap that complexity: the server handles auth, rate limiting, and response normalization; the AI just calls a named tool with structured arguments. OpenAPI specs can be auto-converted into MCP servers via tools like <code>openapi-mcp-generator</code>, but you still get MCP&rsquo;s session management and streaming benefits.</p>
+<p><strong>MCP vs. Google A2A:</strong> A2A (Agent-to-Agent) protocol, also now under the Linux Foundation, handles agent-to-agent communication — one AI delegating work to another. MCP handles agent-to-tool communication. They&rsquo;re complementary: an A2A agent can use MCP tools internally. Think of A2A as the orchestration layer and MCP as the execution layer.</p>
+<p><strong>MCP vs. Plugins (OpenAI-style):</strong> Early AI plugins were client-specific and required approval pipelines. MCP is self-hosted, open, and works locally without platform gatekeeping. Any developer can ship an MCP server without AppStore-style review.</p>
+<h2 id="security-owasp-top-10-for-mcp">Security: OWASP Top 10 for MCP</h2>
+<p>Before installing any MCP server, understand the risk model. In early 2026, OWASP published an MCP-specific vulnerability list covering threats that didn&rsquo;t exist in traditional web security models. The most critical risks are: <strong>prompt injection</strong> (malicious data in tool responses hijacking the model&rsquo;s behavior), <strong>tool poisoning</strong> (a compromised MCP server returning manipulated results), <strong>NeighborJack</strong> (a rogue MCP server on localhost intercepting calls meant for a legitimate server via port conflicts), and <strong>cost amplification</strong> (a misconfigured server triggering runaway API calls and billing). The practical defense strategy: start with read-only permissions, scope credentials to minimum necessary access, keep secrets out of config files (use environment variables), prefer official or well-audited servers, and review server source code before running anything locally. For production deployments, add rate limiting, audit logging, and OAuth 2.1 — not optional if MCP servers access sensitive data or make write operations.</p>
+<h3 id="production-vs-experimental-servers">Production vs. Experimental Servers</h3>
+<p>Not all 10,000+ public MCP servers are production-ready. Most are weekend experiments. When evaluating a server, check: Is it actively maintained (commits in last 30 days)? Does it use OAuth or API key scoping for auth? Does it have rate limiting and error handling? Is there a changelog? The servers in this guide all pass a basic production-readiness threshold.</p>
+<h2 id="category-1-productivity--workspace-servers">Category 1: Productivity &amp; Workspace Servers</h2>
+<p>Productivity MCP servers connect AI assistants to project management tools, note-taking systems, and team collaboration platforms. The most impactful in this category are Taskade, Notion, and Linear — three tools that developers already live in, now accessible without leaving their AI assistant.</p>
+<p><strong>Taskade MCP</strong> is among the most production-ready workspace servers available. It ships with 22+ tools, OAuth 2.1 authentication, a 7-tier RBAC model, and support for Streamable HTTP transport. The server exposes task management, project creation, document editing, and team member management — all from within Claude Desktop or Cursor. Setup takes under 10 minutes and the official server is maintained by Taskade&rsquo;s engineering team, not a third-party contributor.</p>
+<p><strong>Notion MCP</strong> gives AI assistants read/write access to Notion databases, pages, and blocks. The official Notion MCP server (released mid-2025) supports property filters, page creation, and database queries. Practical use: ask Claude to pull your sprint tasks from Notion, summarize blockers, and draft a status update — all in one turn.</p>
+<p><strong>Linear MCP</strong> connects AI to Linear&rsquo;s issue tracker. The server exposes issue creation, status updates, cycle queries, and comment threads. For teams using Linear for engineering project management, this eliminates the context switch of opening a browser to log or update tickets.</p>
+<h2 id="category-2-data--search-servers">Category 2: Data &amp; Search Servers</h2>
+<p>Search and data retrieval are among the highest-leverage MCP use cases — giving AI assistants access to live, current information rather than static training data. The standout servers in this category are Firecrawl, Exa, and Tavily.</p>
+<p><strong>Firecrawl MCP</strong> is the strongest web scraping and research server available. It ships 13+ tools including <code>scrape</code>, <code>search</code>, <code>crawl</code>, <code>map</code>, <code>extract</code>, <code>agent</code>, and browser automation. Firecrawl handles JavaScript-rendered pages, anti-bot circumvention, and structured data extraction — none of which basic HTTP fetch tools manage. Free tier available; paid plans start at $16/month. For any workflow involving competitive research, documentation ingestion, or live web data, Firecrawl is the default choice.</p>
+<p><strong>Exa MCP</strong> provides neural search with semantic understanding rather than keyword matching. Unlike Brave Search (which returns web pages) or Firecrawl (which scrapes), Exa specializes in finding relevant documents by meaning. It&rsquo;s the right tool when you&rsquo;re asking &ldquo;find papers about transformer attention mechanisms&rdquo; rather than &ldquo;find the homepage for OpenAI.&rdquo;</p>
+<p><strong>Tavily MCP</strong> is designed specifically for AI agent research workflows, with a search API that returns structured, summarizable results optimized for LLM consumption rather than human browsing. If you&rsquo;re building agentic workflows that need to synthesize multiple sources, Tavily&rsquo;s output format reduces post-processing.</p>
+<p><strong>Brave Search MCP</strong> offers a privacy-respecting general-purpose web search. No tracking, direct index access, and free tier for low-volume use. Good default for general queries when you don&rsquo;t need Firecrawl&rsquo;s scraping depth.</p>
+<h2 id="category-3-developer-tools-servers">Category 3: Developer Tools Servers</h2>
+<p>Developer tool MCP servers integrate AI directly into the software development workflow — repository management, code execution, browser testing, and filesystem access. These are the servers that turn AI assistants from advisors into active participants in the development process.</p>
+<p><strong>GitHub MCP</strong> is the most impactful developer tool server. The official GitHub MCP server (maintained by GitHub) exposes repository search, file read/write, issue and PR management, branch operations, and workflow status. With GitHub MCP, Claude can read your codebase, open issues, review PRs, and trigger CI runs without you switching windows. This is the single server with the highest daily active use among professional developers using AI assistants.</p>
+<p><strong>Filesystem MCP</strong> gives AI assistants secure, sandboxed access to local files. You define which directories are accessible; the server handles path traversal protection. This is essential for any workflow where the AI needs to read, write, or organize local project files. Maintained by Anthropic as a reference implementation.</p>
+<p><strong>Playwright MCP</strong> enables browser automation for testing and scraping. The server exposes navigate, click, type, screenshot, and element selection tools. For developers writing end-to-end tests or doing UI-driven research, Playwright MCP eliminates the need to write Playwright scripts from scratch — describe the interaction and let the AI drive the browser.</p>
+<p><strong>E2B MCP</strong> provides secure cloud sandboxes for code execution. Instead of running untrusted AI-generated code locally, E2B spins up isolated containers. Each execution is ephemeral, with no persistent state between runs. This is the correct architecture for any AI-generated code you don&rsquo;t fully trust.</p>
+<p><strong>Git MCP</strong> (distinct from GitHub MCP) exposes local git operations: status, diff, log, commit, branch management. Where GitHub MCP talks to the GitHub API, Git MCP talks to a local repository. Useful for workflows that don&rsquo;t use GitHub or need offline operation.</p>
+<h2 id="category-4-database-servers">Category 4: Database Servers</h2>
+<p>Database MCP servers let AI assistants query and interact with data stores without requiring you to copy-paste query results back and forth. The two most useful for developers are the Postgres and SQLite servers.</p>
+<p><strong>Postgres MCP</strong> connects AI assistants to PostgreSQL databases with configurable read/write access. The most common pattern is read-only access for analysis — ask Claude to query your production replica, summarize user behavior patterns, or help debug a slow query by examining the schema and indexes. For write access, scope the database user tightly and enable query logging before connecting an AI assistant.</p>
+<p><strong>SQLite MCP</strong> is the lightweight option for local development databases, test fixtures, and embedded data stores. No server infrastructure required — the MCP server reads .db files directly. Useful for analyzing app data during development without spinning up a full database server.</p>
+<h2 id="category-5-communication-servers">Category 5: Communication Servers</h2>
+<p>Communication MCP servers bridge AI assistants and team messaging platforms, turning context-switching between your AI assistant and your inbox or chat into a thing of the past. The two most useful communication servers for developer workflows are Slack and Gmail — both of which developers spend significant time in every workday. Unlike productivity servers (Notion, Linear) that manage structured data, communication servers deal with unstructured, high-volume streams where AI summarization and drafting add the most value. Setup requires OAuth for both, adding about 10 extra minutes versus API key-based servers, but the access scope control is worth it for tools that can read sensitive conversations.</p>
+<p><strong>Slack MCP</strong> connects AI to Slack workspace data: channel history, thread reads, user profiles, message sending, and canvas management. Practical uses: ask Claude to summarize the last 24 hours of discussion in your #incidents channel, draft a team update, or search for a decision that was made in Slack three months ago. Read operations are low-risk; configure write operations (message sending) with explicit confirmation steps in your workflow.</p>
+<p><strong>Gmail MCP</strong> exposes Gmail draft creation, thread reading, label management, and search. Useful for developers who live in Gmail and want AI assistance drafting emails, triaging threads, or organizing labels without switching to a browser extension. Grant read-only access first and add draft/send permissions only if your workflow explicitly requires it.</p>
+<h2 id="mcp-server-comparison-matrix">MCP Server Comparison Matrix</h2>
+<p>The table below evaluates all 15 servers across six criteria: category, authentication method, production-readiness (defined as actively maintained with proper auth, rate limiting, and error handling), free tier availability, and setup difficulty for a developer with basic CLI familiarity. Production-readiness marks (✅) require that the server has had commits in the last 30 days at time of writing, uses scoped authentication, and handles errors gracefully rather than crashing on unexpected input. The ⚠️ marker for Postgres reflects that the server itself is well-built but production-readiness depends heavily on how you configure database credentials — a misconfigured Postgres MCP with full write access to a production database is a serious risk, regardless of server code quality.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Server</th>
+          <th>Category</th>
+          <th>Auth</th>
+          <th>Production-Ready</th>
+          <th>Free Tier</th>
+          <th>Setup Difficulty</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GitHub</td>
+          <td>Dev Tools</td>
+          <td>OAuth</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Firecrawl</td>
+          <td>Data/Search</td>
+          <td>API Key</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Taskade</td>
+          <td>Productivity</td>
+          <td>OAuth 2.1</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Notion</td>
+          <td>Productivity</td>
+          <td>OAuth</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Linear</td>
+          <td>Productivity</td>
+          <td>API Key</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Playwright</td>
+          <td>Dev Tools</td>
+          <td>None</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Medium</td>
+      </tr>
+      <tr>
+          <td>Filesystem</td>
+          <td>Dev Tools</td>
+          <td>None</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>E2B</td>
+          <td>Dev Tools</td>
+          <td>API Key</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Medium</td>
+      </tr>
+      <tr>
+          <td>Postgres</td>
+          <td>Database</td>
+          <td>DB Creds</td>
+          <td>⚠️</td>
+          <td>✅</td>
+          <td>Medium</td>
+      </tr>
+      <tr>
+          <td>SQLite</td>
+          <td>Database</td>
+          <td>None</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Exa</td>
+          <td>Data/Search</td>
+          <td>API Key</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Tavily</td>
+          <td>Data/Search</td>
+          <td>API Key</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Brave Search</td>
+          <td>Data/Search</td>
+          <td>API Key</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Easy</td>
+      </tr>
+      <tr>
+          <td>Slack</td>
+          <td>Communication</td>
+          <td>OAuth</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Medium</td>
+      </tr>
+      <tr>
+          <td>Gmail</td>
+          <td>Communication</td>
+          <td>OAuth</td>
+          <td>✅</td>
+          <td>✅</td>
+          <td>Medium</td>
+      </tr>
+  </tbody>
+</table>
+<p>⚠️ = Production-ready only with proper credential scoping</p>
+<h2 id="client-compatibility-claude-desktop-cursor-windsurf-vs-code">Client Compatibility: Claude Desktop, Cursor, Windsurf, VS Code</h2>
+<p>All 15 servers in this guide work across major MCP clients — Claude Desktop, Claude Code, Cursor, Windsurf, VS Code with GitHub Copilot, and 295+ others. This is MCP&rsquo;s defining advantage over previous tool integration approaches: configure a server once and it&rsquo;s available everywhere without code changes. Configuration syntax differs between clients — primarily the location of the config file and whether the client prefers JSON or TOML — but the underlying server command and environment variables are identical. For remote servers using Streamable HTTP transport, all clients now support the <code>url</code>-based config format introduced in the March 2025 spec update, which replaces the deprecated SSE-based connection pattern. Below are working examples for the three most common client configurations as of April 2026:</p>
+<p><strong>Claude Desktop</strong> (<code>~/Library/Application Support/Claude/claude_desktop_config.json</code> on Mac):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;github&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;@modelcontextprotocol/server-github&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: { <span style="color:#f92672">&#34;GITHUB_PERSONAL_ACCESS_TOKEN&#34;</span>: <span style="color:#e6db74">&#34;ghp_...&#34;</span> }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Cursor</strong> (<code>.cursor/mcp.json</code> in project root or global settings):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;firecrawl&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;firecrawl-mcp&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: { <span style="color:#f92672">&#34;FIRECRAWL_API_KEY&#34;</span>: <span style="color:#e6db74">&#34;fc-...&#34;</span> }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Claude Code</strong> (<code>.claude/mcp.json</code> in project root):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;filesystem&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;@modelcontextprotocol/server-filesystem&#34;</span>, <span style="color:#e6db74">&#34;/path/to/project&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For remote servers using Streamable HTTP, replace <code>command</code>/<code>args</code> with a <code>url</code> field pointing to the server endpoint plus an <code>Authorization</code> header.</p>
+<h2 id="which-server-for-which-use-case">Which Server for Which Use Case?</h2>
+<p><strong>Web scraping and live research:</strong> Firecrawl MCP. Handles JavaScript rendering, structured extraction, and browser automation in one server.</p>
+<p><strong>Semantic search across documents:</strong> Exa MCP. Neural search for finding relevant content by meaning rather than keyword.</p>
+<p><strong>Repository management and code review:</strong> GitHub MCP. Official, well-maintained, exposes the full GitHub API surface.</p>
+<p><strong>Design-to-code workflows:</strong> Figma MCP (not covered above but worth mentioning). Reads Figma frames and component specs directly.</p>
+<p><strong>Secure AI code execution:</strong> E2B MCP. Ephemeral containers for running AI-generated code without local risk.</p>
+<p><strong>Deployment management:</strong> Vercel MCP. Manages deployments, environment variables, and project settings.</p>
+<p><strong>Issue tracking and sprint management:</strong> Linear MCP for Linear teams, Notion MCP for Notion-based project management.</p>
+<p><strong>250+ integrations without separate servers:</strong> Composio MCP. Single server that wraps 250+ SaaS APIs with OAuth management.</p>
+<h2 id="future-outlook-mcp-in-late-2026-and-beyond">Future Outlook: MCP in Late 2026 and Beyond</h2>
+<p>MCP governance under the Linux Foundation&rsquo;s Agentic AI Foundation means the protocol will evolve with broad industry consensus rather than a single vendor&rsquo;s roadmap. Three trends are worth watching: First, <strong>multi-server composition</strong> — clients are beginning to support routing tool calls across multiple MCP servers intelligently, rather than requiring explicit server selection. Second, <strong>server-side streaming</strong> — Streamable HTTP enables servers to push incremental results, enabling long-running tasks like crawling or code generation to stream progress. Third, <strong>enterprise security hardening</strong> — OAuth 2.1, mTLS, and audit log standards are consolidating around the MCP spec as enterprise adoption at Fortune 500 companies drives security requirements upstream.</p>
+<p>The practical advice for 2026: pick 3-5 MCP servers that match your actual workflow, configure them with read-only permissions initially, and expand access only as you build trust in the server behavior. A curated stack of 5 well-configured servers outperforms a bloated collection of 20 poorly secured ones.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>What is the easiest MCP server to install?</strong>
+Filesystem MCP and GitHub MCP are the easiest to start with. Both are maintained by reputable organizations (Anthropic and GitHub respectively), require minimal configuration, and provide immediate value. GitHub MCP needs a personal access token; Filesystem MCP needs only a directory path. Both install via <code>npx</code> with no additional dependencies.</p>
+<p><strong>Are MCP servers safe to run locally?</strong>
+MCP servers are as safe as the code they run and the permissions you grant them. Official servers from Anthropic, GitHub, and major SaaS companies are generally safe. Third-party or community servers should be reviewed before running locally. Key precautions: run with minimum-necessary permissions, keep API keys in environment variables (not config files), and prefer read-only access initially. The OWASP MCP Top 10 list is the canonical reference for risks.</p>
+<p><strong>Do MCP servers work across different AI clients?</strong>
+Yes, that&rsquo;s the core value of the protocol. A single MCP server configuration works across Claude Desktop, Claude Code, Cursor, Windsurf, VS Code with GitHub Copilot, Zed, Replit, Continue, and Sourcegraph Cody — 300+ clients total. Configuration syntax varies slightly between clients but the underlying server code is identical.</p>
+<p><strong>How much do MCP servers cost?</strong>
+Most developer-focused MCP servers are free and open-source. Some require API keys for the underlying service: Firecrawl starts at $16/month, Exa and Tavily have free tiers with paid plans for high volume, E2B has a free tier for sandboxed execution. GitHub, Filesystem, Git, SQLite, and Playwright MCP servers are completely free.</p>
+<p><strong>What&rsquo;s the difference between GitHub MCP and Git MCP?</strong>
+GitHub MCP talks to the GitHub API — it can manage remote repositories, issues, pull requests, and GitHub Actions. Git MCP talks to a local git repository via git CLI commands — it handles status, diff, commit, and branch operations. If you use GitHub, you likely want both: Git MCP for local operations and GitHub MCP for remote repository management and collaboration features.</p>
+]]></content:encoded></item><item><title>Mastra AI: The TypeScript AI Agent Framework for 2026</title><link>https://baeseokjae.github.io/posts/mastra-ai-typescript-framework-2026/</link><pubDate>Tue, 21 Apr 2026 00:00:00 +0000</pubDate><guid>https://baeseokjae.github.io/posts/mastra-ai-typescript-framework-2026/</guid><description>A practical guide to Mastra AI, the TypeScript-first framework for building production AI agents. Covers setup, agents, tools, MCP, workflows, RAG, evals, deployment, and a head-to-head comparison with LangGraph and CrewAI.</description><content:encoded><![CDATA[<h2 id="introduction-why-mastra-is-the-typescript-ai-framework-to-watch-in-2026">Introduction: Why Mastra Is the TypeScript AI Framework to Watch in 2026</h2>
+<p>The AI agent ecosystem has a Python problem. Not with Python itself—it works fine—but with the fact that most agents ship as web services, and the teams building those services increasingly write TypeScript. Sam Bhagwat, CEO of Mastra, noted on Hacker News that 60–70% of YC X25 agent startups are building in TypeScript, not Python. The tooling hasn&rsquo;t caught up. LangChain, CrewAI, and AutoGen all originated in Python, leaving TypeScript developers either wrapping Python services or cobbling together their own agent infrastructure.</p>
+<p>Mastra was built to close that gap.</p>
+<h3 id="the-shift-from-python-to-typescript-for-ai-agents">The shift from Python to TypeScript for AI agents</h3>
+<p>The shift is practical, not ideological. When your production stack runs on Node.js or edge runtimes, reaching for a Python framework introduces serialization overhead, deployment complexity, and a skills mismatch. TypeScript gives you shared types between your agent logic and your API layer, native streaming support for Server-Sent Events and WebSocket responses, and a single runtime for your entire backend. The ergonomics matter: you can define a tool&rsquo;s input schema with Zod, pass that schema directly to the LLM as a function definition, and validate the LLM&rsquo;s output against the same schema—no JSON Schema translation layer required.</p>
+<h3 id="what-is-mastra">What is Mastra?</h3>
+<p>Mastra is an open-source (Apache 2.0) TypeScript framework for building AI agents. It was created by the team behind Gatsby, the React static-site generator that peaked at 50k+ GitHub stars. That team shipped a framework before; they understand the ergonomics of developer tooling. Mastra provides structured primitives for agents, tools, workflows, RAG pipelines, evals, and observability—all expressed as TypeScript code, not YAML DSLs or visual editors that generate unreadable files.</p>
+<p>The project has accumulated 23,200+ GitHub stars, 14,334 commits, and 1,079 branches as of April 2026. The velocity is real. Mastra raised a $22M Series A led by Spark Capital in early 2026, bringing total funding to $35M.</p>
+<h3 id="enterprise-adoption">Enterprise adoption</h3>
+<p>The customer list is worth examining because it signals production readiness, not just developer enthusiasm:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Company</th>
+          <th>Use Case</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Docker</td>
+          <td>Event-driven PR management agents with MCP</td>
+      </tr>
+      <tr>
+          <td>Brex</td>
+          <td>Financial agents that helped drive the $5.1B Capital One acquisition</td>
+      </tr>
+      <tr>
+          <td>Marsh McLennan</td>
+          <td>Enterprise search agent used by 100k+ people daily</td>
+      </tr>
+      <tr>
+          <td>Elastic</td>
+          <td>Agentic RAG with Elasticsearch</td>
+      </tr>
+      <tr>
+          <td>SoftBank</td>
+          <td>Enterprise productivity at scale</td>
+      </tr>
+      <tr>
+          <td>Replit</td>
+          <td>Agent 3 built on Mastra primitives</td>
+      </tr>
+      <tr>
+          <td>MongoDB, Workday, Salesforce, Plaid</td>
+          <td>Various production agent deployments</td>
+      </tr>
+  </tbody>
+</table>
+<p>That&rsquo;s not a &ldquo;coming soon&rdquo; list. Marsh McLennan&rsquo;s agent is in daily production use by over 100,000 people. Brex&rsquo;s agents contributed to a multi-billion-dollar acquisition. These are load-bearing systems.</p>
+<h2 id="getting-started-setting-up-your-first-mastra-project">Getting Started: Setting Up Your First Mastra Project</h2>
+<h3 id="prerequisites-and-installation">Prerequisites and installation</h3>
+<p>You need Node.js 18+ and an LLM API key (OpenAI, Anthropic, or Google). Create a new project:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm create mastra@latest
+</span></span></code></pre></div><p>The scaffold prompts you for a project name, your preferred LLM provider, and whether you want the Mastra Studio dev UI included. After setup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd my-mastra-app
+</span></span><span style="display:flex;"><span>npm install
+</span></span><span style="display:flex;"><span>npm run dev
+</span></span></code></pre></div><p>The dev server starts on port 4111 by default and opens Mastra Studio.</p>
+<h3 id="project-structure-overview">Project structure overview</h3>
+<p>A scaffolded Mastra project looks like this:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 488 249"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>├</text>
+<text text-anchor='middle' x='0' y='36' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='68' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='84' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='100' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='116' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='132' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='148' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='164' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='180' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='0' y='196' fill='currentColor' style='font-size:1em'>├</text>
+<text text-anchor='middle' x='0' y='212' fill='currentColor' style='font-size:1em'>├</text>
+<text text-anchor='middle' x='0' y='228' fill='currentColor' style='font-size:1em'>└</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='8' y='196' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='8' y='212' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='8' y='228' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='16' y='196' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='16' y='212' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='16' y='228' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>└</text>
+<text text-anchor='middle' x='32' y='196' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='32' y='212' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='32' y='228' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='40' y='196' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='228' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='48' y='36' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='48' y='196' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='48' y='212' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='48' y='228' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='212' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='56' y='228' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='64' y='36' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='64' y='52' fill='currentColor' style='font-size:1em'>├</text>
+<text text-anchor='middle' x='64' y='68' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='64' y='84' fill='currentColor' style='font-size:1em'>├</text>
+<text text-anchor='middle' x='64' y='100' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='64' y='116' fill='currentColor' style='font-size:1em'>├</text>
+<text text-anchor='middle' x='64' y='132' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='64' y='148' fill='currentColor' style='font-size:1em'>├</text>
+<text text-anchor='middle' x='64' y='164' fill='currentColor' style='font-size:1em'>│</text>
+<text text-anchor='middle' x='64' y='180' fill='currentColor' style='font-size:1em'>└</text>
+<text text-anchor='middle' x='64' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='64' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='64' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='72' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='72' y='52' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='72' y='84' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='72' y='116' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='72' y='148' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='72' y='180' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='72' y='196' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='72' y='212' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='72' y='228' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='80' y='36' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='80' y='52' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='80' y='84' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='80' y='116' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='80' y='148' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='80' y='180' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='80' y='196' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='80' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='80' y='228' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='88' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='88' y='196' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='88' y='212' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='88' y='228' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='96' y='36' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='96' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='96' y='68' fill='currentColor' style='font-size:1em'>└</text>
+<text text-anchor='middle' x='96' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='96' y='100' fill='currentColor' style='font-size:1em'>└</text>
+<text text-anchor='middle' x='96' y='116' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='96' y='132' fill='currentColor' style='font-size:1em'>└</text>
+<text text-anchor='middle' x='96' y='148' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='96' y='164' fill='currentColor' style='font-size:1em'>└</text>
+<text text-anchor='middle' x='96' y='180' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='96' y='212' fill='currentColor' style='font-size:1em'>j</text>
+<text text-anchor='middle' x='96' y='228' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='104' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='104' y='68' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='104' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='104' y='100' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='104' y='116' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='104' y='132' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='104' y='148' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='104' y='164' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='104' y='180' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='104' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='104' y='212' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='104' y='228' fill='currentColor' style='font-size:1em'>j</text>
+<text text-anchor='middle' x='112' y='36' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='112' y='68' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='112' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='112' y='100' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='112' y='116' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='112' y='132' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='112' y='148' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='112' y='164' fill='currentColor' style='font-size:1em'>─</text>
+<text text-anchor='middle' x='112' y='180' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='112' y='196' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='112' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='112' y='228' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='120' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='84' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='120' y='116' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='120' y='148' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='120' y='180' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='120' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='120' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='228' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='128' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='128' y='68' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='128' y='84' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='128' y='100' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='128' y='116' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='128' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='128' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='128' y='180' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='128' y='196' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='128' y='228' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='136' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='84' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='136' y='100' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='116' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='136' y='132' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='180' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='136' y='196' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='144' y='52' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='144' y='68' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='100' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='116' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='144' y='132' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='164' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='180' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='144' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='152' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='116' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='152' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='180' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='152' y='196' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='160' y='68' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='160' y='100' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='160' y='116' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='160' y='132' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='160' y='164' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='168' y='68' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='168' y='100' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='168' y='116' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='168' y='132' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='168' y='164' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='176' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='176' y='100' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='176' y='132' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='176' y='164' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='184' y='100' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='184' y='132' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='184' y='164' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='248' y='180' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='256' y='68' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='256' y='100' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='256' y='132' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='256' y='164' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='256' y='196' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='264' y='180' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='272' y='68' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='272' y='100' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='272' y='132' fill='currentColor' style='font-size:1em'>W</text>
+<text text-anchor='middle' x='272' y='164' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='272' y='180' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='272' y='196' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='280' y='68' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='280' y='100' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='280' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='280' y='164' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='280' y='180' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='280' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='288' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='288' y='100' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='288' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='288' y='164' fill='currentColor' style='font-size:1em'>G</text>
+<text text-anchor='middle' x='288' y='180' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='288' y='196' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='296' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='296' y='100' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='296' y='132' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='296' y='180' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='296' y='196' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='304' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='304' y='132' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='304' y='164' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='304' y='180' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='304' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='312' y='100' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='312' y='132' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='312' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='312' y='196' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='320' y='68' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='320' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='320' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='320' y='164' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='320' y='180' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='320' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='328' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='328' y='100' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='328' y='132' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='328' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='328' y='180' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='328' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='336' y='68' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='336' y='100' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='336' y='164' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='336' y='180' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='336' y='196' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='344' y='68' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='344' y='100' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='344' y='132' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='344' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='344' y='180' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='352' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='352' y='100' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='352' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='352' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='352' y='180' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='352' y='196' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='360' y='68' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='360' y='100' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='360' y='132' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='360' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='360' y='180' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='360' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='368' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='368' y='100' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='368' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='368' y='180' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='368' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='376' y='68' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='376' y='100' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='376' y='132' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='376' y='164' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='376' y='180' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='376' y='196' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='384' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='384' y='100' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='384' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='384' y='164' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='384' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='392' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='392' y='100' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='392' y='132' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='392' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='392' y='180' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='392' y='196' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='400' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='400' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='400' y='164' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='400' y='180' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='400' y='196' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='408' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='408' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='408' y='180' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='408' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='416' y='132' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='416' y='164' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='416' y='180' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='416' y='196' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='424' y='132' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='180' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='424' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='432' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='440' y='180' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='440' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='448' y='180' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='448' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='456' y='180' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='464' y='180' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='472' y='180' fill='currentColor' style='font-size:1em'>t</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>All agent configuration lives in TypeScript files under <code>src/mastra/</code>. The framework discovers and registers agents, tools, and workflows based on exports from these files. No YAML, no code generation.</p>
+<h3 id="mastra-studio-the-interactive-dev-ui">Mastra Studio: the interactive dev UI</h3>
+<p>Mastra Studio runs locally at <code>http://localhost:4111</code> and provides:</p>
+<ul>
+<li><strong>Agent playground</strong>: chat with any defined agent, inspect tool calls, and trace token usage in real time</li>
+<li><strong>Workflow visualizer</strong>: see step DAGs, run workflows step by step, and inspect intermediate state</li>
+<li><strong>RAG testing</strong>: query your knowledge base and verify retrieval quality</li>
+<li><strong>Eval runner</strong>: execute model-graded and rule-based evaluations against agent outputs</li>
+<li><strong>Logs and traces</strong>: structured view of every LLM call, tool invocation, and workflow transition</li>
+</ul>
+<p>Studio is not required in production—it&rsquo;s a dev-time tool. But it replaces the ad-hoc <code>console.log</code>-driven debugging loop that most agent developers fall into.</p>
+<h2 id="building-your-first-ai-agent-with-mastra">Building Your First AI Agent with Mastra</h2>
+<h3 id="defining-an-agent-with-system-prompts-and-tools">Defining an agent with system prompts and tools</h3>
+<p>An agent in Mastra is a typed object with a system prompt, a model reference, and a set of tools. Here&rsquo;s a minimal research agent:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Agent</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/core/agent&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createTool</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/core/tools&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">z</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;zod&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">openai</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ai-sdk/openai&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">searchTool</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createTool</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;web-search&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Search the web for information about a topic&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputSchema</span>: <span style="color:#66d9ef">z.object</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">query</span>: <span style="color:#66d9ef">z.string</span>().<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;The search query&#34;</span>),
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">execute</span>: <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">context</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetchSearchResults</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">query</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">results</span> };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">researchAgent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Agent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;research-agent&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instructions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`You are a research assistant. When asked about a topic:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">1. Search the web for relevant information
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">2. Synthesize the findings into a concise summary
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">3. Cite your sources
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Always use the search tool before answering factual questions.`</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">openai</span>(<span style="color:#e6db74">&#34;gpt-4o&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tools</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">searchTool</span> },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Key design decisions here: tools use Zod schemas for both input validation and LLM function-calling definition. The <code>instructions</code> field replaces the informal system-prompt string with a structured prompt that Mastra can version, evaluate against, and refactor across deployments.</p>
+<h3 id="adding-memory">Adding memory</h3>
+<p>Mastra supports two memory primitives: <strong>working memory</strong> and <strong>semantic recall</strong>.</p>
+<p>Working memory is a short-term scratchpad that persists within a conversation thread. It stores structured state the agent can read and write:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Memory</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/memory&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">memory</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Memory</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">lastMessages</span>: <span style="color:#66d9ef">10</span>,        <span style="color:#75715e">// Include last 10 messages in context
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">workingMemory</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">enabled</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">template</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"># User Profile
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Name: unknown
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Preferences: unknown
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">- Current Task: none
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      `</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">semanticRecall</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">topK</span>: <span style="color:#66d9ef">3</span>,               <span style="color:#75715e">// Recall 3 most relevant past messages
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">messageRange</span>: <span style="color:#66d9ef">2</span>,       <span style="color:#75715e">// Include 2 messages around each match
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contextualAgent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Agent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;contextual-agent&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instructions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;You are a helpful assistant that remembers user context.&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">openai</span>(<span style="color:#e6db74">&#34;gpt-4o&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">memory</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Semantic recall embeds past conversation turns and retrieves the top-K most relevant ones when a new message arrives. This means the agent can reference a preference mentioned 50 turns ago without loading the entire history into the context window. Working memory lets the agent maintain structured state—user profile, task progress, preferences—that persists across messages in the same thread.</p>
+<h3 id="connecting-llm-providers">Connecting LLM providers</h3>
+<p>Mastra uses the Vercel AI SDK model interface, so any provider that implements that interface works:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">openai</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ai-sdk/openai&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">anthropic</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ai-sdk/anthropic&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">google</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ai-sdk/google&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Swap models by changing one line
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">agent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Agent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;flexible-agent&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instructions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;You are a versatile assistant.&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">anthropic</span>(<span style="color:#e6db74">&#34;claude-sonnet-4-20250514&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// model: openai(&#34;gpt-4o&#34;),
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75715e">// model: google(&#34;gemini-2.0-flash&#34;),
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>});
+</span></span></code></pre></div><p>Being model-agnostic matters operationally: you can run evals across models, fall back from one provider to another, and choose cost-effective models per task without rewriting agent logic.</p>
+<h2 id="tools-and-mcp-connecting-your-agent-to-the-real-world">Tools and MCP: Connecting Your Agent to the Real World</h2>
+<h3 id="built-in-tool-types-in-mastra">Built-in tool types in Mastra</h3>
+<p>Mastra&rsquo;s <code>createTool</code> API is the foundational primitive. Every tool has an <code>id</code>, a <code>description</code> (used in the LLM&rsquo;s function-calling prompt), an <code>inputSchema</code> (Zod), and an <code>execute</code> function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createTool</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/core/tools&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">z</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;zod&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">calculateTool</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createTool</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;calculate&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">description</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Evaluate a mathematical expression&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputSchema</span>: <span style="color:#66d9ef">z.object</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">expression</span>: <span style="color:#66d9ef">z.string</span>().<span style="color:#a6e22e">describe</span>(<span style="color:#e6db74">&#34;Math expression to evaluate, e.g. &#39;2 + 2&#39;&#34;</span>),
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">outputSchema</span>: <span style="color:#66d9ef">z.object</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">result</span>: <span style="color:#66d9ef">z.number</span>(),
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">execute</span>: <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">context</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Safe evaluation — no eval()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">safeMathEval</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">expression</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">result</span> };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>The <code>outputSchema</code> is optional but recommended. When provided, Mastra validates the tool&rsquo;s output against it before returning the result to the agent. This catches malformed tool outputs early and prevents cascading errors.</p>
+<h3 id="mcp-model-context-protocol-integration">MCP (Model Context Protocol) integration</h3>
+<p>MCP is Anthropic&rsquo;s open protocol for connecting LLMs to external tools and data sources. Mastra implements both the client and server sides. As a client, Mastra can connect to any MCP server and expose its tools to agents:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MCPClient</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/mcp&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mcp</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MCPClient</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">servers</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">github</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">command</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">args</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;@modelcontextprotocol/server-github&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">env</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">GITHUB_PERSONAL_ACCESS_TOKEN</span>: <span style="color:#66d9ef">process.env.GITHUB_TOKEN</span><span style="color:#f92672">!</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MCP tools are automatically available to agents
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">tools</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mcp</span>.<span style="color:#a6e22e">tools</span>();
+</span></span></code></pre></div><p>This is how Docker connected their agents to GitHub. The GitHub MCP server provides tools for listing PRs, reading diffs, posting comments, and managing labels—all without writing custom API integration code.</p>
+<h3 id="real-example-github-mcp-server-for-pr-automation">Real example: GitHub MCP server for PR automation</h3>
+<p>Docker&rsquo;s architecture is instructive. They built three sub-agents, each with a narrow responsibility:</p>
+<ol>
+<li><strong>Analyze PR agent</strong>: Reads the PR diff and generates a structured analysis</li>
+<li><strong>Generate comment agent</strong>: Takes the analysis and writes a review comment</li>
+<li><strong>Post and close agent</strong>: Posts the comment and manages PR labels</li>
+</ol>
+<p>These agents are orchestrated by a Mastra workflow that triggers on a GitHub webhook event. The key insight: rather than one monolithic agent trying to do everything, each agent has a focused system prompt and minimal tool access. This reduces error rates and makes the system auditable—if the posted comment is wrong, you check agent 2, not the entire pipeline.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#75715e">// Simplified Docker-style PR automation workflow trigger
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#34;/webhook/github&#34;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">action</span>, <span style="color:#a6e22e">pull_request</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">action</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;opened&#34;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">action</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;synchronize&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">prReviewWorkflow</span>.<span style="color:#a6e22e">run</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">prNumber</span>: <span style="color:#66d9ef">pull_request.number</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">repo</span>: <span style="color:#66d9ef">pull_request.base.repo.full_name</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">status</span>(<span style="color:#ae81ff">200</span>).<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;ok&#34;</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><h2 id="workflows-orchestrating-complex-agent-tasks">Workflows: Orchestrating Complex Agent Tasks</h2>
+<h3 id="when-to-use-workflows-vs-agents">When to use workflows vs agents</h3>
+<p>An agent with tools handles simple request-response patterns well. But when your task involves multiple sequential steps, conditional branching, parallel execution, or retry logic, you need a workflow. The distinction:</p>
+<ul>
+<li><strong>Agent</strong>: LLM decides what to do next based on context. Good for open-ended reasoning.</li>
+<li><strong>Workflow</strong>: You define the control flow. Good for deterministic multi-step processes.</li>
+</ul>
+<p>If you can draw a flowchart for your process, use a workflow. If the process requires the LLM to decide its own path, use an agent. Many production systems combine both: a workflow orchestrates high-level steps, and agents handle LLM-driven reasoning within individual steps.</p>
+<h3 id="building-step-based-workflows">Building step-based workflows</h3>
+<p>Mastra workflows are defined as a series of steps, each with an input schema, an output schema, and an execute function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Workflow</span>, <span style="color:#a6e22e">Step</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/core/workflows&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">z</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;zod&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchContentStep</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Step</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;fetch-content&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputSchema</span>: <span style="color:#66d9ef">z.object</span>({ <span style="color:#a6e22e">url</span>: <span style="color:#66d9ef">z.string</span>() }),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">outputSchema</span>: <span style="color:#66d9ef">z.object</span>({ <span style="color:#a6e22e">content</span>: <span style="color:#66d9ef">z.string</span>(), <span style="color:#a6e22e">title</span>: <span style="color:#66d9ef">z.string</span>() }),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">execute</span>: <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">context</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">page</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">url</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">r</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">r</span>.<span style="color:#a6e22e">text</span>());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">extractTitle</span>(<span style="color:#a6e22e">page</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">content</span>: <span style="color:#66d9ef">page</span>, <span style="color:#a6e22e">title</span> };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">summarizeStep</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Step</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;summarize&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">inputSchema</span>: <span style="color:#66d9ef">z.object</span>({ <span style="color:#a6e22e">content</span>: <span style="color:#66d9ef">z.string</span>() }),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">outputSchema</span>: <span style="color:#66d9ef">z.object</span>({ <span style="color:#a6e22e">summary</span>: <span style="color:#66d9ef">z.string</span>() }),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">execute</span>: <span style="color:#66d9ef">async</span> ({ <span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">mastra</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">agent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mastra</span>.<span style="color:#a6e22e">getAgent</span>(<span style="color:#e6db74">&#34;research-agent&#34;</span>)<span style="color:#f92672">!</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">generate</span>(
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">`Summarize this content concisely:</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">n</span><span style="color:#960050;background-color:#1e0010">\</span><span style="color:#e6db74">n</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">content</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { <span style="color:#a6e22e">summary</span>: <span style="color:#66d9ef">result.text</span> };
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contentWorkflow</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Workflow</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;content-summarizer&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">triggerSchema</span>: <span style="color:#66d9ef">z.object</span>({ <span style="color:#a6e22e">url</span>: <span style="color:#66d9ef">z.string</span>() }),
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">contentWorkflow</span>
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">step</span>(<span style="color:#a6e22e">fetchContentStep</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">summarizeStep</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">commit</span>();
+</span></span></code></pre></div><p>Steps can reference the Mastra instance to use agents, tools, or other workflows. The <code>context</code> object carries the output of the previous step(s).</p>
+<h3 id="parallel-execution-conditional-branching-and-nesting">Parallel execution, conditional branching, and nesting</h3>
+<p>Workflows support <code>branch</code> for conditional paths and <code>parallel</code> for concurrent execution:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#a6e22e">contentWorkflow</span>
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">step</span>(<span style="color:#a6e22e">fetchContentStep</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">branch</span>([
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">condition</span><span style="color:#f92672">:</span> ({ <span style="color:#a6e22e">context</span> }) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">content</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5000</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">then</span>: <span style="color:#66d9ef">longContentStep</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">condition</span><span style="color:#f92672">:</span> ({ <span style="color:#a6e22e">context</span> }) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">content</span>.<span style="color:#a6e22e">length</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5000</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">then</span>: <span style="color:#66d9ef">shortContentStep</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  ])
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">summarizeStep</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">commit</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Parallel execution
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">analysisWorkflow</span>
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">parallel</span>([<span style="color:#a6e22e">sentimentStep</span>, <span style="color:#a6e22e">entityStep</span>, <span style="color:#a6e22e">keywordStep</span>])
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">mergeResultsStep</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">commit</span>();
+</span></span></code></pre></div><p>Workflows can also nest: a step can invoke another workflow as a sub-routine. This lets you compose complex processes from smaller, testable workflow units. Each nested workflow maintains its own state and can be run and debugged independently.</p>
+<h2 id="rag-with-mastra-giving-your-agent-knowledge">RAG with Mastra: Giving Your Agent Knowledge</h2>
+<h3 id="embedding-and-vector-search-support">Embedding and vector search support</h3>
+<p>Mastra includes built-in embedding and vector search through its RAG module. You define an embedder and a vector store, then index documents:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MastraRAG</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/rag&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">openai</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@ai-sdk/openai&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">PineconeVector</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/pinecone&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rag</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MastraRAG</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">embedder</span>: <span style="color:#66d9ef">openai.embedding</span>(<span style="color:#e6db74">&#34;text-embedding-3-small&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">vectorStore</span>: <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">PineconeVector</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">indexName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;knowledge-base&#34;</span>,
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Index documents
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">await</span> <span style="color:#a6e22e">rag</span>.<span style="color:#a6e22e">index</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">docs</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;doc-1&#34;</span>, <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Mastra supports multiple LLM providers...&#34;</span> },
+</span></span><span style="display:flex;"><span>    { <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;doc-2&#34;</span>, <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Workflows enable conditional branching...&#34;</span> },
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Query
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">results</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">rag</span>.<span style="color:#a6e22e">retrieve</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">query</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;How do I branch in a workflow?&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">topK</span>: <span style="color:#66d9ef">5</span>,
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Mastra handles chunking, embedding, and storage. You control the chunk size, overlap, and embedding model.</p>
+<h3 id="mastra-built-in-rag-capabilities">Mastra built-in RAG capabilities</h3>
+<p>Beyond basic retrieval, Mastra provides:</p>
+<ul>
+<li><strong>Query transformation</strong>: Automatically rewrites user queries for better retrieval</li>
+<li><strong>Hybrid search</strong>: Combines vector similarity with keyword matching for improved recall</li>
+<li><strong>Re-ranking</strong>: Applies a second-pass relevance model to filter and reorder results</li>
+</ul>
+<p>These are not external integrations—they ship with the framework and are configurable via the RAG constructor options.</p>
+<h3 id="integration-with-elasticsearch-and-other-vector-stores">Integration with Elasticsearch and other vector stores</h3>
+<p>Elastic published a detailed walkthrough of building agentic RAG with Mastra and Elasticsearch. The pattern:</p>
+<ol>
+<li>Index documents into Elasticsearch with dense vector fields</li>
+<li>Use Mastra&rsquo;s RAG module with the Elasticsearch vector store adapter</li>
+<li>Define an agent that retrieves context and generates answers</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">MastraRAG</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/rag&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">ElasticsearchVector</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/elasticsearch&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">rag</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MastraRAG</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">embedder</span>: <span style="color:#66d9ef">openai.embedding</span>(<span style="color:#e6db74">&#34;text-embedding-3-small&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">vectorStore</span>: <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ElasticsearchVector</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">indexName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;docs-index&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">client</span>: <span style="color:#66d9ef">esClient</span>,
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ragAgent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Agent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rag-agent&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instructions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Answer questions based on the retrieved context.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">If the context doesn&#39;t contain enough information, say so.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Always cite the source document.`</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">openai</span>(<span style="color:#e6db74">&#34;gpt-4o&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">tools</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">retrieve</span>: <span style="color:#66d9ef">rag.asTool</span>(),
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>The <code>rag.asTool()</code> method wraps the RAG pipeline as a Mastra tool, making it available to any agent. The Elastic integration demonstrates that Mastra&rsquo;s RAG layer is vendor-agnostic—you can swap Pinecone for Elasticsearch for pgvector without changing agent code.</p>
+<h2 id="productionizing-evals-observability-and-guardrails">Productionizing: Evals, Observability, and Guardrails</h2>
+<h3 id="running-model-graded-and-rule-based-evals">Running model-graded and rule-based evals</h3>
+<p>Mastra includes an evaluation framework that runs LLM outputs against criteria. Two eval types:</p>
+<ul>
+<li><strong>Model-graded</strong>: An LLM judges the output against a rubric. Useful for open-ended quality assessment.</li>
+<li><strong>Rule-based</strong>: Deterministic checks on output structure, content, or behavior. Useful for guardrails.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Eval</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/evals&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">z</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;zod&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">relevanceEval</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Eval</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;relevance&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;model-graded&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">prompt</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`Rate the relevance of the answer to the question on a scale of 1-5.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Question: {{input}}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Answer: {{output}}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Respond with a number only.`</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">openai</span>(<span style="color:#e6db74">&#34;gpt-4o-mini&#34;</span>),
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">noPIIEval</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Eval</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;no-pii&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;rule-based&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">check</span><span style="color:#f92672">:</span> ({ <span style="color:#a6e22e">output</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">piiPatterns</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">/\b\d{3}-\d{2}-\d{4}\b/</span>, <span style="color:#e6db74">/\b[A-Z]\d{8}\b/</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span><span style="color:#a6e22e">piiPatterns</span>.<span style="color:#a6e22e">some</span>((<span style="color:#a6e22e">p</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">test</span>(<span style="color:#a6e22e">output</span>));
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>You run evals against datasets in Mastra Studio or programmatically. The results give you a quantifiable quality signal before deploying changes.</p>
+<h3 id="tracing-agent-calls-and-token-usage">Tracing agent calls and token usage</h3>
+<p>Every LLM call, tool invocation, and workflow step is automatically traced. In Mastra Studio, you see:</p>
+<ul>
+<li>Total latency per request</li>
+<li>Token usage breakdown (prompt vs. completion)</li>
+<li>Tool call sequences and their outputs</li>
+<li>Memory retrieval operations and their relevance scores</li>
+</ul>
+<p>For production monitoring, Mastra integrates with OpenTelemetry. You can export traces to any OTel-compatible backend (Datadog, Grafana, Honeycomb, etc.):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#75715e">// mastra.config.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">defineConfig</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">observability</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">otel</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">enabled</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">serviceName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;my-mastra-app&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">traceExporter</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;otlp&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">endpoint</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;http://localhost:4318/v1/traces&#34;</span>,
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>This is a meaningful differentiator. Most agent frameworks leave observability as an exercise for the developer. Mastra wires it into every primitive.</p>
+<h3 id="guardrails-for-prompt-injection-prevention">Guardrails for prompt injection prevention</h3>
+<p>Mastra provides input and output guardrails as middleware on agent calls:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">guardrail</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/guardrails&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">agent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Agent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;safe-agent&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">instructions</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;You are a helpful assistant.&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">model</span>: <span style="color:#66d9ef">openai</span>(<span style="color:#e6db74">&#34;gpt-4o&#34;</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">guardrails</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">input</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">guardrail</span>.<span style="color:#a6e22e">injectionDetection</span>(), <span style="color:#75715e">// Detect common injection patterns
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">output</span><span style="color:#f92672">:</span> [
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">guardrail</span>.<span style="color:#a6e22e">lengthLimit</span>({ <span style="color:#a6e22e">maxTokens</span>: <span style="color:#66d9ef">500</span> }),
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">guardrail</span>.<span style="color:#a6e22e">piiDetection</span>(),       <span style="color:#75715e">// Block outputs containing PII
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ],
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Input guardrails run before the LLM call. Output guardrails run after. If a guardrail triggers, the agent returns a structured error instead of the raw LLM output. This is not a complete security solution—you still need proper access controls and sandboxing—but it adds a structured layer of defense.</p>
+<h3 id="mastra-studio-metrics-logs-and-datasets">Mastra Studio metrics, logs, and datasets</h3>
+<p>Studio aggregates eval results, trace data, and token usage into dashboards. You can:</p>
+<ul>
+<li>Compare eval scores across model versions</li>
+<li>Track token cost trends over time</li>
+<li>Build evaluation datasets from production traces</li>
+<li>Replay failed conversations to diagnose issues</li>
+</ul>
+<p>The dataset feature is particularly useful: you can capture production agent interactions, annotate them, and use them as regression test suites when you change prompts, models, or tools.</p>
+<h2 id="deployment-from-dev-to-production">Deployment: From Dev to Production</h2>
+<h3 id="mastra-server-deploying-as-a-rest-api">Mastra Server: deploying as a REST API</h3>
+<p>Mastra generates a server that exposes your agents, tools, and workflows as REST endpoints:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Mastra</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/core&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">createServer</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@mastra/server&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mastra</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Mastra</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">agents</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">researchAgent</span>, <span style="color:#a6e22e">contextualAgent</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">workflows</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">contentWorkflow</span> },
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createServer</span>(<span style="color:#a6e22e">mastra</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>);
+</span></span></code></pre></div><p>This gives you REST endpoints like:</p>
+<ul>
+<li><code>POST /api/agents/researchAgent/generate</code> — single-turn generation</li>
+<li><code>POST /api/agents/researchAgent/stream</code> — streaming generation</li>
+<li><code>POST /api/workflows/contentWorkflow/run</code> — trigger a workflow</li>
+<li><code>GET /api/workflows/contentWorkflow/runs/{runId}</code> — check workflow status</li>
+</ul>
+<p>The API is auto-generated from your Mastra instance definition. No manual route wiring.</p>
+<h3 id="framework-integration">Framework integration</h3>
+<p>Mastra integrates with popular Node.js frameworks as middleware:</p>
+<p><strong>Next.js (App Router)</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#75715e">// app/api/agents/[agentId]/route.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">mastra</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;@/mastra&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NextRequest</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;next/server&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">POST</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">req</span>: <span style="color:#66d9ef">NextRequest</span>,
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">params</span> }<span style="color:#f92672">:</span> { <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">agentId</span>: <span style="color:#66d9ef">string</span> } }
+</span></span><span style="display:flex;"><span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">agent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mastra</span>.<span style="color:#a6e22e">getAgent</span>(<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">agentId</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">message</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">json</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">generate</span>(<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Response</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">text</span>: <span style="color:#66d9ef">result.text</span> });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Express</strong>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">express</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;express&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">mastra</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./mastra&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">express</span>.<span style="color:#a6e22e">json</span>());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#34;/api/agents/:agentId/generate&#34;</span>, <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">agent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mastra</span>.<span style="color:#a6e22e">getAgent</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">agentId</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">result</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">agent</span>.<span style="color:#a6e22e">generate</span>(<span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>({ <span style="color:#a6e22e">text</span>: <span style="color:#66d9ef">result.text</span> });
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">3000</span>);
+</span></span></code></pre></div><p><strong>Hono and SvelteKit</strong> are similarly supported with adapter packages. The pattern is the same: import your Mastra instance, call <code>getAgent</code> or <code>getWorkflow</code>, and handle the request.</p>
+<h3 id="mastra-platform-studio--server--memory-gateway">Mastra Platform: Studio + Server + Memory Gateway</h3>
+<p>For teams that don&rsquo;t want to manage their own infrastructure, Mastra offers a hosted platform:</p>
+<ul>
+<li><strong>Mastra Studio (cloud)</strong>: Same dev UI, hosted and shared across your team</li>
+<li><strong>Mastra Server (cloud)</strong>: Managed deployment of your agents and workflows</li>
+<li><strong>Memory Gateway</strong>: Hosted memory service with persistent storage, semantic recall, and cross-session state</li>
+</ul>
+<h3 id="pricing-and-tiers">Pricing and tiers</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Price</th>
+          <th>Key Limits</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Starter</td>
+          <td>Free</td>
+          <td>3 agents, 10k memory records, community support</td>
+      </tr>
+      <tr>
+          <td>Teams</td>
+          <td>$250/team/month</td>
+          <td>Unlimited agents, 1M memory records, priority support</td>
+      </tr>
+      <tr>
+          <td>Enterprise</td>
+          <td>Custom</td>
+          <td>Dedicated infra, SLA, SSO, custom integrations</td>
+      </tr>
+  </tbody>
+</table>
+<p>The free tier is genuinely usable for prototyping and personal projects. The Teams tier is where production deployments land.</p>
+<h2 id="mastra-vs-other-ai-frameworks-typescript-first-comparison">Mastra vs Other AI Frameworks: TypeScript-First Comparison</h2>
+<h3 id="mastra-vs-langgraph-vs-crewai">Mastra vs LangGraph vs CrewAI</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Mastra</th>
+          <th>LangGraph</th>
+          <th>CrewAI</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Language</td>
+          <td>TypeScript</td>
+          <td>Python</td>
+          <td>Python</td>
+      </tr>
+      <tr>
+          <td>Agent abstraction</td>
+          <td><code>Agent</code> class with tools + memory</td>
+          <td><code>StateGraph</code> with nodes/edges</td>
+          <td><code>Crew</code> with <code>Agent</code> roles</td>
+      </tr>
+      <tr>
+          <td>Workflow model</td>
+          <td>Step-based with branch/parallel</td>
+          <td>State graph with conditional edges</td>
+          <td>Sequential/hierarchical process</td>
+      </tr>
+      <tr>
+          <td>Memory</td>
+          <td>Built-in (working + semantic recall)</td>
+          <td>Manual (checkpointer interface)</td>
+          <td>Short-term + long-term memory</td>
+      </tr>
+      <tr>
+          <td>Observability</td>
+          <td>Built-in OTel + Studio</td>
+          <td>LangSmith (separate product)</td>
+          <td>Manual or LangSmith</td>
+      </tr>
+      <tr>
+          <td>Eval framework</td>
+          <td>Built-in</td>
+          <td>LangSmith (separate product)</td>
+          <td>Not included</td>
+      </tr>
+      <tr>
+          <td>MCP support</td>
+          <td>Client + server</td>
+          <td>Client (via langchain-mcp)</td>
+          <td>Not native</td>
+      </tr>
+      <tr>
+          <td>RAG</td>
+          <td>Built-in module</td>
+          <td>Manual (LangChain retrieval)</td>
+          <td>Manual</td>
+      </tr>
+      <tr>
+          <td>Deployment</td>
+          <td>Built-in server + Platform</td>
+          <td>Manual or LangServe</td>
+          <td>Manual</td>
+      </tr>
+      <tr>
+          <td>License</td>
+          <td>Apache 2.0</td>
+          <td>MIT</td>
+          <td>MIT</td>
+      </tr>
+  </tbody>
+</table>
+<p>The core distinction: LangGraph and CrewAI are Python frameworks that require the Python ecosystem for production deployment. If your stack is TypeScript, you&rsquo;ll write a Python service, wrap it in a Docker container, and communicate via HTTP. That works, but it adds operational overhead and prevents you from sharing types, tests, and utilities across your codebase.</p>
+<h3 id="mastra-vs-vercel-ai-sdk">Mastra vs Vercel AI SDK</h3>
+<p>The Vercel AI SDK focuses on LLM integration at the transport layer: streaming responses, managing tool calls, and providing React hooks for chat UIs. Mastra operates at a higher level:</p>
+<ul>
+<li><strong>Vercel AI SDK</strong>: &ldquo;How do I call an LLM and stream the response to a React component?&rdquo;</li>
+<li><strong>Mastra</strong>: &ldquo;How do I build an agent with memory, tools, and guardrails, evaluate it, and deploy it as an API?&rdquo;</li>
+</ul>
+<p>They&rsquo;re complementary. Mastra uses the Vercel AI SDK&rsquo;s model interface under the hood for LLM calls. You can use the Vercel AI SDK for your frontend chat UI and Mastra for your backend agent logic.</p>
+<h3 id="when-to-choose-mastra-and-when-not-to">When to choose Mastra (and when not to)</h3>
+<p>Choose Mastra when:</p>
+<ul>
+<li>Your backend is TypeScript/Node.js</li>
+<li>You need structured agents with memory, tools, and guardrails</li>
+<li>You want built-in evals and observability without extra tooling</li>
+<li>You&rsquo;re building multi-step workflows with conditional logic</li>
+</ul>
+<p>Skip Mastra when:</p>
+<ul>
+<li>Your team is Python-first and you&rsquo;re happy with LangGraph or CrewAI</li>
+<li>You only need raw LLM streaming (use Vercel AI SDK directly)</li>
+<li>You need capabilities Mastra doesn&rsquo;t support yet (e.g., specialized multimodal agent patterns)</li>
+</ul>
+<h2 id="real-world-examples-and-case-studies">Real-World Examples and Case Studies</h2>
+<h3 id="docker-event-driven-pr-management-agent">Docker: Event-driven PR management agent</h3>
+<p>Docker built an event-driven agent system that responds to GitHub webhooks. When a PR is opened, their Mastra workflow:</p>
+<ol>
+<li>Triggers on the webhook payload</li>
+<li>Routes through the Docker MCP Gateway to the GitHub MCP server</li>
+<li>Runs the analyze PR agent on the diff</li>
+<li>Passes the analysis to the generate comment agent</li>
+<li>Posts the comment via the post and close agent</li>
+</ol>
+<p>This is not a chatbot. There&rsquo;s no human in the loop. The entire pipeline runs in response to an event, with no user interaction. That&rsquo;s a different deployment model from most demo agents, and it&rsquo;s where Mastra&rsquo;s workflow primitives matter—the pipeline is deterministic, observable, and can fail gracefully at any step.</p>
+<h3 id="elastic-agentic-rag-with-elasticsearch">Elastic: Agentic RAG with Elasticsearch</h3>
+<p>Elastic built a RAG assistant combining a Vite + React frontend, a Mastra backend, and Elasticsearch as the vector store. Their writeup highlights the developer experience of staying in a single language stack: the same TypeScript types that define the search index schema also define the agent&rsquo;s tool interface and the frontend&rsquo;s API contract.</p>
+<h3 id="softbank-enterprise-productivity-at-scale">SoftBank: Enterprise productivity at scale</h3>
+<p>SoftBank deployed Mastra-based agents internally for productivity tools. Scale is the notable aspect—this isn&rsquo;t a prototype serving 10 users. Mastra&rsquo;s memory gateway and observability infrastructure handle the traffic.</p>
+<h3 id="replit-agent-3-building-mastra-agents">Replit: Agent 3 building Mastra agents</h3>
+<p>Replit&rsquo;s Agent 3 can scaffold and deploy Mastra agents. This meta-pattern—an AI agent building other AI agents—validates Mastra&rsquo;s code-first API design. If an LLM can generate valid Mastra code from a description, the abstractions are well-defined enough to be machine-writable.</p>
+<h2 id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
+<p>Mastra addresses a real gap in the AI agent tooling ecosystem: a production-grade, TypeScript-native framework with first-class support for the primitives that matter—agents, tools, workflows, RAG, evals, and observability. The enterprise adoption numbers (100k+ daily users at Marsh McLennan, Brex&rsquo;s $5.1B acquisition involvement) confirm that it&rsquo;s not just developer-friendly but production-ready.</p>
+<h3 id="key-takeaways">Key takeaways</h3>
+<ol>
+<li><strong>TypeScript-first is now a viable choice for AI agents.</strong> With 60–70% of YC X25 agent startups choosing TypeScript, the ecosystem demand is clear. Mastra provides the framework primitives that Python alternatives have had for years.</li>
+<li><strong>MCP integration is a differentiator.</strong> Mastra&rsquo;s ability to connect to any MCP server as a tool source gives agents access to external systems without custom integration code. Docker&rsquo;s PR automation demonstrates this in production.</li>
+<li><strong>Built-in evals and observability are not optional extras.</strong> If you can&rsquo;t measure agent quality, you can&rsquo;t improve it. Mastra&rsquo;s eval framework and OpenTelemetry integration give you measurement from day one.</li>
+<li><strong>Workflows complement agents.</strong> Not every problem needs an LLM deciding what to do next. Mastra&rsquo;s workflow engine handles the structured part of your pipeline while agents handle the reasoning part.</li>
+<li><strong>The Gatsby team&rsquo;s framework experience shows.</strong> The DX decisions—Zod schemas, code-first configuration, Studio as a dev tool—reflect experience shipping a framework used by tens of thousands of developers.</li>
+</ol>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><strong>Mastra docs</strong>: <a href="https://mastra.ai/docs">mastra.ai/docs</a></li>
+<li><strong>Mastra GitHub</strong>: <a href="https://github.com/mastra-ai/mastra">github.com/mastra-ai/mastra</a></li>
+<li><strong>Mastra templates</strong>: <a href="https://mastra.ai/templates">mastra.ai/templates</a></li>
+<li><strong>Agent Book</strong>: <a href="https://mastra.ai/agentbook">mastra.ai/agentbook</a> — community-contributed agent examples</li>
+<li><strong>Community Discord</strong>: <a href="https://mastra.ai/community">mastra.ai/community</a></li>
+</ul>
+<h3 id="the-future-of-typescript-ai-development">The future of TypeScript AI development</h3>
+<p>The trajectory is clear. As agent deployments move from demos to production, the operational requirements—evals, observability, guardrails, memory management, workflow orchestration—become the differentiating factors. Mastra builds these into the framework rather than leaving them as integration exercises. For TypeScript teams building AI agents in 2026, Mastra is the framework that matches the language, runtime, and operational demands of the job.</p>
+]]></content:encoded></item><item><title>MCP Gateway Tools Comparison 2026: Top 10 Tools for Enterprise AI Agent Workflows</title><link>https://baeseokjae.github.io/posts/mcp-gateway-tools-comparison-2026/</link><pubDate>Sat, 18 Apr 2026 15:15:31 +0000</pubDate><guid>https://baeseokjae.github.io/posts/mcp-gateway-tools-comparison-2026/</guid><description>Compare the top 10 MCP gateway tools for enterprise AI in 2026 — covering Bifrost, Composio, TrueFoundry, Kong, Cloudflare, and more.</description><content:encoded><![CDATA[<p>The best MCP gateway for most enterprise teams in 2026 is <strong>Composio</strong> (for managed, fast time-to-value), <strong>Bifrost</strong> (for self-hosted, lowest-latency performance), or <strong>Kong AI Gateway</strong> (if you already run Kong). Choosing depends on whether you want managed SaaS, open-source control, or existing infrastructure reuse.</p>
 <h2 id="what-is-an-mcp-gateway-and-why-does-every-enterprise-ai-stack-need-one-in-2026">What Is an MCP Gateway and Why Does Every Enterprise AI Stack Need One in 2026?</h2>
 <p>An MCP gateway is a centralized proxy layer that sits between AI agents and the tools they call via the Model Context Protocol (MCP) — enforcing authentication, rate limiting, audit logging, and access control across all agent-to-tool interactions. Without a gateway, every agent connects directly to every tool, which means credentials scattered across configs, no centralized audit trail, and zero enforcement of who can call what. The MCP ecosystem has grown to 97 million monthly SDK downloads and 16,000+ active MCP servers as of early 2026, and Gartner projects 75% of API gateway vendors will embed MCP features by end of year. Remote MCP servers are up nearly 4x since May 2025, and 86% of enterprises report needing technology upgrades to deploy AI agents safely. An MCP gateway solves this by giving you one governed entry point — the &ldquo;zero trust layer&rdquo; for enterprise AI. Without one, scaling beyond a handful of agents becomes an operational and security liability.</p>
 <h3 id="why-the-gateway-problem-matters-now">Why the Gateway Problem Matters Now</h3>
