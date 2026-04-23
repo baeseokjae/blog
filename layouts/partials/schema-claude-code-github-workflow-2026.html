@@ -3,10 +3,10 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Claude Code GitHub Workflow 2026: PR Reviews, Commits, and CI Integration",
-  "description": "Set up Claude Code GitHub Actions for automated PR reviews, CI failure auto-fix, and cost-effective AI code review under $5/month.",
+  "description": "Complete guide to Claude Code GitHub workflow: automated PR reviews, CI failure auto-fix, and enterprise CI/CD integration using claude-code-action@v1.",
   "image": "https://claudecode.blog/images/claude-code-github-workflow-2026.png",
-  "datePublished": "2026-04-23T01:17:24+00:00",
-  "dateModified": "2026-04-23T01:17:24+00:00",
+  "datePublished": "2026-04-23T01:19:59+00:00",
+  "dateModified": "2026-04-23T01:19:59+00:00",
   "author": {
     "@type": "Organization",
     "name": "ClaudeCode.blog"
@@ -44,42 +44,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Do I need a Claude Max plan to use Claude Code GitHub Actions?",
+      "name": "What's the difference between claude-code-action and CodeRabbit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The action works with a standard Anthropic API key on any plan. A Claude Max OAuth token is an option for teams that prefer subscription billing, but it is not required."
+        "text": "Claude Code GitHub Actions runs the full Claude Code agent runtime, enabling agentic actions (commits, fix PRs, file writes) beyond just commenting. CodeRabbit focuses on review comments at scale (2M+ repos, 13M+ PRs reviewed) but cannot autonomously fix CI failures or execute multi-step code changes. Use Claude Code when you want an AI that acts, not just advises."
       }
     },
     {
       "@type": "Question",
-      "name": "Can Claude Code GitHub Actions push commits directly to my main branch?",
+      "name": "How do I prevent Claude from reviewing auto-generated files or lock files?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not unless you explicitly configure it to. The CI auto-fix pattern creates a new branch and opens a PR — it does not push to protected branches. You retain full merge control."
+        "text": "Add a paths-ignore list to the on: pull_request trigger in your workflow YAML. Files matching those glob patterns won't trigger the workflow at all when they're the only files changed. This is the highest-impact cost control and prevents noise from non-human-written code."
       }
     },
     {
       "@type": "Question",
-      "name": "How does anthropics/claude-code-action@v1 differ from the old v0 action?",
+      "name": "Can I use Claude Code GitHub Actions on a private repository?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In v1, mode is auto-detected (no more mode: tag), direct_prompt was renamed to prompt, and CLI options moved from dedicated parameters to claude_args. Any v0 workflow needs these three changes before upgrading."
+        "text": "Yes. Private repos use identical configuration. Ensure the GitHub App installed via /install-github-app has access to the private repo, and that ANTHROPIC_API_KEY is set in that repo's Settings > Secrets > Actions."
       }
     },
     {
       "@type": "Question",
-      "name": "What happens if Claude's auto-fix PR is also broken?",
+      "name": "How do I handle Claude making changes I don't want in auto-fix mode?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The loop prevention guard prevents the action from triggering on its own fix branch. A broken fix PR shows up in your queue as any other PR — a human reviews and merges or closes it."
+        "text": "Add explicit prohibitions to .claude/CLAUDE.md and your workflow prompt. Specify files and directories Claude should never modify (workflow files, package.json dependency versions, migrations). Require all auto-fix PRs to go through human review by never having Claude push to protected branches directly."
       }
     },
     {
       "@type": "Question",
-      "name": "Is Claude Code GitHub Actions safe to run on public repositories?",
+      "name": "What model does claude-code-action use by default, and how do I change it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, with caution. The primary risk on public repos is prompt injection via malicious PR content. Scope the action's GitHub token permissions to the minimum necessary, and consider restricting the trigger to PRs from team members only."
+        "text": "It defaults to the latest Claude Sonnet model. To pin a specific model, pass --model claude-sonnet-4-6 via claude_args. For high-volume cost-sensitive pipelines, consider claude-haiku-4-5 for straightforward lint/format checks and Sonnet for security and logic reviews."
       }
     }
   ]
