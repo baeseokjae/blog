@@ -115,6 +115,7 @@ RockB specializes in:
 - [Best AI Coding Assistants in 2026: The Definitive Comparison](https://baeseokjae.github.io/posts/best-ai-coding-assistants-2026/) — The best AI coding assistants in 2026 are Cursor, Claude Code, and GitHub Copilot — but the smartest developers combine two or more into a unified stack.
 
 ### In-depth Guides & Explainers
+- [Claude Code Subagents Guide 2026: Parallel Agents for Faster Development](https://baeseokjae.github.io/posts/claude-code-subagents-guide-2026/) — Complete guide to Claude Code subagents: create custom agents, run parallel workflows, optimize costs with model routing, and ship faster.
 - [How to Build an AI Agent from Scratch 2026: Python &#43; LangChain &#43; Tools](https://baeseokjae.github.io/posts/build-ai-agent-from-scratch-2026/) — Build a production-ready AI agent from scratch using Python, LangGraph, and custom tools — with memory, error handling, and deployment included.
 - [AI App Builder Guide 2026: How to Ship an MVP in a Weekend with Vibe Coding Tools](https://baeseokjae.github.io/posts/ai-app-builder-mvp-guide-2026/) — The definitive 2026 guide to AI app builders — Lovable, Bolt, Replit, v0 compared with a step-by-step weekend MVP playbook.
 - [OpenAgents Framework Guide: Build Persistent AI Agent Networks with MCP and A2A Support](https://baeseokjae.github.io/posts/openagents-framework-guide-2026/) — Complete guide to OpenAgents framework — build persistent AI agent networks with native MCP and A2A protocol support in 2026.
@@ -159,6 +160,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Claude Code Subagents Guide 2026: Parallel Agents for Faster Development](https://baeseokjae.github.io/posts/claude-code-subagents-guide-2026/) — Complete guide to Claude Code subagents: create custom agents, run parallel workflows, optimize costs with model routing, and ship faster.
 - [Superpowers Framework: TDD Methodology for AI Coding Agents 2026](https://baeseokjae.github.io/posts/superpowers-framework-ai-coding-2026/) — Superpowers is the open-source framework that enforces TDD discipline on AI coding agents—here&#39;s how to install it and why it works.
 - [How to Build an AI Agent from Scratch 2026: Python &#43; LangChain &#43; Tools](https://baeseokjae.github.io/posts/build-ai-agent-from-scratch-2026/) — Build a production-ready AI agent from scratch using Python, LangGraph, and custom tools — with memory, error handling, and deployment included.
 - [Lovable Pricing 2026: Credits, Hidden Costs, and Whether the Free Plan Is Worth It](https://baeseokjae.github.io/posts/lovable-pricing-guide-2026/) — Complete breakdown of Lovable pricing in 2026: credit system explained, plan comparisons, hidden costs, and honest verdict on which plan fits your project.
