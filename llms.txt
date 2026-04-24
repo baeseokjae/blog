@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Tabnine vs GitHub Copilot 2026: Enterprise AI Coding Assistant Showdown](https://baeseokjae.github.io/posts/tabnine-vs-github-copilot-2026/) — Tabnine vs GitHub Copilot 2026 compared on code quality, pricing, privacy, and enterprise features — with a decision framework for regulated industries.
 - [How to Build an AI Agent from Scratch 2026: Python &#43; LangChain &#43; Tools](https://baeseokjae.github.io/posts/build-ai-agent-from-scratch-2026/) — Build a production-ready AI agent from scratch using Python, LangGraph, and custom tools — with memory, error handling, and deployment included.
 - [AI Code Review Tools Comparison 2026: Which Tool Catches the Most Bugs in Your PRs?](https://baeseokjae.github.io/posts/ai-code-review-tools-comparison-2026/) — Greptile catches 82% of bugs vs CodeRabbit&#39;s 44% — but noise ratio and pricing change the real-world picture. Here&#39;s the honest 2026 comparison.
 - [AI App Builder Guide 2026: How to Ship an MVP in a Weekend with Vibe Coding Tools](https://baeseokjae.github.io/posts/ai-app-builder-mvp-guide-2026/) — The definitive 2026 guide to AI app builders — Lovable, Bolt, Replit, v0 compared with a step-by-step weekend MVP playbook.
@@ -160,6 +161,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Tabnine vs GitHub Copilot 2026: Enterprise AI Coding Assistant Showdown](https://baeseokjae.github.io/posts/tabnine-vs-github-copilot-2026/) — Tabnine vs GitHub Copilot 2026 compared on code quality, pricing, privacy, and enterprise features — with a decision framework for regulated industries.
 - [Claude Code Subagents Guide 2026: Parallel Agents for Faster Development](https://baeseokjae.github.io/posts/claude-code-subagents-guide-2026/) — Complete guide to Claude Code subagents: create custom agents, run parallel workflows, optimize costs with model routing, and ship faster.
 - [Superpowers Framework: TDD Methodology for AI Coding Agents 2026](https://baeseokjae.github.io/posts/superpowers-framework-ai-coding-2026/) — Superpowers is the open-source framework that enforces TDD discipline on AI coding agents—here&#39;s how to install it and why it works.
 - [How to Build an AI Agent from Scratch 2026: Python &#43; LangChain &#43; Tools](https://baeseokjae.github.io/posts/build-ai-agent-from-scratch-2026/) — Build a production-ready AI agent from scratch using Python, LangGraph, and custom tools — with memory, error handling, and deployment included.
