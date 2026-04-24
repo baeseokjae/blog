@@ -1,6 +1,6 @@
 ---
 title: "How to Build an AI Agent from Scratch 2026: Python + LangChain + Tools"
-date: 2026-04-23T01:14:09+00:00
+date: 2026-04-24T04:10:20+00:00
 tags: ["ai-agents", "python", "langchain", "langgraph", "tutorial"]
 description: "Build a production-ready AI agent from scratch using Python, LangGraph, and custom tools — with memory, error handling, and deployment included."
 draft: false
