@@ -1,0 +1,86 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LLM API Pricing Comparison 2026: GPT-5 vs Claude vs Gemini vs DeepSeek Costs",
+  "description": "Up-to-date LLM API pricing for GPT-5, Claude, Gemini, and DeepSeek in 2026 — with hidden costs, batch discounts, and a use-case decision guide.",
+  "datePublished": "2026-04-24T16:05:11+00:00",
+  "dateModified": "2026-04-24T16:05:11+00:00",
+  "author": {
+    "@type": "Organization",
+    "name": "AI Dev Blog"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AI Dev Blog"
+  },
+  "image": "/images/llm-api-pricing-comparison-2026.png",
+  "keywords": ["llm api pricing comparison 2026", "gpt-5 api cost", "claude api pricing", "gemini api pricing 2026", "deepseek api cost", "cheapest llm api 2026", "best value llm api", "openai vs anthropic pricing", "llm token cost comparison", "cost per million tokens 2026"],
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "GPT-5 API Pricing"
+    },
+    {
+      "@type": "Thing",
+      "name": "Claude API Pricing"
+    },
+    {
+      "@type": "Thing",
+      "name": "Gemini API Pricing"
+    },
+    {
+      "@type": "Thing",
+      "name": "DeepSeek API Pricing"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the cheapest LLM API in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DeepSeek V3.2 at $0.14/M input tokens is the cheapest major LLM API as of April 2026. Gemini 2.5 Flash-Lite at $0.10/M is slightly cheaper but is a smaller, lower-capability model. For proprietary models with strong quality, GPT-5 base at $0.625/M input is the most affordable frontier model."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does GPT-5 cost per 1,000 tokens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GPT-5 base costs $0.000625 per 1,000 input tokens and $0.005 per 1,000 output tokens. GPT-5.5 costs $0.005 per 1,000 input and $0.030 per 1,000 output. All variants include 50% batch API discounts for async workloads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Claude more expensive than GPT in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the tier. Claude Sonnet 4.6 at $3/$15 is more expensive than GPT-5 base at $0.625/$5 on input but comparable on output quality per dollar. Claude Haiku 4.5 at $1/$5 is cheaper than GPT-5 mid-tier variants. Claude Opus 4.7 at $5/$25 is slightly cheaper than GPT-5.5 at $5/$30 on output."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is prompt caching and how much can it save?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Prompt caching stores repeated input segments (system prompts, document chunks) server-side so they don't need to be reprocessed on each request. Anthropic and OpenAI both offer up to 90% savings on cache-hit tokens. For applications with long system prompts sent on every request, caching is typically the single highest-ROI cost optimization available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use DeepSeek for production workloads?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DeepSeek V3.2 is production-ready for many use cases — bulk content generation, translation, classification — but has limitations: 64K context window, higher latency on complex tasks, and inference runs through Chinese infrastructure. For workloads with data residency requirements or sensitive data, evaluate self-hosting DeepSeek's open-source weights via providers like Together AI or Fireworks instead of using the hosted API directly."
+      }
+    }
+  ]
+}
+</script>
