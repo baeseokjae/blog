@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [ProjectDiscovery Neo Review: Nuclei-Based AI Pentest Agent That Found 66 Exploitable Vulnerabilities](https://baeseokjae.github.io/posts/projectdiscovery-neo-pentest-guide-2026/) — ProjectDiscovery Neo is an AI pentest agent that confirmed 66 exploitable vulnerabilities in benchmarks — more than any other tool tested.
 - [Windsurf vs Cursor Performance 2026: Speed, Latency, and Real Workflow Benchmarks](https://baeseokjae.github.io/posts/windsurf-vs-cursor-performance-2026/) — Real benchmark data comparing Windsurf vs Cursor in 2026: inference speed, autocomplete accuracy, multi-file refactor latency, and total cost.
 - [Cursor vs Windsurf vs Antigravity 2026: Agentic IDE Showdown](https://baeseokjae.github.io/posts/agentic-ide-cursor-windsurf-antigravity-2026/) — Cursor, Windsurf, Antigravity를 벤치마크·가격·보안·멀티에이전트 기준으로 비교해 2026년 최적의 AI IDE를 찾는다.
 - [Kimi K2 vs Claude Opus vs GPT-5 Coding 2026: Moonshot&#39;s Model Benchmark](https://baeseokjae.github.io/posts/kimi-k2-vs-claude-vs-gpt5-coding-2026/) — Kimi K2.5, Claude Opus 4.6, GPT-5.3-Codex의 2026년 코딩 벤치마크 비교. 누가 SWE-bench, Terminal-Bench, LiveCodeBench를 이기는지 분석.
@@ -173,6 +174,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [ProjectDiscovery Neo Review: Nuclei-Based AI Pentest Agent That Found 66 Exploitable Vulnerabilities](https://baeseokjae.github.io/posts/projectdiscovery-neo-pentest-guide-2026/) — ProjectDiscovery Neo is an AI pentest agent that confirmed 66 exploitable vulnerabilities in benchmarks — more than any other tool tested.
 - [Windsurf vs Cursor Performance 2026: Speed, Latency, and Real Workflow Benchmarks](https://baeseokjae.github.io/posts/windsurf-vs-cursor-performance-2026/) — Real benchmark data comparing Windsurf vs Cursor in 2026: inference speed, autocomplete accuracy, multi-file refactor latency, and total cost.
 - [Cursor vs Windsurf vs Antigravity 2026: Agentic IDE Showdown](https://baeseokjae.github.io/posts/agentic-ide-cursor-windsurf-antigravity-2026/) — Cursor, Windsurf, Antigravity를 벤치마크·가격·보안·멀티에이전트 기준으로 비교해 2026년 최적의 AI IDE를 찾는다.
 - [Kimi K2 vs Claude Opus vs GPT-5 Coding 2026: Moonshot&#39;s Model Benchmark](https://baeseokjae.github.io/posts/kimi-k2-vs-claude-vs-gpt5-coding-2026/) — Kimi K2.5, Claude Opus 4.6, GPT-5.3-Codex의 2026년 코딩 벤치마크 비교. 누가 SWE-bench, Terminal-Bench, LiveCodeBench를 이기는지 분석.
