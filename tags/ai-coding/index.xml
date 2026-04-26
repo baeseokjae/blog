@@ -1,4 +1,562 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 25 Apr 2026 00:02:30 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Kimi K2 vs Claude Opus vs GPT-5 Coding 2026: Moonshot's Model Benchmark</title><link>https://baeseokjae.github.io/posts/kimi-k2-vs-claude-vs-gpt5-coding-2026/</link><pubDate>Sat, 25 Apr 2026 00:02:30 +0000</pubDate><guid>https://baeseokjae.github.io/posts/kimi-k2-vs-claude-vs-gpt5-coding-2026/</guid><description>Kimi K2.5, Claude Opus 4.6, GPT-5.3-Codex의 2026년 코딩 벤치마크 비교. 누가 SWE-bench, Terminal-Bench, LiveCodeBench를 이기는지 분석.</description><content:encoded><![CDATA[<p>2026년 2월, 9일 만에 세 개의 프론티어 코딩 모델이 출시됐다. 1월 27일 Kimi K2.5, 2월 5일 Claude Opus 4.6, 그리고 20분 뒤 GPT-5.3-Codex. 어떤 모델을 써야 할지는 워크플로우에 달려 있다. Terminal 작업엔 Codex, 복잡한 추론엔 Opus, 대용량/저비용엔 Kimi K2.5가 최적이다.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 25 Apr 2026 12:04:50 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>GPT-5.5 Batch API and Flex Mode: 50% Cost Savings for High-Volume AI Coding Tasks</title><link>https://baeseokjae.github.io/posts/gpt-5-5-batch-flex-pricing-guide-2026/</link><pubDate>Sat, 25 Apr 2026 12:04:50 +0000</pubDate><guid>https://baeseokjae.github.io/posts/gpt-5-5-batch-flex-pricing-guide-2026/</guid><description>GPT-5.5 Batch and Flex mode cut your API bill by 50%. Learn which coding workflows qualify and how to implement batch jobs in Python.</description><content:encoded><![CDATA[<p>GPT-5.5 Batch API and Flex mode both offer 50% off standard pricing — $2.50 per 1M input tokens and $15 per 1M output tokens versus the standard $5/$30 — giving high-volume AI coding teams a direct path to halving their monthly API spend without changing models or degrading output quality.</p>
+<h2 id="what-is-gpt-55-batch-api-and-flex-mode">What Is GPT-5.5 Batch API and Flex Mode?</h2>
+<p>GPT-5.5 Batch API and Flex mode are two distinct pricing and execution tiers from OpenAI that both deliver 50% cost savings compared to standard API rates, but differ significantly in how and when results are returned. The Batch API is a fire-and-forget system: you submit up to 50,000 requests in a single JSONL file (up to 200MB), and OpenAI guarantees results within 24 hours. Flex mode, currently in beta as of April 2026, is interactive — requests are processed in real time but with variable latency ranging from a few seconds to several minutes, depending on platform load. GPT-5.5 launched on April 23, 2026, at standard pricing of $5 per 1M input tokens and $30 per 1M output tokens. Both Batch and Flex bring that cost down to $2.50/$15 — the same price as GPT-5.4 standard, but with GPT-5.5&rsquo;s higher capability, including an 82.7% score on Terminal-Bench 2.0 and 58.6% on SWE-Bench Pro. For engineering teams running nightly code reviews, eval pipelines, or test generation jobs, the practical implication is straightforward: you get a better model at the same cost you were already paying.</p>
+<h3 id="batch-vs-flex-the-core-distinction">Batch vs Flex: The Core Distinction</h3>
+<p>Batch is fully asynchronous with a 24-hour SLA and no interaction mid-job. Flex is interactive but non-priority — you may encounter HTTP 429 errors during peak traffic windows. Neither tier is suitable for production user-facing requests where sub-second latency is required.</p>
+<h2 id="gpt-55-pricing-tiers-at-a-glance-standard-vs-flex-vs-batch-vs-priority">GPT-5.5 Pricing Tiers at a Glance (Standard vs Flex vs Batch vs Priority)</h2>
+<p>OpenAI now offers four pricing and execution tiers for GPT-5.5, each targeting a different latency-cost tradeoff. Priority tier sits at the top of the speed stack — requests jump the queue for the fastest possible response, priced at a premium above standard rates. Standard tier at $5 per 1M input and $30 per 1M output is the default for most API calls today. Flex and Batch both land at $2.50/$15 — exactly 50% off standard — but serve different use cases. Flex accepts interactive API calls with variable latency, making it usable inside agent loops or CI/CD pipelines where a few extra seconds per call is acceptable. Batch, by contrast, is non-interactive: you upload a file, wait up to 24 hours, and download the results. One important pricing edge case: prompts exceeding 272K tokens are charged at 2x input and 1.5x output rates for the entire session — plan your context window sizes accordingly for large codebase analysis tasks.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Input (per 1M)</th>
+          <th>Output (per 1M)</th>
+          <th>Latency</th>
+          <th>Interactive?</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Priority</td>
+          <td>&gt;$5</td>
+          <td>&gt;$30</td>
+          <td>Fastest</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Standard</td>
+          <td>$5.00</td>
+          <td>$30.00</td>
+          <td>Fast</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Flex</td>
+          <td>$2.50</td>
+          <td>$15.00</td>
+          <td>Seconds–minutes</td>
+          <td>Yes (beta)</td>
+      </tr>
+      <tr>
+          <td>Batch</td>
+          <td>$2.50</td>
+          <td>$15.00</td>
+          <td>Up to 24h</td>
+          <td>No</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="when-priority-makes-sense">When Priority Makes Sense</h3>
+<p>Priority is reserved for latency-critical production paths where a delayed response directly impacts user experience — think real-time IDE completions or live pair programming assistants. Everything else should flow down the pricing tiers.</p>
+<h2 id="which-ai-coding-workflows-qualify-for-batch-or-flex-mode">Which AI Coding Workflows Qualify for Batch or Flex Mode?</h2>
+<p>Between 40 and 60% of typical engineering team API workloads are batch-eligible according to usage analysis of common API consumption patterns — a substantial portion of spend that most teams are leaving on the table. The key qualifying criterion for Batch is that the task can tolerate async results: you don&rsquo;t need the answer in real time. For Flex, the criterion is softer: the task is interactive but not latency-critical — a few extra seconds or minutes is acceptable. Concrete batch-eligible workflows include nightly code review runs across the entire diff since the last merge, automated unit test generation during off-hours CI jobs, eval grading pipelines for fine-tuning or regression testing, embedding refreshes when documentation or codebase content changes, and PR summary generation for engineering digests. Flex-eligible workflows include agent loops that chain multiple model calls where intermediate latency isn&rsquo;t user-visible, data enrichment tasks that run in the background during active development, and CI/CD steps that run post-merge rather than blocking the merge queue. Standard or Priority should be reserved for inline IDE completions, live chat interfaces, real-time code explanations, and any workflow where a human is actively waiting on the response.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Workflow</th>
+          <th>Recommended Tier</th>
+          <th>Reason</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Nightly code review</td>
+          <td>Batch</td>
+          <td>Async, no user waiting</td>
+      </tr>
+      <tr>
+          <td>Test generation in CI</td>
+          <td>Batch / Flex</td>
+          <td>Off-critical path</td>
+      </tr>
+      <tr>
+          <td>Embedding refresh</td>
+          <td>Batch</td>
+          <td>Pure throughput</td>
+      </tr>
+      <tr>
+          <td>Eval grading</td>
+          <td>Batch</td>
+          <td>Fire-and-forget</td>
+      </tr>
+      <tr>
+          <td>Agent loop (internal calls)</td>
+          <td>Flex</td>
+          <td>Interactive but non-urgent</td>
+      </tr>
+      <tr>
+          <td>PR summary digest</td>
+          <td>Batch</td>
+          <td>Scheduled job</td>
+      </tr>
+      <tr>
+          <td>Inline IDE completion</td>
+          <td>Standard / Priority</td>
+          <td>User is actively waiting</td>
+      </tr>
+      <tr>
+          <td>Live chat assistant</td>
+          <td>Standard</td>
+          <td>Latency-sensitive</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="how-to-audit-your-current-api-usage">How to Audit Your Current API Usage</h3>
+<p>Pull your OpenAI usage logs for the last 30 days and tag each request type as &ldquo;user-facing&rdquo; or &ldquo;background.&rdquo; Any background request is a Batch or Flex candidate. Most teams find 40–60% of their volume is immediately reclassifiable.</p>
+<h2 id="how-to-implement-gpt-55-batch-api-in-python-step-by-step">How to Implement GPT-5.5 Batch API in Python (Step-by-Step)</h2>
+<p>The GPT-5.5 Batch API requires <code>openai&gt;=2.1.0</code> and follows a three-step pattern: upload a JSONL file containing your requests, submit the batch job, then poll for completion and download the results. Each line in the JSONL file is a self-contained API request object with a custom <code>custom_id</code> for result matching. The system supports up to 50,000 requests per file and files up to 200MB, with all results guaranteed within 24 hours. Here is a complete working implementation for running nightly code reviews across a list of diffs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> OpenAI
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> OpenAI()  <span style="color:#75715e"># reads OPENAI_API_KEY from environment</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 1: Prepare the JSONL batch file</span>
+</span></span><span style="display:flex;"><span>diffs <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;pr-101&#34;</span>, <span style="color:#e6db74">&#34;diff&#34;</span>: <span style="color:#e6db74">&#34;...&lt;git diff content&gt;...&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;pr-102&#34;</span>, <span style="color:#e6db74">&#34;diff&#34;</span>: <span style="color:#e6db74">&#34;...&lt;git diff content&gt;...&#34;</span>},
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;batch_requests.jsonl&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> diffs:
+</span></span><span style="display:flex;"><span>        request <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;custom_id&#34;</span>: item[<span style="color:#e6db74">&#34;id&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;POST&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;/v1/chat/completions&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;body&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;model&#34;</span>: <span style="color:#e6db74">&#34;gpt-5.5&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;messages&#34;</span>: [
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;system&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;You are a senior code reviewer. Identify bugs, security issues, and style violations.&#34;</span>
+</span></span><span style="display:flex;"><span>                    },
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>,
+</span></span><span style="display:flex;"><span>                        <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Review this diff:</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">{</span>item[<span style="color:#e6db74">&#39;diff&#39;</span>]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                ],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;max_tokens&#34;</span>: <span style="color:#ae81ff">1024</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        f<span style="color:#f92672">.</span>write(json<span style="color:#f92672">.</span>dumps(request) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: Upload the file</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> open(<span style="color:#e6db74">&#34;batch_requests.jsonl&#34;</span>, <span style="color:#e6db74">&#34;rb&#34;</span>) <span style="color:#66d9ef">as</span> f:
+</span></span><span style="display:flex;"><span>    upload <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>files<span style="color:#f92672">.</span>create(file<span style="color:#f92672">=</span>f, purpose<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;batch&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Uploaded file: </span><span style="color:#e6db74">{</span>upload<span style="color:#f92672">.</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: Submit the batch job</span>
+</span></span><span style="display:flex;"><span>batch <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>batches<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    input_file_id<span style="color:#f92672">=</span>upload<span style="color:#f92672">.</span>id,
+</span></span><span style="display:flex;"><span>    endpoint<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/v1/chat/completions&#34;</span>,
+</span></span><span style="display:flex;"><span>    completion_window<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;24h&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Batch submitted: </span><span style="color:#e6db74">{</span>batch<span style="color:#f92672">.</span>id<span style="color:#e6db74">}</span><span style="color:#e6db74"> — status: </span><span style="color:#e6db74">{</span>batch<span style="color:#f92672">.</span>status<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 4: Poll for completion (in production, use a scheduled job instead)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> batch<span style="color:#f92672">.</span>status <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> (<span style="color:#e6db74">&#34;completed&#34;</span>, <span style="color:#e6db74">&#34;failed&#34;</span>, <span style="color:#e6db74">&#34;cancelled&#34;</span>):
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">60</span>)
+</span></span><span style="display:flex;"><span>    batch <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>batches<span style="color:#f92672">.</span>retrieve(batch<span style="color:#f92672">.</span>id)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Status: </span><span style="color:#e6db74">{</span>batch<span style="color:#f92672">.</span>status<span style="color:#e6db74">}</span><span style="color:#e6db74"> — completed: </span><span style="color:#e6db74">{</span>batch<span style="color:#f92672">.</span>request_counts<span style="color:#f92672">.</span>completed<span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>batch<span style="color:#f92672">.</span>request_counts<span style="color:#f92672">.</span>total<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 5: Download and process results</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> batch<span style="color:#f92672">.</span>status <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;completed&#34;</span>:
+</span></span><span style="display:flex;"><span>    content <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>files<span style="color:#f92672">.</span>content(batch<span style="color:#f92672">.</span>output_file_id)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> line <span style="color:#f92672">in</span> content<span style="color:#f92672">.</span>text<span style="color:#f92672">.</span>strip()<span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>):
+</span></span><span style="display:flex;"><span>        result <span style="color:#f92672">=</span> json<span style="color:#f92672">.</span>loads(line)
+</span></span><span style="display:flex;"><span>        custom_id <span style="color:#f92672">=</span> result[<span style="color:#e6db74">&#34;custom_id&#34;</span>]
+</span></span><span style="display:flex;"><span>        review_text <span style="color:#f92672">=</span> result[<span style="color:#e6db74">&#34;response&#34;</span>][<span style="color:#e6db74">&#34;body&#34;</span>][<span style="color:#e6db74">&#34;choices&#34;</span>][<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#34;message&#34;</span>][<span style="color:#e6db74">&#34;content&#34;</span>]
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">--- Review for </span><span style="color:#e6db74">{</span>custom_id<span style="color:#e6db74">}</span><span style="color:#e6db74"> ---</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{</span>review_text<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><h3 id="error-handling-and-partial-failures">Error Handling and Partial Failures</h3>
+<p>Batch jobs can partially succeed — individual requests may fail while others complete. Always check <code>batch.error_file_id</code> after completion and download the error file alongside the output file. Log failed <code>custom_id</code> values and resubmit them in the next batch cycle.</p>
+<h2 id="flex-processing-when-to-choose-it-over-batch">Flex Processing: When to Choose It Over Batch</h2>
+<p>Flex processing is OpenAI&rsquo;s interactive-but-discounted tier, currently in beta for GPT-5.5, o3, and o4-mini as of April 2026. It cuts standard rates by 50% while preserving the real-time request-response pattern — meaning your code calls <code>client.chat.completions.create()</code> normally, but with <code>service_tier=&quot;flex&quot;</code> added. The tradeoff is variable latency: responses arrive within seconds under low load, but can take several minutes when the platform is busy. Flex may also return HTTP 429 errors during peak windows, so retry logic is mandatory. The practical use case is agent pipelines where model calls happen in a background thread or async queue — the loop keeps running, and a slightly delayed intermediate response doesn&rsquo;t break anything. A CI/CD step that analyzes test failures after a build completes is a good Flex candidate: the developer isn&rsquo;t watching the terminal, and a 90-second response versus a 3-second one is irrelevant.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Using Flex mode — same SDK call, different service tier</span>
+</span></span><span style="display:flex;"><span>response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>chat<span style="color:#f92672">.</span>completions<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>    model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-5.5&#34;</span>,
+</span></span><span style="display:flex;"><span>    service_tier<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flex&#34;</span>,  <span style="color:#75715e"># the only required change</span>
+</span></span><span style="display:flex;"><span>    messages<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">&#34;Analyze these test failures and suggest fixes: ...&#34;</span>}
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h3 id="retry-logic-for-flex-429-errors">Retry Logic for Flex 429 Errors</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> openai <span style="color:#f92672">import</span> RateLimitError
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">flex_call_with_retry</span>(messages, max_retries<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> attempt <span style="color:#f92672">in</span> range(max_retries):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> client<span style="color:#f92672">.</span>chat<span style="color:#f92672">.</span>completions<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>                model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpt-5.5&#34;</span>,
+</span></span><span style="display:flex;"><span>                service_tier<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flex&#34;</span>,
+</span></span><span style="display:flex;"><span>                messages<span style="color:#f92672">=</span>messages
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">except</span> RateLimitError:
+</span></span><span style="display:flex;"><span>            wait <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">**</span> attempt  <span style="color:#75715e"># exponential backoff: 1s, 2s, 4s, 8s, 16s</span>
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Flex 429 — retrying in </span><span style="color:#e6db74">{</span>wait<span style="color:#e6db74">}</span><span style="color:#e6db74">s (attempt </span><span style="color:#e6db74">{</span>attempt <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{</span>max_retries<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>)
+</span></span><span style="display:flex;"><span>            time<span style="color:#f92672">.</span>sleep(wait)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">RuntimeError</span>(<span style="color:#e6db74">&#34;Flex call failed after max retries&#34;</span>)
+</span></span></code></pre></div><h2 id="stacking-discounts--batch--prompt-caching-for-maximum-savings">Stacking Discounts — Batch + Prompt Caching for Maximum Savings</h2>
+<p>Prompt caching and Batch API discounts stack multiplicatively, creating the most cost-efficient configuration available for high-volume GPT-5.5 workloads. OpenAI&rsquo;s prompt caching automatically kicks in for prompts exceeding 1,024 tokens when the same prefix appears repeatedly — cached input tokens are priced at 50% of the standard input rate. When you&rsquo;re already on Batch pricing ($2.50/1M input), cached tokens drop further to approximately $1.25/1M. For a team running nightly code reviews where the system prompt and codebase context stay constant across 500 PR reviews, the combined discount on the static prefix can approach 75% off standard rates. The key implementation detail is keeping your system prompt and shared context at the front of every request in the batch file, unchanged, so OpenAI&rsquo;s caching infrastructure can recognize and serve the shared prefix from cache. Variable content — the specific diff or file being reviewed — goes at the end of the messages array.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>SYSTEM_PROMPT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;You are a senior code reviewer for a Python backend team.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Our style guide: PEP 8, type hints required, no bare except clauses,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">all public functions must have docstrings. Flag: security vulnerabilities,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">N+1 query patterns, missing input validation, and hardcoded secrets.&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This 150-token system prompt gets cached after the first request in the batch.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># All subsequent requests in the batch reuse it at ~$1.25/1M input tokens.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">make_batch_request</span>(pr_id, diff):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;custom_id&#34;</span>: pr_id,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;method&#34;</span>: <span style="color:#e6db74">&#34;POST&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;/v1/chat/completions&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;body&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;model&#34;</span>: <span style="color:#e6db74">&#34;gpt-5.5&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;messages&#34;</span>: [
+</span></span><span style="display:flex;"><span>                {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;system&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: SYSTEM_PROMPT},  <span style="color:#75715e"># cached prefix</span>
+</span></span><span style="display:flex;"><span>                {<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Review this diff:</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">{</span>diff<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>}  <span style="color:#75715e"># variable</span>
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="estimating-your-combined-savings">Estimating Your Combined Savings</h3>
+<p>For 1M input tokens on a batch with 70% cached prefixes: 700K tokens at $1.25/1M + 300K tokens at $2.50/1M = $0.875 + $0.75 = <strong>$1.625 total</strong>, versus $5.00 at standard uncached rates. That&rsquo;s a 67.5% reduction.</p>
+<h2 id="real-world-roi-what-50-savings-looks-like-for-a-dev-team">Real-World ROI: What 50% Savings Looks Like for a Dev Team</h2>
+<p>A 10-developer engineering team running AI-assisted workflows at scale provides a concrete reference point for the financial impact of switching batch-eligible workloads from Standard to Batch or Flex. Assume the team consumes 50M input tokens and 10M output tokens monthly — a realistic figure for teams running inline completions, code review bots, test generators, and documentation tools. At standard GPT-5.5 rates ($5/$30), that&rsquo;s $250 input + $300 output = <strong>$550/month</strong>. If 50% of that workload is batch-eligible (a conservative estimate given the 40–60% industry benchmark), switching those jobs to Batch pricing reduces the eligible portion from $275 to $137.50 — a monthly saving of <strong>$137.50</strong>, or <strong>$1,650/year</strong>. For a team spending $2,000–$5,000/month on API costs, the savings scale proportionally. A team at $5,000/month with 50% batch-eligible workload saves <strong>$1,250/month</strong> — $15,000/year — without any change to output quality, since Batch jobs use the same model weights as Standard.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Monthly Spend</th>
+          <th>Batch-Eligible %</th>
+          <th>Monthly Savings</th>
+          <th>Annual Savings</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$500</td>
+          <td>50%</td>
+          <td>$125</td>
+          <td>$1,500</td>
+      </tr>
+      <tr>
+          <td>$2,000</td>
+          <td>50%</td>
+          <td>$500</td>
+          <td>$6,000</td>
+      </tr>
+      <tr>
+          <td>$5,000</td>
+          <td>50%</td>
+          <td>$1,250</td>
+          <td>$15,000</td>
+      </tr>
+      <tr>
+          <td>$10,000</td>
+          <td>60%</td>
+          <td>$3,000</td>
+          <td>$36,000</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="the-cost-neutral-gpt-55-upgrade">The Cost-Neutral GPT-5.5 Upgrade</h3>
+<p>GPT-5.5 Batch pricing ($2.50/$15) equals GPT-5.4 standard pricing — meaning any team currently using GPT-5.4 can upgrade to GPT-5.5 Batch and get better benchmark performance (82.7% vs 75.1% on Terminal-Bench 2.0) at identical cost. This is the clearest no-compromise upgrade path available in the market as of April 2026.</p>
+<h2 id="gpt-55-coding-benchmarks--is-the-upgrade-worth-it">GPT-5.5 Coding Benchmarks — Is the Upgrade Worth It?</h2>
+<p>GPT-5.5 demonstrates measurable improvements over GPT-5.4 across the benchmarks that matter most for software engineering tasks, making it the more capable model at the same effective cost when used with Batch pricing. On Terminal-Bench 2.0, which tests complex CLI workflows and multi-step shell interactions, GPT-5.5 scores 82.7% versus GPT-5.4&rsquo;s 75.1% — a 7.6 percentage point improvement that translates directly to fewer retries and more reliable automated tooling. On SWE-Bench Pro, which evaluates real-world GitHub issue resolution with actual repository context, GPT-5.5 achieves 58.6%. On OSWorld-Verified, which measures autonomous computer environment operation (browser control, file system navigation, application interaction), GPT-5.5 reaches 78.7%. These gains matter for teams using AI in CI/CD pipelines: higher SWE-Bench scores mean the model resolves more issues on the first attempt, reducing the number of tokens consumed per successful fix — which compounds the cost savings from Batch pricing.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Benchmark</th>
+          <th>GPT-5.4</th>
+          <th>GPT-5.5</th>
+          <th>Delta</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Terminal-Bench 2.0</td>
+          <td>75.1%</td>
+          <td>82.7%</td>
+          <td>+7.6pp</td>
+      </tr>
+      <tr>
+          <td>SWE-Bench Pro</td>
+          <td>—</td>
+          <td>58.6%</td>
+          <td>—</td>
+      </tr>
+      <tr>
+          <td>OSWorld-Verified</td>
+          <td>—</td>
+          <td>78.7%</td>
+          <td>—</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="token-efficiency-under-higher-benchmark-scores">Token Efficiency Under Higher Benchmark Scores</h3>
+<p>A model that resolves an issue in one pass consumes fewer output tokens than one requiring two or three attempts. For Batch workloads where output costs dominate ($15/1M vs $2.50/1M input), higher first-pass accuracy has a direct, measurable impact on monthly spend beyond the 50% tier discount.</p>
+<h2 id="limitations-and-gotchas-24h-sla-429-errors-token-overages">Limitations and Gotchas (24h SLA, 429 Errors, Token Overages)</h2>
+<p>Understanding the operational constraints of Batch and Flex mode is essential before routing production workloads through either tier. The Batch API&rsquo;s 24-hour SLA is a hard ceiling, not a typical time — under normal load, most batches complete in 2–6 hours, but you must architect your pipeline to handle the full 24-hour window. Do not use Batch for any workflow where a stakeholder is waiting on the result today. Flex mode&rsquo;s 429 errors are a more operationally complex issue: during peak platform load, Flex requests may be rejected entirely rather than queued, meaning your retry logic must handle outright failures, not just slow responses. The token overage pricing for prompts exceeding 272K tokens deserves special attention — at 2x input and 1.5x output for the entire session, a single oversized request can cost 3–4x what you expected. This is particularly relevant for large codebase analysis tasks where you might naively concatenate entire files into context. Batch API also has a 200MB file size limit and a 50,000 request cap per submission — teams with very large nightly jobs may need to split submissions across multiple batch files.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Constraint</th>
+          <th>Batch</th>
+          <th>Flex</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max requests per job</td>
+          <td>50,000</td>
+          <td>N/A (per-call)</td>
+      </tr>
+      <tr>
+          <td>Max file size</td>
+          <td>200MB</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Completion SLA</td>
+          <td>24 hours</td>
+          <td>Variable (seconds–minutes)</td>
+      </tr>
+      <tr>
+          <td>429 errors possible?</td>
+          <td>No</td>
+          <td>Yes (peak traffic)</td>
+      </tr>
+      <tr>
+          <td>Prompt caching compatible?</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Token overage threshold</td>
+          <td>272K tokens (2x/1.5x pricing)</td>
+          <td>272K tokens (2x/1.5x pricing)</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="file-size-planning-for-large-batch-jobs">File Size Planning for Large Batch Jobs</h3>
+<p>At 200MB per file with average request sizes of 4KB (1,000-token prompt + metadata), you can fit approximately 50,000 requests — which coincides with the request cap. If your prompts are larger (10–20KB each due to large code context), the file size limit becomes the binding constraint before the request cap.</p>
+<h2 id="final-verdict-how-to-architect-a-cost-optimized-gpt-55-coding-pipeline">Final Verdict: How to Architect a Cost-Optimized GPT-5.5 Coding Pipeline</h2>
+<p>The optimal cost structure for a GPT-5.5 coding pipeline routes workloads across all four pricing tiers based on latency requirements and interactivity needs, with the goal of minimizing spend without sacrificing response quality or user experience. Every API call in your system should have an explicit tier assignment, not a default fallback to Standard. For any team serious about cost control, the practical architecture looks like this: route user-facing IDE completions and live chat to Standard or Priority; route all background agent loops, CI post-processing, and non-urgent enrichment to Flex with retry logic; route all scheduled jobs, nightly runs, eval pipelines, and embedding refreshes to Batch. Layer prompt caching on top of Batch for maximum compound savings. The result is a tiered system where only the smallest fraction of your requests — the truly latency-critical ones — pay full standard prices, while 50–70% of your volume runs at half cost or less. GPT-5.5&rsquo;s superior benchmark scores mean that even on the cheaper tiers, you&rsquo;re getting better results than you did from GPT-5.4 at standard pricing. The upgrade path is effectively cost-neutral for batch-heavy teams, and actively cost-reducing for teams that haven&rsquo;t yet segmented their workloads by latency requirement.</p>
+<p><strong>Quick-start decision tree:</strong></p>
+<ol>
+<li>Is a human actively waiting? → <strong>Standard or Priority</strong></li>
+<li>Is it interactive but non-urgent (agent loop, CI step)? → <strong>Flex</strong></li>
+<li>Is it a scheduled or async job? → <strong>Batch</strong></li>
+<li>Does the batch have a shared prompt prefix &gt;1,024 tokens? → <strong>Batch + Caching</strong></li>
+</ol>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>The most common questions about GPT-5.5 Batch API and Flex mode center on three practical concerns: which tier to use for which workload, how to handle operational edge cases like 429 errors and batch file limits, and whether the upgrade from GPT-5.4 is worth the migration effort. The short answer on the last point is yes — GPT-5.5 Batch pricing equals GPT-5.4 standard pricing ($2.50/$15 per 1M tokens), so any team running background workloads gets a capability upgrade at zero incremental cost. GPT-5.5 launched on April 23, 2026, with measurably higher coding benchmark scores than its predecessor. The answers below address the most common implementation questions from engineering teams evaluating both tiers, covering Python SDK integration, retry logic for Flex 429 errors, prompt caching compatibility, and the concrete ROI case for switching batch-eligible workloads. Each answer is written to stand alone without requiring context from earlier in the article.</p>
+<h3 id="what-is-the-difference-between-gpt-55-batch-api-and-flex-mode">What is the difference between GPT-5.5 Batch API and Flex mode?</h3>
+<p>Batch API is fully asynchronous — you submit a file of up to 50,000 requests and receive results within 24 hours with no real-time interaction. Flex mode is interactive: you make standard API calls but with <code>service_tier=&quot;flex&quot;</code>, and responses arrive with variable latency (seconds to minutes) rather than the consistent speed of the Standard tier. Both cost $2.50/1M input and $15/1M output — 50% off Standard rates.</p>
+<h3 id="can-i-use-gpt-55-batch-api-in-my-existing-cicd-pipeline">Can I use GPT-5.5 Batch API in my existing CI/CD pipeline?</h3>
+<p>Yes. The Batch API integrates with any CI/CD system that can run Python or Node.js scripts. The typical pattern is: (1) generate the JSONL request file at the end of a build, (2) submit the batch, (3) store the batch ID, (4) have the next day&rsquo;s build or a separate scheduled job poll for completion and download results. Do not block the current pipeline on batch completion — treat it as a separate async workflow.</p>
+<h3 id="does-prompt-caching-work-with-gpt-55-batch-api">Does prompt caching work with GPT-5.5 Batch API?</h3>
+<p>Yes, prompt caching and Batch API discounts stack. Cached input tokens (prefixes exceeding 1,024 tokens that repeat across requests in a batch) are priced at approximately $1.25/1M — 75% off standard rates. Keep your system prompt and shared context as a fixed prefix at the top of every batch request to maximize cache hit rates.</p>
+<h3 id="what-happens-if-a-flex-request-gets-a-429-error">What happens if a Flex request gets a 429 error?</h3>
+<p>A 429 during Flex processing means the platform is under high load and your request was not queued. Implement exponential backoff: wait 1 second after the first failure, 2 seconds after the second, 4 after the third, and so on up to a configured maximum. If all retries are exhausted, fall back to the Standard tier for that specific request. Never use Flex for user-facing requests where a 429 would break the user experience.</p>
+<h3 id="is-gpt-55-better-than-gpt-54-for-coding-tasks-at-the-same-cost">Is GPT-5.5 better than GPT-5.4 for coding tasks at the same cost?</h3>
+<p>Yes, when using Batch pricing. GPT-5.5 Batch pricing ($2.50/$15 per 1M tokens) equals GPT-5.4 Standard pricing, but GPT-5.5 scores 82.7% on Terminal-Bench 2.0 versus GPT-5.4&rsquo;s 75.1%. For teams currently using GPT-5.4 at standard rates and running any batch-eligible workloads, switching to GPT-5.5 Batch delivers higher capability at identical or lower cost — a direct upgrade with no tradeoffs.</p>
+]]></content:encoded></item><item><title>Continue.dev vs GitHub Copilot 2026: Open-Source Alternative That's Worth Switching To</title><link>https://baeseokjae.github.io/posts/continue-dev-vs-github-copilot-2026/</link><pubDate>Sat, 25 Apr 2026 09:02:45 +0000</pubDate><guid>https://baeseokjae.github.io/posts/continue-dev-vs-github-copilot-2026/</guid><description>Continue.dev vs GitHub Copilot 2026 comparison: pricing, BYO-models, CLI agents, and whether the open-source alternative is worth switching to.</description><content:encoded><![CDATA[<p>GitHub Copilot has 20 million users and 90% Fortune 100 penetration, yet Continue.dev — with 28,900 GitHub stars and an Apache 2.0 license — is winning converts by offering something Copilot fundamentally cannot: model freedom, full code auditability, and team-level PR automation without a monthly per-seat fee for the tool itself. If you&rsquo;re deciding whether to stay with Copilot or switch to Continue in 2026, this comparison covers the actual tradeoffs.</p>
+<h2 id="what-is-continuedev">What Is Continue.dev?</h2>
+<p>Continue.dev is an open-source AI coding assistant licensed under Apache 2.0, meaning you can audit every line of code, self-host, and integrate any LLM provider — OpenAI, Anthropic, Google Gemini, or local Ollama models running on your own hardware. Originally launched as IDE extensions for VS Code and JetBrains, Continue underwent a significant architectural pivot in mid-2025, shifting from inline autocomplete and chat toward &ldquo;Continuous AI&rdquo; — a CLI-first approach that deploys autonomous agents to monitor and act on every pull request in your repository. As of 2026, Continue has 3,500 GitHub forks, active MCP (Model Context Protocol) integrations added in December 2024, and free-tier usage with costs limited to whatever LLM API fees you incur. For a 500-developer team, switching from Copilot Enterprise to Continue with self-hosted models can save over $234,000 annually — a number that has made CTOs at privacy-sensitive organizations pay close attention.</p>
+<h2 id="what-is-github-copilot">What Is GitHub Copilot?</h2>
+<p>GitHub Copilot is Microsoft&rsquo;s proprietary AI coding assistant, launched in 2021 and built on OpenAI models. With 20 million total users, 4.7 million paid subscribers (75% year-over-year growth as of January 2026), and 77,000 enterprise customers, it is the dominant product in the $5.5 billion AI code assistant market growing at 24% CAGR. Copilot integrates deeply with GitHub — autocomplete, chat, PR descriptions, Codespaces, and Actions — and supports VS Code, Visual Studio, JetBrains, and Neovim. Its pricing tiers are Free (limited), Pro at $10/month, Pro+ at $39/month, and Enterprise at negotiated rates. Copilot&rsquo;s strength is near-zero setup friction: install the extension, authenticate with your GitHub account, and you are coding with AI within five minutes. That plug-and-play reliability explains 90% Fortune 100 penetration, but it comes with a hard constraint — you use whatever model Microsoft deploys, with no option to swap in Anthropic Claude or a local model for regulated data.</p>
+<h2 id="head-to-head-feature-comparison">Head-to-Head Feature Comparison</h2>
+<p>Continue.dev and GitHub Copilot target overlapping but distinct developer workflows — and their feature sets diverge sharply once you move beyond inline autocomplete. Continue&rsquo;s defining structural advantages are model freedom (any LLM provider, including local Ollama), Apache 2.0 auditability, and CLI-first PR agents that enforce team standards on every merge. Copilot&rsquo;s defining advantages are zero-setup reliability, deep GitHub ecosystem integration (Codespaces, Actions, PR descriptions), and multiplatform IDE support including Visual Studio and Neovim. In 2026, Continue has 28,900 GitHub stars and active MCP integration added December 2024 — integrating Sentry, Snyk, Supabase, and Slack into AI workflows. Copilot holds 20 million users and 90% Fortune 100 penetration, underpinned by Microsoft&rsquo;s enterprise SLA infrastructure. The table below maps the concrete feature differences that determine which tool fits your team&rsquo;s requirements.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Continue.dev</th>
+          <th>GitHub Copilot</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>License</td>
+          <td>Apache 2.0 (open-source)</td>
+          <td>Proprietary</td>
+      </tr>
+      <tr>
+          <td>Model support</td>
+          <td>Any LLM (OpenAI, Anthropic, Ollama, Gemini, etc.)</td>
+          <td>OpenAI only (GPT-4o, o1)</td>
+      </tr>
+      <tr>
+          <td>IDE extensions</td>
+          <td>VS Code, JetBrains, CLI</td>
+          <td>VS Code, Visual Studio, JetBrains, Neovim</td>
+      </tr>
+      <tr>
+          <td>Autocomplete</td>
+          <td>Yes (configurable model)</td>
+          <td>Yes (43ms avg response)</td>
+      </tr>
+      <tr>
+          <td>Chat</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>PR agents</td>
+          <td>Yes (CLI headless mode)</td>
+          <td>Limited (PR descriptions, reviews)</td>
+      </tr>
+      <tr>
+          <td>On-premises deployment</td>
+          <td>Yes (self-hosted + local LLMs)</td>
+          <td>Enterprise only (no full self-host)</td>
+      </tr>
+      <tr>
+          <td>MCP integration</td>
+          <td>Yes (Dec 2024)</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Snyk/Sentry integration</td>
+          <td>Yes</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Price (individual)</td>
+          <td>Free (pay LLM API only)</td>
+          <td>$10–$39/month</td>
+      </tr>
+      <tr>
+          <td>Price (team, 500 devs)</td>
+          <td>~$0 tool fee + LLM costs</td>
+          <td>$95K–$234K+/year</td>
+      </tr>
+      <tr>
+          <td>GitHub Codespaces</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>CI/CD integration</td>
+          <td>Yes (headless agents)</td>
+          <td>Partial (Actions)</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="autocomplete-and-response-time">Autocomplete and Response Time</h3>
+<p>Autocomplete is where Copilot still leads on raw plug-and-play experience. Copilot averages 43ms response time with 85% p99 accuracy across its multi-editor install base. Continue&rsquo;s autocomplete — backed by your chosen model — hits 50ms average with 90% p99 accuracy when configured with a capable backend, but the setup overhead is real. You need to configure a model provider, manage API keys, and tune context windows. For a developer who wants to open VS Code and immediately have ghost text suggestions, Copilot wins on time-to-value. For a team that has already standardized on Anthropic&rsquo;s Claude Sonnet or wants to route sensitive code through a local Ollama deployment, Continue&rsquo;s autocomplete flexibility is a hard requirement Copilot cannot meet.</p>
+<h3 id="chat-and-code-review">Chat and Code Review</h3>
+<p>Both tools offer in-IDE chat for explaining, refactoring, and debugging code. Continue&rsquo;s interactive learning mode includes structured code review assistance, and its MCP integration (added December 2024) means you can pipe context from Sentry error traces or Snyk vulnerability scans directly into chat prompts. Copilot&rsquo;s chat is polished and fast, with GitHub repository context baked in, but it cannot pull from external security tooling or custom internal knowledge bases without significant enterprise configuration. For teams that already use Sentry for error tracking and Snyk for security scanning, Continue&rsquo;s native integrations create a tighter feedback loop than Copilot provides out of the box.</p>
+<h2 id="the-2025-cli-pivot-continuous-ai-agents">The 2025 CLI Pivot: Continuous AI Agents</h2>
+<p>Continue.dev&rsquo;s most significant 2026 differentiation is its Continuous AI architecture — a pivot from IDE-first individual assistance to CLI-first team automation. This pivot, executed mid-2025, fundamentally changes what &ldquo;AI coding assistant&rdquo; means in the Continue context.</p>
+<p>Continue now ships two CLI modes: <strong>Headless</strong> (cloud agents that run asynchronously in CI/CD pipelines, triggered on every PR) and <strong>TUI</strong> (interactive terminal sessions for developers who prefer terminal-native workflows). In Headless mode, agents watch every pull request against rules you define in code — style guides, security policies, architecture constraints — and either flag violations silently or suggest fixes with inline diffs. Integrations include GitHub, Sentry, Snyk, Supabase, Slack, and standard CI/CD pipelines. This shifts AI&rsquo;s role from &ldquo;help the individual developer write code faster&rdquo; to &ldquo;enforce team standards automatically on every merge attempt.&rdquo;</p>
+<p>GitHub Copilot does not have an equivalent. Its PR assistance generates descriptions and can flag simple issues, but it does not run autonomous agents against a rules-as-code policy engine on every PR in your repository. Organizations that need automated compliance checking, security policy enforcement, or style consistency at the PR level are finding Continue&rsquo;s Headless agents fill a gap Copilot leaves open.</p>
+<p>The trade-off is steeper learning curve. Continue&rsquo;s CLI pivot means less polished IDE experience for pure autocomplete users. If your primary use case is ghost text suggestions and inline code chat, the old Continue IDE extension (still available) or Copilot remains the smoother experience. The CLI-first architecture is purpose-built for platform engineering teams and organizations with formal code review policies, not individual developers optimizing for fast suggestions.</p>
+<h2 id="pricing-and-total-cost-of-ownership">Pricing and Total Cost of Ownership</h2>
+<p>GitHub Copilot pricing is straightforward: Free (capped features), Pro at $10/month per seat, Pro+ at $39/month per seat, Enterprise at negotiated rates. For a 500-developer team on Copilot Business ($19/month per seat), that&rsquo;s $114,000 per year just for the tool license, before any infrastructure.</p>
+<p>Continue.dev has no tool license fee — it is free and open-source. Your cost is LLM API fees and the compute resources to run self-hosted models if you choose that path. A 500-developer team using Continue with self-hosted Ollama for autocomplete (local, near-zero marginal cost) and Anthropic Claude Sonnet API for complex chat interactions can realistically spend $5,000–$20,000 per year on LLM API costs, compared to $114,000–$234,000+ for an equivalent Copilot Enterprise deployment. That $234K+ annual savings figure cited in Continue&rsquo;s market analysis is achievable at enterprise scale, though it requires engineering investment to configure and maintain the stack.</p>
+<p>The hidden cost is configuration overhead. Getting Continue configured with the right models for autocomplete, chat, and PR agents — with proper credential management, rate limiting, and fallback logic — takes meaningful engineering time. Copilot&rsquo;s zero-configuration advantage is worth real money for small teams without dedicated platform engineering resources.</p>
+<h2 id="the-open-source-trust-advantage">The Open-Source Trust Advantage</h2>
+<p>The developer trust gap is a real factor in 2026&rsquo;s AI tool selection. Stack Overflow&rsquo;s 2025 Developer Survey found 46% of developers actively distrust AI tool accuracy, and 79% are concerned about AI transparency. For proprietary tools like Copilot, &ldquo;trust&rdquo; requires accepting that Microsoft&rsquo;s model, training data, and output filtering work as claimed. You cannot audit the model weights, inspect what training data influenced a particular suggestion, or verify the output filtering logic.</p>
+<p>Continue&rsquo;s Apache 2.0 license means every component is auditable. Security-focused teams can review exactly what context gets sent to the LLM, how responses are processed, and what data never leaves their network when using local Ollama deployments. This auditability matters increasingly for regulated industries — healthcare, finance, government — where data handling requirements make proprietary cloud-only tools a compliance risk rather than a productivity gain.</p>
+<p>Continue also addresses the 19.7% AI package hallucination rate (a documented vulnerability where AI suggests non-existent packages that attackers pre-register) by enabling Snyk integration that cross-references package suggestions against known vulnerability databases before surfacing them to developers. Copilot has no equivalent Snyk integration.</p>
+<h2 id="when-to-choose-github-copilot">When to Choose GitHub Copilot</h2>
+<p>Copilot is the right choice when:</p>
+<ul>
+<li><strong>Setup friction is a dealbreaker.</strong> Install, authenticate, code. Copilot works in five minutes with no configuration.</li>
+<li><strong>Your team is GitHub-native.</strong> Deep Codespaces, Actions, and PR workflow integration with no additional tooling.</li>
+<li><strong>Multiplatform IDE support is required.</strong> Copilot&rsquo;s Visual Studio (not just VS Code) and Neovim support covers Windows-first .NET shops that Continue does not.</li>
+<li><strong>You need enterprise SLA.</strong> Microsoft&rsquo;s 99.9%+ uptime SLA, SOC 2 Type II compliance, and enterprise support contracts are production requirements for some organizations.</li>
+<li><strong>Individual developer productivity is the primary metric.</strong> 55% productivity gains and 30% suggestion acceptance rates are well-documented with Copilot&rsquo;s polished autocomplete.</li>
+</ul>
+<p>Junior developers in particular see 21–40% productivity boosts from AI autocomplete tools — and Copilot&rsquo;s zero-friction setup means those gains start on day one.</p>
+<h2 id="when-to-choose-continuedev">When to Choose Continue.dev</h2>
+<p>Continue is the right choice when:</p>
+<ul>
+<li><strong>Model flexibility is non-negotiable.</strong> You need Claude Sonnet for complex reasoning, Gemini for long context, and a local model for sensitive code — in the same workflow.</li>
+<li><strong>Privacy and data residency matter.</strong> Local Ollama deployments mean code never leaves your network. Healthcare and finance teams with strict data handling requirements need this.</li>
+<li><strong>Team standards automation is the goal.</strong> Continue&rsquo;s Headless PR agents enforce architecture rules, security policies, and style guides on every merge — Copilot cannot do this.</li>
+<li><strong>You&rsquo;re running 100+ developers.</strong> At scale, the $234K+ annual savings justify the configuration investment.</li>
+<li><strong>Security tooling integration is required.</strong> Native Sentry and Snyk integration creates workflows Copilot Enterprise cannot match without custom middleware.</li>
+<li><strong>You want MCP integrations.</strong> Continue&rsquo;s December 2024 MCP implementation enables context from any MCP-compatible tool to feed AI workflows.</li>
+</ul>
+<h2 id="byo-models-the-real-differentiator">BYO-Models: The Real Differentiator</h2>
+<p>The BYO-models capability is Continue&rsquo;s deepest structural advantage over Copilot. In practice, different tasks benefit from different models: fast autocomplete favors small, low-latency models (Mistral 7B locally, or GPT-4o-mini via API); complex architecture discussions benefit from large context models (Claude Sonnet 3.7 or Gemini 1.5 Pro); security review benefits from models fine-tuned on vulnerability data.</p>
+<p>Copilot gives you one model — whatever OpenAI version Microsoft has deployed — and no ability to route specific task types to optimal models. Continue lets you configure separate models for autocomplete, chat, edit, embed, and rerank, with routing logic you control. A senior engineer at a financial services firm can run autocomplete on a local Mistral deployment (zero data egress), route architecture questions to Claude Sonnet via API, and run security checks through a Snyk-integrated pipeline — all within the same Continue workflow.</p>
+<p>This is not hypothetical complexity. As model costs fall and local inference hardware becomes commodity, the teams building model routing logic today are building infrastructure that compounds in value as the model landscape diversifies.</p>
+<h2 id="enterprise-deployment-comparison">Enterprise Deployment Comparison</h2>
+<p>Enterprise deployment requirements are where the Continue.dev vs GitHub Copilot decision often becomes binary rather than a matter of preference. GitHub Copilot Enterprise runs entirely on Microsoft&rsquo;s cloud infrastructure — even Enterprise customers route code through GitHub endpoints, which disqualifies it for organizations with hard data residency requirements under GDPR, HIPAA, or FedRAMP. Continue.dev, built on an open-source foundation, supports genuine on-premises deployment: models, agents, and data processing all run on your infrastructure, with code never leaving your network when paired with local Ollama deployments. The 2025 KPMG AI in Financial Services report found 63% of financial institutions cited data residency as a top blocker for AI coding tool adoption — a gap Continue addresses and Copilot cannot. The trade-off is ownership: you manage reliability, scaling, patching, and uptime, whereas Copilot Enterprise provides a managed service with 99.9%+ SLA, SOC 2 Type II certification, and enterprise support contracts.</p>
+<h3 id="github-copilot-enterprise">GitHub Copilot Enterprise</h3>
+<p>Copilot Enterprise adds organization-wide context (codebase search across repos), fine-tuned model customization for org-specific patterns, GitHub Advanced Security integration, and enterprise SSO/SAML. It runs on Microsoft&rsquo;s cloud with enterprise SLAs. Full on-premises deployment is not available — even Enterprise customers route code through GitHub&rsquo;s cloud endpoints, which disqualifies it for some regulated environments.</p>
+<h3 id="continue-enterprise">Continue Enterprise</h3>
+<p>Continue&rsquo;s open-source foundation enables genuine on-premises deployment — models, agents, and data processing all running on your infrastructure. The trade-off is that you own the reliability, scaling, and maintenance. Teams with strong platform engineering capacity and hard data residency requirements find this model necessary; teams that would rather pay for managed reliability find Copilot&rsquo;s cloud model pragmatic.</p>
+<p>Continue&rsquo;s team governance features — configuring and enforcing which models different developer groups can access, setting context window limits, logging for compliance audit trails — require self-managed configuration that Copilot Enterprise provides as a managed service.</p>
+<h2 id="performance-benchmarks">Performance Benchmarks</h2>
+<p>Performance comparisons between Continue.dev and GitHub Copilot in 2026 reveal a nuanced picture: Copilot leads on raw autocomplete speed (43ms vs Continue&rsquo;s ~50ms average response time), but Continue leads on accuracy when configured with a high-capability model backend (90% p99 vs Copilot&rsquo;s 85% p99). The accuracy gap reflects Continue&rsquo;s BYO-models architecture — teams can route complex completions to Claude Sonnet or GPT-4o while keeping fast, cheap completions on a local Mistral deployment. Productivity data from GitHub&rsquo;s own research and IT Revolution&rsquo;s 2025 developer survey shows junior developers gain 21–40% productivity from either tool, while senior developers see more variable gains (7–16% on focused tasks, up to 55% on boilerplate-heavy work). Setup time is the sharpest contrast: Copilot is production-ready in under 5 minutes; Continue with full model routing, team governance, and PR agent configuration requires 30–60 minutes minimum for an individual developer and significantly more for enterprise rollout.</p>
+<p>Real-world performance data from 2026 comparisons:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>Continue.dev</th>
+          <th>GitHub Copilot</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Autocomplete response time</td>
+          <td>~50ms avg</td>
+          <td>~43ms avg</td>
+      </tr>
+      <tr>
+          <td>p99 accuracy</td>
+          <td>90%</td>
+          <td>85%</td>
+      </tr>
+      <tr>
+          <td>PR review coverage</td>
+          <td>Every PR (Headless agents)</td>
+          <td>Manual trigger only</td>
+      </tr>
+      <tr>
+          <td>Model latency (local Ollama)</td>
+          <td>Variable (hardware-dependent)</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Junior dev productivity gain</td>
+          <td>21–40%</td>
+          <td>21–40%</td>
+      </tr>
+      <tr>
+          <td>Senior dev productivity gain</td>
+          <td>7–16%</td>
+          <td>Up to 55% (all roles)</td>
+      </tr>
+      <tr>
+          <td>Setup time (individual dev)</td>
+          <td>30–60 min</td>
+          <td>&lt;5 min</td>
+      </tr>
+  </tbody>
+</table>
+<p>The accuracy advantage Continue shows (90% vs 85% p99) reflects the ability to use more capable models for specific tasks. When Continue is configured with a high-quality backend, it can outperform Copilot on accuracy at the cost of higher per-token latency and more configuration investment.</p>
+<h2 id="faq">FAQ</h2>
+<p>These frequently asked questions cover the practical decisions developers and engineering managers face when evaluating Continue.dev vs GitHub Copilot in 2026. The comparison touches on cost, capability, deployment flexibility, and the right use case for each tool. If you&rsquo;re a solo developer optimizing for fast, frictionless autocomplete, Copilot&rsquo;s $10/month Pro tier is hard to argue against. If you&rsquo;re an engineering lead at a 100+ developer organization that needs model flexibility, on-premises deployment, or automated PR governance, Continue&rsquo;s open-source architecture addresses requirements Copilot fundamentally cannot meet. The answers below address the specific questions that come up most often in 2026 tool evaluations, based on real team decision frameworks reported by platform engineering teams who have made the switch — including teams that saved over $234,000 annually at 500-developer scale by replacing Copilot Enterprise with Continue plus self-hosted models.</p>
+<h3 id="is-continuedev-really-free">Is Continue.dev really free?</h3>
+<p>Continue.dev has no license fee — the tool itself is Apache 2.0 open-source. Your costs are LLM API fees (pay-per-token to OpenAI, Anthropic, etc.) or compute costs if you run local models. For individual developers using local Ollama models, the marginal cost is effectively zero. For teams using cloud LLM APIs, costs vary by usage volume.</p>
+<h3 id="can-continuedev-replace-github-copilot-for-autocomplete">Can Continue.dev replace GitHub Copilot for autocomplete?</h3>
+<p>Yes, but with setup investment. Continue&rsquo;s autocomplete configured with a capable model (GPT-4o-mini or local Mistral) delivers competitive accuracy, but requires 30–60 minutes of initial configuration versus Copilot&rsquo;s sub-5-minute setup. If fast setup is your priority, Copilot still leads. If model flexibility and zero tool licensing cost outweigh setup friction, Continue is a viable replacement.</p>
+<h3 id="does-continuedev-work-with-local-models">Does Continue.dev work with local models?</h3>
+<p>Yes. Continue&rsquo;s Ollama integration lets you run models like Mistral, Llama 3, or CodeLlama entirely on local hardware. This means code never leaves your network — a hard requirement for many healthcare, finance, and government deployments. Copilot has no equivalent local model support.</p>
+<h3 id="what-happened-to-continuedevs-ide-extensions">What happened to Continue.dev&rsquo;s IDE extensions?</h3>
+<p>Continue&rsquo;s IDE extensions for VS Code and JetBrains still exist and are actively maintained. The 2025 pivot added the Continuous AI CLI (Headless and TUI modes) on top of the existing IDE experience, rather than replacing it. Individual developers can still use the VS Code extension for autocomplete and chat; the CLI is primarily aimed at platform teams running PR automation.</p>
+<h3 id="which-is-better-for-a-small-team-under-10-developers">Which is better for a small team (under 10 developers)?</h3>
+<p>For a small team without dedicated platform engineering, GitHub Copilot Pro ($10/month per seat) is likely the pragmatic choice — zero setup, reliable autocomplete, and GitHub integration that &ldquo;just works.&rdquo; Continue becomes compelling for small teams when privacy requirements mandate local models, or when the team already has someone comfortable configuring LLM providers and wants to avoid tool license costs. At 10 seats, Copilot Pro costs $1,200/year — a low enough bar that the engineering time to configure Continue often exceeds the savings.</p>
+]]></content:encoded></item><item><title>Kimi K2 vs Claude Opus vs GPT-5 Coding 2026: Moonshot's Model Benchmark</title><link>https://baeseokjae.github.io/posts/kimi-k2-vs-claude-vs-gpt5-coding-2026/</link><pubDate>Sat, 25 Apr 2026 00:02:30 +0000</pubDate><guid>https://baeseokjae.github.io/posts/kimi-k2-vs-claude-vs-gpt5-coding-2026/</guid><description>Kimi K2.5, Claude Opus 4.6, GPT-5.3-Codex의 2026년 코딩 벤치마크 비교. 누가 SWE-bench, Terminal-Bench, LiveCodeBench를 이기는지 분석.</description><content:encoded><![CDATA[<p>2026년 2월, 9일 만에 세 개의 프론티어 코딩 모델이 출시됐다. 1월 27일 Kimi K2.5, 2월 5일 Claude Opus 4.6, 그리고 20분 뒤 GPT-5.3-Codex. 어떤 모델을 써야 할지는 워크플로우에 달려 있다. Terminal 작업엔 Codex, 복잡한 추론엔 Opus, 대용량/저비용엔 Kimi K2.5가 최적이다.</p>
 <h2 id="2026년-2월-코딩-전쟁-무슨-일이-있었나">2026년 2월 코딩 전쟁: 무슨 일이 있었나</h2>
 <p>2026년 2월은 AI 코딩 모델 역사에서 가장 치열한 9일로 기록됐다. Moonshot AI는 1월 27일 Kimi K2.5를 출시하며 LiveCodeBench 85.0%라는 오픈소스 최고 기록을 세웠다. 그로부터 9일 후인 2월 5일, Anthropic은 Claude Opus 4.6를 공개하며 SWE-Bench Verified 80.8%, ARC-AGI-2 68.8%(전 세대 37.6%에서 두 배 향상)를 발표했다. Anthropic의 공개 발표로부터 단 20분 뒤, OpenAI는 GPT-5.3-Codex를 드롭하며 Terminal-Bench 2.0에서 77.3%를 기록했다. 이 모델은 자기 자신의 훈련 실행을 디버깅하고 배포 인프라를 관리하며 스케일링 스크립트를 작성하는 데 기여했다. 기업 LLM 지출 평균은 2025년 $7M(전년 대비 180% 증가)에서 2026년 $11.6M으로 전망되는 가운데, 개발자들은 단일 모델 선택이 아닌 워크플로우별 최적 모델 라우팅 전략을 고민하기 시작했다. AI 코딩 시장에서 OpenAI의 점유율은 62%에서 53%로 하락하며 경쟁 구도가 다변화되고 있다. 세 모델은 서로 다른 벤치마크에서 서로 다른 강점을 보이며, 어떤 단일 모델도 모든 워크플로우에서 최선이 아님을 이 전쟁은 증명했다. 이 글은 그 복잡한 선택을 실용적으로 돕기 위해 쓰였다.</p>
 <h2 id="핵심-벤치마크-비교-어떤-모델이-어느-테스트에서-이기나">핵심 벤치마크 비교: 어떤 모델이 어느 테스트에서 이기나</h2>
