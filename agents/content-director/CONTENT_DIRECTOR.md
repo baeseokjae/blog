@@ -22,18 +22,16 @@ You manage the blog content pipeline. You run ONLY via wakeup (cron or event). Y
    - goalId: 45dadd15-aa5a-4e7a-b077-7afa5005bd89
    - projectId: 01417190-b574-464e-8bb8-f5015f787ef0
    - Description: include slug, keyword, type from topics.json
-7. For each Article issue, create 5 subtask issues in **backlog**:
+7. For each Article issue, create 3 subtask issues in **backlog**:
    - "Research: {topic}" — parentId = Article issue ID
    - "Write: {topic}" — parentId = Article issue ID
-   - "SEO: {topic}" — parentId = Article issue ID
-   - "Thumbnail: {topic}" — parentId = Article issue ID
    - "Publish: {topic}" — parentId = Article issue ID
 8. Update each topic's status in topics.json: "queued" → "seeded"
 9. Do NOT assign any issues to anyone. Exit.
 
 ## Routine 2: Dispatch (every 3 hours)
 
-**Key principle:** Agents auto-chain stages via wakeOnDemand. ContentDirector only needs to kick off Research. The rest flows automatically: Researcher → Writer → SEO → Thumbnail → Publisher. ContentDirector's job is to keep new Research flowing, not to babysit each stage.
+**Key principle:** Agents auto-chain stages via wakeOnDemand. ContentDirector only needs to kick off Research. The rest flows automatically: Researcher → Writer → Publisher. ContentDirector's job is to keep new Research flowing, not to babysit each stage.
 
 1. Read ~/blog/research/topics.json — count topics with status "queued"
 2. **Queue check**: If queued topics < 10:
@@ -43,24 +41,20 @@ You manage the blog content pipeline. You run ONLY via wakeup (cron or event). Y
    - Query `GET /api/companies/{companyId}/issues?status=in_progress` → check for Research: or Write: titles
    - Query `GET /api/companies/{companyId}/issues?status=todo` → check for Research: or Write: titles
    - If ANY Research or Write sub-issue is in_progress **or** todo → "Research/Write active, skipping." and exit
-   - If only SEO/Thumbnail/Publish are active → safe to dispatch new Research
    - If nothing active → dispatch immediately
 4. **Recovery check** — find in_progress Article issues that are stuck (all sub-issues done/cancelled, but Article not marked done):
    - Query in_progress Article issues
-   - For each: check sub-issues. If Write is `done` and downstream sub-issues (SEO/Thumbnail/Publish) are all `done` or `cancelled`:
+   - For each: check sub-issues. If Write is `done` and Publish is `done` or `cancelled`:
      - If Publish is `done`: mark Article as `done`
-     - If Publish is `cancelled` and all required files exist (image + schema): create new Publish sub-issue and assign to Publisher
-     - If SEO is `cancelled` or missing: create new SEO sub-issue and assign to SEO agent
-     - If Thumbnail is `cancelled` or missing but image file exists: create new Thumbnail sub-issue, mark done immediately
+     - If Publish is `cancelled` and all required files exist (image + schema + post): reassign Publish to Publisher
+     - If Publish is `cancelled` or missing and not all files exist: create new Publish sub-issue and assign to Publisher
 5. Find the highest-priority Article issue in **backlog** status
    - Sort by identifier number (lowest = highest priority)
    - If none found: exit (Morning Seeding will create more)
 6. Determine the current pipeline stage by checking subtask statuses:
    - If Research is `backlog` or `todo`: dispatch Research
    - If Research is `done` and Write is `backlog` or `todo`: dispatch Write (in case auto-chain failed)
-   - If Write is `done` and SEO is `backlog` or `todo`: dispatch SEO
-   - If SEO is `done` and Thumbnail is `backlog` or `todo`: dispatch Thumbnail
-   - If Thumbnail is `done` and Publish is `backlog` or `todo`: dispatch Publish
+   - If Write is `done` and Publish is `backlog` or `todo`: dispatch Publish (in case auto-chain failed)
    - If all done: mark Article as `done` and exit
 7. Update the parent Article issue to `in_progress` FIRST (only when first dispatching Research):
    ```
@@ -71,8 +65,6 @@ You manage the blog content pipeline. You run ONLY via wakeup (cron or event). Y
 8. Assign the appropriate subtask based on stage:
    - Research → Researcher: `"assigneeAgentId": "d88ae332-76ca-464a-98fd-ace75d19c4fe"`
    - Write → Writer: `"assigneeAgentId": "b796bb1c-a6ef-4249-bfa2-554acfc61726"`
-   - SEO → SEO agent: `"assigneeAgentId": "6dab6808-c362-4e11-819b-1f1647e84d40"`
-   - Thumbnail → Thumbnail agent: `"assigneeAgentId": "16f0b09a-d3f8-4885-aa2a-52e7d67d2267"`
    - Publish → Publisher: `"assigneeAgentId": "915ce8cd-4608-48f2-9b53-b15288ab4676"`
    ```
    PATCH /api/issues/{subtaskId}
@@ -94,13 +86,13 @@ You manage the blog content pipeline. You run ONLY via wakeup (cron or event). Y
 candidate → queued → seeded → writing → published
 ```
 
-| Status | Meaning | Who sets it |
-|--------|---------|-------------|
-| candidate | Strategist generated, not yet validated | Strategist |
-| queued | Validated (KD ok, not duplicate, has keyword data) | Strategist |
-| seeded | Paperclip issues created, waiting for dispatch | ContentDirector |
-| writing | In the pipeline (research/write/publish) | ContentDirector |
-| published | Live on the blog | Publisher |
+|| Status | Meaning | Who sets it ||
+||--------|---------|-------------||
+|| candidate | Strategist generated, not yet validated | Strategist ||
+|| queued | Validated (KD ok, not duplicate, has keyword data) | Strategist ||
+|| seeded | Paperclip issues created, waiting for dispatch | ContentDirector ||
+|| writing | In the pipeline (research/write/publish) | ContentDirector ||
+|| published | Live on the blog | Publisher ||
 
 ContentDirector only picks "queued" topics for seeding.
 ContentDirector updates "queued" → "seeded" after creating issues.
@@ -109,19 +101,17 @@ Publisher updates "writing" → "published" after git push.
 
 ## Paperclip Issue Status Mapping
 
-| Paperclip status | Pipeline meaning |
-|-----------------|-----------------|
-| backlog | Seeded, waiting for dispatch |
-| todo | Dispatched, agent about to start |
-| in_progress | Agent working |
-| in_review | (unused in current pipeline) |
-| done | Step complete |
+|| Paperclip status | Pipeline meaning ||
+||-----------------|-----------------||
+|| backlog | Seeded, waiting for dispatch ||
+|| todo | Dispatched, agent about to start ||
+|| in_progress | Agent working ||
+|| in_review | (unused in current pipeline) ||
+|| done | Step complete ||
 
 ## Agent IDs
 - Researcher: d88ae332-76ca-464a-98fd-ace75d19c4fe
 - Writer: b796bb1c-a6ef-4249-bfa2-554acfc61726
-- SEO: 6dab6808-c362-4e11-819b-1f1647e84d40
-- Thumbnail: 16f0b09a-d3f8-4885-aa2a-52e7d67d2267
 - Publisher: 915ce8cd-4608-48f2-9b53-b15288ab4676
 - Strategist: 458d5ac7-e504-4b95-af7a-a9fdf7151895
 

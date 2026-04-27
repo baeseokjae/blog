@@ -254,31 +254,31 @@
   ],
   "cluster_status": {
     "AI coding tools": {
-      "queued": 384,
+      "queued": 411,
       "seeded": 16,
       "writing": 7,
       "published": 27,
-      "note": "2026-04-26 (run 62): +11 new (gemini-cli-subagents-guide-2026, google-agents-cli-guide-2026, ibm-contextforge-mcp-gateway-review-2026, spring-ai-mcp-server-tutorial-2026, mcp-rce-vulnerability-by-design-fix-2026, mcp-connector-poisoning-npm-security-2026, open-source-mcp-gateways-comparison-2026, gemini-cli-custom-subagents-tutorial-2026, lovable-penetration-testing-security-2026, gpt-5-5-terminal-bench-agentic-guide-2026, mcpx-lunar-dev-enterprise-mcp-review-2026). Now at 384 queued."
+      "note": "2026-04-27 (run 65): +7 new (claude-code-computer-use-cli-guide-2026, claude-code-autofix-pr-guide-2026, claude-code-team-onboarding-command-guide-2026, claude-code-auto-mode-guide-2026, claude-code-monitor-tool-guide-2026, claude-code-vertex-ai-setup-guide-2026, claude-code-opus-4-7-xhigh-guide-2026). Now at 411 queued."
     },
     "AI for developers": {
-      "queued": 305,
+      "queued": 319,
       "seeded": 1,
       "writing": 5,
       "published": 15,
-      "note": "2026-04-26 (run 62): +4 new (vercel-ai-supply-chain-attack-lessons-2026, google-agents-cli-vs-adk-comparison-2026, ai-agent-sandboxes-comparison-2026, mcp-security-enterprise-ciso-guide-2026). Now at 305 queued."
+      "note": "2026-04-27 (run 65): +8 new (mcp-atlassian-cve-2026-ssrf-rce-guide-2026, mcp-ssrf-developer-defense-guide-2026, mcp-sdk-cross-language-vulnerability-guide-2026, vulnerablemcp-info-security-database-guide-2026, openclaw-ai-security-incident-guide-2026, cohere-north-enterprise-ai-platform-guide-2026, vellum-ai-evaluation-platform-guide-2026, yahoo-scout-developer-guide-2026). Now at 319 queued."
     },
     "LLM comparison": {
-      "queued": 134,
+      "queued": 140,
       "seeded": 2,
       "published": 4,
-      "note": "2026-04-26 (run 62): +2 new (claude-mythos-pricing-access-guide-2026, gpt-5-5-omnimodal-api-guide-2026). Now at 134 queued."
+      "note": "2026-04-27 (run 65): +1 new (cohere-transcribe-api-developer-guide-2026). Now at 140 queued."
     },
     "AI workflow automation": {
-      "queued": 68,
+      "queued": 73,
       "published": 5,
-      "note": "2026-04-26 (run 59): +2 new (taskade-genesis-ai-app-builder-2026, perplexity-computer-enterprise-slack-guide-2026). Now at 68 queued."
+      "note": "2026-04-27 (run 65): +4 new (vellum-mcp-agent-nodes-workflow-guide-2026, gumloop-gummie-meta-agent-guide-2026, gumloop-vs-lindy-ai-comparison-2026, parabola-data-automation-review-2026). Now at 73 queued."
     },
-    "last_strategy_run": "2026-04-26 (run 62): +17 new topics discovered. AI coding tools: +11 (Gemini CLI subagents, Google Agents CLI, IBM ContextForge MCP gateway, Spring AI MCP server, MCP RCE vulnerability guide, MCP connector poisoning, open-source MCP gateways comparison, Gemini CLI custom subagents, Lovable penetration testing, GPT-5.5 Terminal-Bench guide, MCPX Lunar.dev review). AI for developers: +4 (Vercel supply chain attack, Google Agents CLI vs ADK, AI agent sandboxes, MCP enterprise CISO guide). LLM comparison: +2 (Claude Mythos pricing, GPT-5.5 omnimodal API). Key signals: GPT-5.5 'Spud' released April 23 (88.7% SWE-bench, omnimodal text/image/audio/video, $5/$30M tokens); Gemini CLI subagents shipped April 15 enabling @name specialist delegation; MCP 'by design' RCE vulnerability affects 200K+ servers across Cursor/Windsurf/Claude Code/VS Code; Google Agents CLI provides end-to-end agent deployment lifecycle; IBM ContextForge enters enterprise MCP gateway market with multi-cluster Kubernetes federation; Lovable adds built-in pentest feature; AI agent sandboxes (E2B, Daytona) emerging as critical secure execution infrastructure.",
+    "last_strategy_run": "2026-04-27 (run 65): +20 new topics discovered. AI coding tools: +7 (Claude Code computer use CLI research preview, /autofix-pr PR auto-fix command, /team-onboarding enterprise ramp-up, Auto Mode for Max subscribers, Monitor tool + /loop self-pacing, Vertex AI setup wizard, Opus 4.7 xhigh effort + /ultrareview). AI for developers: +8 (MCP Atlassian CVE-2026-27825 SSRF→RCE, MCP SSRF 36.7% server exposure defense guide, MCP SDK cross-language systemic vulnerability, VulnerableMCP.info security database, OpenClaw supply chain incident analysis, Cohere North enterprise platform, Vellum AI eval 2026 features + MCP nodes, Yahoo Scout Anthropic-powered search). LLM comparison: +1 (Cohere Transcribe Apache 2.0, #1 ASR leaderboard 5.42% WER). AI workflow automation: +4 (Vellum MCP agent nodes tutorial, Gumloop Gummie meta-agent, Gumloop vs Lindy comparison, Parabola data automation review). Key signals: MCP security crisis deepening — CVE-2026-27825 Atlassian SSRF→RCE, 36.7% of 7K servers SSRF-vulnerable, 150M downloads at risk from SDK design flaw; Claude Code April 2026 wave: computer use CLI, /autofix-pr, /team-onboarding, xhigh effort; Cohere Transcribe #1 ASR beating Whisper, free Apache 2.0; Gumloop $50M Series B (Benchmark) signals AI workflow automation consolidation; Yahoo Scout (Anthropic + Bing) launches as #3 search engine.",
     "unclustered_legacy": {
       "published": 48,
       "queued": 1,

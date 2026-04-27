@@ -40,6 +40,13 @@ STALE_HOURS = 4
 MAX_RESETS_PER_AGENT = 3
 RESET_COOLDOWN_HOURS = 1  # Don't reset the same agent more than once per hour
 
+# Disabled agents (decommissioned in Apr 2026 pipeline redesign) — skip reset, cancel their issues
+DISABLED_AGENT_IDS = {
+    "9e1b92e9-11dd-41ba-8398-b951549a3696",  # Supervisor (replaced by pipeline_health_check.py)
+    "6dab6808-c362-4e11-819b-1f1647e84d40",  # SEO (Writer generates schema)
+    "16f0b09a-d3f8-4885-aa2a-52e7d67d2267",  # Thumbnail (Writer runs gen_cover.py)
+}
+
 # Log file
 LOG_FILE = os.path.expanduser("~/blog/logs/auto-reset.log")
 
@@ -174,7 +181,16 @@ def run(dry_run=False):
     # --------------------------------------------------------
     log("Step 1: Checking for error-state agents...")
     agents = get_agents()
-    error_agents = [a for a in agents if a.get('status') == 'error']
+    
+    # Skip disabled (decommissioned) agents entirely
+    active_agents = [a for a in agents if a.get('id') not in DISABLED_AGENT_IDS]
+    disabled_in_error = [a for a in agents if a.get('id') in DISABLED_AGENT_IDS and a.get('status') == 'error']
+    if disabled_in_error:
+        for da in disabled_in_error:
+            log(f"Skipping disabled agent {da.get('name')} — forcing to idle", "INFO")
+            reset_agent(da['id'], da['name'])
+    
+    error_agents = [a for a in active_agents if a.get('status') == 'error']
     
     if not error_agents:
         log("No agents in error state. Clean!")
@@ -222,10 +238,24 @@ def run(dry_run=False):
                 actions_taken += 1
 
     # --------------------------------------------------------
-    # 2. Clean up stale in_progress issues (zombies)
+    # 2. Cancel issues assigned to disabled agents + clean up zombies
     # --------------------------------------------------------
-    log("Step 2: Checking for stale in_progress issues...")
+    log("Step 2: Checking for disabled-agent issues and stale in_progress...")
     issues = get_issues()
+    
+    # Cancel any non-done issues assigned to disabled agents
+    disabled_issues = [i for i in issues 
+                       if i.get('status') not in ('done', 'cancelled') 
+                       and i.get('assigneeId') in DISABLED_AGENT_IDS]
+    if disabled_issues:
+        log(f"Found {len(disabled_issues)} issues assigned to disabled agents — cancelling")
+        for di in disabled_issues:
+            identifier = di.get('identifier', di.get('id', 'N/A')[:8])
+            title = (di.get('title') or '')[:50]
+            if cancel_issue(di['id'], identifier):
+                log(f"Cancelled disabled-agent issue: {identifier} - {title}", "ACTION")
+                actions_taken += 1
+    
     in_progress = [i for i in issues if i.get('status') == 'in_progress']
     
     if not in_progress:

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Cover image generator for RockB blog posts.
 Usage: python3 gen_cover.py <post-slug> [--output /path/to/output.png]
