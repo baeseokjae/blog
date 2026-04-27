@@ -1037,7 +1037,7 @@
     "keyword": "sourcegraph cody review",
     "type": "review",
     "priority": 83,
-    "status": "seeded",
+    "status": "published",
     "search_volume_est": 280,
     "kd_est": 4,
     "cluster": "AI coding tools",
