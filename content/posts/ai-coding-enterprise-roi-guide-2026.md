@@ -2,7 +2,7 @@
 title: "AI Coding ROI Enterprise 2026: Metrics, Case Studies and Benchmarks"
 date: 2026-04-27T00:09:29+00:00
 tags: ["AI coding", "enterprise", "ROI", "developer productivity", "GitHub Copilot"]
-description: "Enterprise AI coding ROI benchmarks, case studies, and frameworks for 2026 — including the productivity paradox, DORA metrics, and what separates 300%+ ROI leaders."
+description: "Enterprise AI coding ROI benchmarks, case studies, and frameworks for 2026 — including DORA metrics and what separates top performers."
 draft: false
 cover:
   image: "/images/ai-coding-enterprise-roi-guide-2026.png"
