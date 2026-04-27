@@ -1122,9 +1122,10 @@
     "keyword": "openai codex cloud agent",
     "type": "guide",
     "priority": 90,
-    "status": "writing",
+    "status": "published",
     "search_volume_est": 400,
-    "discovered_at": "2026-04-16"
+    "discovered_at": "2026-04-16",
+    "published_at": "2026-04-27"
   },
   {
     "title": "Claude Code PR Review Guide 2026: Parallel Agent Code Review Setup",
