@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Testsigma Review 2026: Agentic AI Testing Platform Deep Dive](https://baeseokjae.github.io/posts/testsigma-review-2026/) — Honest Testsigma review 2026: Atto AI agents, NLP test creation, pricing, and how it compares to BrowserStack and Katalon.
 - [QA Wolf Review 2026: AI-Generated Playwright Tests at Scale](https://baeseokjae.github.io/posts/qawolf-review-2026/) — Honest QA Wolf review 2026: pricing, AI Playwright test generation, pros/cons, and how it compares to Mabl, Testim, and BrowserStack.
 - [Augment Code vs Cursor vs GitHub Copilot: Enterprise AI Coding Comparison 2026](https://baeseokjae.github.io/posts/augment-code-vs-cursor-vs-copilot-2026/) — Augment Code vs Cursor vs GitHub Copilot compared on architecture, pricing, benchmarks, and enterprise compliance for 2026 buyers.
 - [Claude Code PR Review Guide 2026: Parallel Agent Code Review Setup](https://baeseokjae.github.io/posts/claude-code-pr-review-guide-2026/) — Complete guide to Claude Code PR review in 2026 — parallel agent setup, GitHub App configuration, pricing, and comparison with GitHub Copilot.
@@ -199,6 +200,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Testsigma Review 2026: Agentic AI Testing Platform Deep Dive](https://baeseokjae.github.io/posts/testsigma-review-2026/) — Honest Testsigma review 2026: Atto AI agents, NLP test creation, pricing, and how it compares to BrowserStack and Katalon.
 - [QA Wolf Review 2026: AI-Generated Playwright Tests at Scale](https://baeseokjae.github.io/posts/qawolf-review-2026/) — Honest QA Wolf review 2026: pricing, AI Playwright test generation, pros/cons, and how it compares to Mabl, Testim, and BrowserStack.
 - [Claude API 300K Output Tokens: Complete Guide to Long-Form Generation (2026)](https://baeseokjae.github.io/posts/claude-api-max-tokens-300k-guide-2026/) — How to unlock Claude API 300K output tokens via the Message Batches API with the output-300k-2026-03-24 beta header — with Python code examples.
 - [AI Coding ROI Enterprise 2026: Metrics, Case Studies and Benchmarks](https://baeseokjae.github.io/posts/ai-coding-enterprise-roi-guide-2026/) — Enterprise AI coding ROI benchmarks, case studies, and frameworks for 2026 — including the productivity paradox, DORA metrics, and what separates 300%&#43; ROI leaders.
