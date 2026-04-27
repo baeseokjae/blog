@@ -10438,3 +10438,13 @@
 [2026-04-27 00:02:40 UTC] [INFO] Pipeline: done=1094 backlog=105 todo=19 in_progress=3 cancelled=403 error=0
 [2026-04-27 00:02:40 UTC] [INFO] Agents: 9 total, 0 in error state
 [2026-04-27 00:02:40 UTC] [INFO] Auto-reset complete. Actions taken: 0
+[2026-04-27 00:12:58 UTC] [INFO] ==================================================
+[2026-04-27 00:12:58 UTC] [INFO] Auto-reset check starting 
+[2026-04-27 00:12:58 UTC] [INFO] Step 1: Checking for error-state agents...
+[2026-04-27 00:12:58 UTC] [INFO] No agents in error state. Clean!
+[2026-04-27 00:12:58 UTC] [INFO] Step 2: Checking for stale in_progress issues...
+[2026-04-27 00:12:58 UTC] [INFO] No stale in_progress issues. Clean!
+[2026-04-27 00:12:58 UTC] [INFO] Step 3: Pipeline health check...
+[2026-04-27 00:12:58 UTC] [INFO] Pipeline: done=1139 backlog=59 todo=33 in_progress=13 cancelled=392 error=0
+[2026-04-27 00:12:58 UTC] [INFO] Agents: 9 total, 0 in error state
+[2026-04-27 00:12:58 UTC] [INFO] Auto-reset complete. Actions taken: 0
