@@ -2,7 +2,7 @@
 title: "Zed AI Editor Guide 2026: ACP Protocol, AI Features, and Performance"
 date: 2026-04-26T07:03:17+00:00
 tags: ["zed editor", "zed ai", "ACP protocol", "agentic IDE", "code editor 2026"]
-description: "Complete guide to Zed AI in 2026: ACP protocol, 0.12s startup, 120fps GPU rendering, AI features, pricing, and how it compares to Cursor and VS Code."
+description: "Complete guide to Zed AI in 2026: ACP protocol, 0.12s startup, 120fps GPU rendering, AI features, pricing, and Cursor vs VS Code."
 draft: false
 cover:
   image: "/images/zed-ai-guide-2026.png"

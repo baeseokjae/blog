@@ -2,7 +2,7 @@
 title: "Qodo Review 2026: AI Code Quality Platform (Formerly CodiumAI)"
 date: 2026-04-26T04:02:30+00:00
 tags: ["ai-code-review", "qodo", "codiumai", "developer-tools", "code-quality"]
-description: "Qodo (formerly CodiumAI) combines AI PR review with automatic test generation — the only tool doing both. Full 2026 review with pricing and benchmarks."
+description: "Qodo combines AI PR review with test generation. Full 2026 review with pricing and benchmarks."
 draft: false
 cover:
   image: "/images/qodo-review-2026.png"

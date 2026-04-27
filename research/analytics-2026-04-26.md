@@ -1,25 +1,27 @@
-# Blog Analytics Report — 2026-04-26
+# Weekly Analytics Report - 2026-04-26
 
-## GSC Status Summary
-- **Report Period:** 2026-04-16 ~ 2026-04-23 (3-day delay standard)
+## GSC Data Overview
+- **Report Period:** 2026-04-16 ~ 2026-04-23
 - **Status:** Site indexing in progress
-- **Data Available:** Minimal
 
-## Findings
+## Key Findings
 
-### Striking Distance Keywords (Pos 11-20)
-**None found yet.** Site has not accumulated sufficient impression data to identify keywords near page-1 rankings.
+### Indexing Status
+- Site is currently in early indexing phase
+- Limited GSC data available for the period
 
 ### Page Performance
-- Sitemap.xml: 0 clicks / 9 impressions
-- Limited indexation data available
+- Currently tracking: /sitemap.xml (0 clicks, 9 impressions)
+
+### Striking Distance Keywords
+- No keywords found in positions 11-20 (near page 1 threshold)
+
+## Recommendations
+
+1. **Monitor indexing progress** - Complete GSC data should populate within 3-5 days
+2. **Prepare content gaps** - Once full data arrives, identify underperforming posts
+3. **Next review** - Schedule follow-up analysis for 2026-04-29 when 3-day GSC lag is reduced
 
 ## Next Steps
-1. **Monitor for initial indexing completion** — expect meaningful GSC data within 2-3 weeks
-2. **Track impressions** — watch for keywords breaking 20+ impressions threshold
-3. **Prepare content refresh strategy** — once striking distance opportunities emerge
-
-## Notes
-- New site with minimal search visibility
-- GSC data has standard 3-day reporting delay
-- Will revisit with weekly reports as data accumulates
+- Rerun report mid-week for complete dataset
+- Identify top optimization opportunities once striking distance data appears
