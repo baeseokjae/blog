@@ -254,31 +254,32 @@
   ],
   "cluster_status": {
     "AI coding tools": {
-      "queued": 411,
+      "queued": 425,
       "seeded": 16,
       "writing": 7,
       "published": 27,
-      "note": "2026-04-27 (run 65): +7 new (claude-code-computer-use-cli-guide-2026, claude-code-autofix-pr-guide-2026, claude-code-team-onboarding-command-guide-2026, claude-code-auto-mode-guide-2026, claude-code-monitor-tool-guide-2026, claude-code-vertex-ai-setup-guide-2026, claude-code-opus-4-7-xhigh-guide-2026). Now at 411 queued."
+      "note": "2026-04-29 (run 70): +2 new (google-android-cli-ai-agents-guide-2026, android-skills-skill-md-guide-2026). Now at 425 queued."
     },
     "AI for developers": {
-      "queued": 319,
+      "queued": 339,
       "seeded": 1,
       "writing": 5,
       "published": 15,
-      "note": "2026-04-27 (run 65): +8 new (mcp-atlassian-cve-2026-ssrf-rce-guide-2026, mcp-ssrf-developer-defense-guide-2026, mcp-sdk-cross-language-vulnerability-guide-2026, vulnerablemcp-info-security-database-guide-2026, openclaw-ai-security-incident-guide-2026, cohere-north-enterprise-ai-platform-guide-2026, vellum-ai-evaluation-platform-guide-2026, yahoo-scout-developer-guide-2026). Now at 319 queued."
+      "note": "2026-04-29 (run 70): +3 new (gemma-4-android-on-device-ai-guide-2026, webllm-browser-inference-guide-2026, transformers-js-onnx-runtime-web-guide-2026). Now at 339 queued."
     },
     "LLM comparison": {
-      "queued": 140,
+      "queued": 146,
       "seeded": 2,
       "published": 4,
-      "note": "2026-04-27 (run 65): +1 new (cohere-transcribe-api-developer-guide-2026). Now at 140 queued."
+      "note": "2026-04-29 (run 69): +1 new (minimax-m2-7-highspeed-api-guide-2026). Now at 146 queued."
     },
     "AI workflow automation": {
-      "queued": 73,
+      "queued": 72,
+      "writing": 1,
       "published": 5,
-      "note": "2026-04-27 (run 65): +4 new (vellum-mcp-agent-nodes-workflow-guide-2026, gumloop-gummie-meta-agent-guide-2026, gumloop-vs-lindy-ai-comparison-2026, parabola-data-automation-review-2026). Now at 73 queued."
+      "note": "2026-04-28 (run 66): no new topics. Holding at 73 queued."
     },
-    "last_strategy_run": "2026-04-27 (run 65): +20 new topics discovered. AI coding tools: +7 (Claude Code computer use CLI research preview, /autofix-pr PR auto-fix command, /team-onboarding enterprise ramp-up, Auto Mode for Max subscribers, Monitor tool + /loop self-pacing, Vertex AI setup wizard, Opus 4.7 xhigh effort + /ultrareview). AI for developers: +8 (MCP Atlassian CVE-2026-27825 SSRF→RCE, MCP SSRF 36.7% server exposure defense guide, MCP SDK cross-language systemic vulnerability, VulnerableMCP.info security database, OpenClaw supply chain incident analysis, Cohere North enterprise platform, Vellum AI eval 2026 features + MCP nodes, Yahoo Scout Anthropic-powered search). LLM comparison: +1 (Cohere Transcribe Apache 2.0, #1 ASR leaderboard 5.42% WER). AI workflow automation: +4 (Vellum MCP agent nodes tutorial, Gumloop Gummie meta-agent, Gumloop vs Lindy comparison, Parabola data automation review). Key signals: MCP security crisis deepening — CVE-2026-27825 Atlassian SSRF→RCE, 36.7% of 7K servers SSRF-vulnerable, 150M downloads at risk from SDK design flaw; Claude Code April 2026 wave: computer use CLI, /autofix-pr, /team-onboarding, xhigh effort; Cohere Transcribe #1 ASR beating Whisper, free Apache 2.0; Gumloop $50M Series B (Benchmark) signals AI workflow automation consolidation; Yahoo Scout (Anthropic + Bing) launches as #3 search engine.",
+    "last_strategy_run": "2026-04-29 (run 70): +5 new topics. AI coding tools: +2 (Google Android CLI 3x faster/70% less tokens, Android SKILL.md format guide). AI for developers: +3 (Gemma 4 Android on-device ExecuTorch, WebLLM browser inference 7tok/s WebGPU, Transformers.js+ONNX Runtime Web). Key signals: Google previewed Android CLI (April 20) designed for AI agents — new category of mobile dev tooling; browser-based LLM inference now production-viable via WebGPU; on-device mobile LLM market maturing with Gemma 4 on Android.",
     "unclustered_legacy": {
       "published": 48,
       "queued": 1,
