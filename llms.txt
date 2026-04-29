@@ -221,6 +221,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Claude Code Context Management 2026: The 60% Rule and CLAUDE.md Power Tips](https://baeseokjae.github.io/posts/claude-code-context-management-2026/) — Master claude code context management with the 60% rule, CLAUDE.md structure, and /compact command to boost productivity by 67%.
 - [Tray.io Review 2026: Enterprise AI Workflow Automation Deep Dive](https://baeseokjae.github.io/posts/tray-io-review-2026/) — Tray.io (now Tray.ai) review 2026: pricing, Merlin AI, connectors, and how it compares to Workato and Zapier for enterprise teams.
 - [Claude Opus 4.6 Review 2026: The New SWE-Bench Leader for Coding](https://baeseokjae.github.io/posts/claude-4-6-opus-review-2026/) — Claude Opus 4.6 review: 80.8% SWE-bench, 83% ARC-AGI-2 reasoning leap, Agent Teams compiler demo, and whether it&#39;s worth the upgrade over 4.5.
 - [Cursor Worktrees Guide 2026: Parallel Agents Without File Conflicts](https://baeseokjae.github.io/posts/cursor-worktrees-parallel-agents-2026/) — Learn how to run multiple Cursor AI agents in parallel using Git worktrees — no file conflicts, faster feature delivery, and smarter model comparison.
