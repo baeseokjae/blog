@@ -1347,7 +1347,8 @@
     "search_volume_est": 500,
     "kd_est": 8,
     "cluster": "AI for developers",
-    "discovered_at": "2026-04-16"
+    "discovered_at": "2026-04-16",
+    "paperclip_issue": "ROC-546"
   },
   {
     "title": "LangGraph Tutorial 2026: Build Stateful AI Agents with Graphs",
@@ -1721,7 +1722,7 @@
     "keyword": "agno framework python ai agent",
     "type": "guide",
     "priority": 139,
-    "status": "seeded",
+    "status": "writing",
     "search_volume_est": 200,
     "kd_est": 4,
     "cluster": "AI for developers",
