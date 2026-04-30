@@ -2495,7 +2495,7 @@
     "keyword": "magistral mistral",
     "type": "review",
     "priority": 199,
-    "status": "seeded",
+    "status": "writing",
     "search_volume_est": 300,
     "kd_est": 5,
     "cluster": "LLM comparison",
