@@ -2483,7 +2483,7 @@
     "keyword": "gpt-5.4 api",
     "type": "guide",
     "priority": 198,
-    "status": "seeded",
+    "status": "writing",
     "search_volume_est": 600,
     "kd_est": 8,
     "cluster": "LLM comparison",
@@ -14654,5 +14654,31 @@
     "cluster": "AI for developers",
     "discovered_at": "2026-04-30",
     "notes": "AI coding tools market reached $12.8B in 2026 (up from $5.1B in 2024 — 2.5x in 2 years). Key dynamics: computer-use agents becoming standard developer tools, multi-model routing replacing single-model dependence, 1M+ context windows now standard across frontier models. Market structure: Cursor ($2B ARR), GitHub Copilot (market share leader 29%), Claude Code (18% dev adoption, fastest growth). Developer implications: what consolidation means for tool choices, vendor risk in a rapidly evolving market, where open-source tools (Goose, OpenCode) fit vs paid tools. Growing enterprise buyer research intent. Near-zero dedicated market analysis for developers (not just enterprise buyers). KD 6, SV 320."
+  },
+  {
+    "title": "Claude Code Quality Degradation Postmortem: What Anthropic's 3-Bug Report Means for Developers (2026)",
+    "slug": "claude-code-quality-degradation-postmortem-2026",
+    "keyword": "claude code quality degradation postmortem 2026",
+    "type": "guide",
+    "priority": 1453,
+    "status": "queued",
+    "search_volume_est": 400,
+    "kd_est": 4,
+    "cluster": "AI coding tools",
+    "discovered_at": "2026-04-30",
+    "notes": "Anthropic published official engineering postmortem April 23, 2026 (anthropic.com/engineering/april-23-postmortem): three overlapping changes caused 6 weeks of Claude Code quality degradation. Bug 1: reduced reasoning effort (high→medium March 4, reversed April 7); Bug 2: caching bug clearing thinking every turn instead of once (March 26-April 10); Bug 3: verbosity limit instruction with 3% eval score drop (April 16-20). All fixed in v2.1.116. Usage limits reset April 23. Developer guide: what actually happened, how to verify you're on v2.1.116+, what effort levels are set now (xhigh default for Opus 4.7, high for others), lessons for monitoring AI tool quality degradation, when to suspect system prompt changes vs model changes. High developer interest — Fortune, VentureBeat coverage. KD 4, SV 400."
+  },
+  {
+    "title": "Google Vertex AI Gen AI Evaluation for Anthropic and Llama Models: Cross-Model Benchmarking Guide (2026)",
+    "slug": "vertex-ai-gen-eval-anthropic-llama-guide-2026",
+    "keyword": "vertex ai evaluation anthropic llama models 2026",
+    "type": "how-to",
+    "priority": 1454,
+    "status": "queued",
+    "search_volume_est": 280,
+    "kd_est": 5,
+    "cluster": "AI for developers",
+    "discovered_at": "2026-04-30",
+    "notes": "Google Vertex AI Gen AI evaluation service now supports Anthropic (Claude) and Llama models running on Vertex AI alongside Google's own models. Enables cross-model benchmarking using the same evaluation framework: compare GPT-5.5 (via Bedrock) vs Claude Opus 4.7 vs Gemini 3.1 Pro vs Llama 4 Maverick on the same dataset with standardized metrics. Developer guide: setting up Gen AI evaluation on Vertex AI, running Anthropic/Llama models in evaluations, custom metric configuration, side-by-side model comparison, exporting evaluation results. Significant for enterprise ML teams doing model selection. Near-zero dedicated guides for cross-model evaluation on Vertex. KD 5, SV 280."
   }
 ]
