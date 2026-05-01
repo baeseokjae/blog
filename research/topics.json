@@ -2750,12 +2750,13 @@
     "keyword": "lovable vs bolt",
     "type": "comparison",
     "priority": 220,
-    "status": "writing",
+    "status": "published",
     "search_volume_est": 400,
     "kd_est": 6,
     "cluster": "AI coding tools",
     "discovered_at": "2026-04-19",
-    "paperclip_issue": "ROC-2126"
+    "paperclip_issue": "ROC-2126",
+    "published_at": "2026-05-01T21:03:16.898557Z"
   },
   {
     "title": "Cline vs Roo Code 2026: Best Open-Source VS Code AI Agent Compared",
