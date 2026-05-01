@@ -2814,11 +2814,12 @@
     "keyword": "ai app builder mvp guide",
     "type": "guide",
     "priority": 225,
-    "status": "researched",
+    "status": "published",
     "search_volume_est": 400,
     "kd_est": 7,
     "cluster": "AI coding tools",
-    "discovered_at": "2026-04-19"
+    "discovered_at": "2026-04-19",
+    "published_at": "2026-05-01T09:03:13.146298Z"
   },
   {
     "title": "AI Code Review Tools 2026: CodeRabbit vs Qodo vs Greptile vs GitHub Copilot",
@@ -2876,11 +2877,12 @@
     "keyword": "google adk typescript",
     "type": "guide",
     "priority": 230,
-    "status": "researched",
+    "status": "published",
     "search_volume_est": 250,
     "kd_est": 5,
     "cluster": "AI for developers",
-    "discovered_at": "2026-04-19"
+    "discovered_at": "2026-04-19",
+    "published_at": "2026-05-01T09:03:13.146141Z"
   },
   {
     "title": "CrewAI A2A Protocol Tutorial 2026: Agent-to-Agent Communication with Google A2A",
@@ -2888,11 +2890,12 @@
     "keyword": "crewai a2a protocol",
     "type": "how-to",
     "priority": 231,
-    "status": "researched",
+    "status": "published",
     "search_volume_est": 300,
     "kd_est": 6,
     "cluster": "AI for developers",
-    "discovered_at": "2026-04-19"
+    "discovered_at": "2026-04-19",
+    "published_at": "2026-05-01T09:03:13.146205Z"
   },
   {
     "title": "OpenAgents Framework Guide 2026: Build Persistent Agent Networks with State Management",
@@ -2900,11 +2903,12 @@
     "keyword": "openagents framework",
     "type": "guide",
     "priority": 232,
-    "status": "researched",
+    "status": "published",
     "search_volume_est": 200,
     "kd_est": 4,
     "cluster": "AI for developers",
-    "discovered_at": "2026-04-19"
+    "discovered_at": "2026-04-19",
+    "published_at": "2026-05-01T09:03:13.146253Z"
   },
   {
     "title": "Grok 4 Review 2026: xAI Flagship Model, grok-code-fast, Benchmarks and API",
