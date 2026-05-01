@@ -1,4 +1,421 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Vibe Coding on RockB</title><link>https://baeseokjae.github.io/tags/vibe-coding/</link><description>Recent content in Vibe Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2026 00:04:33 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/vibe-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Vibe Coding Explained: The Complete Developer Guide for 2026</title><link>https://baeseokjae.github.io/posts/vibe-coding-explained-the-complete-developer-guide-for-2026/</link><pubDate>Thu, 30 Apr 2026 00:04:33 +0000</pubDate><guid>https://baeseokjae.github.io/posts/vibe-coding-explained-the-complete-developer-guide-for-2026/</guid><description>Vibe coding lets developers build software by describing intent in natural language and letting AI write the code — here&amp;#39;s everything you need to know in 2026.</description><content:encoded><![CDATA[<p>Vibe coding is a development approach where you describe what you want in natural language and let an AI model write the code — you steer with intent, not keystrokes. Coined by Andrej Karpathy in February 2025, the technique went from viral tweet to mainstream workflow in under a year, reshaping how developers, designers, and non-engineers build software in 2026.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Vibe Coding on RockB</title><link>https://baeseokjae.github.io/tags/vibe-coding/</link><description>Recent content in Vibe Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 18:04:13 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/vibe-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Lovable vs Bolt.new Comparison 2026: Which AI App Builder Is Right for You?</title><link>https://baeseokjae.github.io/posts/lovable-vs-bolt-comparison-2026/</link><pubDate>Fri, 01 May 2026 18:04:13 +0000</pubDate><guid>https://baeseokjae.github.io/posts/lovable-vs-bolt-comparison-2026/</guid><description>Lovable vs Bolt.new 2026 in-depth comparison: pricing, features, backend capabilities, and which AI app builder fits your use case.</description><content:encoded><![CDATA[<p>Lovable is better for non-technical founders who want a complete full-stack app with one click. Bolt.new is better for developers who want granular code control, multi-model flexibility, and a cloud IDE experience. Both cost $25/month for Pro — but they serve fundamentally different mental models about what &ldquo;building an app&rdquo; means.</p>
+<h2 id="lovable-vs-boltnew-at-a-glance-2026-overview">Lovable vs Bolt.new at a Glance: 2026 Overview</h2>
+<p>Lovable and Bolt.new are the two dominant AI app builders in 2026, each representing a distinct philosophy about how software should be created. Lovable — formerly known as GPT Engineer — hit <strong>$400M ARR in February 2026</strong>, up from $100M in July 2025, backed by a $330M Series B at a $6.6B valuation led by CapitalG and Menlo Ventures. With approximately 8 million users, 25 million total projects, and 100,000+ new projects created daily, Lovable&rsquo;s growth trajectory reflects its strength in the non-technical founder market. Bolt.new, built by StackBlitz, reached <strong>$40M ARR in just 5 months</strong> — making it the second-fastest-growing software product after ChatGPT — and has 5 million registered users with ~5.43 million monthly visits as of March 2026. The $360M ARR gap between the two tools is not an accident; it reflects the product-first, fully managed approach Lovable takes compared to Bolt&rsquo;s developer-centric cloud IDE model. Both tools enable &ldquo;vibe coding&rdquo; — the practice of shipping real software through natural language prompts — but they target different users at different stages of technical confidence.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Metric</th>
+          <th>Lovable</th>
+          <th>Bolt.new</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ARR (2026)</td>
+          <td>$400M</td>
+          <td>~$40M</td>
+      </tr>
+      <tr>
+          <td>Users</td>
+          <td>~8M</td>
+          <td>~5M</td>
+      </tr>
+      <tr>
+          <td>Valuation</td>
+          <td>$6.6B</td>
+          <td>~$700M</td>
+      </tr>
+      <tr>
+          <td>Monthly visits</td>
+          <td>Est. 10M+</td>
+          <td>~5.43M</td>
+      </tr>
+      <tr>
+          <td>Free plan</td>
+          <td>5 credits/day</td>
+          <td>1M tokens/month</td>
+      </tr>
+      <tr>
+          <td>Pro plan</td>
+          <td>$25/month</td>
+          <td>$25/month</td>
+      </tr>
+      <tr>
+          <td>Backend</td>
+          <td>Supabase (auto)</td>
+          <td>Bolt Cloud / manual</td>
+      </tr>
+      <tr>
+          <td>Primary user</td>
+          <td>Non-technical founders</td>
+          <td>Developers</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="who-should-use-each-tool-target-audience-breakdown">Who Should Use Each Tool? Target Audience Breakdown</h2>
+<p>Lovable is purpose-built for non-technical users — founders, product managers, and entrepreneurs who want to ship real software without writing a line of code. Its chat-first interface guides users through structured planning stages, and its one-click deployment immediately produces a shareable URL without extra configuration. If you&rsquo;ve never opened a terminal and want a working SaaS product by end of week, Lovable is the right tool. Bolt.new occupies the opposite end: it exposes the full file tree, integrated terminal, and code editor alongside its AI generation layer. Developers get the control of a traditional IDE plus the speed of AI code generation. Bolt&rsquo;s multi-model support — Claude Opus 4.6, GPT-4o, Gemini — lets experienced developers switch models based on task type, something Lovable doesn&rsquo;t offer. According to benchmark tests from nxcode.io, Lovable generated a working prototype in 47 minutes versus Bolt.new&rsquo;s 52 minutes for a comparable full-stack app — a small gap that matters less than the user experience difference between the two tools.</p>
+<p><strong>Choose Lovable if you are:</strong></p>
+<ul>
+<li>A non-technical founder building your first SaaS product</li>
+<li>A product manager prototyping before handing off to engineering</li>
+<li>Someone who wants backend, auth, database, and hosting wired automatically</li>
+<li>Running a business that needs SSO and a security center (Business plan)</li>
+</ul>
+<p><strong>Choose Bolt.new if you are:</strong></p>
+<ul>
+<li>A developer who wants AI speed with IDE-level control</li>
+<li>Someone who needs to switch between AI models for different task types</li>
+<li>Building something that requires custom backend wiring or Express API routes</li>
+<li>Working in markets where Bolt&rsquo;s geographic pricing offers value (India, Brazil)</li>
+</ul>
+<h2 id="feature-by-feature-comparison">Feature-by-Feature Comparison</h2>
+<p>Lovable and Bolt.new have been converging on features throughout 2026, but meaningful differences remain. Lovable handles the entire stack automatically — frontend (React), backend (Supabase), database, authentication, file storage, and hosting — with zero configuration required. A new workspace auto-provisions a Supabase backend, wires the auth layer, and sets up row-level security before you write your first prompt. Bolt.new can generate backend code including Express routes and API endpoints, but service wiring (database connections, auth providers, file storage) requires manual configuration or additional prompting. Bolt v2 closed part of this gap by introducing agentic capabilities: it now plans, iterates, and autonomously fixes issues without waiting for explicit instructions. Bolt&rsquo;s 2026 upgrade roster — Team Templates, Editable Netlify URLs, Opus 4.6 model integration, Figma import, and AI image editing — has made it genuinely competitive for developers who previously found it too limited for production work. Lovable&rsquo;s UI output consistently scores higher in design reviews: colors, spacing, and layout are more polished out of the box, reflecting its training emphasis on non-technical users who can&rsquo;t manually fix visual issues.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Lovable</th>
+          <th>Bolt.new</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Frontend</td>
+          <td>React (auto)</td>
+          <td>React / custom</td>
+      </tr>
+      <tr>
+          <td>Backend</td>
+          <td>Supabase (auto-provisioned)</td>
+          <td>Bolt Cloud / manual</td>
+      </tr>
+      <tr>
+          <td>Auth</td>
+          <td>Built-in (Supabase Auth)</td>
+          <td>Manual wiring</td>
+      </tr>
+      <tr>
+          <td>Database</td>
+          <td>Supabase Postgres</td>
+          <td>Configurable</td>
+      </tr>
+      <tr>
+          <td>File storage</td>
+          <td>Supabase Storage</td>
+          <td>Manual</td>
+      </tr>
+      <tr>
+          <td>Deployment</td>
+          <td>One-click (instant URL)</td>
+          <td>Netlify (Editable URLs)</td>
+      </tr>
+      <tr>
+          <td>AI model</td>
+          <td>Claude (fixed)</td>
+          <td>Claude, GPT-4o, Gemini</td>
+      </tr>
+      <tr>
+          <td>Code editor</td>
+          <td>Limited</td>
+          <td>Full IDE</td>
+      </tr>
+      <tr>
+          <td>Terminal</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>File tree</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Figma import</td>
+          <td>No</td>
+          <td>Yes (2026)</td>
+      </tr>
+      <tr>
+          <td>Agentic planning</td>
+          <td>Basic</td>
+          <td>Bolt v2 full agentic</td>
+      </tr>
+      <tr>
+          <td>UI polish</td>
+          <td>High</td>
+          <td>Medium</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="pricing-breakdown-credits-vs-tokens">Pricing Breakdown: Credits vs Tokens</h2>
+<p>Both Lovable and Bolt.new charge $25/month for their Pro plans, but the underlying pricing models work very differently — and the difference matters more as your project grows. Lovable uses a <strong>credit system</strong>: the free plan gives 5 credits per day (30/month max), while Pro adds 100 monthly credits plus 5 daily. Each credit corresponds roughly to one meaningful generation task — creating a component, fixing a bug, adding a feature. The credit model is highly predictable: you can budget how many changes you&rsquo;ll make in a month without worrying about token overruns. Bolt.new uses a <strong>token model</strong>: the free plan includes 1M tokens/month, Pro provides 10M tokens with rollover. Tokens are consumed based on how much code context is processed per generation — and this is where complex projects create unexpected costs. According to mindstudio.ai&rsquo;s analysis, complex SaaS apps with 20+ pages burn Bolt tokens significantly faster than Lovable credits, because Bolt processes the full codebase context with each generation cycle. For simple projects, Bolt&rsquo;s 10M token Pro plan is generous. For large, multi-page apps, Lovable&rsquo;s credit model is more cost-predictable.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Plan</th>
+          <th>Lovable</th>
+          <th>Bolt.new</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Free</td>
+          <td>5 credits/day (30/month)</td>
+          <td>1M tokens/month</td>
+      </tr>
+      <tr>
+          <td>Pro</td>
+          <td>$25/month — 100 credits + 5/day</td>
+          <td>$25/month — 10M tokens + rollover</td>
+      </tr>
+      <tr>
+          <td>Business</td>
+          <td>$50/month — SSO, teams, security center</td>
+          <td>$30/member/month (Teams)</td>
+      </tr>
+      <tr>
+          <td>Scale</td>
+          <td>Custom</td>
+          <td>Custom</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Key pricing insight:</strong> For simple apps and prototypes, both Pro plans deliver comparable value at the same $25 price point. For complex, multi-page SaaS products, Lovable&rsquo;s credit model provides more predictable costs than Bolt&rsquo;s token consumption model.</p>
+<h2 id="backend-capabilities-supabase-vs-bolt-cloud">Backend Capabilities: Supabase vs Bolt Cloud</h2>
+<p>The backend story is where Lovable and Bolt.new diverge most significantly — and where Bolt has made the biggest strides in 2026. Lovable&rsquo;s native Supabase integration is its most powerful differentiator: every new project automatically provisions a Supabase instance with Postgres database, real-time subscriptions, row-level security policies, Auth (email, OAuth, magic link), Storage buckets, and Edge Functions. Non-technical users get a production-ready backend with zero configuration, zero vendor selection, and zero wiring. This is why Lovable can credibly claim it &ldquo;handles the entire stack&rdquo; — because it literally does, with no additional setup. Bolt Cloud has been closing this gap aggressively in 2026. The platform now supports automatic backend provisioning for new projects, and its agentic layer can configure database schemas and API routes with less manual prompting than before. However, blog.tooljet.com&rsquo;s analysis notes that Bolt Cloud&rsquo;s integration is not yet as seamless as Lovable&rsquo;s native Supabase connection — particularly around auth flows and real-time features. Developers who need non-Supabase backends (PlanetScale, Neon, custom Postgres, Firebase) will find Bolt&rsquo;s flexibility more useful, since Lovable&rsquo;s Supabase-first architecture can feel constraining for specific stack requirements.</p>
+<p><strong>Lovable backend stack:</strong></p>
+<ul>
+<li>Database: Supabase Postgres (auto-provisioned)</li>
+<li>Auth: Supabase Auth (email, OAuth, magic link)</li>
+<li>Storage: Supabase Storage buckets</li>
+<li>Real-time: Supabase Realtime</li>
+<li>Functions: Supabase Edge Functions</li>
+<li>Deployment: Lovable cloud hosting</li>
+</ul>
+<p><strong>Bolt.new backend options:</strong></p>
+<ul>
+<li>Bolt Cloud (auto-provisioning, 2026 upgrade)</li>
+<li>Custom Postgres (PlanetScale, Neon, Supabase)</li>
+<li>Firebase / Firestore</li>
+<li>Express.js API routes (manually wired)</li>
+<li>Custom Node.js backends</li>
+<li>Deployment: Netlify (with editable URLs)</li>
+</ul>
+<h2 id="ui-quality-and-code-output-side-by-side-results">UI Quality and Code Output: Side-by-Side Results</h2>
+<p>Lovable consistently produces cleaner, more polished UI output than Bolt.new — a pattern confirmed across multiple independent reviews in 2026. The visual quality difference comes from Lovable&rsquo;s training emphasis: it&rsquo;s optimized for non-technical users who cannot manually fix visual regressions, so the initial output must be presentation-ready. Colors are cohesive, spacing follows a consistent grid, layout adapts naturally across breakpoints, and component libraries are used correctly out of the box. Bolt.new&rsquo;s UI output is functional but often requires more iteration and manual prompting to reach the same visual quality. Where Bolt excels is code structure: its output tends to follow cleaner component separation and more explicit TypeScript typing, reflecting its developer-focused design. Developers who will subsequently edit the code directly prefer Bolt&rsquo;s output because it&rsquo;s easier to maintain and extend. Lovable&rsquo;s code, while producing better immediate visuals, can sometimes be harder to modify because it&rsquo;s structured for AI iteration rather than human editing. Both tools have improved significantly in 2026 — Bolt&rsquo;s diffs feature (updating only changed code rather than regenerating full files) meaningfully improved both speed and code quality since 2025.</p>
+<p><strong>Code quality comparison:</strong></p>
+<ul>
+<li><strong>Visual polish</strong>: Lovable wins — better colors, spacing, layout consistency</li>
+<li><strong>Code maintainability</strong>: Bolt wins — cleaner TypeScript, better component separation</li>
+<li><strong>Generation speed</strong>: Bolt&rsquo;s diffs feature makes incremental changes faster</li>
+<li><strong>Iteration quality</strong>: Lovable&rsquo;s credit model encourages more deliberate prompting; Bolt&rsquo;s tokens encourage rapid iteration</li>
+</ul>
+<h2 id="speed-and-performance-prototype-benchmark">Speed and Performance: Prototype Benchmark</h2>
+<p>Speed-to-prototype is one of the most cited metrics when comparing AI app builders, and the 2026 benchmark results are close. In nxcode.io&rsquo;s controlled test building a comparable full-stack app (user auth, database-backed CRUD, dashboard UI), Lovable completed a working prototype in <strong>47 minutes</strong> versus Bolt.new&rsquo;s <strong>52 minutes</strong> — a 10% advantage for Lovable that reflects its automated backend provisioning eliminating the setup steps Bolt requires manually. The raw generation speed comparison favors Bolt when looking only at code output: its diffs feature means incremental changes (adding a feature, fixing a bug) process only the delta rather than regenerating the full codebase, making individual iterations faster. Lovable&rsquo;s advantage comes from zero-configuration backend setup — a developer using Bolt may generate code faster per step but spend additional time connecting services, configuring auth, and wiring the database. For non-technical users, Lovable&rsquo;s end-to-end speed is unambiguously faster because it eliminates entire categories of setup that Bolt requires. For developers already familiar with backend tooling, Bolt&rsquo;s raw generation speed combined with manual setup can match or beat Lovable for projects with non-standard stack requirements.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Speed factor</th>
+          <th>Lovable</th>
+          <th>Bolt.new</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Full-stack prototype</td>
+          <td>~47 min</td>
+          <td>~52 min</td>
+      </tr>
+      <tr>
+          <td>Incremental changes</td>
+          <td>Slower (full regeneration)</td>
+          <td>Faster (diffs)</td>
+      </tr>
+      <tr>
+          <td>Backend setup time</td>
+          <td>Zero (auto-provisioned)</td>
+          <td>10–30 min (manual wiring)</td>
+      </tr>
+      <tr>
+          <td>Deployment time</td>
+          <td>Instant (one-click URL)</td>
+          <td>Minutes (Netlify)</td>
+      </tr>
+      <tr>
+          <td>Total to shareable URL</td>
+          <td>Fastest</td>
+          <td>Slightly slower</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="when-to-choose-lovable">When to Choose Lovable</h2>
+<p>Lovable is the right choice when your primary goal is shipping a complete product quickly with minimal technical overhead. The tool was built for non-technical founders, and its entire product experience — from the chat-first interface to automatic Supabase provisioning to one-click deployment — reflects that priority. If you&rsquo;ve never written backend code and want a production-ready SaaS app with real auth, a real database, and a real domain name by end of week, Lovable is the fastest path from idea to live product available in 2026. Its $400M ARR and 8 million users validate that this use case resonates at scale. The Business plan at $50/month adds enterprise features (SSO, team workspace, security center) that make Lovable viable for small teams with compliance requirements. The predictable credit model is a genuine advantage for budget-conscious founders who want to know exactly what they&rsquo;re spending. Lovable also wins for UI-heavy products — landing pages, dashboards, SaaS portals — where visual polish matters more than code maintainability.</p>
+<p><strong>Best Lovable use cases:</strong></p>
+<ul>
+<li>Solo founders building SaaS MVPs without technical co-founders</li>
+<li>Product managers creating testable prototypes for stakeholder review</li>
+<li>Marketers building landing pages and lead capture apps</li>
+<li>Non-technical entrepreneurs validating ideas before hiring developers</li>
+<li>Small teams needing SSO and a security audit trail (Business plan)</li>
+<li>Projects that require a complete Supabase stack with zero configuration</li>
+</ul>
+<h2 id="when-to-choose-boltnew">When to Choose Bolt.new</h2>
+<p>Bolt.new is the right choice when you want AI speed without surrendering developer control. Its full IDE experience — file tree, terminal, code editor alongside the AI chat — means you can generate code with AI and then directly edit it without context switching. Multi-model support is Bolt&rsquo;s unique advantage: you can use Claude Opus 4.6 for complex reasoning, GPT-4o for fast prototyping, and Gemini for specific tasks, optimizing each step of your build for the best model. The 2026 feature additions — Figma import, agentic Bolt v2, Team Templates, AI image editing — have made Bolt genuinely competitive for production development work, not just prototyping. Bolt&rsquo;s flexible backend approach suits developers with specific stack requirements: if you need PlanetScale instead of Supabase, or a custom Express API alongside your frontend, Bolt accommodates those needs where Lovable&rsquo;s Supabase-first architecture doesn&rsquo;t. At 5 million users and $40M ARR, Bolt&rsquo;s growth confirms strong demand among the developer segment that wants AI acceleration without giving up IDE-level control.</p>
+<p><strong>Best Bolt.new use cases:</strong></p>
+<ul>
+<li>Developers who want to edit generated code directly</li>
+<li>Projects requiring custom backends (non-Supabase databases, custom APIs)</li>
+<li>Teams that benefit from model switching (Claude, GPT-4o, Gemini)</li>
+<li>Developers wanting Figma-to-code import workflows</li>
+<li>Projects where incremental diff-based updates matter for performance</li>
+<li>International teams in India, Brazil, Southeast Asia (strong geographic user base)</li>
+</ul>
+<h2 id="verdict-which-ai-app-builder-is-right-for-you-in-2026">Verdict: Which AI App Builder Is Right for You in 2026?</h2>
+<p>The choice between Lovable and Bolt.new comes down to one question: are you building <em>as</em> a developer, or building <em>despite</em> not being one? Lovable wins for non-technical users who want to ship complete products without learning infrastructure. Its $6.6B valuation, $400M ARR, and 8 million users reflect the size of that market — and the quality of the product serving it. The automatic Supabase stack, one-click deployment, and polished UI output make it the fastest path from idea to live product for founders who&rsquo;ve never touched backend code. Bolt.new wins for developers who want AI code generation with full IDE control and multi-model flexibility. Its $40M ARR in 5 months proves real demand from the developer segment that wasn&rsquo;t served by Lovable&rsquo;s chat-first, non-technical approach. The agentic Bolt v2, Figma import, and growing Bolt Cloud backend capabilities mean it&rsquo;s no longer just a prototype tool — it&rsquo;s a development environment where AI and human engineering genuinely collaborate. If you&rsquo;re building your first SaaS product with no technical background: <strong>choose Lovable</strong>. If you&rsquo;re a developer looking for AI acceleration without losing control of your codebase: <strong>choose Bolt.new</strong>. Both cost $25/month for Pro. Try both free tiers before committing — and choose the one that matches how you think about building software.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>The most common questions about Lovable vs Bolt.new center on three topics: which tool is better for a specific use case, how pricing actually works in practice, and whether Bolt.new can match Lovable&rsquo;s full-stack capabilities. The short answers: Lovable wins for non-technical founders who want zero-configuration full-stack apps, Bolt wins for developers who want AI speed plus IDE control, and pricing is identical at $25/month Pro but works very differently under the hood. Lovable&rsquo;s credit model is more predictable for complex projects; Bolt&rsquo;s token model is more generous for simple prototypes. On backend capabilities, Lovable&rsquo;s automatic Supabase integration remains the stronger default for non-technical users, while Bolt&rsquo;s flexibility suits developers with specific stack requirements. Below are the five most frequently asked questions about these two dominant AI app builders in 2026, with direct answers based on current pricing, benchmark data, and platform capabilities.</p>
+<h3 id="is-lovable-better-than-boltnew-in-2026">Is Lovable better than Bolt.new in 2026?</h3>
+<p>Lovable is better for non-technical users who want a complete full-stack app — frontend, backend, auth, database, and hosting — with zero configuration. Bolt.new is better for developers who want AI code generation combined with full IDE control and multi-model flexibility. Lovable&rsquo;s $400M ARR vs Bolt&rsquo;s $40M ARR reflects the larger market of non-technical founders, but both tools serve their respective audiences well in 2026.</p>
+<h3 id="how-much-does-lovable-vs-boltnew-cost">How much does Lovable vs Bolt.new cost?</h3>
+<p>Both Lovable and Bolt.new Pro plans cost $25/month. Lovable&rsquo;s free plan gives 5 credits/day (30/month max); Bolt&rsquo;s free plan includes 1M tokens/month. Lovable&rsquo;s Business plan is $50/month and adds SSO and security center features. Bolt&rsquo;s Teams plan costs $30/member/month. For complex multi-page SaaS apps, Lovable&rsquo;s credit model tends to be more cost-predictable than Bolt&rsquo;s token consumption model.</p>
+<h3 id="which-ai-app-builder-is-faster-for-building-a-prototype">Which AI app builder is faster for building a prototype?</h3>
+<p>Lovable generated a working full-stack prototype in 47 minutes versus Bolt.new&rsquo;s 52 minutes in benchmark testing (nxcode.io, 2026). Lovable&rsquo;s speed advantage comes from automatic Supabase backend provisioning eliminating manual setup. However, Bolt&rsquo;s diffs feature makes incremental changes faster once the project is set up. For getting to a shareable URL from scratch, Lovable is consistently faster for non-technical users.</p>
+<h3 id="can-boltnew-handle-full-stack-apps-like-lovable">Can Bolt.new handle full-stack apps like Lovable?</h3>
+<p>Bolt.new can generate backend code including Express API routes and database queries, but service wiring (auth, file storage, real-time) requires more manual configuration than Lovable&rsquo;s fully automatic Supabase integration. Bolt Cloud has been improving in 2026 and is closing the gap, but Lovable&rsquo;s native Supabase stack remains more seamless for users who don&rsquo;t want to configure backend services manually.</p>
+<h3 id="whats-the-difference-between-lovable-credits-and-bolt-tokens">What&rsquo;s the difference between Lovable credits and Bolt tokens?</h3>
+<p>Lovable uses a credit system where each credit represents one meaningful generation task (creating a component, fixing a bug). Bolt uses a token model where consumption depends on how much codebase context is processed per generation. For simple projects, both are comparable at the $25/month Pro price point. For complex SaaS apps with 20+ pages, Lovable credits are more predictable; Bolt tokens can be consumed faster because the full codebase context is processed with each generation cycle.</p>
+]]></content:encoded></item><item><title>Lovable Review 2026: The $6.6B AI App Builder That Ships Real Products</title><link>https://baeseokjae.github.io/posts/lovable-review-2026/</link><pubDate>Fri, 01 May 2026 15:05:03 +0000</pubDate><guid>https://baeseokjae.github.io/posts/lovable-review-2026/</guid><description>Honest Lovable review for 2026: pricing, agent mode, real build tests, and how it compares to Bolt and v0.</description><content:encoded><![CDATA[<p>Lovable is a browser-based AI app builder that converts natural language prompts into full-stack React applications — with working auth, database connections, and deployable code — without requiring you to write a single line. In 2026, it is the fastest-growing AI developer tool on the market.</p>
+<h2 id="what-is-lovable-the-66b-ai-app-builder-that-went-from-zero-to-unicorn">What Is Lovable? The $6.6B AI App Builder That Went From Zero to Unicorn</h2>
+<p>Lovable is a full-stack AI app builder that lets anyone — regardless of coding background — describe a product idea in plain language and receive a deployed, production-ready web application in return. Founded in 2023, Lovable grew from a side project into a $6.6B company in under two years, closing a $330M Series B round led by CapitalG and Menlo Ventures in December 2025. By February 2026, it had reached $400M ARR — up from $100M just seven months earlier in July 2025 — making it one of the fastest ARR growth curves in software history. The platform now serves approximately 8 million users who have shipped more than 25 million total projects, with 100,000 new projects created every single day. Zendesk ran an internal test and found that prototyping time dropped from 6 weeks to 3 hours using Lovable. Other enterprise customers include Klarna and Uber. Lovable&rsquo;s core pitch is simple: if you can describe your idea, you can ship your idea. That value proposition has proven remarkably durable — and remarkably profitable.</p>
+<h3 id="why-has-lovable-grown-so-fast">Why Has Lovable Grown So Fast?</h3>
+<p>Lovable capitalized on the &ldquo;vibe coding&rdquo; movement — the idea that describing intent is more productive than writing imperative code. Unlike traditional no-code tools that constrain you to rigid templates, Lovable generates editable, exportable React and TypeScript source code. This gives technical users an escape hatch: if the AI produces something wrong, you can push the code to GitHub and fix it directly. Non-technical founders get a working MVP without a developer. Technical founders get a 10x speed multiplier. That dual appeal — plus deep Supabase integration for instant backend setup — explains why the platform crossed 8 million users before most competing tools hit their first million.</p>
+<h2 id="lovable-20-in-2026-multiplayer-collaboration-agent-mode-and-security-upgrades">Lovable 2.0 in 2026: Multiplayer Collaboration, Agent Mode, and Security Upgrades</h2>
+<p>Lovable 2.0, launched in February 2026, is the most significant product update in the platform&rsquo;s history. It introduced three capabilities that fundamentally change the experience: real-time multiplayer collaboration for up to 20 simultaneous users, a multi-step agentic mode that plans and executes complex features across multiple files, and a new security hardening layer for enterprise deployments. The headline metric: Lovable 2.0&rsquo;s agent mode reduces errors by 91% compared to the previous single-step approach. That number comes from Lovable&rsquo;s own benchmarks, but it matches what users report in practice — the old Lovable would frequently &ldquo;spin&rdquo; on a problem, making the same broken change repeatedly. The new agent mode breaks down a task into explicit reasoning steps, checks its own output, and backtracks when something breaks. For non-technical founders, this means far fewer dead ends. For developers using Lovable as an accelerator, it means first-draft code that requires less cleanup before it is production-worthy.</p>
+<h3 id="what-is-agent-mode">What Is Agent Mode?</h3>
+<p>Agent mode is Lovable&rsquo;s multi-step reasoning engine. Instead of generating one file change per prompt, it creates a plan, executes it across multiple files, verifies results, and retries on failure. Users who previously needed 8–12 prompts to scaffold a feature now often complete it in 2–3. Agent mode is available on all paid plans and is automatically applied when Lovable detects that a task requires coordinating more than one file or data layer.</p>
+<h3 id="multi-user-collaboration">Multi-User Collaboration</h3>
+<p>Lovable 2.0 supports real-time collaboration for up to 20 users — similar to Figma&rsquo;s multiplayer model, but for full-stack code generation. Teams can work on separate features simultaneously without branch conflicts because Lovable tracks a logical project graph rather than a raw file system. This is the feature that pushed enterprise adoption: Klarna and Zendesk now use Lovable for cross-functional prototyping sessions where designers, PMs, and engineers collaborate live on the same project.</p>
+<h2 id="core-features-breakdown-what-lovable-actually-builds-for-you">Core Features Breakdown: What Lovable Actually Builds for You</h2>
+<p>Lovable generates complete React and TypeScript applications — not wireframes, not UI mockups, not component libraries. A finished Lovable project includes a working frontend with Tailwind CSS styling, a connected Supabase backend with authentication and a Postgres database, automatic deployment to a Lovable subdomain with optional custom domain support, one-click GitHub export so you own the code, and an integrated chat interface for iterative changes. The platform handles routing, form validation, API calls, and state management automatically. When you ask Lovable to &ldquo;add a dashboard showing monthly revenue by product category with a bar chart,&rdquo; it writes the query, creates the chart component, wires up the data fetch, and renders the result — typically in under 90 seconds. For standard CRUD applications, internal tools, and early-stage MVPs, this level of output quality is genuinely production-grade. The gaps appear when you need highly custom UI interactions, complex business logic with many edge cases, or integrations with non-standard APIs that require bespoke authentication flows.</p>
+<h3 id="what-types-of-apps-work-best">What Types of Apps Work Best?</h3>
+<p>Lovable performs exceptionally well for: SaaS MVPs with user auth and a simple data model, internal admin dashboards, customer-facing portals, landing pages with embedded forms, and prototype apps for investor demos. It struggles with: real-time multiplayer features (beyond its built-in collaboration), mobile-first layouts requiring native gestures, heavy data visualization with custom rendering, and apps that require proprietary SDKs with complex authentication.</p>
+<h3 id="integrations-and-ecosystem">Integrations and Ecosystem</h3>
+<p>Out of the box, Lovable integrates with Supabase (database and auth), Stripe (payments), Resend (email), GitHub (code export and version control), and any REST API you can describe in a prompt. The Supabase integration is particularly mature — Lovable can read your existing schema and generate code that respects your data model, rather than inventing a parallel structure.</p>
+<h2 id="lovable-pricing-and-credits-free-tier-plans-and-hidden-costs">Lovable Pricing and Credits: Free Tier, Plans, and Hidden Costs</h2>
+<p>Lovable uses a credit system where each AI action — generating code, running agent mode, creating a new project — consumes credits. The free plan gives you 30 credits per month plus 5 daily bonus credits, for a practical ceiling of roughly 180 credits per month if you log in every day. Paid plans start at $25/month for 100 credits and scale up to enterprise tiers with unlimited credits and priority support. The credit model is one of the most complained-about aspects of Lovable. Users report that a complex feature can consume 10–15 credits in a single session, meaning the $25 starter plan supports roughly 7–10 meaningful build sessions per month. The $50/month Pro plan (250 credits) is the recommended starting point for anyone building seriously. The most common trap is burning credits on debugging loops — when Lovable makes a mistake and you prompt it repeatedly to fix it, each retry costs a credit. Agent mode significantly reduces this problem because it self-corrects within a single credit-counted interaction, but it does not eliminate it entirely.</p>
+<h3 id="how-to-maximize-your-credits">How to Maximize Your Credits</h3>
+<p>The single best credit-saving habit is to be specific upfront. A vague prompt like &ldquo;make a dashboard&rdquo; will cost 3–4 credits across iterations. A precise prompt like &ldquo;create a dashboard with three KPI cards showing total users, monthly revenue, and churn rate, using data from the <code>metrics</code> table in Supabase, with a line chart below for the last 30 days&rdquo; usually produces a usable result in one or two credits. Also: use the built-in &ldquo;edit&rdquo; mode for small changes rather than re-prompting from scratch — edits cost fewer credits than full generations.</p>
+<h3 id="is-the-free-plan-worth-using">Is the Free Plan Worth Using?</h3>
+<p>Yes, for evaluation. The free plan&rsquo;s 30 monthly credits plus daily bonuses are enough to build and deploy 2–3 simple projects. It is not enough for serious product development. If you are evaluating Lovable for a real project, start with the $25 plan for a month — the $50 Pro plan makes more sense if you are building something you intend to ship.</p>
+<h2 id="lovable-vs-bolt-vs-v0-head-to-head-comparison-for-2026">Lovable vs Bolt vs v0: Head-to-Head Comparison for 2026</h2>
+<p>Lovable, Bolt (by StackBlitz), and v0 (by Vercel) are the three dominant AI app builders in 2026, each with a distinct philosophy. Lovable is a full deployment platform — it generates, hosts, and iterates your app in one place. Bolt runs in a browser-based Node environment and emphasizes developer control, with React Native support for mobile apps that Lovable lacks. v0 focuses on UI component generation, producing polished Shadcn/Tailwind components rather than complete applications. For design quality, Lovable scores an 8/10 versus Bolt&rsquo;s 5/10 according to ToolJet&rsquo;s 2025 benchmark. For mobile app development, Bolt is the only option of the three. For pure UI prototyping, v0 produces the most refined visual output. For complete full-stack MVPs with backend, auth, and deployment — Lovable wins clearly.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Lovable</th>
+          <th>Bolt</th>
+          <th>v0</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Full-stack generation</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>No (UI only)</td>
+      </tr>
+      <tr>
+          <td>Built-in deployment</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Mobile (React Native)</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Multi-user collaboration</td>
+          <td>Yes (up to 20)</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Supabase integration</td>
+          <td>Native</td>
+          <td>Manual</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Free tier</td>
+          <td>30 credits/mo</td>
+          <td>Limited</td>
+          <td>Limited</td>
+      </tr>
+      <tr>
+          <td>Design quality</td>
+          <td>8/10</td>
+          <td>5/10</td>
+          <td>9/10</td>
+      </tr>
+      <tr>
+          <td>Best for</td>
+          <td>Full MVPs</td>
+          <td>Dev-controlled builds</td>
+          <td>UI components</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="when-to-choose-lovable-over-bolt">When to Choose Lovable Over Bolt</h3>
+<p>Choose Lovable when you need a complete, deployed application with a real backend — especially if you are non-technical or working with a cross-functional team. Choose Bolt when you want maximum developer control, need React Native for mobile, or prefer to manage your own hosting. Choose v0 when you need beautiful UI components to integrate into an existing Next.js project.</p>
+<h3 id="base44-the-dark-horse-competitor">Base44: The Dark Horse Competitor</h3>
+<p>Base44 is an emerging competitor that adopts a similar full-stack approach with a simpler pricing model (flat monthly subscription, no credits). It lacks Lovable&rsquo;s enterprise features and collaboration tools but is gaining traction among solo founders who find the credit system frustrating. Worth watching in late 2026.</p>
+<h2 id="real-world-results-prototypes-mvps-and-enterprise-use-cases">Real-World Results: Prototypes, MVPs, and Enterprise Use Cases</h2>
+<p>Lovable&rsquo;s most compelling proof points come from production deployments, not demos. At Zendesk, a product team used Lovable to prototype a new customer-facing portal in 3 hours — a task that previously took 6 weeks with a dedicated engineering team. The prototype was not just a wireframe; it was a functional application that stakeholders could click through, test, and provide feedback on in real time. Klarna uses Lovable for internal tooling — dashboards, admin panels, and reporting interfaces that would otherwise queue behind the main engineering roadmap. Uber&rsquo;s use case has not been detailed publicly, but the company confirmed Lovable deployment at a series B announcement event. For early-stage startups, Lovable&rsquo;s most common use case is investor demo preparation. Founders report shipping demo-ready MVPs in 1–3 days, compared to 2–4 weeks with a hired contractor. The quality is sufficient to close seed rounds — several YC S25 companies cite Lovable as their initial build tool.</p>
+<h3 id="what-breaks-in-production">What Breaks in Production?</h3>
+<p>The most common failure pattern: apps that work in Lovable&rsquo;s environment but break when exported to GitHub and deployed on a custom stack. This typically happens when Lovable makes assumptions about the Supabase schema structure or relies on environment variables that are not properly exported. The fix is usually straightforward for a developer, but non-technical founders can get stuck. Lovable&rsquo;s support team responds to these issues within 24 hours on paid plans.</p>
+<h2 id="lovable-pros-and-cons-honest-assessment-after-testing">Lovable Pros and Cons: Honest Assessment After Testing</h2>
+<p>Lovable is genuinely good at what it claims to do. It ships working, production-ready full-stack applications from natural language descriptions faster than any competing tool. The 2.0 update eliminated the most painful failure modes — especially the credit-burning debugging loops that frustrated early users. The multi-user collaboration feature is real, mature, and meaningfully useful for teams. Against those strengths, the credit system remains a friction point. Paying $25/month for 100 credits sounds reasonable until you realize that a complex feature can consume 10–15 credits in a session, leaving you with 7–10 meaningful sessions per month. The platform also struggles with advanced use cases: complex state management, real-time features beyond its built-in collaboration, and mobile apps are all areas where Bolt or a traditional development workflow performs better.</p>
+<h3 id="pros">Pros</h3>
+<ul>
+<li>Full-stack output with auth, database, and deployment in one platform</li>
+<li>Agent mode reduces debugging loops by 91% versus the old approach</li>
+<li>Real-time multi-user collaboration for up to 20 users</li>
+<li>Native Supabase integration handles backend setup automatically</li>
+<li>GitHub export means you are never locked in</li>
+<li>$6.6B valuation and $400M ARR suggest long-term platform stability</li>
+<li>Enterprise-grade security hardening in Lovable 2.0</li>
+</ul>
+<h3 id="cons">Cons</h3>
+<ul>
+<li>Credit system creates unexpected cost spikes for complex projects</li>
+<li>No mobile app support (React Native requires Bolt)</li>
+<li>Advanced UI customization is limited compared to coding from scratch</li>
+<li>Export-to-production issues require developer intervention to resolve</li>
+<li>Credit-burning loops still possible despite agent mode improvements</li>
+<li>Base pricing ($25/month) is insufficient for serious product development</li>
+</ul>
+<h2 id="who-should-use-lovable-in-2026-and-who-should-not">Who Should Use Lovable in 2026? (And Who Should Not)</h2>
+<p>Lovable is the right tool for non-technical founders building their first MVP who want a deployed product rather than a mockup. It is the right tool for technical founders who want to 10x their prototype velocity without hiring a contractor. It is the right tool for enterprise teams who need internal tools, admin dashboards, or customer-facing portals that cannot compete with the engineering team&rsquo;s main roadmap for priority. It is not the right tool for teams building mobile-first consumer applications — use Bolt for React Native. It is not the right tool for companies that need highly customized UI interactions that go beyond standard component patterns. It is not the right tool for developers who prefer full control over their stack from day one. The clearest signal that Lovable is right for you: your biggest constraint is time-to-first-demo, not engineering flexibility. If you need to show something working to a customer, investor, or stakeholder in days rather than weeks, Lovable is the fastest path from idea to deployed product available in 2026.</p>
+<h3 id="the-bottom-line">The Bottom Line</h3>
+<p>Lovable earns a 4.2/5 for 2026. The credit system and mobile gap prevent a perfect score, but the combination of agent mode, multi-user collaboration, and enterprise adoption by companies like Zendesk and Klarna make it the default recommendation for non-technical founders and speed-focused technical builders. Start with the $50/month Pro plan — the $25 starter will frustrate you within the first week of serious building.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>The most common questions about Lovable in 2026 center on three themes: cost, capability, and competition. On cost, the credit system surprises new users — the $25 starter plan&rsquo;s 100 credits sounds generous until a single complex feature consumes 12 credits in one session. On capability, the key distinction is that Lovable generates full-stack applications with working backends, not just UI mockups — it produces deployable, editable code, not visual templates. On competition, Lovable leads the market for web-based full-stack generation, but Bolt remains the only option for React Native mobile, and v0 outperforms on isolated UI component quality. The answers below address the specific questions that appear most frequently in developer forums, Reddit threads, and product communities as of May 2026, based on direct testing and enterprise deployment reports from Zendesk, Klarna, and Uber.</p>
+<h3 id="is-lovable-free-to-use">Is Lovable free to use?</h3>
+<p>Yes, Lovable has a free plan that includes 30 credits per month plus 5 daily bonus credits. This is enough to build and deploy 2–3 simple projects, but not enough for serious product development. The $25/month starter plan gives 100 credits, and the $50/month Pro plan provides 250 credits, which is the recommended minimum for consistent building.</p>
+<h3 id="how-does-lovables-credit-system-work">How does Lovable&rsquo;s credit system work?</h3>
+<p>Each AI action in Lovable — generating code, running agent mode, or creating a new project — consumes credits from your monthly allocation. Simple changes consume 1–2 credits; complex multi-file features can consume 10–15. Credits do not roll over between months. Agent mode (available on paid plans) helps reduce wasted credits by self-correcting within a single interaction rather than requiring multiple prompts.</p>
+<h3 id="what-is-lovable-20">What is Lovable 2.0?</h3>
+<p>Lovable 2.0 launched in February 2026 and introduced three major upgrades: real-time multi-user collaboration for up to 20 users, a multi-step agent mode that reduces errors by 91% compared to the previous approach, and new security features for enterprise deployments. It is the default experience for all new and existing users.</p>
+<h3 id="how-does-lovable-compare-to-bolt">How does Lovable compare to Bolt?</h3>
+<p>Lovable wins on full-stack generation, built-in deployment, design quality (8/10 vs 5/10), and multi-user collaboration. Bolt wins on mobile development (React Native support), developer control, and flexibility for teams who want to manage their own hosting. For non-technical founders building web MVPs, Lovable is the better choice. For developers who need mobile or maximum control, Bolt is preferable.</p>
+<h3 id="is-lovable-good-for-enterprise-teams">Is Lovable good for enterprise teams?</h3>
+<p>Yes, increasingly so. Lovable 2.0 added enterprise-grade security features, and the platform&rsquo;s multi-user collaboration model supports cross-functional teams. Zendesk reduced prototype time from 6 weeks to 3 hours using Lovable, and Klarna and Uber are confirmed enterprise customers. For internal tools, admin dashboards, and customer-facing portals, Lovable is production-viable for enterprises with engineering teams available for edge-case fixes.</p>
+]]></content:encoded></item><item><title>Vibe Coding Explained: The Complete Developer Guide for 2026</title><link>https://baeseokjae.github.io/posts/vibe-coding-explained-the-complete-developer-guide-for-2026/</link><pubDate>Thu, 30 Apr 2026 00:04:33 +0000</pubDate><guid>https://baeseokjae.github.io/posts/vibe-coding-explained-the-complete-developer-guide-for-2026/</guid><description>Vibe coding lets developers build software by describing intent in natural language and letting AI write the code — here&amp;#39;s everything you need to know in 2026.</description><content:encoded><![CDATA[<p>Vibe coding is a development approach where you describe what you want in natural language and let an AI model write the code — you steer with intent, not keystrokes. Coined by Andrej Karpathy in February 2025, the technique went from viral tweet to mainstream workflow in under a year, reshaping how developers, designers, and non-engineers build software in 2026.</p>
 <h2 id="what-is-vibe-coding">What Is Vibe Coding?</h2>
 <p>Vibe coding is a software development method where the programmer describes desired behavior in plain language and an AI model generates the implementation, with the human acting as director rather than line-by-line author. Andrej Karpathy introduced the term in a February 2025 tweet describing how he &ldquo;vibes with the AI&rdquo; — accepting suggestions wholesale, barely reading the output, and using a feedback loop of error messages and re-prompts instead of manual debugging. By Q1 2026, Cursor&rsquo;s user base had grown to 1.5 million developers and GitHub Copilot reported that over 40% of its users were generating complete functions without writing a single line themselves. Vibe coding is not about being lazy — it&rsquo;s a deliberate productivity strategy that shifts the developer&rsquo;s role from typing to thinking, reviewing, and testing. The approach works best for well-understood problem domains where the developer can quickly judge whether the AI output is correct, and for prototyping where iteration speed matters more than perfect understanding of every implementation detail.</p>
 <h3 id="how-vibe-coding-differs-from-traditional-ai-assisted-coding">How Vibe Coding Differs from Traditional AI-Assisted Coding</h3>
