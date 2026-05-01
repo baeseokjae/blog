@@ -1,9 +1,10 @@
 {
-  "last_published_at": "2026-04-30T12:16:35.000Z",
-  "last_published_slug": "gpt-5-3-codex-spark-review-2026",
-  "last_published_commit": "685ccb5",
-  "last_publisher_run": "2026-04-30T12:14:53.000Z",
-  "last_published_article": "multi-model-llm-routing-guide-2026",
+  "last_published_at": "2026-05-01T03:02:10Z",
+  "last_published_slug": "mistral-small-4-review-2026",
+  "last_published_commit": "7ce678c",
+  "last_publisher_run": "2026-04-30T21:05:55.000Z",
+  "last_published_article": "ChatGPT Super App Review 2026: Unified AI Platform with Codex, Atlas, and GPT-6",
   "last_checked_at": "2026-04-29T21:01:39Z",
-  "ready_articles_checked": "2026-04-29T18:24:00Z"
+  "ready_articles_checked": "2026-04-29T18:24:00Z",
+  "last_published_at_string": "2026-04-30T21:05:55Z"
 }
