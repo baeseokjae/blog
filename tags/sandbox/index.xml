@@ -110,16 +110,16 @@
 <p>A minimal AGENTS.md for a code-review agent might look like:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Code Review Agent
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## Instructions
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Instructions
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Review for security vulnerabilities first, performance second
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Never modify test files
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Post findings as inline comments using the comment tool
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## Tools
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Tools
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> github_comment: post review findings
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> web_search: look up CVE references
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">## Constraints
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Constraints
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Read-only access to /src, /tests
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Write access to /review-output only
 </span></span></code></pre></div><p>The SDK reads this file automatically when the agent initializes in the workspace, with no additional configuration required.</p>

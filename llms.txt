@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Lovable Review 2026: The $6.6B AI App Builder That Ships Real Products](https://baeseokjae.github.io/posts/lovable-review-2026/) — Honest Lovable review for 2026: pricing, agent mode, real build tests, and how it compares to Bolt and v0.
 - [OpenAI Agents SDK v2 Guide 2026: Configurable Memory, Sandbox Orchestration, Filesystem Tools](https://baeseokjae.github.io/posts/openai-agents-sdk-v2-guide-2026/) — Complete guide to OpenAI Agents SDK v2 (April 2026): configurable memory, apply_patch filesystem tools, 7 sandbox providers, and AGENTS.md workspace config.
 - [JetBrains Air Review 2026: Multi-Agent Development Environment from JetBrains](https://baeseokjae.github.io/posts/jetbrains-air-review-2026/) — JetBrains Air review 2026: the agentic IDE that orchestrates Codex, Claude, Gemini, and Junie simultaneously — pricing, real-world results, and honest verdict.
 - [ChatGPT Super App Review 2026: Unified AI Platform with Codex, Atlas, and GPT-6](https://baeseokjae.github.io/posts/chatgpt-super-app-2026/) — ChatGPT Super App 2026 완전 리뷰: Codex, Atlas 브라우저, GPT-6 로드맵까지 통합된 OpenAI 플랫폼 심층 분석.
@@ -248,6 +249,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Lovable Review 2026: The $6.6B AI App Builder That Ships Real Products](https://baeseokjae.github.io/posts/lovable-review-2026/) — Honest Lovable review for 2026: pricing, agent mode, real build tests, and how it compares to Bolt and v0.
 - [Windsurf Wave 13 Guide 2026: What&#39;s New and How to Use the Latest Features](https://baeseokjae.github.io/posts/windsurf-wave-13-guide-2026/) — Complete guide to Windsurf Wave 13 &#39;Shipmas Edition&#39;: free SWE-1.5 model, true parallel agents with Git worktrees, Arena Mode, Plan Mode, and more.
 - [OpenAI Agents SDK v2 Guide 2026: Configurable Memory, Sandbox Orchestration, Filesystem Tools](https://baeseokjae.github.io/posts/openai-agents-sdk-v2-guide-2026/) — Complete guide to OpenAI Agents SDK v2 (April 2026): configurable memory, apply_patch filesystem tools, 7 sandbox providers, and AGENTS.md workspace config.
 - [Cursor &#43; Claude Code &#43; Codex Composable Stack 2026: The New AI Coding Architecture](https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/) — How to combine Cursor, Claude Code, and OpenAI Codex into a composable AI coding stack — with setup guide, workflow patterns, and pricing breakdown.
