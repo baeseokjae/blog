@@ -105,16 +105,16 @@ A minimal AGENTS.md for a code-review agent might look like:
 ```markdown
 # Code Review Agent
 
-## Instructions
+### Instructions
 - Review for security vulnerabilities first, performance second
 - Never modify test files
 - Post findings as inline comments using the comment tool
 
-## Tools
+### Tools
 - github_comment: post review findings
 - web_search: look up CVE references
 
-## Constraints
+### Constraints
 - Read-only access to /src, /tests
 - Write access to /review-output only
 ```
