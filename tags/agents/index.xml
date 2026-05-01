@@ -1,4 +1,231 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Agents on RockB</title><link>https://baeseokjae.github.io/tags/agents/</link><description>Recent content in Agents on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 09:04:53 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/agents/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenAI Agents SDK v2 Guide 2026: Configurable Memory, Sandbox Orchestration, Filesystem Tools</title><link>https://baeseokjae.github.io/posts/openai-agents-sdk-v2-guide-2026/</link><pubDate>Fri, 01 May 2026 09:04:53 +0000</pubDate><guid>https://baeseokjae.github.io/posts/openai-agents-sdk-v2-guide-2026/</guid><description>Complete guide to OpenAI Agents SDK v2 (April 2026): configurable memory, apply_patch filesystem tools, 7 sandbox providers, and AGENTS.md workspace config.</description><content:encoded><![CDATA[<p>OpenAI Agents SDK v2, released April 15, 2026, transforms the framework from a pure orchestrator into a full execution environment with configurable memory, sandboxed code execution, <code>apply_patch</code> filesystem tools, and support for 100+ LLMs — the most significant overhaul since the SDK replaced the experimental Swarm library in March 2025.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Agents on RockB</title><link>https://baeseokjae.github.io/tags/agents/</link><description>Recent content in Agents on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 12:04:38 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/agents/index.xml" rel="self" type="application/rss+xml"/><item><title>Windsurf Wave 13 Guide 2026: What's New and How to Use the Latest Features</title><link>https://baeseokjae.github.io/posts/windsurf-wave-13-guide-2026/</link><pubDate>Fri, 01 May 2026 12:04:38 +0000</pubDate><guid>https://baeseokjae.github.io/posts/windsurf-wave-13-guide-2026/</guid><description>Complete guide to Windsurf Wave 13 &amp;#39;Shipmas Edition&amp;#39;: free SWE-1.5 model, true parallel agents with Git worktrees, Arena Mode, Plan Mode, and more.</description><content:encoded><![CDATA[<p>Windsurf Wave 13 is the December 24, 2025 &ldquo;Shipmas Edition&rdquo; release that made SWE-1.5 free for all users, introduced true parallel agents via Git worktrees, and shipped Arena Mode for blind head-to-head model comparisons — the single largest feature drop in Windsurf&rsquo;s history.</p>
+<h2 id="what-is-windsurf-wave-13-the-shipmas-edition-explained">What Is Windsurf Wave 13? (The Shipmas Edition Explained)</h2>
+<p>Windsurf Wave 13 is a major product release shipped on December 24, 2025 under the &ldquo;Shipmas Edition&rdquo; branding — a reference to the development team&rsquo;s tradition of shipping significant features before the holiday break. Unlike previous Wave releases that incrementally improved the Cascade AI agent, Wave 13 delivered five distinct flagship capabilities simultaneously: a new free-tier model (SWE-1.5), true parallel multi-agent execution via Git worktrees, Arena Mode for blind model comparisons, Plan Mode for task decomposition, and a dedicated zsh terminal profile for more reliable agent execution. Windsurf reached 1M+ active developers in 2026, with its AI writing 70M+ lines of code per day, making this release one of the most-watched AI IDE updates in the industry. Wave 13 positioned Windsurf as the first commercial IDE to deliver production-grade parallel agent coding — a capability that competing tools like Cursor and GitHub Copilot had not matched at launch. The release also included a multi-pane and multi-tab Cascade layout redesign, allowing developers to monitor multiple agents simultaneously from a single workspace view.</p>
+<h2 id="swe-15-is-now-free--what-that-actually-means-for-developers">SWE-1.5 Is Now Free — What That Actually Means for Developers</h2>
+<p>SWE-1.5 is Windsurf&rsquo;s frontier coding model that runs at 950 tokens per second — 13x faster than Claude Sonnet 4.5 and 6x faster than Haiku 4.5 — and achieves a 40.08% score on the SWE-Bench Pro benchmark from Scale AI. With Wave 13, Windsurf made SWE-1.5 free for all users for three months, replacing the previous default SWE-1 model at no additional cost. This was a significant strategic move: most competing tools require Pro-tier subscriptions to access frontier models, while Windsurf effectively gave away its best model to drive adoption. For developers, the practical impact is immediate — tasks that previously took Cascade 30+ seconds on SWE-1 now complete in under 5 seconds with SWE-1.5, and the model handles multi-file refactors, test generation, and debugging loops more reliably due to its higher benchmark scores. The model&rsquo;s throughput advantage is especially noticeable during parallel agent sessions where five concurrent agents each need fast token generation to remain responsive. Windsurf&rsquo;s ARR grew from $12M in Q4 2024 to $100M in Q3 2025, and the free SWE-1.5 strategy appears designed to accelerate that trajectory by converting trial users into paid subscribers.</p>
+<h3 id="how-swe-15-compares-to-other-models-in-real-world-use">How SWE-1.5 Compares to Other Models in Real-World Use</h3>
+<p>SWE-1.5 scores 40.08% on SWE-Bench Pro, which measures real-world GitHub issue resolution — a harder benchmark than the older SWE-Bench Verified. For context, Cursor&rsquo;s Composer 2 model scored 61.3 on CursorBench, a different benchmark, making direct comparisons difficult. In practice, SWE-1.5&rsquo;s speed advantage (950 tokens/second) means developers waiting for code generation experience a qualitatively different workflow — short tasks feel instant, and long refactors don&rsquo;t require stepping away. The model was trained specifically on software engineering tasks by Cognition AI, the team behind the Devin autonomous coding agent, giving it stronger context retention across large codebases compared to general-purpose models.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Model</th>
+          <th>Speed</th>
+          <th>SWE-Bench Score</th>
+          <th>Free Tier</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SWE-1.5 (Wave 13)</td>
+          <td>950 tok/s</td>
+          <td>40.08% (SWE-Bench Pro)</td>
+          <td>Yes (3 months)</td>
+      </tr>
+      <tr>
+          <td>SWE-1 (pre-Wave 13)</td>
+          <td>~150 tok/s</td>
+          <td>Not published</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Claude Sonnet 4.5</td>
+          <td>~73 tok/s</td>
+          <td>—</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Haiku 4.5</td>
+          <td>~158 tok/s</td>
+          <td>—</td>
+          <td>No</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="true-parallel-agents-with-git-worktrees-how-to-run-5-agents-at-once">True Parallel Agents with Git Worktrees: How to Run 5 Agents at Once</h2>
+<p>Parallel agents in Wave 13 allow developers to run up to five simultaneous Cascade sessions, each working on a different Git branch via Git worktrees, with zero merge conflicts between sessions. This is the most technically significant feature in Wave 13 — earlier multi-agent patterns in other tools required developers to manually manage context switching, and concurrent sessions would frequently corrupt each other&rsquo;s file state. Windsurf&rsquo;s implementation uses Git worktrees as isolated working directories, so each agent has its own copy of the repository checked out to a separate folder on disk. Agent 1 might be fixing a bug on <code>fix/auth-timeout</code> while Agent 2 writes tests on <code>feat/payment-hooks</code> — both sessions run simultaneously, make real file changes, and can be merged normally via standard Git workflows. In practice, this means a single developer can parallelize work that previously required a team: run one agent on the frontend while another handles API integration, or test three different implementation approaches simultaneously and keep the best result. Windsurf describes this as the first commercial IDE to offer true parallel multi-agent execution, a claim that held at Wave 13&rsquo;s December 2025 launch.</p>
+<h3 id="step-by-step-starting-your-first-parallel-agent-session">Step-by-Step: Starting Your First Parallel Agent Session</h3>
+<p>Setting up parallel agents in Wave 13 takes under two minutes if you have Git configured:</p>
+<ol>
+<li>Open your project in Windsurf and ensure it&rsquo;s a Git repository</li>
+<li>Click the <strong>Cascade</strong> panel and select <strong>New Parallel Session</strong> from the dropdown</li>
+<li>Windsurf automatically creates a new Git worktree at <code>.windsurf-worktrees/{branch-name}</code></li>
+<li>Type your prompt in the new Cascade panel — the agent starts on the isolated branch</li>
+<li>Repeat up to 4 more times for a total of 5 parallel agents</li>
+<li>Use the multi-pane layout (View → Split Cascade) to monitor all agents simultaneously</li>
+</ol>
+<p>The recommended starting pattern is 2 parallel sessions before scaling to 5. Two sessions give you a clear comparison baseline — if both agents diverge significantly, you can evaluate their approaches before committing to one. Scaling to 5 simultaneously works best for independent tasks (isolated modules, separate test files) rather than overlapping changes to shared utilities.</p>
+<h3 id="managing-merge-conflicts-from-parallel-agents">Managing Merge Conflicts from Parallel Agents</h3>
+<p>Because each agent works on its own Git branch, standard Git merge tools handle reconciliation. The workflow that works well in practice: let agents complete their tasks, review each branch&rsquo;s diff independently, then merge the best outputs into main. If two agents both modified a shared file, the conflict appears in Git during merge — exactly as it would in a standard multi-developer workflow. Windsurf&rsquo;s Cascade can also assist with resolving these conflicts if you paste the conflicted file into a new Cascade session.</p>
+<h2 id="arena-mode-blind-head-to-head-model-comparisons-in-your-codebase">Arena Mode: Blind Head-to-Head Model Comparisons in Your Codebase</h2>
+<p>Arena Mode is a Wave 13 feature that presents two anonymized model outputs side-by-side for the same prompt, lets developers vote for the better result, and uses aggregated votes to build a real-world AI model leaderboard specific to software engineering tasks. Unlike synthetic benchmarks run in controlled environments, Arena Mode collects votes from actual developers solving real problems in their own codebases — making it a more representative signal of model quality than lab tests. Windsurf divides models into two battle groups: &ldquo;fast models&rdquo; optimized for throughput and &ldquo;smart models&rdquo; optimized for accuracy. Each match shows Model A and Model B outputs without revealing which model generated which — the developer votes on quality, then Windsurf reveals the identities. Results feed a public leaderboard that updates continuously as more developers vote. This approach mirrors the Chatbot Arena methodology pioneered by LMSYS, applied specifically to code generation in real development environments. For developers, Arena Mode is both a productivity tool (get two attempts for each hard problem) and a crowdsourced research contribution (your votes help rank models for the wider community).</p>
+<h3 id="how-to-use-arena-mode-for-faster-problem-solving">How to Use Arena Mode for Faster Problem Solving</h3>
+<p>Arena Mode is accessible from the Cascade panel via the <strong>Arena</strong> tab. The practical workflow is:</p>
+<ul>
+<li>Write your prompt once</li>
+<li>Arena Mode runs it against two models simultaneously</li>
+<li>Review both outputs side-by-side in the multi-pane layout</li>
+<li>Click <strong>Vote</strong> on the output you&rsquo;d actually use</li>
+<li>The winning output gets applied to your code</li>
+</ul>
+<p>The key insight is that Arena Mode is most valuable for ambiguous tasks where multiple valid implementations exist — refactoring a function, choosing between design patterns, writing documentation. For deterministic tasks (fix this specific syntax error), the outputs will be nearly identical and voting provides little signal.</p>
+<h2 id="plan-mode-separating-task-planning-from-code-execution">Plan Mode: Separating Task Planning from Code Execution</h2>
+<p>Plan Mode is a Wave 13 capability that lets Cascade build a structured implementation plan before writing any code, allowing developers to review and approve the approach before tokens are spent on execution. The problem it solves is real: without Plan Mode, complex prompts can lead Cascade down incorrect implementation paths for 10–20 minutes before the developer realizes the agent misunderstood the requirements. By the time the error surfaces, significant credits have been consumed and the code state may need to be rolled back entirely. Plan Mode addresses this by making the reasoning step explicit and reviewable. When activated, Cascade outputs a numbered task list describing what it intends to do — create files, modify functions, install dependencies, run tests — and pauses for approval. The developer can edit the plan, remove steps, or redirect before execution starts. This is particularly valuable for tasks spanning multiple files or requiring infrastructure changes (database migrations, API integrations) where a wrong first step creates downstream problems. In practice, Plan Mode reduces wasted tokens by catching misalignments early, which is meaningful given that Pro plan users have monthly quotas.</p>
+<h3 id="when-to-use-plan-mode-vs-direct-prompting">When to Use Plan Mode vs. Direct Prompting</h3>
+<p>Plan Mode adds overhead — there&rsquo;s an extra review step between prompt and code. Use it when:</p>
+<ul>
+<li>The task spans 5+ files or requires architectural decisions</li>
+<li>You&rsquo;re unsure how Cascade will interpret an ambiguous requirement</li>
+<li>The task involves irreversible operations (database changes, API calls with side effects)</li>
+<li>You&rsquo;re new to a codebase and want to verify the agent understands its structure</li>
+</ul>
+<p>Skip Plan Mode for:</p>
+<ul>
+<li>Single-file edits with clear, specific requirements</li>
+<li>Bug fixes with a known root cause</li>
+<li>Repetitive tasks where you&rsquo;ve already validated Cascade&rsquo;s approach</li>
+</ul>
+<h2 id="dedicated-agent-terminal-why-wave-13-fixed-shell-reliability">Dedicated Agent Terminal: Why Wave 13 Fixed Shell Reliability</h2>
+<p>The dedicated agent terminal in Wave 13 is a zsh profile created specifically for Cascade agents, isolated from the developer&rsquo;s interactive terminal session, to eliminate the environment conflicts that caused unreliable command execution in earlier Windsurf versions. Before Wave 13, Cascade shared the developer&rsquo;s shell environment — meaning custom <code>.zshrc</code> aliases, conda environment activations, or PATH overrides could silently interfere with agent-executed commands. A developer with <code>alias python=python3.9</code> in their shell might have Cascade executing commands against a different Python version than expected, causing subtle failures that were hard to diagnose. The dedicated terminal solves this by giving each Cascade agent a clean, predictable shell environment initialized from a controlled profile. Agents now run in a consistent environment regardless of what&rsquo;s configured in the developer&rsquo;s interactive shell, making debugging agent failures significantly easier. This change is especially important for parallel agent sessions where five agents execute shell commands simultaneously — shared terminal state would have created race conditions that the dedicated profile eliminates.</p>
+<h3 id="configuring-the-agent-terminal-for-your-stack">Configuring the Agent Terminal for Your Stack</h3>
+<p>The default agent terminal profile works for most setups. Custom configurations are available via <strong>Settings → Agent Terminal → Environment Variables</strong>. Common configurations include:</p>
+<ul>
+<li>Setting <code>NODE_ENV=development</code> for Node.js projects</li>
+<li>Pointing <code>VIRTUAL_ENV</code> to a project-specific Python environment</li>
+<li>Configuring <code>GOPATH</code> for Go projects with custom module paths</li>
+<li>Adding project-specific <code>PATH</code> entries for local binaries</li>
+</ul>
+<p>Changes to the agent terminal profile apply to all future Cascade sessions but don&rsquo;t affect the developer&rsquo;s interactive terminal.</p>
+<h2 id="windsurf-wave-13-pricing-what-changed-from-credits-to-quotas">Windsurf Wave 13 Pricing: What Changed from Credits to Quotas</h2>
+<p>Windsurf&rsquo;s Pro plan changed from a credit-based system to a $20/month flat-rate subscription in March 2026, matching Cursor Pro&rsquo;s pricing, and Wave 13&rsquo;s SWE-1.5 free offer applies within this new pricing structure. Under the previous credit system, different models consumed different credit amounts per token, making costs unpredictable across sessions. The new quota system allocates a fixed monthly usage allowance that renews automatically, with parallel agent sessions consuming quota proportionally to the number of active agents. For individual developers, the $20/month Pro plan is the primary option. Enterprise pricing (custom contracts, SSO, audit logs) is available for teams, and Windsurf maintains a free tier with limited monthly quota and access to SWE-1.5 during the promotional period. The pricing change positions Windsurf directly against Cursor Pro ($20/month) and above GitHub Copilot Individual ($10/month) — reflecting Windsurf&rsquo;s bet that its parallel agents and Arena Mode features justify a price premium over simpler completion tools. Windsurf plugins are available for 40+ IDEs including JetBrains, Vim, NeoVim, and Xcode, meaning Pro plan subscribers can use the same quota across multiple development environments.</p>
+<h3 id="free-vs-pro-what-each-tier-gets-in-wave-13">Free vs. Pro: What Each Tier Gets in Wave 13</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Free Tier</th>
+          <th>Pro ($20/month)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SWE-1.5 access</td>
+          <td>Yes (3-month promo)</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Parallel agents</td>
+          <td>2 simultaneous</td>
+          <td>5 simultaneous</td>
+      </tr>
+      <tr>
+          <td>Arena Mode</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Plan Mode</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Monthly quota</td>
+          <td>Limited</td>
+          <td>Full</td>
+      </tr>
+      <tr>
+          <td>Plugin access (40+ IDEs)</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Priority support</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="wave-13-vs-cursor-3-and-claude-code-how-the-ai-ide-war-stands-in-2026">Wave 13 vs Cursor 3 and Claude Code: How the AI IDE War Stands in 2026</h2>
+<p>Windsurf Wave 13 sits at the top of the LogRocket AI Dev Tool Power Rankings as of February 2026, ahead of Cursor and GitHub Copilot, based on a composite score of code quality, feature depth, and developer satisfaction. The competitive landscape in 2026 has three clear tiers: full AI IDEs (Windsurf, Cursor), AI-augmented editors (GitHub Copilot in VS Code), and terminal-native agents (Claude Code). Wave 13&rsquo;s parallel agents have no direct equivalent in Cursor 3 at launch — Cursor&rsquo;s Composer 2 model scores 61.3 on CursorBench but the product doesn&rsquo;t offer Git worktree-based parallelism. Claude Code (Anthropic&rsquo;s terminal-based tool) operates differently: it&rsquo;s a command-line agent rather than an IDE, making it complementary to Windsurf rather than a direct substitute for most developers. The key differentiator Wave 13 introduced is throughput multiplier: five parallel agents effectively give a solo developer the output rate of a small team, assuming tasks can be decomposed into independent units. This changes how developers should think about project planning — tasks previously scoped for a sprint become single-session work when five agents tackle them simultaneously. With 59% of Fortune 500 companies building with Windsurf tools, the enterprise adoption signal suggests this positioning is landing with the target market.</p>
+<h3 id="feature-comparison-wave-13-vs-competitors">Feature Comparison: Wave 13 vs Competitors</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Windsurf Wave 13</th>
+          <th>Cursor 3</th>
+          <th>Claude Code</th>
+          <th>GitHub Copilot</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Parallel agents</td>
+          <td>5 (Git worktrees)</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Arena Mode</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Plan Mode</td>
+          <td>Yes</td>
+          <td>Partial</td>
+          <td>Yes</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Dedicated terminal</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>Native</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Free frontier model</td>
+          <td>SWE-1.5 (3 months)</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>IDE plugins</td>
+          <td>40+ IDEs</td>
+          <td>VS Code, JetBrains</td>
+          <td>Terminal only</td>
+          <td>Most editors</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="how-to-get-started-with-wave-13-today-step-by-step">How to Get Started with Wave 13 Today (Step-by-Step)</h2>
+<p>Getting started with Wave 13 requires downloading Windsurf (if not already installed) and enabling the new features from the updated settings panel — most Wave 13 features are enabled by default for all users after the update. Start by verifying you&rsquo;re running Wave 13: open Windsurf and check <strong>Help → About</strong> — the version string should read <code>13.x.x</code> or the Cascade panel should show SWE-1.5 as the active model. If you&rsquo;re on an older version, update via <strong>Help → Check for Updates</strong> or re-download from windsurf.com. The most impactful first step is trying a parallel agent session on a real task: take the next feature you planned to work on, decompose it into two independent subtasks, and run one in each Cascade panel. The Git worktree setup is automatic — Windsurf handles branch creation and isolation without additional configuration.</p>
+<p>For developers new to Windsurf, the recommended onboarding path is:</p>
+<ol>
+<li><strong>Install Windsurf</strong> — download from windsurf.com, available for macOS, Windows, and Linux</li>
+<li><strong>Open an existing Git project</strong> — Wave 13&rsquo;s features work best with projects that have established Git histories</li>
+<li><strong>Try a single Cascade session first</strong> — confirm SWE-1.5 is active by checking the model indicator in the Cascade panel</li>
+<li><strong>Use Plan Mode for your first complex task</strong> — get comfortable with Cascade&rsquo;s planning before running parallel sessions</li>
+<li><strong>Start your first parallel session</strong> — add a second Cascade panel and run two independent tasks simultaneously</li>
+<li><strong>Vote in Arena Mode</strong> — enable it from the Cascade settings and run your next ambiguous prompt through it</li>
+</ol>
+<p>The learning curve for Wave 13 is shallow for developers already familiar with Git branching — parallel agents behave exactly like parallel Git branches, which most developers already manage. Arena Mode and Plan Mode require no prior experience and are immediately useful on the first prompt.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>What is Windsurf Wave 13?</strong>
+Windsurf Wave 13 is the &ldquo;Shipmas Edition&rdquo; release from December 24, 2025, delivering five major features: free SWE-1.5 model access, true parallel agents via Git worktrees, Arena Mode for blind model comparisons, Plan Mode for task decomposition, and a dedicated agent terminal for reliable shell execution.</p>
+<p><strong>Is SWE-1.5 really free in Wave 13?</strong>
+Yes — Windsurf made SWE-1.5 free for all users for three months as part of the Wave 13 launch. SWE-1.5 runs at 950 tokens/second and scores 40.08% on SWE-Bench Pro. After the promotional period, it&rsquo;s included in the $20/month Pro plan.</p>
+<p><strong>How do parallel agents work in Wave 13?</strong>
+Parallel agents use Git worktrees to give each Cascade session its own isolated branch and working directory. Up to five agents can run simultaneously without interfering with each other&rsquo;s file changes. Each agent works on a separate Git branch, and outputs are merged via standard Git workflows.</p>
+<p><strong>What is Arena Mode in Windsurf?</strong>
+Arena Mode presents two anonymized model outputs for the same prompt side-by-side, lets developers vote for the better result, and aggregates votes into a real-world model leaderboard. It helps developers get two attempts at hard problems and contributes to community model rankings based on actual coding tasks.</p>
+<p><strong>How does Windsurf Wave 13 compare to Cursor 3?</strong>
+Wave 13 leads Cursor 3 in parallel agent execution (5 simultaneous agents with Git worktrees vs. none in Cursor 3) and Arena Mode. Cursor 3&rsquo;s Composer 2 model scores higher on CursorBench (61.3), though the benchmarks measure different things. Windsurf ranks #1 in LogRocket&rsquo;s AI Dev Tool Power Rankings as of February 2026, ahead of Cursor.</p>
+]]></content:encoded></item><item><title>OpenAI Agents SDK v2 Guide 2026: Configurable Memory, Sandbox Orchestration, Filesystem Tools</title><link>https://baeseokjae.github.io/posts/openai-agents-sdk-v2-guide-2026/</link><pubDate>Fri, 01 May 2026 09:04:53 +0000</pubDate><guid>https://baeseokjae.github.io/posts/openai-agents-sdk-v2-guide-2026/</guid><description>Complete guide to OpenAI Agents SDK v2 (April 2026): configurable memory, apply_patch filesystem tools, 7 sandbox providers, and AGENTS.md workspace config.</description><content:encoded><![CDATA[<p>OpenAI Agents SDK v2, released April 15, 2026, transforms the framework from a pure orchestrator into a full execution environment with configurable memory, sandboxed code execution, <code>apply_patch</code> filesystem tools, and support for 100+ LLMs — the most significant overhaul since the SDK replaced the experimental Swarm library in March 2025.</p>
 <h2 id="what-is-openai-agents-sdk-v2">What Is OpenAI Agents SDK v2?</h2>
 <p>OpenAI Agents SDK v2 is the April 15, 2026 update to OpenAI&rsquo;s open-source Python framework for building production-grade AI agents. The update — the largest since the SDK&rsquo;s March 2025 launch — introduces a model-native harness that wraps the entire lifecycle of agent execution: memory management, tool access, sandbox orchestration, and filesystem operations. Unlike the v1 pure orchestrator design that left developers to wire up their own context, storage, and execution layers, v2 ships a turnkey harness that handles these concerns while remaining fully configurable. The SDK now supports over 100 non-OpenAI LLMs via the Chat Completions API, removing what had been the framework&rsquo;s biggest criticism: vendor lock-in. With more than 4 million weekly users of OpenAI Codex as of 2026, the developer appetite for agentic tooling at this level is validated. The v2 harness covers five domains: configurable memory, filesystem tools (<code>apply_patch</code> and shell), sandbox execution across 7 providers, workspace manifests via AGENTS.md, and skills for progressive feature disclosure.</p>
 <h2 id="from-pure-orchestrator-to-full-execution-environment-why-the-philosophy-shifted">From Pure Orchestrator to Full Execution Environment: Why the Philosophy Shifted</h2>
