@@ -1,4 +1,369 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Claude Code on RockB</title><link>https://baeseokjae.github.io/tags/claude-code/</link><description>Recent content in Claude Code on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2026 03:05:33 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/claude-code/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Coding CLI Tools Comparison 2026: Claude Code vs Codex vs Gemini CLI vs Junie</title><link>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</link><pubDate>Thu, 30 Apr 2026 03:05:33 +0000</pubDate><guid>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</guid><description>Claude Code, Codex CLI, Gemini CLI, Junie를 벤치마크·가격·CI/CD 통합 기준으로 비교해 2026년 최선의 AI 코딩 CLI 도구를 찾아드립니다.</description><content:encoded><![CDATA[<p>2026년 AI 코딩 CLI 도구 중 하나를 골라야 한다면, <strong>Claude Code</strong>(SWE-Bench 80.8%)는 정확성, <strong>Codex CLI</strong>(Terminal-Bench 77.3%)는 CI/CD 속도, <strong>Gemini CLI</strong>(1M 토큰 컨텍스트)는 대규모 코드베이스, <strong>Junie CLI</strong>(LLM 불가지론 BYOK)는 유연한 팀 예산에 최적입니다.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Claude Code on RockB</title><link>https://baeseokjae.github.io/tags/claude-code/</link><description>Recent content in Claude Code on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 06:05:19 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/claude-code/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursor + Claude Code + Codex Composable Stack 2026: The New AI Coding Architecture</title><link>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</link><pubDate>Fri, 01 May 2026 06:05:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</guid><description>How to combine Cursor, Claude Code, and OpenAI Codex into a composable AI coding stack — with setup guide, workflow patterns, and pricing breakdown.</description><content:encoded><![CDATA[<p>The best AI coding setup in 2026 isn&rsquo;t a single tool — it&rsquo;s a composable stack: Cursor as the IDE and orchestration layer, Claude Code as the deep-reasoning terminal agent, and OpenAI Codex as the cloud-native background automation engine. Using all three together costs as little as $40/month and delivers capabilities no single tool can match.</p>
+<h2 id="what-is-the-cursor--claude-code--codex-composable-stack">What Is the Cursor + Claude Code + Codex Composable Stack?</h2>
+<p>The Cursor + Claude Code + Codex composable stack is a three-tool AI coding architecture where each product owns a distinct phase of the development workflow: Cursor 3.0 handles the interactive editor and agent orchestration layer, Claude Code (powered by Anthropic&rsquo;s Opus 4.6) executes deep reasoning and terminal-level autonomy, and OpenAI Codex runs cloud-native background automation across repositories. As of April 2026, 70% of professional engineers run 2–4 AI coding tools simultaneously — and the Cursor + Claude Code + Codex combination is the most cited trio. This isn&rsquo;t tool hoarding. The three products solve fundamentally different problems, communicate via MCP (Model Context Protocol), and compound each other&rsquo;s strengths. Claude Code now accounts for 4% of all GitHub commits globally, while Cursor has crossed $2B ARR with roughly 1 million paying users. The composable stack represents a shift from &ldquo;which AI tool is best&rdquo; to &ldquo;which tool fits this specific task,&rdquo; a mindset that the most productive 10% of developers have already internalized.</p>
+<h2 id="the-three-layer-ai-coding-architecture-explained">The Three-Layer AI Coding Architecture Explained</h2>
+<p>The three-layer AI coding architecture divides development work into Orchestration, Execution, and Review phases, each assigned to the tool best suited for it. Cursor 3.0 occupies the Orchestration layer — it&rsquo;s where you plan tasks, manage the codebase view, and launch agents from the Agents Window. Claude Code occupies the Execution layer — it handles long-horizon reasoning, multi-file refactors, architecture planning, and terminal operations that require a model capable of 80.9% on SWE-bench Verified. Codex CLI (rewritten in Rust for 2026) occupies the Background Automation layer — it runs tests, generates PRs, and handles repetitive repository tasks asynchronously, often overnight or across a weekend. Gartner&rsquo;s 2026 report finds that 60% of new professional code is now AI-generated, up from 35% twelve months prior. The three-layer model explains why: no single model handles all three phases equally well. Cursor&rsquo;s native agent runtime (released April 2, 2026) added cloud VM support and parallel agents, which is what formally made it an orchestration platform rather than just an IDE.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Layer</th>
+          <th>Tool</th>
+          <th>Primary Use</th>
+          <th>Interface</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Orchestration</td>
+          <td>Cursor 3.0</td>
+          <td>Agent management, editor UX, planning</td>
+          <td>Agents Window + GUI</td>
+      </tr>
+      <tr>
+          <td>Execution</td>
+          <td>Claude Code</td>
+          <td>Deep reasoning, terminal automation, refactors</td>
+          <td>Terminal / MCP server</td>
+      </tr>
+      <tr>
+          <td>Background Automation</td>
+          <td>OpenAI Codex</td>
+          <td>PR generation, tests, async repo tasks</td>
+          <td>CLI / Cloud API</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="cursor-30--the-orchestration-and-ide-layer">Cursor 3.0 — The Orchestration and IDE Layer</h2>
+<p>Cursor 3.0, released April 2, 2026, is no longer just an AI-enhanced editor — it&rsquo;s a native agent runtime with an Agents Window that lets you spawn, monitor, and coordinate multiple AI agents running in parallel cloud VMs. The architecture-level shift means Cursor can now call Claude Code as an MCP server directly: type &ldquo;use Claude Code to refactor this component&rdquo; inside a Cursor prompt, and Cursor will route the task to Claude Code&rsquo;s terminal agent, receive its output, and merge it back into your editor context. Before 3.0, this integration required manual copy-paste workflows. Cursor&rsquo;s internal engineering blog reported in April 2026 that 30% of the company&rsquo;s own pull requests are now agent-made — a number that increased threefold after the 3.0 release. For individual developers, Cursor&rsquo;s Editor View remains the primary coding surface for hands-on work: autocomplete, inline diffs, tab-to-accept suggestions, and the Composer for multi-file generation. The Manager Surface (new in 3.0) is for directing agents rather than writing code yourself.</p>
+<h3 id="how-to-install-cursor-30">How to Install Cursor 3.0</h3>
+<p>Download from cursor.com, select your plan ($20/month Pro recommended), and sign in with GitHub. Enable the Agents Window under Settings → Beta Features → Agents Window. To wire up Claude Code as an MCP server inside Cursor, add the following to your <code>.cursor/mcp.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;claude-code&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;claude&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;mcp&#34;</span>, <span style="color:#e6db74">&#34;serve&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ANTHROPIC_API_KEY&#34;</span>: <span style="color:#e6db74">&#34;&lt;your-key&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After saving, restart Cursor and type <code>/mcp</code> in the Composer to verify Claude Code is available as a tool.</p>
+<h2 id="claude-code--the-deep-reasoning-terminal-agent">Claude Code — The Deep Reasoning Terminal Agent</h2>
+<p>Claude Code is Anthropic&rsquo;s terminal-first AI coding agent that executes inside your shell, reads your entire codebase, writes files, runs tests, and operates autonomously across multi-step tasks — all without leaving the terminal. Powered by Opus 4.6 (80.9% SWE-bench Verified, the highest benchmark score of any model as of Q1 2026), Claude Code excels at tasks that require sustained reasoning over large contexts: migrating a monolith to microservices, untangling legacy debt, coordinating across dozens of files, or designing architecture. The DEV.to Developer AI Survey from February 2026 found Claude Code is now used by 41% of professional developers, edging past GitHub Copilot at 38%. JetBrains&rsquo; April 2026 developer survey found Claude Code is the most-loved AI coding tool at 46% satisfaction, nearly double Cursor&rsquo;s 19%. The <code>CLAUDE.md</code> file is the mechanism for persistent project context — Claude Code reads it at every session start, giving it standing knowledge about your codebase conventions, forbidden patterns, and ongoing architecture decisions.</p>
+<h3 id="how-to-install-claude-code">How to Install Claude Code</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @anthropic-ai/claude-code
+</span></span><span style="display:flex;"><span>claude auth login
+</span></span></code></pre></div><p>Create a <code>CLAUDE.md</code> in your project root with project-specific instructions — directory structure, testing conventions, branch naming, and anything Claude Code should never do. This file is also readable by Cursor and other MCP-compatible tools, making it the single source of truth for project context across your entire stack.</p>
+<h2 id="openai-codex--the-cloud-native-background-automation-agent">OpenAI Codex — The Cloud-Native Background Automation Agent</h2>
+<p>OpenAI Codex (the 2026 CLI, not to be confused with the original 2021 model) is a cloud-native background automation agent that runs repository-scoped tasks asynchronously in sandboxed cloud environments — meaning it continues executing even after you close your laptop. Codex wins Terminal-Bench 2.0 at 77.3%, the leading benchmark for autonomous terminal operations, which makes it the right tool for scripted, procedural tasks: running the full test suite, generating a PR with description from a branch diff, applying a linting pass across 200 files, or scaffolding boilerplate from a spec. The CLI was rewritten in Rust for 2026 for low-latency local operations, and now supports local model execution via Ollama — useful for air-gapped enterprise environments. Codex integrates with GitHub Actions natively, so you can trigger a Codex workflow on every push to a feature branch, generating automated test coverage reports and PR descriptions without developer intervention. The recommended use case is delegation of repetitive high-volume tasks that don&rsquo;t require deep contextual reasoning.</p>
+<h3 id="how-to-install-codex-cli">How to Install Codex CLI</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @openai/codex
+</span></span><span style="display:flex;"><span>codex auth login
+</span></span></code></pre></div><p>For local model support, install Ollama (<code>curl -fsSL https://ollama.com/install.sh | sh</code>) and then configure Codex to use a local endpoint:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codex config set model ollama/codellama:34b
+</span></span><span style="display:flex;"><span>codex config set endpoint http://localhost:11434
+</span></span></code></pre></div><h2 id="mcp-the-protocol-that-makes-the-stack-work-together">MCP: The Protocol That Makes the Stack Work Together</h2>
+<p>MCP (Model Context Protocol), Anthropic&rsquo;s open standard for AI tool interoperability, is the architectural glue that transforms Cursor, Claude Code, and Codex from three separate products into a unified composable stack. MCP defines how AI tools expose capabilities as typed function calls — a database connector, a file system reader, a shell executor — that any MCP-compatible client can discover and invoke at runtime. As of 2026, MCP has been adopted by all major AI coding tools: Claude, Cursor, VS Code Copilot, Zed, and Windsurf. This means a single MCP server you build for Claude Code is automatically available to Cursor&rsquo;s agent runtime. The practical implication is significant: you can type a natural language prompt in Cursor (&ldquo;run Claude Code on this PR branch and summarize the architecture changes&rdquo;), and Cursor will invoke Claude Code via MCP, receive structured output, and surface it in your editor without any manual context switching. Codex also exposes an MCP server interface for triggering automation jobs from within Cursor or Claude Code sessions.</p>
+<h3 id="mcp-configuration-for-the-full-stack">MCP Configuration for the Full Stack</h3>
+<p>Your project&rsquo;s <code>.cursor/mcp.json</code> can wire up all three tools:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;claude-code&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;claude&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;mcp&#34;</span>, <span style="color:#e6db74">&#34;serve&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;codex&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;codex&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;mcp&#34;</span>, <span style="color:#e6db74">&#34;serve&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;filesystem&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;@modelcontextprotocol/server-filesystem&#34;</span>, <span style="color:#e6db74">&#34;.&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>With this configuration, Cursor can orchestrate both Claude Code and Codex as subordinate agents from a single Agents Window session.</p>
+<h2 id="how-to-set-up-the-full-stack-step-by-step-guide">How to Set Up the Full Stack (Step-by-Step Guide)</h2>
+<p>Setting up the Cursor + Claude Code + Codex composable stack takes under 30 minutes if you already have Node.js installed, and the result is a fully integrated multi-agent development environment where Cursor orchestrates Claude Code and Codex via MCP. The key insight for setup is that CLAUDE.md serves as the shared context file — every tool in the stack reads it, so project-specific instructions written once are honored everywhere. The DEV.to survey confirms the most productive developers maintain CLAUDE.md files updated weekly, treating them as living documentation that evolves with the codebase. Setup involves four steps: install each tool, configure authentication, wire up MCP connections, and create your CLAUDE.md. The $40/month entry cost ($20 Cursor Pro + $20 Claude Code Standard) makes this stack accessible to individual developers, not just enterprise teams.</p>
+<p><strong>Step 1: Install all three tools</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cursor — download from cursor.com</span>
+</span></span><span style="display:flex;"><span>npm install -g @anthropic-ai/claude-code
+</span></span><span style="display:flex;"><span>npm install -g @openai/codex
+</span></span></code></pre></div><p><strong>Step 2: Authenticate each tool</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude auth login
+</span></span><span style="display:flex;"><span>codex auth login
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Cursor authentication is handled in the app</span>
+</span></span></code></pre></div><p><strong>Step 3: Create project CLAUDE.md</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project: MyApp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Stack
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Next.js 15, TypeScript, Postgres, Drizzle ORM
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Tests: Vitest (unit), Playwright (e2e)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Conventions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Branch naming: feat/, fix/, chore/
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> All new components in src/components/{feature}/
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Never modify migration files — create new ones
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Claude Code: Allowed operations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Read/write all src/ files
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Run: npm test, npm run build, git diff
+</span></span></code></pre></div><p><strong>Step 4: Add MCP config to Cursor</strong></p>
+<p>Create <code>.cursor/mcp.json</code> as shown in the MCP section above, restart Cursor, and verify with <code>/mcp list</code> in the Composer.</p>
+<h2 id="real-world-workflow-patterns-for-every-developer-type">Real-World Workflow Patterns for Every Developer Type</h2>
+<p>Real-world workflow patterns for the composable stack break down by developer type and time of day, with the most cited pattern being &ldquo;morning Cursor, afternoon Claude Code, weekend Codex&rdquo; — a rhythm observed across multiple engineering surveys in Q1 2026. The core logic is that morning interactive work (building features, reviewing PRs, writing tests) maps to Cursor&rsquo;s editor-centric UX, while afternoon deep work (architecture refactors, cross-cutting changes, debugging complex systems) maps to Claude Code&rsquo;s terminal agent, and weekend/batch automation (generating PRs, running full test suites, applying repository-wide patterns) maps to Codex&rsquo;s background runner. The NxCode AI Coding Tools Survey 2026 found that 70% of engineers use 2–4 tools simultaneously, and the most productive cohort (top 10% by output) averaged 2.3 tools per session. Below are three workflow templates for solo developers, startup teams, and enterprises.</p>
+<p><strong>Solo Developer Workflow</strong></p>
+<ul>
+<li>9am: Open Cursor, use Composer for feature planning and scaffolding</li>
+<li>11am: Hand complex refactors to Claude Code via Cursor&rsquo;s MCP integration</li>
+<li>5pm: Queue Codex batch jobs (tests, PR descriptions) to run overnight</li>
+<li>Next morning: Review Codex PRs in Cursor</li>
+</ul>
+<p><strong>Startup Team Workflow (3–10 engineers)</strong></p>
+<ul>
+<li>Frontend developers: Cursor-primary, Claude Code for component library migrations</li>
+<li>Backend developers: Claude Code-primary, Cursor for code review</li>
+<li>DevOps: Codex for automation scripts and infrastructure-as-code generation</li>
+</ul>
+<p><strong>Enterprise Workflow (50+ engineers)</strong></p>
+<ul>
+<li>Phase 1 (Plan): Claude Code for architecture design and technical spec generation</li>
+<li>Phase 2 (Implement): Cursor for developer-interactive coding with team shared MCP servers</li>
+<li>Phase 3 (Test/PR): Codex automated testing and PR generation via GitHub Actions integration</li>
+</ul>
+<h2 id="stack-pricing-from-the-40month-starter-to-the-1000month-power-build">Stack Pricing: From the $40/Month Starter to the $1,000/Month Power Build</h2>
+<p>Stack pricing for the Cursor + Claude Code + Codex composable stack ranges from $40/month for a capable solo developer setup to approximately $1,000/month for heavy enterprise power users who maximize API usage across all three tools. The $40/month tier — Cursor Pro at $20 plus Claude Code Standard at $20 — covers the vast majority of development scenarios for individual engineers and is the entry point the community consistently recommends for first-time adopters of the composable stack. The $1,000/month ceiling represents heavy users running Claude Code via direct API at $800/month (typically 5M+ tokens/day), ChatGPT Pro at $200/month for Codex cloud compute, and Cursor Business at $40/month — a configuration typically reserved for teams with high automation volume or researchers benchmarking model performance. The most practical intermediate tier is $60–120/month: Cursor Pro, Claude Code Standard, and Codex pay-as-you-go at roughly $20–60/month depending on API usage.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Monthly Cost</th>
+          <th>Cursor</th>
+          <th>Claude Code</th>
+          <th>Codex</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Starter</td>
+          <td>$40</td>
+          <td>Pro $20</td>
+          <td>Standard $20</td>
+          <td>Free tier</td>
+      </tr>
+      <tr>
+          <td>Mid</td>
+          <td>$60–120</td>
+          <td>Pro $20</td>
+          <td>Standard $20</td>
+          <td>PAYG $20–80</td>
+      </tr>
+      <tr>
+          <td>Power</td>
+          <td>$840+</td>
+          <td>Business $40</td>
+          <td>API $800</td>
+          <td>ChatGPT Pro $200</td>
+      </tr>
+  </tbody>
+</table>
+<p>The enterprise Claude Code pricing is $25/user/month (Standard seats) or $100–150/user/month (Premium seats with higher API rate limits and SSO). For a 20-person engineering team on Claude Code Standard plus Cursor Business, the total stack cost is $900/month — typically justified by the average 3.6 hours/week saved per developer at standard software engineering rates.</p>
+<h2 id="performance-benchmarks-swe-bench-terminal-bench-and-real-world-results">Performance Benchmarks: SWE-Bench, Terminal-Bench, and Real-World Results</h2>
+<p>Performance benchmarks for the three-tool stack show each product leads a different evaluation category, which is exactly why combining them outperforms using any single tool: Claude Code (Opus 4.6) scores 80.9% on SWE-bench Verified — the highest score of any model as of Q1 2026 — making it the clear choice for complex software engineering tasks that require understanding and modifying real codebases. OpenAI Codex scores approximately 80% on SWE-bench and wins Terminal-Bench 2.0 at 77.3%, reflecting its strength in autonomous terminal operations and scripted workflows. Cursor does not publish standalone benchmark scores (it&rsquo;s an IDE wrapper, not a standalone model), but its time-to-PR metric in real-world engineering teams is the highest among editor tools — Cursor users report 40–55% reduction in time from task assignment to merged PR. The real-world benchmark that matters most to teams in 2026 is Claude Code&rsquo;s 4% share of all GitHub commits globally, a metric that reflects usage at scale rather than controlled test conditions.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>SWE-bench Verified</th>
+          <th>Terminal-Bench 2.0</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Claude Code (Opus 4.6)</td>
+          <td><strong>80.9%</strong></td>
+          <td>—</td>
+          <td>Complex reasoning, architecture</td>
+      </tr>
+      <tr>
+          <td>OpenAI Codex</td>
+          <td>~80%</td>
+          <td><strong>77.3%</strong></td>
+          <td>Terminal automation, scripted tasks</td>
+      </tr>
+      <tr>
+          <td>Cursor 3.0</td>
+          <td>N/A (IDE)</td>
+          <td>N/A (IDE)</td>
+          <td>Interactive development, orchestration</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="enterprise-adoption-how-teams-structure-the-ai-coding-pipeline">Enterprise Adoption: How Teams Structure the AI Coding Pipeline</h2>
+<p>Enterprise adoption of the composable AI coding stack follows a pipeline model where each tool is assigned to a specific phase of the software development lifecycle rather than used interchangeably across all phases. The pattern that has emerged across the AI coding assistant market — which reached $12.8 billion in 2026 and is projected to hit $30.1 billion by 2032 at a 27% CAGR — assigns Claude Code to planning and architecture design, Cursor to implementation and interactive development, and Codex to automated testing and PR generation. This three-phase pipeline maps directly to the three-layer architecture described earlier and is the model recommended by the enterprise engineering consultancies that have studied AI coding adoption at scale. Critically, this is not a one-size-fits-all prescription — teams routinely adjust based on their existing toolchain, budget constraints, and engineering culture. The key governance recommendation is to establish a shared CLAUDE.md at the repository root and enforce it via CI checks, ensuring all three tools operate with the same project context.</p>
+<h3 id="enterprise-governance-checklist">Enterprise Governance Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> CLAUDE.md maintained and reviewed monthly by tech lead</li>
+<li><input disabled="" type="checkbox"> MCP server configurations version-controlled in <code>.cursor/mcp.json</code></li>
+<li><input disabled="" type="checkbox"> Codex GitHub Actions workflows reviewed and audited quarterly</li>
+<li><input disabled="" type="checkbox"> API key rotation policy for all three tools (30–90 day intervals)</li>
+<li><input disabled="" type="checkbox"> Cost monitoring dashboards for Claude Code and Codex API spend</li>
+<li><input disabled="" type="checkbox"> Acceptable use policy covering AI-generated code review requirements</li>
+</ul>
+<h2 id="should-you-use-all-three-decision-framework">Should You Use All Three? Decision Framework</h2>
+<p>Whether to use all three tools in the composable stack depends on your development role, workload volume, and the types of tasks dominating your engineering week — the stack delivers its full value only when each layer has meaningful work to do, and for some developers, one or two tools is the right answer. For solo developers building products with a mix of interactive feature work and background automation, the full stack is justified at $40–60/month: Cursor covers the editor layer, Claude Code handles architecture and deep reasoning tasks that exceed Cursor&rsquo;s model capabilities, and Codex handles the batch automation that would otherwise take human hours. For developers doing primarily read-modify-test cycles on a single codebase, Claude Code alone may be sufficient — it can perform the Cursor-style interactive work at lower fidelity. The decision framework below uses three variables: task type (interactive vs. batch), reasoning depth (shallow autocomplete vs. deep architecture), and compute preference (local IDE vs. cloud-native).</p>
+<p><strong>Use Cursor when:</strong></p>
+<ul>
+<li>Writing code interactively with immediate feedback</li>
+<li>Reviewing and accepting AI suggestions line-by-line</li>
+<li>Orchestrating other agents and managing the big picture</li>
+<li>Pair programming scenarios with frequent human-in-the-loop</li>
+</ul>
+<p><strong>Use Claude Code when:</strong></p>
+<ul>
+<li>Executing multi-file refactors (&gt;5 files simultaneously)</li>
+<li>Designing architecture or generating technical specs</li>
+<li>Debugging complex systems with many interacting components</li>
+<li>Tasks requiring sustained reasoning over large context windows</li>
+</ul>
+<p><strong>Use Codex when:</strong></p>
+<ul>
+<li>Running jobs overnight or asynchronously without supervision</li>
+<li>Generating PRs and test coverage automatically</li>
+<li>Applying repository-wide transformations (lint passes, import updates)</li>
+<li>CI/CD pipeline integration for automated code review</li>
+</ul>
+<p><strong>The decision in one table:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Scenario</th>
+          <th>Recommended Tool</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Writing a new React component</td>
+          <td>Cursor</td>
+      </tr>
+      <tr>
+          <td>Migrating 3,000 lines of legacy code</td>
+          <td>Claude Code</td>
+      </tr>
+      <tr>
+          <td>Auto-generating test coverage for a PR</td>
+          <td>Codex</td>
+      </tr>
+      <tr>
+          <td>Debugging a performance regression</td>
+          <td>Claude Code</td>
+      </tr>
+      <tr>
+          <td>Reviewing and merging 10 small PRs</td>
+          <td>Cursor</td>
+      </tr>
+      <tr>
+          <td>Weekly dependency update sweep</td>
+          <td>Codex</td>
+      </tr>
+      <tr>
+          <td>Architecture design for new microservice</td>
+          <td>Claude Code</td>
+      </tr>
+      <tr>
+          <td>Daily interactive coding session</td>
+          <td>Cursor</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>The five most common questions about the Cursor + Claude Code + Codex composable stack — from cost justification to setup specifics — are answered below. These questions reflect the practical concerns developers raise most often when evaluating whether to adopt the multi-tool architecture. As of 2026, 85% of developers use AI coding tools and 73% use them regularly, so the question is no longer whether to adopt AI coding assistance but which tools to combine and how to structure the workflow. The composable stack model answers that question by assigning tools to phases rather than asking developers to choose one tool for everything. Each answer below is written to stand alone — you can jump directly to the question most relevant to your situation without reading the full article.</p>
+<h3 id="is-the-cursor--claude-code--codex-stack-worth-the-cost">Is the Cursor + Claude Code + Codex stack worth the cost?</h3>
+<p>At $40/month for the starter tier, yes — the time savings alone justify it. The average developer saves 3.6 hours/week with AI coding tools, and the composable stack with all three layers captures savings across interactive coding, deep reasoning tasks, and background automation that no single tool covers. At the $1,000/month power tier, it requires a team with high automation volume to achieve positive ROI.</p>
+<h3 id="can-i-use-claude-code-inside-cursor-directly">Can I use Claude Code inside Cursor directly?</h3>
+<p>Yes, since Cursor 3.0 (April 2026). Configure Claude Code as an MCP server in <code>.cursor/mcp.json</code> and you can invoke it from Cursor&rsquo;s Composer with natural language prompts. Cursor will route the task to Claude Code&rsquo;s terminal agent, run it, and return results to your editor session.</p>
+<h3 id="what-is-claudemd-and-do-i-need-it">What is CLAUDE.md and do I need it?</h3>
+<p>CLAUDE.md is a Markdown file placed at your project root that provides persistent context to Claude Code (and other MCP-compatible tools) at every session start. It should contain your stack, conventions, forbidden operations, and directory structure. Without it, Claude Code starts each session with no project-specific knowledge. It&rsquo;s not strictly required but dramatically improves output quality and consistency across sessions.</p>
+<h3 id="how-does-codex-differ-from-claude-code-in-practice">How does Codex differ from Claude Code in practice?</h3>
+<p>Codex excels at autonomous, scripted, terminal-heavy tasks that can run without human supervision — generating PRs, running test suites, applying bulk transformations. Claude Code excels at deep reasoning tasks that require sustained understanding of complex systems: architecture design, multi-step debugging, large refactors. Codex wins Terminal-Bench 2.0 (77.3%); Claude Code leads SWE-bench Verified (80.9%). Both are strong at software engineering tasks, but Claude Code handles ambiguity better while Codex handles volume better.</p>
+<h3 id="do-i-need-all-three-tools-or-can-i-get-by-with-two">Do I need all three tools or can I get by with two?</h3>
+<p>Most developers start with two. The most common two-tool combinations are Cursor + Claude Code (for developers who want interactive + deep reasoning) or Claude Code + Codex (for developers who work primarily in the terminal and want both deep reasoning and batch automation). Adding the third tool adds the remaining layer but also adds complexity and cost. The recommendation: start with Cursor + Claude Code, add Codex when you find yourself repeatedly running the same batch operations manually.</p>
+]]></content:encoded></item><item><title>Anthropic Agentic Coding Trends Report 2026: 8 Trends Reshaping Developer Workflows</title><link>https://baeseokjae.github.io/posts/anthropic-agentic-coding-trends-2026/</link><pubDate>Fri, 01 May 2026 03:05:00 +0000</pubDate><guid>https://baeseokjae.github.io/posts/anthropic-agentic-coding-trends-2026/</guid><description>Breakdown of Anthropic&amp;#39;s 2026 Agentic Coding Trends Report: all 8 trends explained with real-world examples, tool comparisons, and a practical adoption roadmap for engineering teams.</description><content:encoded><![CDATA[<p>Anthropic&rsquo;s 2026 Agentic Coding Trends Report landed differently than typical vendor white papers. Instead of marketing claims, it documented observed patterns from actual enterprise deployments — engineering teams where 89% adoption rates meant hundreds of AI agents operating internally, customers reporting that 27% of AI-assisted work was work that wouldn&rsquo;t have been attempted without AI at all, and a shift in developer identity from &ldquo;person who writes code&rdquo; to &ldquo;person who directs agents that write code.&rdquo; Here&rsquo;s a breakdown of all 8 trends with what they mean practically for development teams.</p>
+<h2 id="what-is-anthropics-2026-agentic-coding-trends-report">What Is Anthropic&rsquo;s 2026 Agentic Coding Trends Report?</h2>
+<p>The Agentic Coding Trends Report is Anthropic&rsquo;s analysis of how enterprise engineering teams have actually adopted AI coding tools, based on data from Claude Code customers and broader industry surveys. Key framing from the report: engineers now use AI in roughly 60% of their work but can only &ldquo;fully delegate&rdquo; 0–20% of tasks. The gap — the 40–60% that&rsquo;s assisted but not delegated — is where the 8 trends are converging. By January 2026, 74% of developers worldwide had adopted specialized AI developer tools (JetBrains Developer Survey 2026). The report distinguishes between AI-as-assistant (autocomplete, chat) and AI-as-agent (autonomous multi-step task completion), and argues the transition between them is the defining shift in software development right now. Claude Code, Anthropic&rsquo;s terminal-based coding agent, scored 80.8% on SWE-bench Verified — the highest of any commercial agent — and overtook GitHub Copilot and Cursor in active usage within eight months of launch.</p>
+<h2 id="trend-1--the-software-development-lifecycle-transforms-cycle-times-collapse-from-weeks-to-hours">Trend 1 — The Software Development Lifecycle Transforms (Cycle Times Collapse from Weeks to Hours)</h2>
+<p>The SDLC transformation isn&rsquo;t about faster typing — it&rsquo;s about parallelism. With agents, you can run feature development, test generation, code review, and documentation simultaneously rather than sequentially. Tasks that required a three-day sprint are now completable in hours, not because the agent is smarter than your engineers but because it doesn&rsquo;t context-switch, doesn&rsquo;t need meetings, and runs 24 hours. In practice, teams that have restructured around agentic workflows report moving from two-week feature sprints to continuous deployment cycles where each feature is a prompt-to-PR loop. The bottleneck shifts from code production to specification clarity — the quality of what you ask for determines the quality of what you get. Teams that haven&rsquo;t updated their planning and review processes to match this new throughput often end up with more code than they can effectively review. The structural fix: adapt your review process first, then increase agent throughput.</p>
+<h2 id="trend-2--single-agents-evolve-into-coordinated-multi-agent-teams">Trend 2 — Single Agents Evolve Into Coordinated Multi-Agent Teams</h2>
+<p>The Anthropic report identifies the shift from single agent to agent swarms as the primary architectural change in agentic coding. In production, this looks like a planner agent that decomposes tasks, multiple worker agents that execute in parallel on different files or components, a reviewer agent that runs quality checks on completed work, and an orchestrator that manages dependencies and merges results. <a href="/posts/claude-code-subagents-guide-2026/">Claude Code&rsquo;s subagent system</a> is the most direct implementation of this pattern: you spawn multiple agents from a single parent process, each working on an isolated branch or worktree. Each agent has full tool access but operates within its assigned scope. Here&rsquo;s a practical multi-agent setup for parallel feature work:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> anthropic
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> asyncio
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>client <span style="color:#f92672">=</span> anthropic<span style="color:#f92672">.</span>Anthropic()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run_agent</span>(task: str, workspace: str) <span style="color:#f92672">-&gt;</span> str:
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>messages<span style="color:#f92672">.</span>create(
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;claude-opus-4-6-20260101&#34;</span>,
+</span></span><span style="display:flex;"><span>        max_tokens<span style="color:#f92672">=</span><span style="color:#ae81ff">8096</span>,
+</span></span><span style="display:flex;"><span>        system<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;You are a senior engineer performing focused work. Complete only your assigned task.&#34;</span>,
+</span></span><span style="display:flex;"><span>        messages<span style="color:#f92672">=</span>[{<span style="color:#e6db74">&#34;role&#34;</span>: <span style="color:#e6db74">&#34;user&#34;</span>, <span style="color:#e6db74">&#34;content&#34;</span>: <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Workspace: </span><span style="color:#e6db74">{</span>workspace<span style="color:#e6db74">}</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">Task: </span><span style="color:#e6db74">{</span>task<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>}]
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span>content[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">.</span>text
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multi_agent_build</span>(components: list[dict]):
+</span></span><span style="display:flex;"><span>    tasks <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>        run_agent(c[<span style="color:#e6db74">&#34;task&#34;</span>], c[<span style="color:#e6db74">&#34;workspace&#34;</span>])
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> components
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> asyncio<span style="color:#f92672">.</span>gather(<span style="color:#f92672">*</span>tasks)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run API endpoint, tests, and docs in parallel</span>
+</span></span><span style="display:flex;"><span>results <span style="color:#f92672">=</span> asyncio<span style="color:#f92672">.</span>run(multi_agent_build([
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;task&#34;</span>: <span style="color:#e6db74">&#34;Implement /users/profile endpoint&#34;</span>, <span style="color:#e6db74">&#34;workspace&#34;</span>: <span style="color:#e6db74">&#34;/repo/api&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;task&#34;</span>: <span style="color:#e6db74">&#34;Write integration tests for profile endpoints&#34;</span>, <span style="color:#e6db74">&#34;workspace&#34;</span>: <span style="color:#e6db74">&#34;/repo/tests&#34;</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;task&#34;</span>: <span style="color:#e6db74">&#34;Generate API docs for user endpoints&#34;</span>, <span style="color:#e6db74">&#34;workspace&#34;</span>: <span style="color:#e6db74">&#34;/repo/docs&#34;</span>},
+</span></span><span style="display:flex;"><span>]))
+</span></span></code></pre></div><p>The practical challenge with multi-agent systems is coordination overhead — agents working in parallel on the same codebase can produce conflicting changes. The pattern that works: strict file ownership (each agent owns its directory), interface contracts defined before agents start, and a final integration agent that merges and resolves conflicts. When it works well, three parallel agents can complete in the time one sequential agent would spend on the first component.</p>
+<h2 id="trend-3--long-running-agents-build-complete-systems-over-days-and-weeks">Trend 3 — Long-Running Agents Build Complete Systems Over Days and Weeks</h2>
+<p>This is the most underrated trend in the report. Current coding agent demos show single-session tasks, but the Anthropic report describes deployments where agents work on multi-day projects — building a complete microservice, migrating a database schema, or refactoring an entire module — with checkpointing, resumption, and progress tracking across multiple sessions. Devin (Cognition) reports a 67% PR merge rate on defined tasks, representing genuine multi-session task completion. The key enabling technology is agent memory systems that maintain context across sessions. Without persistent memory, every agent session starts from zero. With it, the agent accumulates understanding of the codebase, team conventions, and task progress. When building long-running agents, the critical design decision is what to persist and what to discard between sessions — code state, task progress, and discovered conventions should persist; raw tool call history generally shouldn&rsquo;t. The asymmetry matters: persisting too little means the agent re-discovers the same facts repeatedly; persisting too much means the context window fills with stale data before the task is done.</p>
+<h2 id="trend-4--human-oversight-scales-through-intelligent-collaboration">Trend 4 — Human Oversight Scales Through Intelligent Collaboration</h2>
+<p>The &ldquo;delegate, review, own&rdquo; operating model is the Anthropic report&rsquo;s answer to how engineers maintain oversight as agent autonomy increases. The pattern: engineers define tasks clearly and own the outcomes, agents execute with autonomy within defined scope, and engineers review at critical checkpoints rather than every line. This requires rebuilding review processes around higher-level abstractions. Instead of reviewing individual code changes, engineers review agent behavior patterns, architectural decisions, and risk boundaries. The report identifies two failure modes: engineers who over-supervise (reviewing every line, defeating the efficiency gain) and those who under-supervise (treating agent output as production-ready without review). From working with Claude Code: the <a href="/posts/claude-code-plan-mode-guide-2026/">plan mode workflow</a> — where you review the agent&rsquo;s plan before it executes — is a concrete implementation of this oversight model. The agent flags what it intends to do, you verify the approach, and execution proceeds with your implicit sign-off. This adds roughly 60 seconds per task but prevents the hour-long debugging sessions that happen when an agent takes a completely wrong architectural approach you didn&rsquo;t catch until the end.</p>
+<h2 id="trend-5--agentic-coding-expands-to-new-surfaces-and-users-including-legacy-code">Trend 5 — Agentic Coding Expands to New Surfaces and Users (Including Legacy Code)</h2>
+<p>The Anthropic report specifically calls out two dimensions of surface expansion: legacy language support and non-traditional programming environments. For legacy code, Claude Code and similar agents now handle COBOL, Fortran, Pascal, and other languages that most modern developers never learned. This unlocks incremental modernization of systems that were previously unmaintainable due to skill shortages. A bank with 5 million lines of COBOL can now have an agent generate documentation, suggest refactoring paths, and perform routine maintenance without requiring a specialist. The browser and mobile surfaces matter too — agents are now embedded in CI/CD pipelines (triggered by PR creation, running autonomously), IDE extensions (background agent mode in Cursor and Windsurf), and operational tools (agents that monitor production and open PRs in response to errors). <a href="/posts/github-copilot-coding-agent-guide-2026/">GitHub Copilot&rsquo;s coding agent mode</a> represents this surface expansion in practice: fully async, triggered by task assignment, completes multi-file changes without human interaction. The surface expansion also includes the people using these tools — which leads directly into Trend 7.</p>
+<h2 id="trend-6--productivity-gains-reshape-software-development-economics">Trend 6 — Productivity Gains Reshape Software Development Economics</h2>
+<p>The economics shift is quantified in the report: approximately 27% of AI-assisted work consists of tasks that wouldn&rsquo;t have been attempted at all without AI assistance. This isn&rsquo;t just productivity — it&rsquo;s scope expansion. Projects that were previously out of reach (too expensive, too time-consuming) are now viable. Cursor reached $1.2B ARR; Claude reached $2.5B annualized run rate in 2026. These numbers reflect a real productivity premium being captured across the industry. For individual engineers, the practical implication is portfolio expansion — the same engineer who previously maintained a 50-service system now manages 200 services with agent assistance. The flip side the report documents honestly: at 85% AI adoption (the reported end-of-2025 figure), individual developer output variance increases dramatically. The gap between engineers who&rsquo;ve learned to direct agents effectively and those who haven&rsquo;t is larger than the gap between senior and junior engineers in pre-AI teams. The report doesn&rsquo;t sugarcoat this — the engineers getting left behind are real, and the skill gap is widening.</p>
+<h2 id="trend-7--agentic-coding-expands-beyond-engineering-teams">Trend 7 — Agentic Coding Expands Beyond Engineering Teams</h2>
+<p>This is the &ldquo;barrier dissolution&rdquo; trend. When the interface to coding is natural language and an agent handles the implementation, the technical expertise required to build software drops substantially. The Anthropic report documents legal teams building contract analysis tooling, design teams generating interactive prototypes directly, and operations teams writing their own automation scripts. One customer reported 89% AI adoption across their entire organization with hundreds of agents deployed internally — not just in engineering. The technical implication for engineering teams: you&rsquo;re increasingly being asked to govern and maintain software built by non-engineers. This requires investing in templates, guardrails, and review processes that work for outputs produced outside traditional engineering workflows. The practical risk is real: non-engineer-built automations lack security review, testing rigor, and operational monitoring that engineering teams take for granted. Setting up internal scaffolding — approved base templates, mandatory review gates, infrastructure guardrails — is now part of platform engineering&rsquo;s scope, not optional.</p>
+<h2 id="trend-8--security-becomes-a-first-class-concern-in-the-agentic-era">Trend 8 — Security Becomes a First-Class Concern in the Agentic Era</h2>
+<p>The security trend is the most consequential and, in most organizations, the least acted on. Agents that can build can also introduce vulnerabilities at scale — and they do it faster and more consistently than individual developers making ad-hoc mistakes. The Anthropic report identifies three distinct security challenges: agents inadvertently introducing vulnerable code patterns (OWASP top 10, supply chain vulnerabilities at volume); agents themselves becoming attack surfaces through prompt injection and tool misuse; and the audit trail gap where agentic sessions often lack the traceability that security teams require. Concrete mitigations the report recommends: mandatory security scanning in CI/CD pipelines (agents should not be able to merge without passing SAST and dependency checks), scoped credentials (agents should receive minimum-permission API keys, not developer-level access), and prompt injection defenses (validate all agent-processed external content before it affects agent behavior). From working with <a href="/posts/claude-code-best-practices-2026/">Claude Code&rsquo;s security model</a>: CLAUDE.md files can define explicit security constraints that apply to every session, and the tool permission system limits what actions agents can take regardless of what they&rsquo;re instructed to do.</p>
+<h2 id="what-these-8-trends-mean-for-your-engineering-team-right-now">What These 8 Trends Mean for Your Engineering Team Right Now</h2>
+<p>Reading the 8 trends together, the Anthropic report describes a shift in what engineering competency means. The load-bearing skills are no longer primarily code production skills — they&rsquo;re task decomposition (breaking work into agent-appropriate units), context engineering (structuring prompts and context so agents produce useful output), and oversight design (building review processes that scale with agent throughput). The teams making the most of agentic coding are not necessarily the ones with the best models — they&rsquo;re the ones that redesigned their workflows explicitly for agentic operation rather than treating agents as faster autocomplete. If your team is still reviewing every agent-generated line as if it were unreviewed human code, you haven&rsquo;t captured the efficiency gain. If you&rsquo;re shipping agent output without human review at critical checkpoints, you&rsquo;ve introduced risk you haven&rsquo;t priced. The &ldquo;delegate, review, own&rdquo; framing is the clearest articulation of where the working middle is.</p>
+<h2 id="how-to-adopt-agentic-coding-workflows-a-practical-roadmap">How to Adopt Agentic Coding Workflows: A Practical Roadmap</h2>
+<p>Based on the Anthropic report&rsquo;s observations of high-adoption teams, the adoption pattern that works follows this sequence:</p>
+<p><strong>Phase 1: Single-agent, supervised (first 4 weeks)</strong><br>
+Start with <a href="/posts/claude-code-tutorial-2026/">Claude Code</a> or similar for well-defined, bounded tasks: writing tests for existing code, generating documentation, performing lint fixes. Review every output. The goal isn&rsquo;t efficiency yet — it&rsquo;s building intuition for what agents do well and where they fail.</p>
+<p><strong>Phase 2: Autonomous single-agent on defined scope (weeks 4–8)</strong><br>
+Configure CLAUDE.md files that define scope, conventions, and forbidden actions. Run agents on feature work with checkpoint reviews (at design decisions, before final commit) rather than line-by-line review. Track failure modes — every agent mistake in this phase is a data point that improves your instructions.</p>
+<p><strong>Phase 3: Multi-agent for parallel work (weeks 8–12)</strong><br>
+Introduce <a href="/posts/claude-code-worktrees-guide-2026/">worktrees and parallel agents</a> for tasks that naturally decompose. A new API endpoint, corresponding tests, and documentation can be three parallel agent sessions. Define interface contracts first, then run agents in parallel, then integrate.</p>
+<p><strong>Phase 4: Long-running and background agents (beyond week 12)</strong><br>
+Background <a href="/posts/github-copilot-coding-agent-guide-2026/">GitHub Copilot agents</a> or Devin for multi-day migration and maintenance tasks. Establish checkpointing patterns, progress tracking, and escalation triggers for when agents get stuck or reach high-stakes decision points.</p>
+<p>The Anthropic report&rsquo;s benchmark for high-performing teams: agents handling 60–70% of code production, engineers focusing on architecture, review, and judgment calls that genuinely require human cognition. Getting there isn&rsquo;t about adopting the right tool — it&rsquo;s about redesigning the workflow around the tool you adopt.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>What are the 8 agentic coding trends from the Anthropic 2026 report?</strong></p>
+<p>The 8 trends are: (1) SDLC transformation with collapsed cycle times, (2) multi-agent coordination replacing single agents, (3) long-running agents building complete systems over days/weeks, (4) human oversight scaling through intelligent collaboration via the &ldquo;delegate, review, own&rdquo; model, (5) expansion to new surfaces including legacy code and non-engineering users, (6) productivity gains reshaping software development economics, (7) agentic coding expanding beyond engineering to legal, design, and ops teams, and (8) security becoming a first-class concern in the agentic era.</p>
+<p><strong>What does the Anthropic report say about human oversight in agentic coding?</strong></p>
+<p>The report describes the &ldquo;delegate, review, own&rdquo; model: engineers define tasks and own outcomes, agents execute autonomously within defined scope, and engineers review at critical decision points rather than every line of code. Teams that over-supervise lose the efficiency gain; teams that under-supervise introduce unpriced risk. Checkpoint reviews at architectural decisions and before final merge represent the working middle ground.</p>
+<p><strong>How does agentic coding affect developers who aren&rsquo;t software engineers?</strong></p>
+<p>The report documents legal, design, and operations teams building tools directly with coding agents — bypassing traditional engineering workflows. The barrier between &ldquo;people who code&rdquo; and &ldquo;people who don&rsquo;t&rdquo; is dissolving. For engineering teams, this creates a governance challenge: maintaining quality and security standards for software built outside traditional engineering review processes requires explicit guardrails, templates, and review gates.</p>
+<p><strong>What percentage of developer work can be fully delegated to AI agents?</strong></p>
+<p>According to the Anthropic report, engineers use AI in roughly 60% of their work but can only &ldquo;fully delegate&rdquo; 0–20% of tasks. The remaining 40–60% represents AI-assisted work where human judgment is still required for direction, decisions, or quality assurance. The 0–20% full-delegation figure is expected to grow as agent capabilities improve and teams develop better workflow patterns.</p>
+<p><strong>What security risks does the report identify for agentic coding?</strong></p>
+<p>Three primary risks: agents introducing vulnerable code patterns at scale, agents themselves becoming attack surfaces through prompt injection, and audit trail gaps where agentic sessions lack the traceability security teams require. Mitigations include mandatory SAST scanning in CI/CD, scoped minimum-permission credentials for agents, and explicit prompt injection defenses for externally-sourced content.</p>
+]]></content:encoded></item><item><title>AI Coding CLI Tools Comparison 2026: Claude Code vs Codex vs Gemini CLI vs Junie</title><link>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</link><pubDate>Thu, 30 Apr 2026 03:05:33 +0000</pubDate><guid>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</guid><description>Claude Code, Codex CLI, Gemini CLI, Junie를 벤치마크·가격·CI/CD 통합 기준으로 비교해 2026년 최선의 AI 코딩 CLI 도구를 찾아드립니다.</description><content:encoded><![CDATA[<p>2026년 AI 코딩 CLI 도구 중 하나를 골라야 한다면, <strong>Claude Code</strong>(SWE-Bench 80.8%)는 정확성, <strong>Codex CLI</strong>(Terminal-Bench 77.3%)는 CI/CD 속도, <strong>Gemini CLI</strong>(1M 토큰 컨텍스트)는 대규모 코드베이스, <strong>Junie CLI</strong>(LLM 불가지론 BYOK)는 유연한 팀 예산에 최적입니다.</p>
 <h2 id="quick-comparison-table-claude-code-vs-codex-cli-vs-gemini-cli-vs-junie-2026">Quick Comparison Table: Claude Code vs Codex CLI vs Gemini CLI vs Junie (2026)</h2>
 <p>AI 코딩 CLI 도구는 2025년 중반부터 2026년 초까지 폭발적으로 성장했습니다. JetBrains가 10,000명 이상의 개발자를 대상으로 실시한 2026년 1월 설문에서 90%가 최소 한 가지 AI 도구를 매일 업무에 사용한다고 응답했으며, 59%는 세 가지 이상의 도구를 병행 사용한다고 밝혔습니다. Claude Code는 출시 4개월 만에 115,000명의 개발자가 주간 195M 라인의 코드를 처리하며 연간 매출 10억 달러 run-rate를 돌파했습니다(Anthropic, 2026). 이 숫자들은 단순한 성장이 아니라 개발 워크플로우의 근본적인 변화를 의미합니다. 네 가지 CLI 도구를 가격·벤치마크·CI/CD 통합·컨텍스트 관리 기준으로 직접 비교했습니다.</p>
 <table>
