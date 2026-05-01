@@ -1,4 +1,431 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Developer Tools on RockB</title><link>https://baeseokjae.github.io/tags/developer-tools/</link><description>Recent content in Developer Tools on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2026 03:05:33 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/developer-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Coding CLI Tools Comparison 2026: Claude Code vs Codex vs Gemini CLI vs Junie</title><link>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</link><pubDate>Thu, 30 Apr 2026 03:05:33 +0000</pubDate><guid>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</guid><description>Claude Code, Codex CLI, Gemini CLI, Junie를 벤치마크·가격·CI/CD 통합 기준으로 비교해 2026년 최선의 AI 코딩 CLI 도구를 찾아드립니다.</description><content:encoded><![CDATA[<p>2026년 AI 코딩 CLI 도구 중 하나를 골라야 한다면, <strong>Claude Code</strong>(SWE-Bench 80.8%)는 정확성, <strong>Codex CLI</strong>(Terminal-Bench 77.3%)는 CI/CD 속도, <strong>Gemini CLI</strong>(1M 토큰 컨텍스트)는 대규모 코드베이스, <strong>Junie CLI</strong>(LLM 불가지론 BYOK)는 유연한 팀 예산에 최적입니다.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Developer Tools on RockB</title><link>https://baeseokjae.github.io/tags/developer-tools/</link><description>Recent content in Developer Tools on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 06:05:19 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/developer-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursor + Claude Code + Codex Composable Stack 2026: The New AI Coding Architecture</title><link>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</link><pubDate>Fri, 01 May 2026 06:05:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</guid><description>How to combine Cursor, Claude Code, and OpenAI Codex into a composable AI coding stack — with setup guide, workflow patterns, and pricing breakdown.</description><content:encoded><![CDATA[<p>The best AI coding setup in 2026 isn&rsquo;t a single tool — it&rsquo;s a composable stack: Cursor as the IDE and orchestration layer, Claude Code as the deep-reasoning terminal agent, and OpenAI Codex as the cloud-native background automation engine. Using all three together costs as little as $40/month and delivers capabilities no single tool can match.</p>
+<h2 id="what-is-the-cursor--claude-code--codex-composable-stack">What Is the Cursor + Claude Code + Codex Composable Stack?</h2>
+<p>The Cursor + Claude Code + Codex composable stack is a three-tool AI coding architecture where each product owns a distinct phase of the development workflow: Cursor 3.0 handles the interactive editor and agent orchestration layer, Claude Code (powered by Anthropic&rsquo;s Opus 4.6) executes deep reasoning and terminal-level autonomy, and OpenAI Codex runs cloud-native background automation across repositories. As of April 2026, 70% of professional engineers run 2–4 AI coding tools simultaneously — and the Cursor + Claude Code + Codex combination is the most cited trio. This isn&rsquo;t tool hoarding. The three products solve fundamentally different problems, communicate via MCP (Model Context Protocol), and compound each other&rsquo;s strengths. Claude Code now accounts for 4% of all GitHub commits globally, while Cursor has crossed $2B ARR with roughly 1 million paying users. The composable stack represents a shift from &ldquo;which AI tool is best&rdquo; to &ldquo;which tool fits this specific task,&rdquo; a mindset that the most productive 10% of developers have already internalized.</p>
+<h2 id="the-three-layer-ai-coding-architecture-explained">The Three-Layer AI Coding Architecture Explained</h2>
+<p>The three-layer AI coding architecture divides development work into Orchestration, Execution, and Review phases, each assigned to the tool best suited for it. Cursor 3.0 occupies the Orchestration layer — it&rsquo;s where you plan tasks, manage the codebase view, and launch agents from the Agents Window. Claude Code occupies the Execution layer — it handles long-horizon reasoning, multi-file refactors, architecture planning, and terminal operations that require a model capable of 80.9% on SWE-bench Verified. Codex CLI (rewritten in Rust for 2026) occupies the Background Automation layer — it runs tests, generates PRs, and handles repetitive repository tasks asynchronously, often overnight or across a weekend. Gartner&rsquo;s 2026 report finds that 60% of new professional code is now AI-generated, up from 35% twelve months prior. The three-layer model explains why: no single model handles all three phases equally well. Cursor&rsquo;s native agent runtime (released April 2, 2026) added cloud VM support and parallel agents, which is what formally made it an orchestration platform rather than just an IDE.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Layer</th>
+          <th>Tool</th>
+          <th>Primary Use</th>
+          <th>Interface</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Orchestration</td>
+          <td>Cursor 3.0</td>
+          <td>Agent management, editor UX, planning</td>
+          <td>Agents Window + GUI</td>
+      </tr>
+      <tr>
+          <td>Execution</td>
+          <td>Claude Code</td>
+          <td>Deep reasoning, terminal automation, refactors</td>
+          <td>Terminal / MCP server</td>
+      </tr>
+      <tr>
+          <td>Background Automation</td>
+          <td>OpenAI Codex</td>
+          <td>PR generation, tests, async repo tasks</td>
+          <td>CLI / Cloud API</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="cursor-30--the-orchestration-and-ide-layer">Cursor 3.0 — The Orchestration and IDE Layer</h2>
+<p>Cursor 3.0, released April 2, 2026, is no longer just an AI-enhanced editor — it&rsquo;s a native agent runtime with an Agents Window that lets you spawn, monitor, and coordinate multiple AI agents running in parallel cloud VMs. The architecture-level shift means Cursor can now call Claude Code as an MCP server directly: type &ldquo;use Claude Code to refactor this component&rdquo; inside a Cursor prompt, and Cursor will route the task to Claude Code&rsquo;s terminal agent, receive its output, and merge it back into your editor context. Before 3.0, this integration required manual copy-paste workflows. Cursor&rsquo;s internal engineering blog reported in April 2026 that 30% of the company&rsquo;s own pull requests are now agent-made — a number that increased threefold after the 3.0 release. For individual developers, Cursor&rsquo;s Editor View remains the primary coding surface for hands-on work: autocomplete, inline diffs, tab-to-accept suggestions, and the Composer for multi-file generation. The Manager Surface (new in 3.0) is for directing agents rather than writing code yourself.</p>
+<h3 id="how-to-install-cursor-30">How to Install Cursor 3.0</h3>
+<p>Download from cursor.com, select your plan ($20/month Pro recommended), and sign in with GitHub. Enable the Agents Window under Settings → Beta Features → Agents Window. To wire up Claude Code as an MCP server inside Cursor, add the following to your <code>.cursor/mcp.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;claude-code&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;claude&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;mcp&#34;</span>, <span style="color:#e6db74">&#34;serve&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;ANTHROPIC_API_KEY&#34;</span>: <span style="color:#e6db74">&#34;&lt;your-key&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After saving, restart Cursor and type <code>/mcp</code> in the Composer to verify Claude Code is available as a tool.</p>
+<h2 id="claude-code--the-deep-reasoning-terminal-agent">Claude Code — The Deep Reasoning Terminal Agent</h2>
+<p>Claude Code is Anthropic&rsquo;s terminal-first AI coding agent that executes inside your shell, reads your entire codebase, writes files, runs tests, and operates autonomously across multi-step tasks — all without leaving the terminal. Powered by Opus 4.6 (80.9% SWE-bench Verified, the highest benchmark score of any model as of Q1 2026), Claude Code excels at tasks that require sustained reasoning over large contexts: migrating a monolith to microservices, untangling legacy debt, coordinating across dozens of files, or designing architecture. The DEV.to Developer AI Survey from February 2026 found Claude Code is now used by 41% of professional developers, edging past GitHub Copilot at 38%. JetBrains&rsquo; April 2026 developer survey found Claude Code is the most-loved AI coding tool at 46% satisfaction, nearly double Cursor&rsquo;s 19%. The <code>CLAUDE.md</code> file is the mechanism for persistent project context — Claude Code reads it at every session start, giving it standing knowledge about your codebase conventions, forbidden patterns, and ongoing architecture decisions.</p>
+<h3 id="how-to-install-claude-code">How to Install Claude Code</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @anthropic-ai/claude-code
+</span></span><span style="display:flex;"><span>claude auth login
+</span></span></code></pre></div><p>Create a <code>CLAUDE.md</code> in your project root with project-specific instructions — directory structure, testing conventions, branch naming, and anything Claude Code should never do. This file is also readable by Cursor and other MCP-compatible tools, making it the single source of truth for project context across your entire stack.</p>
+<h2 id="openai-codex--the-cloud-native-background-automation-agent">OpenAI Codex — The Cloud-Native Background Automation Agent</h2>
+<p>OpenAI Codex (the 2026 CLI, not to be confused with the original 2021 model) is a cloud-native background automation agent that runs repository-scoped tasks asynchronously in sandboxed cloud environments — meaning it continues executing even after you close your laptop. Codex wins Terminal-Bench 2.0 at 77.3%, the leading benchmark for autonomous terminal operations, which makes it the right tool for scripted, procedural tasks: running the full test suite, generating a PR with description from a branch diff, applying a linting pass across 200 files, or scaffolding boilerplate from a spec. The CLI was rewritten in Rust for 2026 for low-latency local operations, and now supports local model execution via Ollama — useful for air-gapped enterprise environments. Codex integrates with GitHub Actions natively, so you can trigger a Codex workflow on every push to a feature branch, generating automated test coverage reports and PR descriptions without developer intervention. The recommended use case is delegation of repetitive high-volume tasks that don&rsquo;t require deep contextual reasoning.</p>
+<h3 id="how-to-install-codex-cli">How to Install Codex CLI</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @openai/codex
+</span></span><span style="display:flex;"><span>codex auth login
+</span></span></code></pre></div><p>For local model support, install Ollama (<code>curl -fsSL https://ollama.com/install.sh | sh</code>) and then configure Codex to use a local endpoint:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>codex config set model ollama/codellama:34b
+</span></span><span style="display:flex;"><span>codex config set endpoint http://localhost:11434
+</span></span></code></pre></div><h2 id="mcp-the-protocol-that-makes-the-stack-work-together">MCP: The Protocol That Makes the Stack Work Together</h2>
+<p>MCP (Model Context Protocol), Anthropic&rsquo;s open standard for AI tool interoperability, is the architectural glue that transforms Cursor, Claude Code, and Codex from three separate products into a unified composable stack. MCP defines how AI tools expose capabilities as typed function calls — a database connector, a file system reader, a shell executor — that any MCP-compatible client can discover and invoke at runtime. As of 2026, MCP has been adopted by all major AI coding tools: Claude, Cursor, VS Code Copilot, Zed, and Windsurf. This means a single MCP server you build for Claude Code is automatically available to Cursor&rsquo;s agent runtime. The practical implication is significant: you can type a natural language prompt in Cursor (&ldquo;run Claude Code on this PR branch and summarize the architecture changes&rdquo;), and Cursor will invoke Claude Code via MCP, receive structured output, and surface it in your editor without any manual context switching. Codex also exposes an MCP server interface for triggering automation jobs from within Cursor or Claude Code sessions.</p>
+<h3 id="mcp-configuration-for-the-full-stack">MCP Configuration for the Full Stack</h3>
+<p>Your project&rsquo;s <code>.cursor/mcp.json</code> can wire up all three tools:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;claude-code&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;claude&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;mcp&#34;</span>, <span style="color:#e6db74">&#34;serve&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;codex&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;codex&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;mcp&#34;</span>, <span style="color:#e6db74">&#34;serve&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;filesystem&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;@modelcontextprotocol/server-filesystem&#34;</span>, <span style="color:#e6db74">&#34;.&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>With this configuration, Cursor can orchestrate both Claude Code and Codex as subordinate agents from a single Agents Window session.</p>
+<h2 id="how-to-set-up-the-full-stack-step-by-step-guide">How to Set Up the Full Stack (Step-by-Step Guide)</h2>
+<p>Setting up the Cursor + Claude Code + Codex composable stack takes under 30 minutes if you already have Node.js installed, and the result is a fully integrated multi-agent development environment where Cursor orchestrates Claude Code and Codex via MCP. The key insight for setup is that CLAUDE.md serves as the shared context file — every tool in the stack reads it, so project-specific instructions written once are honored everywhere. The DEV.to survey confirms the most productive developers maintain CLAUDE.md files updated weekly, treating them as living documentation that evolves with the codebase. Setup involves four steps: install each tool, configure authentication, wire up MCP connections, and create your CLAUDE.md. The $40/month entry cost ($20 Cursor Pro + $20 Claude Code Standard) makes this stack accessible to individual developers, not just enterprise teams.</p>
+<p><strong>Step 1: Install all three tools</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Cursor — download from cursor.com</span>
+</span></span><span style="display:flex;"><span>npm install -g @anthropic-ai/claude-code
+</span></span><span style="display:flex;"><span>npm install -g @openai/codex
+</span></span></code></pre></div><p><strong>Step 2: Authenticate each tool</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>claude auth login
+</span></span><span style="display:flex;"><span>codex auth login
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Cursor authentication is handled in the app</span>
+</span></span></code></pre></div><p><strong>Step 3: Create project CLAUDE.md</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span># Project: MyApp
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Stack
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Next.js 15, TypeScript, Postgres, Drizzle ORM
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Tests: Vitest (unit), Playwright (e2e)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Conventions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Branch naming: feat/, fix/, chore/
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> All new components in src/components/{feature}/
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Never modify migration files — create new ones
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Claude Code: Allowed operations
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">-</span> Read/write all src/ files
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">-</span> Run: npm test, npm run build, git diff
+</span></span></code></pre></div><p><strong>Step 4: Add MCP config to Cursor</strong></p>
+<p>Create <code>.cursor/mcp.json</code> as shown in the MCP section above, restart Cursor, and verify with <code>/mcp list</code> in the Composer.</p>
+<h2 id="real-world-workflow-patterns-for-every-developer-type">Real-World Workflow Patterns for Every Developer Type</h2>
+<p>Real-world workflow patterns for the composable stack break down by developer type and time of day, with the most cited pattern being &ldquo;morning Cursor, afternoon Claude Code, weekend Codex&rdquo; — a rhythm observed across multiple engineering surveys in Q1 2026. The core logic is that morning interactive work (building features, reviewing PRs, writing tests) maps to Cursor&rsquo;s editor-centric UX, while afternoon deep work (architecture refactors, cross-cutting changes, debugging complex systems) maps to Claude Code&rsquo;s terminal agent, and weekend/batch automation (generating PRs, running full test suites, applying repository-wide patterns) maps to Codex&rsquo;s background runner. The NxCode AI Coding Tools Survey 2026 found that 70% of engineers use 2–4 tools simultaneously, and the most productive cohort (top 10% by output) averaged 2.3 tools per session. Below are three workflow templates for solo developers, startup teams, and enterprises.</p>
+<p><strong>Solo Developer Workflow</strong></p>
+<ul>
+<li>9am: Open Cursor, use Composer for feature planning and scaffolding</li>
+<li>11am: Hand complex refactors to Claude Code via Cursor&rsquo;s MCP integration</li>
+<li>5pm: Queue Codex batch jobs (tests, PR descriptions) to run overnight</li>
+<li>Next morning: Review Codex PRs in Cursor</li>
+</ul>
+<p><strong>Startup Team Workflow (3–10 engineers)</strong></p>
+<ul>
+<li>Frontend developers: Cursor-primary, Claude Code for component library migrations</li>
+<li>Backend developers: Claude Code-primary, Cursor for code review</li>
+<li>DevOps: Codex for automation scripts and infrastructure-as-code generation</li>
+</ul>
+<p><strong>Enterprise Workflow (50+ engineers)</strong></p>
+<ul>
+<li>Phase 1 (Plan): Claude Code for architecture design and technical spec generation</li>
+<li>Phase 2 (Implement): Cursor for developer-interactive coding with team shared MCP servers</li>
+<li>Phase 3 (Test/PR): Codex automated testing and PR generation via GitHub Actions integration</li>
+</ul>
+<h2 id="stack-pricing-from-the-40month-starter-to-the-1000month-power-build">Stack Pricing: From the $40/Month Starter to the $1,000/Month Power Build</h2>
+<p>Stack pricing for the Cursor + Claude Code + Codex composable stack ranges from $40/month for a capable solo developer setup to approximately $1,000/month for heavy enterprise power users who maximize API usage across all three tools. The $40/month tier — Cursor Pro at $20 plus Claude Code Standard at $20 — covers the vast majority of development scenarios for individual engineers and is the entry point the community consistently recommends for first-time adopters of the composable stack. The $1,000/month ceiling represents heavy users running Claude Code via direct API at $800/month (typically 5M+ tokens/day), ChatGPT Pro at $200/month for Codex cloud compute, and Cursor Business at $40/month — a configuration typically reserved for teams with high automation volume or researchers benchmarking model performance. The most practical intermediate tier is $60–120/month: Cursor Pro, Claude Code Standard, and Codex pay-as-you-go at roughly $20–60/month depending on API usage.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tier</th>
+          <th>Monthly Cost</th>
+          <th>Cursor</th>
+          <th>Claude Code</th>
+          <th>Codex</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Starter</td>
+          <td>$40</td>
+          <td>Pro $20</td>
+          <td>Standard $20</td>
+          <td>Free tier</td>
+      </tr>
+      <tr>
+          <td>Mid</td>
+          <td>$60–120</td>
+          <td>Pro $20</td>
+          <td>Standard $20</td>
+          <td>PAYG $20–80</td>
+      </tr>
+      <tr>
+          <td>Power</td>
+          <td>$840+</td>
+          <td>Business $40</td>
+          <td>API $800</td>
+          <td>ChatGPT Pro $200</td>
+      </tr>
+  </tbody>
+</table>
+<p>The enterprise Claude Code pricing is $25/user/month (Standard seats) or $100–150/user/month (Premium seats with higher API rate limits and SSO). For a 20-person engineering team on Claude Code Standard plus Cursor Business, the total stack cost is $900/month — typically justified by the average 3.6 hours/week saved per developer at standard software engineering rates.</p>
+<h2 id="performance-benchmarks-swe-bench-terminal-bench-and-real-world-results">Performance Benchmarks: SWE-Bench, Terminal-Bench, and Real-World Results</h2>
+<p>Performance benchmarks for the three-tool stack show each product leads a different evaluation category, which is exactly why combining them outperforms using any single tool: Claude Code (Opus 4.6) scores 80.9% on SWE-bench Verified — the highest score of any model as of Q1 2026 — making it the clear choice for complex software engineering tasks that require understanding and modifying real codebases. OpenAI Codex scores approximately 80% on SWE-bench and wins Terminal-Bench 2.0 at 77.3%, reflecting its strength in autonomous terminal operations and scripted workflows. Cursor does not publish standalone benchmark scores (it&rsquo;s an IDE wrapper, not a standalone model), but its time-to-PR metric in real-world engineering teams is the highest among editor tools — Cursor users report 40–55% reduction in time from task assignment to merged PR. The real-world benchmark that matters most to teams in 2026 is Claude Code&rsquo;s 4% share of all GitHub commits globally, a metric that reflects usage at scale rather than controlled test conditions.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>SWE-bench Verified</th>
+          <th>Terminal-Bench 2.0</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Claude Code (Opus 4.6)</td>
+          <td><strong>80.9%</strong></td>
+          <td>—</td>
+          <td>Complex reasoning, architecture</td>
+      </tr>
+      <tr>
+          <td>OpenAI Codex</td>
+          <td>~80%</td>
+          <td><strong>77.3%</strong></td>
+          <td>Terminal automation, scripted tasks</td>
+      </tr>
+      <tr>
+          <td>Cursor 3.0</td>
+          <td>N/A (IDE)</td>
+          <td>N/A (IDE)</td>
+          <td>Interactive development, orchestration</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="enterprise-adoption-how-teams-structure-the-ai-coding-pipeline">Enterprise Adoption: How Teams Structure the AI Coding Pipeline</h2>
+<p>Enterprise adoption of the composable AI coding stack follows a pipeline model where each tool is assigned to a specific phase of the software development lifecycle rather than used interchangeably across all phases. The pattern that has emerged across the AI coding assistant market — which reached $12.8 billion in 2026 and is projected to hit $30.1 billion by 2032 at a 27% CAGR — assigns Claude Code to planning and architecture design, Cursor to implementation and interactive development, and Codex to automated testing and PR generation. This three-phase pipeline maps directly to the three-layer architecture described earlier and is the model recommended by the enterprise engineering consultancies that have studied AI coding adoption at scale. Critically, this is not a one-size-fits-all prescription — teams routinely adjust based on their existing toolchain, budget constraints, and engineering culture. The key governance recommendation is to establish a shared CLAUDE.md at the repository root and enforce it via CI checks, ensuring all three tools operate with the same project context.</p>
+<h3 id="enterprise-governance-checklist">Enterprise Governance Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> CLAUDE.md maintained and reviewed monthly by tech lead</li>
+<li><input disabled="" type="checkbox"> MCP server configurations version-controlled in <code>.cursor/mcp.json</code></li>
+<li><input disabled="" type="checkbox"> Codex GitHub Actions workflows reviewed and audited quarterly</li>
+<li><input disabled="" type="checkbox"> API key rotation policy for all three tools (30–90 day intervals)</li>
+<li><input disabled="" type="checkbox"> Cost monitoring dashboards for Claude Code and Codex API spend</li>
+<li><input disabled="" type="checkbox"> Acceptable use policy covering AI-generated code review requirements</li>
+</ul>
+<h2 id="should-you-use-all-three-decision-framework">Should You Use All Three? Decision Framework</h2>
+<p>Whether to use all three tools in the composable stack depends on your development role, workload volume, and the types of tasks dominating your engineering week — the stack delivers its full value only when each layer has meaningful work to do, and for some developers, one or two tools is the right answer. For solo developers building products with a mix of interactive feature work and background automation, the full stack is justified at $40–60/month: Cursor covers the editor layer, Claude Code handles architecture and deep reasoning tasks that exceed Cursor&rsquo;s model capabilities, and Codex handles the batch automation that would otherwise take human hours. For developers doing primarily read-modify-test cycles on a single codebase, Claude Code alone may be sufficient — it can perform the Cursor-style interactive work at lower fidelity. The decision framework below uses three variables: task type (interactive vs. batch), reasoning depth (shallow autocomplete vs. deep architecture), and compute preference (local IDE vs. cloud-native).</p>
+<p><strong>Use Cursor when:</strong></p>
+<ul>
+<li>Writing code interactively with immediate feedback</li>
+<li>Reviewing and accepting AI suggestions line-by-line</li>
+<li>Orchestrating other agents and managing the big picture</li>
+<li>Pair programming scenarios with frequent human-in-the-loop</li>
+</ul>
+<p><strong>Use Claude Code when:</strong></p>
+<ul>
+<li>Executing multi-file refactors (&gt;5 files simultaneously)</li>
+<li>Designing architecture or generating technical specs</li>
+<li>Debugging complex systems with many interacting components</li>
+<li>Tasks requiring sustained reasoning over large context windows</li>
+</ul>
+<p><strong>Use Codex when:</strong></p>
+<ul>
+<li>Running jobs overnight or asynchronously without supervision</li>
+<li>Generating PRs and test coverage automatically</li>
+<li>Applying repository-wide transformations (lint passes, import updates)</li>
+<li>CI/CD pipeline integration for automated code review</li>
+</ul>
+<p><strong>The decision in one table:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Scenario</th>
+          <th>Recommended Tool</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Writing a new React component</td>
+          <td>Cursor</td>
+      </tr>
+      <tr>
+          <td>Migrating 3,000 lines of legacy code</td>
+          <td>Claude Code</td>
+      </tr>
+      <tr>
+          <td>Auto-generating test coverage for a PR</td>
+          <td>Codex</td>
+      </tr>
+      <tr>
+          <td>Debugging a performance regression</td>
+          <td>Claude Code</td>
+      </tr>
+      <tr>
+          <td>Reviewing and merging 10 small PRs</td>
+          <td>Cursor</td>
+      </tr>
+      <tr>
+          <td>Weekly dependency update sweep</td>
+          <td>Codex</td>
+      </tr>
+      <tr>
+          <td>Architecture design for new microservice</td>
+          <td>Claude Code</td>
+      </tr>
+      <tr>
+          <td>Daily interactive coding session</td>
+          <td>Cursor</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>The five most common questions about the Cursor + Claude Code + Codex composable stack — from cost justification to setup specifics — are answered below. These questions reflect the practical concerns developers raise most often when evaluating whether to adopt the multi-tool architecture. As of 2026, 85% of developers use AI coding tools and 73% use them regularly, so the question is no longer whether to adopt AI coding assistance but which tools to combine and how to structure the workflow. The composable stack model answers that question by assigning tools to phases rather than asking developers to choose one tool for everything. Each answer below is written to stand alone — you can jump directly to the question most relevant to your situation without reading the full article.</p>
+<h3 id="is-the-cursor--claude-code--codex-stack-worth-the-cost">Is the Cursor + Claude Code + Codex stack worth the cost?</h3>
+<p>At $40/month for the starter tier, yes — the time savings alone justify it. The average developer saves 3.6 hours/week with AI coding tools, and the composable stack with all three layers captures savings across interactive coding, deep reasoning tasks, and background automation that no single tool covers. At the $1,000/month power tier, it requires a team with high automation volume to achieve positive ROI.</p>
+<h3 id="can-i-use-claude-code-inside-cursor-directly">Can I use Claude Code inside Cursor directly?</h3>
+<p>Yes, since Cursor 3.0 (April 2026). Configure Claude Code as an MCP server in <code>.cursor/mcp.json</code> and you can invoke it from Cursor&rsquo;s Composer with natural language prompts. Cursor will route the task to Claude Code&rsquo;s terminal agent, run it, and return results to your editor session.</p>
+<h3 id="what-is-claudemd-and-do-i-need-it">What is CLAUDE.md and do I need it?</h3>
+<p>CLAUDE.md is a Markdown file placed at your project root that provides persistent context to Claude Code (and other MCP-compatible tools) at every session start. It should contain your stack, conventions, forbidden operations, and directory structure. Without it, Claude Code starts each session with no project-specific knowledge. It&rsquo;s not strictly required but dramatically improves output quality and consistency across sessions.</p>
+<h3 id="how-does-codex-differ-from-claude-code-in-practice">How does Codex differ from Claude Code in practice?</h3>
+<p>Codex excels at autonomous, scripted, terminal-heavy tasks that can run without human supervision — generating PRs, running test suites, applying bulk transformations. Claude Code excels at deep reasoning tasks that require sustained understanding of complex systems: architecture design, multi-step debugging, large refactors. Codex wins Terminal-Bench 2.0 (77.3%); Claude Code leads SWE-bench Verified (80.9%). Both are strong at software engineering tasks, but Claude Code handles ambiguity better while Codex handles volume better.</p>
+<h3 id="do-i-need-all-three-tools-or-can-i-get-by-with-two">Do I need all three tools or can I get by with two?</h3>
+<p>Most developers start with two. The most common two-tool combinations are Cursor + Claude Code (for developers who want interactive + deep reasoning) or Claude Code + Codex (for developers who work primarily in the terminal and want both deep reasoning and batch automation). Adding the third tool adds the remaining layer but also adds complexity and cost. The recommendation: start with Cursor + Claude Code, add Codex when you find yourself repeatedly running the same batch operations manually.</p>
+]]></content:encoded></item><item><title>JetBrains Air Review 2026: Multi-Agent Development Environment from JetBrains</title><link>https://baeseokjae.github.io/posts/jetbrains-air-review-2026/</link><pubDate>Thu, 30 Apr 2026 18:04:46 +0000</pubDate><guid>https://baeseokjae.github.io/posts/jetbrains-air-review-2026/</guid><description>JetBrains Air review 2026: the agentic IDE that orchestrates Codex, Claude, Gemini, and Junie simultaneously — pricing, real-world results, and honest verdict.</description><content:encoded><![CDATA[<p>JetBrains Air is a multi-agent development environment that lets you run Codex, Claude, Gemini, and Junie simultaneously on different tasks — not another AI code editor, but an orchestration layer that sits above your existing IDE. Launched as a free public preview in March 2026 for macOS, Air is JetBrains&rsquo; answer to the question every enterprise developer team is wrestling with: how do you coordinate multiple AI agents without constant context-switching?</p>
+<h2 id="what-is-jetbrains-air-the-new-agentic-development-environment-explained">What Is JetBrains Air? The New Agentic Development Environment Explained</h2>
+<p>JetBrains Air is an agentic development environment designed to orchestrate multiple AI coding agents from a single dashboard, allowing teams to run parallel AI workflows across isolated Git worktrees and Docker containers simultaneously. Unlike Cursor (a VS Code fork with built-in AI) or GitHub Copilot (a plugin layer), Air doesn&rsquo;t replace your code editor — IntelliJ IDEA, PyCharm, and WebStorm continue as your primary editing surface, while Air manages the agents working alongside you. Launched in public preview in March 2026, Air is currently macOS-only with Windows and Linux versions in development.</p>
+<p>The key technical differentiator is ACP — the Agent Client Protocol — an open standard JetBrains developed as a universal connector between IDEs and AI agents, analogous to how LSP (Language Server Protocol) standardized language intelligence tooling in the 2010s. ACP means any compliant agent — Codex, Claude Agent, Gemini CLI, or third-party agents — can plug into Air without vendor-specific adapters. By April 2026, 11% of developers worldwide use JetBrains AI Assistant and/or Junie (9% AI Assistant, 5% Junie), and JetBrains tools are embedded in 88 of the Fortune Global Top 100 companies, giving Air an unusually large and enterprise-weighted installed base to grow from. Air is built on the codebase of JetBrains Fleet — the collaborative IDE JetBrains discontinued in 2024 — a pragmatic reuse that drew skepticism but accelerated Air&rsquo;s development by roughly 18 months.</p>
+<h2 id="key-features-multi-agent-orchestration-with-codex-claude-gemini-and-junie">Key Features: Multi-Agent Orchestration with Codex, Claude, Gemini, and Junie</h2>
+<p>JetBrains Air&rsquo;s multi-agent orchestration layer is what separates it from every other AI coding tool available in 2026. The core capability is running four distinct agents — OpenAI Codex, Anthropic&rsquo;s Claude Agent, Google Gemini CLI, and JetBrains&rsquo; own Junie — simultaneously on separate tasks from a unified dashboard, with real-time status updates showing which agent is working on what file and what it has changed.</p>
+<p>Out of the box, Air ships with native support for Codex, Claude Agent, Gemini CLI, and Junie. Each agent runs in isolation: you assign it a task (e.g., &ldquo;migrate the auth module to the new JWT library&rdquo;), a Git worktree as its sandbox, and optionally a Docker container for environment isolation. Air&rsquo;s dashboard shows all active agents on a single screen — their current status, the files they&rsquo;ve touched, and any blocking errors. Junie, JetBrains&rsquo; own agent ($10/month individual, $60/month enterprise), integrates most deeply with IntelliJ-family IDEs and has access to the full project model, meaning it understands imports, type hierarchies, and test coverage in ways external agents don&rsquo;t. Air also integrates MCP (Model Context Protocol) for connecting external tools and data sources — databases, Jira, Confluence, internal APIs — so agents can query real context rather than hallucinating project structure. BYOK (Bring Your Own Key) support means developers who already pay for Anthropic or OpenAI API access can plug those keys in and use Air at no additional cost beyond their existing API spend.</p>
+<h3 id="how-acp-changes-agent-integration">How ACP Changes Agent Integration</h3>
+<p>ACP (Agent Client Protocol) is JetBrains&rsquo; bid to become the standard connector between development environments and AI agents — built on the same philosophy as LSP but for the agentic layer. With ACP, any compliant agent can register its capabilities with Air and receive structured task assignments, file context, and progress reporting channels. The practical result: adding a new agent to your Air workflow doesn&rsquo;t require reading vendor documentation or writing adapter code — if the agent is ACP-compliant, it appears in the Air agent registry and is ready to assign tasks.</p>
+<h2 id="how-air-works-docker-containers-git-worktrees-and-parallel-agent-isolation">How Air Works: Docker Containers, Git Worktrees, and Parallel Agent Isolation</h2>
+<p>JetBrains Air uses Git worktrees and Docker containers to prevent parallel agents from stepping on each other&rsquo;s changes — a technical approach that directly addresses the biggest risk in multi-agent development: conflicting edits. Each agent operates in its own Git worktree, a standard Git feature that creates a separate working directory from the same repository, so Agent A working on the auth module and Agent B writing tests never touch the same filesystem state simultaneously. Docker containers add an additional isolation layer for agents that need different runtime environments — useful when migrating legacy code where the old and new environments can&rsquo;t coexist.</p>
+<p>A practical example from the official Air documentation: migrate a legacy module to a new framework in one Git worktree with Claude Agent, while Junie generates a test suite in a second worktree — both monitored from Air&rsquo;s single dashboard. When both agents finish, Air surfaces the diffs for review and handles the merge. The workflow reduces context-switching from &ldquo;alt-tab between three terminal windows&rdquo; to &ldquo;review two diffs on one screen.&rdquo; The limitation is real: three or more agents touching related files can still produce merge conflicts that Air surfaces but doesn&rsquo;t automatically resolve. Air handles parallel agent management better than manual tool-switching, but it doesn&rsquo;t eliminate merge conflict review — it just consolidates it. The orchestration layer also adds some latency: spinning up isolated worktrees and Docker containers takes 10–30 seconds per agent depending on repo size, which offsets parallelism gains on small, fast tasks.</p>
+<h3 id="airs-dashboard-what-you-actually-see">Air&rsquo;s Dashboard: What You Actually See</h3>
+<p>The Air dashboard presents active agents as cards showing: current task description, files modified (with diff counts), elapsed time, blocking errors, and a &ldquo;review changes&rdquo; button that opens a unified diff view. You can pause an agent mid-task, redirect it with additional context, or cancel and discard changes — all from the dashboard without switching to a terminal. There&rsquo;s no built-in code editor in Air; it integrates with your existing JetBrains IDE via ACP, so clicking &ldquo;open in editor&rdquo; on a diff launches IntelliJ or PyCharm with the affected files already staged.</p>
+<h2 id="jetbrains-air-pricing-free-with-byok-or-bundled-with-ai-subscriptions">JetBrains Air Pricing: Free with BYOK, or Bundled with AI Subscriptions</h2>
+<p>JetBrains Air is free to use during its public preview period with BYOK (Bring Your Own Key) — developers who already have Anthropic, OpenAI, or Google API keys can connect them directly, making Air&rsquo;s incremental cost zero beyond existing API spend. For teams without pre-existing API accounts, Air is bundled with JetBrains AI Pro and AI Ultimate subscriptions, the same plans that include Junie and JetBrains AI Assistant access for IntelliJ-family IDEs.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Plan</th>
+          <th>Air Access</th>
+          <th>Junie Included</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>BYOK (Free)</strong></td>
+          <td>Full Air features</td>
+          <td>No (use external agents)</td>
+          <td>Developers with Claude/GPT-4 API keys</td>
+      </tr>
+      <tr>
+          <td><strong>AI Pro</strong></td>
+          <td>Bundled</td>
+          <td>Yes (individual tier)</td>
+          <td>Individual developers, $10/month Junie add-on</td>
+      </tr>
+      <tr>
+          <td><strong>AI Ultimate</strong></td>
+          <td>Bundled</td>
+          <td>Yes (enterprise tier)</td>
+          <td>Teams, up to $60/month Junie</td>
+      </tr>
+  </tbody>
+</table>
+<p>The pricing structure is genuinely developer-friendly: if you already pay for Claude API or OpenAI API access (which many senior developers do), Air costs nothing additional. The catch is that Junie — the agent with deepest IntelliJ integration and project model awareness — requires a separate JetBrains subscription. For teams already using JetBrains AI Pro, Air is a no-brainer upgrade that lands in the same subscription at no extra cost.</p>
+<h3 id="hidden-cost-api-token-consumption">Hidden Cost: API Token Consumption</h3>
+<p>Running three agents in parallel means three simultaneous API streams consuming tokens. A complex refactor that takes 20 minutes with one agent running three agents in parallel doesn&rsquo;t cost 20 minutes × 1 agent — it costs 20 minutes × 3 agents&rsquo; token burn. Teams switching to Air from single-agent workflows should budget for 2–3× API cost increase when running parallel sessions, offset (partially) by faster wall-clock completion times.</p>
+<h2 id="jetbrains-air-vs-cursor-vs-github-copilot-which-agentic-setup-wins-in-2026">JetBrains Air vs Cursor vs GitHub Copilot: Which Agentic Setup Wins in 2026?</h2>
+<p>JetBrains Air, Cursor, and GitHub Copilot occupy distinct positions in the 2026 AI development tool market, and they&rsquo;re not direct substitutes — the &ldquo;right&rdquo; choice depends heavily on your workflow, existing tooling, and project type. Air excels at large-scale, cross-file work where parallel agents add genuine value. Cursor wins at single-file deep work with its embedded chat and diff UI. Copilot Workspace sits in between: agentic planning with GitHub-native integration but without Air&rsquo;s parallel execution.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>JetBrains Air</th>
+          <th>Cursor</th>
+          <th>GitHub Copilot Workspace</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Agent parallelism</strong></td>
+          <td>Yes (multiple simultaneous)</td>
+          <td>No (sequential)</td>
+          <td>Partial (planned tasks)</td>
+      </tr>
+      <tr>
+          <td><strong>Supported agents</strong></td>
+          <td>Codex, Claude, Gemini, Junie</td>
+          <td>Claude 3.5, GPT-4o</td>
+          <td>Copilot only</td>
+      </tr>
+      <tr>
+          <td><strong>Code editor</strong></td>
+          <td>No (uses your JetBrains IDE)</td>
+          <td>Yes (VS Code fork)</td>
+          <td>No (GitHub UI)</td>
+      </tr>
+      <tr>
+          <td><strong>BYOK</strong></td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><strong>Git worktree isolation</strong></td>
+          <td>Yes (native)</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td><strong>macOS/Windows/Linux</strong></td>
+          <td>macOS only (2026 preview)</td>
+          <td>All platforms</td>
+          <td>All platforms</td>
+      </tr>
+      <tr>
+          <td><strong>Pricing entry point</strong></td>
+          <td>Free (BYOK)</td>
+          <td>$20/month</td>
+          <td>$10/month (Copilot)</td>
+      </tr>
+  </tbody>
+</table>
+<p>The honest verdict: Air is best for greenfield development and large cross-cutting refactors — cases where running a migration agent alongside a test-writing agent saves hours. Cursor remains better for precision single-file work, particularly when you want tight inline diff review. GitHub Copilot Workspace wins for teams already deep in the GitHub ecosystem who want agentic task planning without leaving GitHub&rsquo;s UI.</p>
+<p>For teams that use IntelliJ, PyCharm, or WebStorm as their primary IDE, Air is the most natural extension path — it doesn&rsquo;t ask you to change your editor, just to add an orchestration layer on top.</p>
+<h2 id="real-world-use-cases-when-air-shines-and-when-it-doesnt">Real-World Use Cases: When Air Shines (and When It Doesn&rsquo;t)</h2>
+<p>JetBrains Air delivers its clearest value on tasks that are large enough to justify parallelism and structured enough that agent isolation prevents conflicts — specifically, large module migrations, framework upgrades, and test suite generation against existing code. For a concrete example: migrating a 15,000-line Java monolith&rsquo;s data access layer from Hibernate 5 to JPA 3 while simultaneously generating a regression test suite is a task that takes one developer 3–5 days sequentially. With Air running Claude Agent on the migration and Junie on the test generation in separate worktrees, the wall-clock time drops to 1–2 days of combined agent time plus human review — a meaningful gain.</p>
+<p>Where Air underperforms: precise debugging sessions, performance profiling, or any task requiring tight human-in-the-loop iteration. These workflows benefit from low latency and direct code feedback — areas where Cursor&rsquo;s embedded inline chat and diff system outperforms Air&rsquo;s dashboard-and-review approach. The orchestration layer adds overhead (worktree setup, agent initialization, diff consolidation) that is invisible cost on a 3-hour task and significant cost on a 15-minute task. Air also struggled in testing on large monorepos where agents needed shared context — when Agent A&rsquo;s changes needed to inform Agent B&rsquo;s decisions, the isolation that prevents conflicts also prevents knowledge transfer, requiring manual coordination that partially offsets parallelism gains.</p>
+<h3 id="who-should-use-air-today">Who Should Use Air Today</h3>
+<ul>
+<li><strong>Java/Kotlin teams on IntelliJ</strong>: highest value — Junie&rsquo;s deep project model integration is unique to JetBrains IDEs</li>
+<li><strong>Python teams on PyCharm</strong>: strong fit for data pipeline rewrites and library migration tasks</li>
+<li><strong>Enterprise teams with existing JetBrains subscriptions</strong>: Air is essentially free, so evaluation cost is zero</li>
+<li><strong>Developers with existing Claude or GPT-4 API keys</strong>: BYOK makes Air zero additional cost</li>
+</ul>
+<p>Hold off if you primarily work on single-file features, do a lot of exploratory debugging, or your team is primarily on VS Code — Air&rsquo;s complement-not-replace positioning means VS Code users get less value since the JetBrains IDE integration layer (the main benefit over raw CLI agents) doesn&rsquo;t apply.</p>
+<h2 id="should-you-switch-to-jetbrains-air-in-2026-verdict-for-java-python-and-web-devs">Should You Switch to JetBrains Air in 2026? Verdict for Java, Python, and Web Devs</h2>
+<p>JetBrains Air earns a cautious recommendation for development teams already inside the JetBrains ecosystem, with a stronger recommendation specifically for Java and Kotlin teams where Junie&rsquo;s IntelliJ integration is a genuine differentiator. The core value proposition — run multiple agents in parallel on isolated worktrees, review consolidated diffs from one dashboard — is real and demonstrably useful for large refactors and migrations. The public preview limitations (macOS only, occasional orchestration latency, no automatic merge conflict resolution) are real friction points but are preview-stage issues rather than fundamental design flaws.</p>
+<p>The BYOK pricing is the strongest selling point for developer adoption: if you&rsquo;re already paying for Claude or GPT-4 API access, Air costs nothing to try. The risk is low; the upside for enterprise teams on JetBrains licenses is high. JetBrains&rsquo; decision to build Air on the Fleet codebase rather than start from scratch is pragmatic — it accelerated release by months — but the lingering concern is whether JetBrains will maintain long-term commitment to Air given Fleet&rsquo;s abandonment. The ACP standard mitigates this risk somewhat: if Air&rsquo;s orchestration layer ever winds down, ACP-compliant agents can integrate with other surfaces. For non-JetBrains IDE users (VS Code, Neovim, Emacs), Air in its current form is a poor fit. The editor integration layer is the key differentiator, and without it, Air is just a dashboard for managing CLI agents you could run yourself. Wait for broader IDE support before evaluating.</p>
+<p><strong>Bottom line</strong>: If you use IntelliJ or PyCharm, have JetBrains AI Pro, and your team regularly tackles large cross-cutting changes, deploy Air in the next sprint. If you&rsquo;re a VS Code team or primarily do feature-level work, revisit when Windows/Linux support and third-party IDE plugins land — likely Q3 2026.</p>
+<h2 id="faq">FAQ</h2>
+<p>JetBrains Air is a new product category — multi-agent development environment — and the questions developers ask most often center on pricing, platform support, the ACP standard, and how Air compares to tools they already use. The five questions below address the most common points of confusion based on developer forums, Reddit threads, and official documentation reviewed during the April 2026 research period. Key facts: Air is free to use with your own API keys (BYOK), currently macOS-only, built around the ACP open standard, and does not replace your existing JetBrains IDE — it adds an orchestration layer on top. For teams already paying for JetBrains AI Pro or Claude/GPT-4 API access, the incremental cost to try Air is zero, which makes evaluation low-risk even if your team ultimately sticks with Cursor or Copilot Workspace for most work.</p>
+<h3 id="is-jetbrains-air-free">Is JetBrains Air free?</h3>
+<p>JetBrains Air is free during public preview for macOS with BYOK (Bring Your Own Key) — bring your own Anthropic, OpenAI, or Google API keys and there&rsquo;s no additional charge. For teams without pre-existing API keys, Air is bundled with JetBrains AI Pro and AI Ultimate subscriptions alongside Junie and JetBrains AI Assistant.</p>
+<h3 id="what-is-acp-agent-client-protocol-in-jetbrains-air">What is ACP (Agent Client Protocol) in JetBrains Air?</h3>
+<p>ACP is an open standard developed by JetBrains for connecting AI coding agents to development environments — analogous to how LSP (Language Server Protocol) standardized language intelligence integration. ACP allows any compliant agent (Codex, Claude, Gemini, or third-party) to register capabilities with Air and receive structured task assignments without vendor-specific adapter code.</p>
+<h3 id="does-jetbrains-air-replace-cursor-or-vs-code">Does JetBrains Air replace Cursor or VS Code?</h3>
+<p>No. JetBrains Air explicitly does not include a code editor and is designed to complement IntelliJ-family IDEs (IntelliJ IDEA, PyCharm, WebStorm), not replace them. Cursor is a VS Code fork with a built-in AI layer — a different architecture targeting different workflows. Air is an orchestration layer for multi-agent parallel development; Cursor is a tight inline AI editing experience.</p>
+<h3 id="what-agents-does-jetbrains-air-support">What agents does JetBrains Air support?</h3>
+<p>JetBrains Air natively supports OpenAI Codex, Anthropic Claude Agent, Google Gemini CLI, and JetBrains&rsquo; own Junie agent. Additional ACP-compliant agents can be added through the Air agent registry. MCP (Model Context Protocol) integration allows agents to connect with external tools, databases, and data sources.</p>
+<h3 id="is-jetbrains-air-available-on-windows-and-linux">Is JetBrains Air available on Windows and Linux?</h3>
+<p>As of April 2026, JetBrains Air is macOS-only in public preview. JetBrains has confirmed Windows and Linux versions are in development but has not announced a specific release date. Teams on Windows or Linux should monitor the JetBrains roadmap for platform availability updates.</p>
+]]></content:encoded></item><item><title>AI Coding CLI Tools Comparison 2026: Claude Code vs Codex vs Gemini CLI vs Junie</title><link>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</link><pubDate>Thu, 30 Apr 2026 03:05:33 +0000</pubDate><guid>https://baeseokjae.github.io/posts/ai-coding-cli-tools-comparison-2026/</guid><description>Claude Code, Codex CLI, Gemini CLI, Junie를 벤치마크·가격·CI/CD 통합 기준으로 비교해 2026년 최선의 AI 코딩 CLI 도구를 찾아드립니다.</description><content:encoded><![CDATA[<p>2026년 AI 코딩 CLI 도구 중 하나를 골라야 한다면, <strong>Claude Code</strong>(SWE-Bench 80.8%)는 정확성, <strong>Codex CLI</strong>(Terminal-Bench 77.3%)는 CI/CD 속도, <strong>Gemini CLI</strong>(1M 토큰 컨텍스트)는 대규모 코드베이스, <strong>Junie CLI</strong>(LLM 불가지론 BYOK)는 유연한 팀 예산에 최적입니다.</p>
 <h2 id="quick-comparison-table-claude-code-vs-codex-cli-vs-gemini-cli-vs-junie-2026">Quick Comparison Table: Claude Code vs Codex CLI vs Gemini CLI vs Junie (2026)</h2>
 <p>AI 코딩 CLI 도구는 2025년 중반부터 2026년 초까지 폭발적으로 성장했습니다. JetBrains가 10,000명 이상의 개발자를 대상으로 실시한 2026년 1월 설문에서 90%가 최소 한 가지 AI 도구를 매일 업무에 사용한다고 응답했으며, 59%는 세 가지 이상의 도구를 병행 사용한다고 밝혔습니다. Claude Code는 출시 4개월 만에 115,000명의 개발자가 주간 195M 라인의 코드를 처리하며 연간 매출 10억 달러 run-rate를 돌파했습니다(Anthropic, 2026). 이 숫자들은 단순한 성장이 아니라 개발 워크플로우의 근본적인 변화를 의미합니다. 네 가지 CLI 도구를 가격·벤치마크·CI/CD 통합·컨텍스트 관리 기준으로 직접 비교했습니다.</p>
 <table>
