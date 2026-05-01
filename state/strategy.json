@@ -1,7 +1,7 @@
 {
   "current_phase": 0,
   "phase_description": "Foundation - technical health + external data driven",
-  "last_updated": "2026-04-26T00:00:00Z",
+  "last_updated": "2026-04-30T00:00:00Z",
   "focus_topics": [
     "AI coding tools",
     "LLM comparison",
@@ -250,36 +250,51 @@
     "GPT-5.5 token efficiency — 72% fewer output tokens than Claude on same tasks, structural architecture difference, KD 5",
     "Kimi K2.6 vs GPT-5.5 — same SWE-bench Pro score at 8x lower cost, MIT open-source, KD 5",
     "DeepSeek V4 API compatibility guide — OpenAI + Anthropic drop-in, zero code changes, KD 5",
-    "Vercel AI Gateway LLM routing — new Zed provider, multi-model routing developer guide, KD 5"
+    "Vercel AI Gateway LLM routing — new Zed provider, multi-model routing developer guide, KD 5",
+    "IBM Bob enterprise dev partner (April 28, 2026 GA) — multi-model orchestration (Claude/Mistral/Granite), BobShell CLI, 80K IBM devs using, 45% productivity gain, KD 5",
+    "Zencoder Zen Agents — team AI coding with org-wide shared agent marketplace, Zenflow orchestration, ISO 27001/SOC 2, KD 5",
+    "smolagents (HuggingFace) — minimal Python code agent framework, <1K LOC core, model-agnostic, 16K GitHub stars, DeepLearning.AI course, KD 7 SV 450+",
+    "Qwen3.6-Max-Preview — April 20, 2026, first Qwen closed-weights flagship, #1 on 6 coding benchmarks (SWE-bench Pro, SkillsBench, Terminal-Bench 2.0, etc.), 260K context, KD 4",
+    "Augment Code Intent — spec-driven multi-agent macOS workspace, living specs, BYOA (Claude Code/Codex as sub-agents), Coordinator Agent + specialists, KD 5",
+    "GitHub Copilot usage-based billing — June 1, 2026 transition, AI Credits system ($0.01/credit), code review burns Actions minutes, developer backlash, urgent search intent, KD 6",
+    "WWDC 2026 developer preview — June 8 start, Foundation Models framework v2, Xcode 26 multi-provider AI (BYOK), Apple Intelligence APIs expansion, KD 6 SV 500+",
+    "Qwen-Agent framework — official QwenLM framework, 16K+ stars, native MCP integration, function calling + RAG + code interpreter, model-agnostic via LiteLLM, KD 6",
+    "CodeRabbit Autofix (April 2026 early access) — agent that writes PR fixes and commits, Pro plan only, closes review→fix loop, distinct from standard review, KD 5",
+    "Traycer AI — VS Code extension $8/mo for spec-driven orchestration, 4 task modes, parallel planners, 6.7%→70% PR acceptance case study, KD 5",
+    "Mistral Vibe CLI — MIT-licensed terminal coding agent alongside Devstral 2, subagent delegation, Textual UI, near-zero competition outside docs, KD 5",
+    "MCP Apps developer guide — SEP-1865 spec, interactive HTML UIs in Claude/ChatGPT iframes, launch partners: Figma/Slack/Canva/Amplitude, sandboxed rendering, KD 5",
+    "Stack AI review — no-code enterprise RAG + AI agent builder, SharePoint/Salesforce/SAP/Snowflake integrations, SOC 2, visual build → API deployment, KD 6",
+    "MindStudio review — no-code AI Worker builder, marketplace monetization, free 3 workers/Pro $19, distinct from n8n (workflow) — discrete Workers model, KD 5",
+    "Replit Agent 3 review — 200-minute autonomous runtime (longest browser-based), full execution environment (not just code gen), deploy from natural language, 35M developers, KD 5"
   ],
   "cluster_status": {
     "AI coding tools": {
-      "queued": 436,
+      "queued": 462,
       "seeded": 16,
       "writing": 7,
       "published": 27,
-      "note": "2026-04-30 (run 73): +1 new (claude-code-quality-degradation-postmortem-2026). Now at 426 queued."
+      "note": "2026-04-30 (run 79): +2 new (claude-code-mcp-enterprise-setup-guide, microsoft-agentrx-framework-guide). Now at 462 queued."
     },
     "AI for developers": {
-      "queued": 347,
+      "queued": 380,
       "seeded": 1,
       "writing": 5,
       "published": 15,
-      "note": "2026-04-30 (run 73): +1 new (vertex-ai-gen-eval-anthropic-llama-guide-2026). Now at 347 queued."
+      "note": "2026-04-30 (run 79): +6 new (graphrag-developer-guide, agentic-rag-production-guide, modal-serverless-ml-developer-guide, runpod-vs-modal-vs-lambda-serverless-gpu, stripe-agent-toolkit-developer-guide, serverless-llm-deployment-comparison). Now at 380 queued."
     },
     "LLM comparison": {
-      "queued": 147,
+      "queued": 156,
       "seeded": 2,
       "published": 4,
-      "note": "2026-04-30 (run 72): +1 new (grok-4-20-multi-agent-architecture-guide-2026). Now at 147 queued."
+      "note": "2026-04-30 (run 77): +3 new (olmo-3-1-32b-think-developer-guide, qwen3-6-plus-developer-guide, qwen3-6-27b-vs-35b-moe-guide). Now at 156 queued."
     },
     "AI workflow automation": {
-      "queued": 74,
+      "queued": 76,
       "writing": 1,
       "published": 5,
-      "note": "2026-04-30 (run 72): +2 new (gumloop-vs-zapier-vs-n8n-ai-automation, lindy-vs-gumloop-ai-automation-comparison). Now at 74 queued."
+      "note": "2026-04-30 (run 74): +2 new (stack-ai-review, mindstudio-review). Now at 76 queued."
     },
-    "last_strategy_run": "2026-04-30 (run 73): +2 new topics. AI coding tools: +1 (Claude Code 3-bug postmortem — reasoning effort/caching/verbosity, all fixed v2.1.116, Fortune/VentureBeat coverage). AI for developers: +1 (Vertex AI Gen AI eval now supports Anthropic+Llama cross-model benchmarking). Key signal: Anthropic published official postmortem April 23 explaining 6-week Claude Code quality drop — high developer search intent.",
+    "last_strategy_run": "2026-04-30 (run 79): +8 new topics. AI coding: +2 (Claude Code MCP enterprise setup Tool Search 85% context reduction + managed-mcp.json, Microsoft AgentRx open-source agent debugging critical failure step pinpointing). AI dev: +6 (GraphRAG developer guide 3.4x accuracy knowledge graph RAG, Agentic RAG production guide adaptive routing + LangGraph, Modal serverless ML Python SDK $1.1B, RunPod vs Modal vs Lambda GPU comparison, Stripe agent toolkit payments in LLM workflows + MCP server, Serverless LLM deployment 4-way RunPod/Modal/Replicate/Bedrock). Key signals: (1) Serverless GPU is the infrastructure layer for running open-source models — growing developer decision complexity as 4+ viable platforms exist. (2) GraphRAG + Agentic RAG represent the next wave of RAG content — current SERP still mostly covers naive/hybrid RAG, advanced patterns underserved. (3) Stripe's agent toolkit makes agentic commerce a real developer concern — payments-in-agents is an emerging category with near-zero guides. (4) Microsoft AgentRx fills a gap in agent debugging tooling — the debugging discipline is months behind the building discipline.",
     "unclustered_legacy": {
       "published": 48,
       "queued": 1,

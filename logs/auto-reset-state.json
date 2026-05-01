@@ -56,8 +56,18 @@
         "time": "2026-04-30T01:29:42.591732+00:00",
         "agent": "Strategist",
         "from_status": "error"
+      },
+      {
+        "time": "2026-04-30T13:58:57.518080+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-04-30T14:09:52.602272+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
       }
     ]
   },
-  "last_run": "2026-04-30T11:57:10.827265+00:00"
+  "last_run": "2026-05-01T08:57:13.549389+00:00"
 }
