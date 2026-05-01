@@ -15630,5 +15630,101 @@
     "cluster": "AI frameworks",
     "discovered_at": "2026-04-21",
     "notes": "Orphaned article, added during publication run"
+  },
+  {
+    "slug": "cursor-claude-code-codex-stack-2026",
+    "title": "Cursor Claude Code Codex Stack 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088803Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "windsurf-arena-mode-swe-1-5-review-2026",
+    "title": "Windsurf Arena Mode Swe 1 5 Review 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088832Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "llm-observability-tools-comparison-2026",
+    "title": "Llm Observability Tools Comparison 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088837Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "claude-opus-47-vs-46-vs-mythos-comparison-2026",
+    "title": "Claude Opus 47 Vs 46 Vs Mythos Comparison 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088842Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "qwen-3-full-lineup-guide-2026",
+    "title": "Qwen 3 Full Lineup Guide 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088846Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "llama-4-scout-guide-2026",
+    "title": "Llama 4 Scout Guide 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088850Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "deepseek-v3-2-vs-claude-vs-gpt5-cost-2026",
+    "title": "Deepseek V3 2 Vs Claude Vs Gpt5 Cost 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088854Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "lovable-pricing-guide-2026",
+    "title": "Lovable Pricing Guide 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088858Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "ai-code-review-tools-comparison-2026",
+    "title": "Ai Code Review Tools Comparison 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088862Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "magistral-mistral-reasoning-model-review-2026",
+    "title": "Magistral Mistral Reasoning Model Review 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088866Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "context-engineering-ai-coding-agents-2026",
+    "title": "Context Engineering Ai Coding Agents 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088870Z",
+    "type": "guide",
+    "priority": 999
+  },
+  {
+    "slug": "anthropic-agentic-coding-trends-2026",
+    "title": "Anthropic Agentic Coding Trends 2026",
+    "status": "published",
+    "published_at": "2026-05-01T09:03:36.088873Z",
+    "type": "guide",
+    "priority": 999
   }
 ]
