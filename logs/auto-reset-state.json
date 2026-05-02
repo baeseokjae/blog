@@ -22,6 +22,51 @@
         "time": "2026-04-27T15:39:37.301467+00:00",
         "agent": "ContentDirector",
         "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:00:44.575824+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:11:01.517248+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:21:12.167520+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:03:45.834858+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:14:17.590083+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:25:05.837159+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:07:18.320515+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:17:36.180262+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:27:52.332782+00:00",
+        "agent": "ContentDirector",
+        "from_status": "error"
       }
     ],
     "1833525a-1cf5-43b9-a4ce-e31a9b412880": [
@@ -66,8 +111,277 @@
         "time": "2026-04-30T14:09:52.602272+00:00",
         "agent": "Strategist",
         "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T00:32:15.259879+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T00:42:29.780117+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T00:52:49.887449+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:35:48.630005+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:46:11.052125+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:56:37.931796+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:40:10.007280+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:50:31.509788+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:00:44.575824+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:42:57.007534+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:53:15.351835+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:03:45.834858+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:46:32.520120+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:56:58.797346+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:07:18.320515+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:48:26.283324+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:58:40.311240+00:00",
+        "agent": "Strategist",
+        "from_status": "error"
+      }
+    ],
+    "d88ae332-76ca-464a-98fd-ace75d19c4fe": [
+      {
+        "time": "2026-05-02T00:11:01.169494+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T00:21:12.456636+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T00:32:15.259879+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:14:26.167868+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:24:41.541260+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:35:48.630005+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:19:25.024071+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:29:40.027880+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:40:10.007280+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:21:12.167520+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:32:44.186276+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:42:57.007534+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:25:05.837159+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:36:07.421535+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:46:32.520120+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:27:52.332782+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:38:07.816973+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:48:26.283324+00:00",
+        "agent": "Researcher",
+        "from_status": "error"
+      }
+    ],
+    "b796bb1c-a6ef-4249-bfa2-554acfc61726": [
+      {
+        "time": "2026-05-02T00:21:12.456636+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T00:32:15.259879+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T00:42:29.780117+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:24:41.541260+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:35:48.630005+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T01:46:11.052125+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:29:40.027880+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:40:10.007280+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T02:50:31.509788+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:32:44.186276+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:42:57.007534+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T03:53:15.351835+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:36:07.421535+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:46:32.520120+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T04:56:58.797346+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:38:07.816973+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:48:26.283324+00:00",
+        "agent": "Writer",
+        "from_status": "error"
+      },
+      {
+        "time": "2026-05-02T05:58:40.311240+00:00",
+        "agent": "Writer",
+        "from_status": "error"
       }
     ]
   },
-  "last_run": "2026-05-01T20:48:15.659845+00:00"
+  "last_run": "2026-05-02T05:58:40.311240+00:00"
 }

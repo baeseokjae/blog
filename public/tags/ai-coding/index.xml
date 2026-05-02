@@ -1,4 +1,762 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 06:05:19 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursor + Claude Code + Codex Composable Stack 2026: The New AI Coding Architecture</title><link>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</link><pubDate>Fri, 01 May 2026 06:05:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</guid><description>How to combine Cursor, Claude Code, and OpenAI Codex into a composable AI coding stack — with setup guide, workflow patterns, and pricing breakdown.</description><content:encoded><![CDATA[<p>The best AI coding setup in 2026 isn&rsquo;t a single tool — it&rsquo;s a composable stack: Cursor as the IDE and orchestration layer, Claude Code as the deep-reasoning terminal agent, and OpenAI Codex as the cloud-native background automation engine. Using all three together costs as little as $40/month and delivers capabilities no single tool can match.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 21:04:40 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Cline vs Roo Code 2026: Best Open-Source VS Code AI Agent Compared</title><link>https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/</link><pubDate>Fri, 01 May 2026 21:04:40 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/</guid><description>Cline vs Roo Code compared on architecture, Boomerang Tasks, cost control, and IDE support — find the right open-source VS Code AI agent for 2026.</description><content:encoded><![CDATA[<p>Cline is the better choice when you need strict human-in-the-loop control and JetBrains support. Roo Code wins for autonomous multi-agent workflows, structured modes, and teams that want to cut API costs by assigning cheaper models to lighter tasks. Both are free, Apache 2.0 licensed, and use a bring-your-own-key model.</p>
+<h2 id="cline-vs-roo-code-at-a-glance-quick-comparison-table">Cline vs Roo Code at a Glance (Quick Comparison Table)</h2>
+<p>Cline and Roo Code are the two dominant open-source AI coding agents for VS Code in 2026, and the right choice depends almost entirely on how much autonomy you want the agent to have. Cline has 57,900+ GitHub stars and 4 million+ installations across VS Code and JetBrains, making it the more established option with a larger community. Roo Code, forked from Cline in early 2024, has 23,800+ stars and 1.55 million VS Code installs, but has grown at a faster rate — reaching 300+ active contributors by March 2026. The core architectural difference is Cline&rsquo;s Plan/Act two-phase workflow versus Roo Code&rsquo;s multi-mode system (Code, Architect, Ask, Debug) with Boomerang Tasks for parallel sub-agent orchestration. For regulated industries or teams that require step-by-step approval, Cline&rsquo;s conservative control model is a significant advantage. For solo founders and teams shipping complex multi-file changes quickly, Roo Code&rsquo;s autonomous execution is the decisive edge.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Cline</th>
+          <th>Roo Code</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GitHub Stars</td>
+          <td>57,900+</td>
+          <td>23,800+</td>
+      </tr>
+      <tr>
+          <td>Installs</td>
+          <td>4M+ (VS Code + JetBrains)</td>
+          <td>1.55M (VS Code)</td>
+      </tr>
+      <tr>
+          <td>License</td>
+          <td>Apache 2.0</td>
+          <td>Apache 2.0</td>
+      </tr>
+      <tr>
+          <td>Cost</td>
+          <td>Free (BYOK)</td>
+          <td>Free (BYOK)</td>
+      </tr>
+      <tr>
+          <td>Architecture</td>
+          <td>Plan/Act two-phase</td>
+          <td>Multi-mode (Code, Architect, Ask, Debug)</td>
+      </tr>
+      <tr>
+          <td>Multi-agent</td>
+          <td>No</td>
+          <td>Yes (Boomerang Tasks)</td>
+      </tr>
+      <tr>
+          <td>JetBrains</td>
+          <td>Native</td>
+          <td>Experimental bridge</td>
+      </tr>
+      <tr>
+          <td>Custom Modes</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Best For</td>
+          <td>Controlled, approval-gated workflows</td>
+          <td>Autonomous complex project execution</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="what-is-cline">What Is Cline?</h2>
+<p>Cline is an open-source AI coding agent for VS Code and JetBrains that operates through a two-phase Plan/Act workflow — the agent plans every action before executing it, and waits for developer approval at each step. Founded as a VS Code extension and later expanding to JetBrains IDEs, Cline reached 57,900+ GitHub stars and 4 million+ installations by May 2026, making it the second most-starred open-source coding agent after OpenHands (68K stars). Cline is fully model-agnostic, supporting Anthropic Claude, OpenAI GPT, Google Gemini, AWS Bedrock, Azure OpenAI, and any OpenAI-compatible endpoint. Individual developers typically spend $5–$50/month on API costs depending on usage intensity. The Cline Teams plan ($20/user/month with 10 free seats from Q1 2026) adds shared configuration and audit logs for small engineering teams. The plan/act separation is Cline&rsquo;s defining characteristic — every file write, terminal command, and browser action is shown to the developer before execution, making it particularly well-suited for teams in regulated environments (finance, healthcare, legal) where an audit trail of agent actions is a compliance requirement.</p>
+<p><strong>Key Cline features:</strong></p>
+<ul>
+<li>Plan/Act separation with developer approval at each step</li>
+<li>Native JetBrains IDE support (IntelliJ, PyCharm, WebStorm, etc.)</li>
+<li>MCP (Model Context Protocol) server integration for external tool use</li>
+<li>Browser automation via Playwright</li>
+<li>Full terminal access with sandboxed command execution</li>
+<li>Cline Teams plan with shared config and audit logs</li>
+</ul>
+<h2 id="what-is-roo-code">What Is Roo Code?</h2>
+<p>Roo Code is an open-source VS Code extension that originated as a fork of Cline and has since diverged significantly with its multi-mode architecture, Boomerang Tasks orchestration system, and Roo Cloud offering. As of May 2026, Roo Code has 23,800+ GitHub stars, 1.55 million VS Code installs, and 300+ active contributors — a contributor velocity that rivals projects several times its age. The fork was created because the original Roo team wanted to implement a structured multi-mode system (Code, Architect, Ask, Debug) that Cline&rsquo;s maintainers declined to incorporate, as it conflicted with Cline&rsquo;s single-agent philosophy. Each mode in Roo Code carries its own system prompt, tool permissions, and (optionally) its own assigned LLM — meaning you can run Claude Opus 4 in Code mode for implementation while routing Ask mode queries to a cheaper model like Gemini Flash, cutting API costs significantly. The most powerful Roo Code capability is Boomerang Tasks, which allows an orchestrator agent to spawn specialized sub-agents for parallel execution of complex multi-step projects. Roo Code also supports custom modes, letting teams define domain-specific agents (a security auditor mode, a data migration mode) with tailored prompts and tool access.</p>
+<p><strong>Key Roo Code features:</strong></p>
+<ul>
+<li>Multi-mode system: Code, Architect, Ask, Debug (plus custom modes)</li>
+<li>Boomerang Tasks for parallel multi-agent orchestration</li>
+<li>Per-mode LLM assignment for cost optimization</li>
+<li>Custom modes with domain-specific system prompts</li>
+<li>Roo Cloud for managed model access without BYOK friction</li>
+<li>300+ active contributors with rapid release cadence</li>
+</ul>
+<h2 id="architecture-deep-dive--planact-vs-multi-agent-modes">Architecture Deep Dive — Plan/Act vs Multi-Agent Modes</h2>
+<p>Cline&rsquo;s Plan/Act architecture and Roo Code&rsquo;s multi-mode system represent genuinely different philosophies for how an AI coding agent should interact with a developer&rsquo;s codebase. In Cline, every operation goes through two phases: a planning phase where the agent lays out what it intends to do (files to create, commands to run, APIs to call), and an act phase where the developer reviews and approves each action before it executes. This creates an explicit human checkpoint at every consequential step, which prevents runaway agent behavior and produces a complete audit log. The tradeoff is speed — complex multi-file refactors require frequent developer attention.</p>
+<p>Roo Code&rsquo;s multi-mode system approaches the problem differently. Rather than a single agent operating in two phases, Roo Code provides four default specialized agents with different tool permissions and behavioral profiles:</p>
+<ul>
+<li><strong>Code mode</strong>: Full tool access, implementation focus. Assigned your most capable model.</li>
+<li><strong>Architect mode</strong>: Planning and design, read-heavy. Can be assigned a smaller reasoning model.</li>
+<li><strong>Ask mode</strong>: Q&amp;A and explanation, no file writes. Route to cheapest model for cost control.</li>
+<li><strong>Debug mode</strong>: Diagnostic focus, terminal and log access. Tuned for root-cause analysis.</li>
+</ul>
+<p>Each mode uses a distinct system prompt, and the mode context prevents the agent from taking actions outside its scope — Ask mode cannot write files, Architect mode cannot run terminal commands. This mode isolation catches a category of agent errors that Cline&rsquo;s general-purpose single-agent cannot: Roo&rsquo;s structural constraints mean the agent is less likely to take destructive actions when you&rsquo;re only asking a clarifying question.</p>
+<p>The key architectural question for teams is: do you need the agent to stop and ask permission (Cline), or do you need it to execute autonomously within structured guardrails (Roo Code)?</p>
+<h2 id="boomerang-tasks-roo-codes-killer-feature-for-complex-projects">Boomerang Tasks: Roo Code&rsquo;s Killer Feature for Complex Projects</h2>
+<p>Boomerang Tasks is a Roo Code feature with no direct equivalent in Cline, and it represents a meaningful paradigm shift in how AI agents handle complex, multi-part software projects. A Boomerang Task is a workflow where a top-level orchestrator agent breaks a complex goal into subtasks, spawns specialized sub-agents for each subtask, executes them in parallel (or in defined sequence), and collects the results back into the parent context. The name comes from the way context &ldquo;boomerangs&rdquo; back to the orchestrating agent after each sub-agent completes.</p>
+<p>In practice, this means a single Roo Code session can implement a feature across multiple files and services simultaneously: one sub-agent writes the database migration, another writes the API endpoint, a third writes the frontend component — all coordinated by the orchestrator, all running in the same VS Code window. For teams building large codebases with complex cross-cutting concerns (authentication, logging, testing, documentation), Boomerang Tasks can reduce the number of manual context-switching steps the developer needs to perform.</p>
+<p>The practical impact: users report that Roo Code with Boomerang Tasks produces fewer half-finished edits and less &ldquo;agent thrashing&rdquo; (where a single-agent loops on a task without making progress) on large multi-file changes compared to Cline. The structured decomposition forces the agent to commit to a plan before executing — a behavioral property that Cline achieves through its Plan/Act UI but Roo Code achieves programmatically through the Boomerang orchestration layer.</p>
+<p><strong>Boomerang Tasks are not appropriate for:</strong></p>
+<ul>
+<li>Simple single-file changes (overhead is not justified)</li>
+<li>Teams without experience debugging multi-agent failures</li>
+<li>Codebases where atomic, reviewable commits are required at each step</li>
+</ul>
+<h2 id="model-support-and-cost-control-byok-per-mode-model-assignment">Model Support and Cost Control (BYOK, Per-Mode Model Assignment)</h2>
+<p>Both Cline and Roo Code are fully model-agnostic and use a bring-your-own-key approach — you supply API keys from Anthropic, OpenAI, Google, AWS Bedrock, Azure OpenAI, or any OpenAI-compatible provider, and neither tool charges a platform fee on top of your API costs. Individual developer costs range from $5–$50/month for typical usage, with heavier agentic tasks (multi-file refactors, test generation) trending toward the higher end when using frontier models.</p>
+<p>Roo Code&rsquo;s per-mode model assignment is the key cost control differentiator. Since each mode has distinct capabilities and token consumption patterns, Roo Code lets you assign different models to different modes:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Roo Mode</th>
+          <th>Suggested Model</th>
+          <th>Estimated Token Cost</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Code</td>
+          <td>Claude Opus 4 / GPT-5</td>
+          <td>High (implementation is token-intensive)</td>
+      </tr>
+      <tr>
+          <td>Architect</td>
+          <td>Claude Sonnet 4.6</td>
+          <td>Medium (planning requires reasoning but fewer output tokens)</td>
+      </tr>
+      <tr>
+          <td>Ask</td>
+          <td>Gemini 2.5 Flash / Haiku 4.5</td>
+          <td>Low (Q&amp;A is cheap to route to fast models)</td>
+      </tr>
+      <tr>
+          <td>Debug</td>
+          <td>Claude Sonnet 4.6</td>
+          <td>Medium (diagnostics need reasoning, not always frontier-level)</td>
+      </tr>
+  </tbody>
+</table>
+<p>This per-mode routing strategy can reduce total monthly API spend by 30–50% for teams that use Ask mode frequently — a meaningful saving for developers who use the agent heavily for code explanation and Q&amp;A throughout the day. Cline does not support per-mode model assignment; a single model is configured globally, meaning every interaction (including simple questions) consumes frontier model tokens.</p>
+<p>Both tools support local model inference via Ollama, LM Studio, and compatible OpenAI-format endpoints, which effectively reduces costs to zero for developers with the hardware to run local models. Roo Code&rsquo;s mode isolation is particularly useful for local model routing: you can run a large local model for Code mode and a small local model for Ask mode without any external API spend.</p>
+<h2 id="ide-support--vs-code-jetbrains-and-beyond">IDE Support — VS Code, JetBrains, and Beyond</h2>
+<p>IDE support is one of the clearest objective differences between Cline and Roo Code in 2026. Cline offers native, production-grade support for both VS Code and JetBrains IDEs (IntelliJ IDEA, PyCharm, WebStorm, GoLand, Rider, and others), making it the only open-source AI coding agent with genuine cross-IDE coverage. Roo Code&rsquo;s primary platform is VS Code, with an experimental JetBrains bridge that the Roo team describes as &ldquo;functional but not feature-complete&rdquo; — it lacks some of the multi-mode UI elements and does not fully support Boomerang Task visualization in JetBrains IDEs.</p>
+<p>For teams standardized on VS Code, IDE support is a non-issue — both tools deliver equivalent VS Code integration quality. For shops running mixed IDE environments (common in Java/Kotlin teams on IntelliJ, mobile teams on Android Studio), Cline&rsquo;s JetBrains support is a significant advantage. Roo Code&rsquo;s JetBrains bridge is improving, but as of May 2026 it is not recommended for production use by JetBrains users who depend on Roo Code&rsquo;s mode system.</p>
+<p><strong>IDE support summary:</strong></p>
+<ul>
+<li>Cline: VS Code (full), JetBrains (full, native)</li>
+<li>Roo Code: VS Code (full), JetBrains (experimental bridge, limited)</li>
+</ul>
+<p>Neither tool currently supports Eclipse, Emacs, Neovim, or other editors natively. For terminal-first workflows, Claude Code and Aider are better fits than either Cline or Roo Code.</p>
+<h2 id="community-ecosystem-and-longevity">Community, Ecosystem, and Longevity</h2>
+<p>Open-source tools live and die by community momentum, and both Cline and Roo Code show strong signals for continued development in 2026. Cline leads on raw install base: 4 million installations and 57,900+ GitHub stars make it one of the most widely adopted open-source developer tools of the past two years. OpenHands (68K stars) is the only open-source coding agent with more GitHub traction. Cline&rsquo;s large install base translates to a mature ecosystem of community-contributed MCP servers, workflow templates, and IDE configurations.</p>
+<p>Roo Code&rsquo;s trajectory tells a different story. Reaching 300+ active contributors within roughly 18 months of forking from Cline is exceptional velocity for an open-source project. The contributor count signals that Roo Code has successfully built a developer community that contributes features, not just bug reports. The Roo team has shipped Boomerang Tasks, custom modes, per-mode model assignment, and Roo Cloud as distinct features — each representing meaningful product direction that did not exist in the original Cline codebase.</p>
+<p>Both projects are Apache 2.0 licensed, which provides the strongest open-source longevity guarantee: if either project stalls, the community can fork and continue development without legal friction. The fork-and-continue pattern is already proven by Roo Code itself.</p>
+<p><strong>Longevity signals:</strong></p>
+<ul>
+<li>Cline: Large install base, corporate-backed maintainers, JetBrains partnership</li>
+<li>Roo Code: High contributor velocity, rapid feature shipping, growing enterprise adoption</li>
+</ul>
+<h2 id="performance-on-real-world-tasks-multi-file-edits-large-codebases">Performance on Real-World Tasks (Multi-File Edits, Large Codebases)</h2>
+<p>User reports and benchmarks from early 2026 consistently show Roo Code outperforming Cline on large, multi-file refactors and complex feature implementations — while Cline performs comparably on single-file changes and simple code generation tasks. The performance gap is most pronounced on tasks that benefit from parallel sub-agent execution (Boomerang Tasks) and from the structured mode system preventing agent scope creep.</p>
+<p><strong>Where Roo Code leads:</strong></p>
+<ul>
+<li>Multi-file refactors spanning 5+ files</li>
+<li>Feature implementations requiring coordinated changes across layers (API, database, frontend)</li>
+<li>Tasks where agent &ldquo;thrashing&rdquo; (looping without progress) is a risk</li>
+<li>Long autonomous sessions where human interruption should be minimized</li>
+</ul>
+<p><strong>Where Cline leads (or matches):</strong></p>
+<ul>
+<li>Single-file edits and targeted bug fixes</li>
+<li>Tasks requiring frequent developer review and approval</li>
+<li>Environments where every agent action must be logged and reviewed</li>
+<li>Teams new to AI coding agents who prefer a more conservative tool</li>
+</ul>
+<p>One consistent finding across user reviews: Roo Code produces fewer half-finished edits on large codebases. The mode isolation and Boomerang orchestration appear to reduce the class of errors where an agent partially implements a change and then gets confused about its own state — a failure mode that is particularly frustrating in large refactors.</p>
+<h2 id="when-to-choose-cline-and-when-to-choose-roo-code">When to Choose Cline (and When to Choose Roo Code)</h2>
+<p>The decision between Cline and Roo Code comes down to three variables: how much autonomy you want the agent to have, whether you use JetBrains, and whether you need Boomerang Tasks for complex multi-agent orchestration. There is no universally correct answer — the right tool is determined by your workflow, your team&rsquo;s tolerance for autonomous agent execution, and your IDE environment. For most VS Code users building complex projects, Roo Code&rsquo;s multi-mode system and Boomerang Tasks will deliver faster results. For teams with compliance requirements, JetBrains dependencies, or a preference for conservative human-in-the-loop control, Cline is the clear choice.</p>
+<p><strong>Choose Cline when:</strong></p>
+<ul>
+<li>Your team requires step-by-step agent approval for compliance or audit purposes (finance, healthcare, legal)</li>
+<li>You use JetBrains IDEs (IntelliJ, PyCharm, WebStorm, GoLand)</li>
+<li>You want the agent to stop and confirm before every consequential action</li>
+<li>You prefer a larger, more established community with proven stability</li>
+<li>You need a single global model configuration without per-mode complexity</li>
+<li>Your team is new to AI coding agents and wants a more conservative default</li>
+</ul>
+<p><strong>Choose Roo Code when:</strong></p>
+<ul>
+<li>You&rsquo;re building complex features that span multiple files and services</li>
+<li>You want to reduce API costs by routing lightweight interactions to cheaper models</li>
+<li>You need Boomerang Tasks for parallel multi-agent orchestration</li>
+<li>You want custom modes for domain-specific agents (security auditor, data migration specialist)</li>
+<li>You&rsquo;re on a solo founder or small team timeline where autonomous execution speed matters</li>
+<li>Your entire team is standardized on VS Code</li>
+</ul>
+<h2 id="verdict-which-open-source-vs-code-ai-agent-wins-in-2026">Verdict: Which Open-Source VS Code AI Agent Wins in 2026?</h2>
+<p>Roo Code is the better choice for the majority of VS Code developers in 2026 — specifically for anyone building complex software that benefits from multi-agent orchestration, per-mode cost control, or structured autonomous execution. The Boomerang Tasks system is a genuine innovation with no equivalent in Cline, and the custom modes feature enables a level of domain-specific agent specialization that Cline&rsquo;s single-agent architecture cannot match. For a solo developer or small team shipping product fast, Roo Code&rsquo;s autonomous execution will save hours per week compared to Cline&rsquo;s approval-gated workflow.</p>
+<p>Cline wins in three specific scenarios: JetBrains users, compliance-heavy environments, and teams that explicitly want the agent to stop and ask permission at every step. These are real and valid requirements, and Cline&rsquo;s native JetBrains support alone makes it the only viable open-source option for mixed-IDE shops. Cline&rsquo;s larger install base (4M vs 1.55M) also means a more mature ecosystem of MCP servers and community configurations.</p>
+<p>The framing that best captures the difference: Cline is for <strong>control</strong>, Roo Code is for <strong>speed</strong>. Neither is wrong — they reflect different bets about where the human-AI boundary should sit in the coding workflow. As AI agents become more capable in 2026 and beyond, the balance is tilting toward autonomy, which explains why Roo Code&rsquo;s contributor velocity is outpacing Cline despite its smaller install base.</p>
+<p><strong>Bottom line:</strong> Start with Roo Code if you&rsquo;re on VS Code and building complex software. Start with Cline if you&rsquo;re on JetBrains or need compliance-grade human-in-the-loop control.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>These are the most common questions developers ask when choosing between Cline and Roo Code in 2026. Both tools are frequently updated, so the most current details (star counts, pricing, JetBrains bridge status) should be verified against the official GitHub repositories and documentation. The answers below reflect the state of both tools as of May 2026. Cline is at github.com/cline/cline and Roo Code is at github.com/RooCodeInc/Roo-Code. For teams actively evaluating both tools, the fastest path to a decision is to install both extensions, try a medium-complexity feature implementation in each, and observe how much the approval workflow (Cline) versus the autonomous execution (Roo Code) affects your personal development pace. Most developers find they have a strong preference after a single week of use. Both tools are Apache 2.0 licensed and carry no platform subscription fee beyond whatever LLM API costs you incur through your own keys.</p>
+<h3 id="is-roo-code-a-fork-of-cline">Is Roo Code a fork of Cline?</h3>
+<p>Yes. Roo Code was forked from Cline in early 2024 after the Roo team proposed a multi-mode architecture that Cline&rsquo;s maintainers chose not to incorporate. The fork allowed Roo to implement Boomerang Tasks, custom modes, and per-mode model assignment independently. The two projects now have diverged significantly in architecture and feature set, with Roo Code targeting more autonomous multi-agent workflows.</p>
+<h3 id="do-cline-and-roo-code-cost-money">Do Cline and Roo Code cost money?</h3>
+<p>Both tools are free to install as VS Code extensions (Roo Code is VS Code only; Cline supports VS Code and JetBrains). The actual cost comes from LLM API usage through your own API keys (BYOK). Individual developer API costs typically range from $5–$50/month depending on usage intensity and model choice. Roo Code&rsquo;s per-mode model assignment can significantly reduce costs by routing lightweight tasks to cheaper models. Cline&rsquo;s Teams plan costs $20/user/month and adds shared config and audit logs.</p>
+<h3 id="can-i-use-local-models-with-cline-and-roo-code">Can I use local models with Cline and Roo Code?</h3>
+<p>Yes. Both tools support local model inference via Ollama, LM Studio, and any OpenAI-compatible API endpoint. Running a local model reduces API costs to zero, though you need hardware capable of serving the models you want to use. Roo Code&rsquo;s per-mode model assignment is especially useful for local model routing — you can assign a large local model to Code mode and a small fast model to Ask mode.</p>
+<h3 id="what-are-boomerang-tasks-in-roo-code">What are Boomerang Tasks in Roo Code?</h3>
+<p>Boomerang Tasks are Roo Code&rsquo;s multi-agent orchestration system. An orchestrator agent breaks a complex goal into subtasks, spawns specialized sub-agents for each subtask, runs them in parallel or sequence, and collects results back into the parent context. This enables Roo Code to execute complex multi-file feature implementations autonomously, with each sub-agent focused on a specific scope. Boomerang Tasks have no direct equivalent in Cline.</p>
+<h3 id="does-roo-code-support-jetbrains-ides">Does Roo Code support JetBrains IDEs?</h3>
+<p>Roo Code has an experimental JetBrains bridge as of May 2026, but it is not feature-complete — it lacks full multi-mode UI support and Boomerang Task visualization. For JetBrains users (IntelliJ, PyCharm, WebStorm, GoLand), Cline is the recommended choice, as it offers native, production-grade JetBrains support. Roo Code&rsquo;s JetBrains bridge is improving but is not recommended for production use by teams that depend on Roo&rsquo;s mode system.</p>
+]]></content:encoded></item><item><title>Windsurf Arena Mode Guide 2026: Run Two AI Models Side-by-Side on Your Code</title><link>https://baeseokjae.github.io/posts/windsurf-arena-mode-guide-2026/</link><pubDate>Fri, 01 May 2026 15:30:00 +0000</pubDate><guid>https://baeseokjae.github.io/posts/windsurf-arena-mode-guide-2026/</guid><description>Complete guide to Windsurf Arena Mode: how blind model comparison works, SWE-1.5 vs Claude benchmarks, leaderboard mechanics, and credit cost breakdown.</description><content:encoded><![CDATA[<p>Windsurf Arena Mode, launched in February 2026 with Wave 13, lets you run two AI models on the same coding task simultaneously — inside your IDE, in real time — without knowing which model is which. You see both outputs, pick the better one, and your vote contributes to a global leaderboard that tracks model performance across real developer tasks. It&rsquo;s the most direct answer to the question most developers don&rsquo;t know they can answer: which model is actually better for <em>my</em> work, not some synthetic benchmark. This guide covers how Arena Mode works mechanically, how to interpret the leaderboards, which models perform best by task type, and how to use it without burning through credits.</p>
+<h2 id="what-is-windsurf-arena-mode">What Is Windsurf Arena Mode?</h2>
+<p>Windsurf Arena Mode is a feature inside Windsurf IDE (formerly Codeium) that runs two Cascade AI agents in parallel on the same prompt, hiding each model&rsquo;s identity until you&rsquo;ve voted on which response was better. The blind comparison mechanic is borrowed from Chatbot Arena (LMSYS), adapted for real coding work rather than general chat. The goal: eliminate model preference bias — developers who know they&rsquo;re using Claude often rate Claude responses higher, regardless of quality. Arena Mode removes that variable. The feature launched in Windsurf Wave 13 (February 2026) alongside Plan Mode and the SWE-1.5 model. Both Cascade agents receive the same context: your current file, open tabs, and prompt. They run independently and produce separate completions. You see them side by side, vote for the better one, and Windsurf logs the result. You can test specific models head-to-head (e.g., Claude Sonnet 4.5 vs GPT-5) or let Windsurf select randomly from a model group (faster models, higher-capability models, or the full pool). After voting, both model identities are revealed so you can learn which performed better for this task type.</p>
+<h2 id="how-arena-mode-works-the-blind-comparison-mechanic">How Arena Mode Works: The Blind Comparison Mechanic</h2>
+<p>The mechanics behind Arena Mode&rsquo;s blind comparison are straightforward but worth understanding to use it effectively. When you open Arena Mode, you select either specific models or a model category. Windsurf then starts two independent Cascade sessions — one per model — with identical system context. Both sessions receive your codebase context (open files, project structure, recent changes), your active prompt, and any conversation history you&rsquo;ve carried in. The two Cascade sessions process in parallel, not sequentially. Response times depend on model speed; in practice, faster models (SWE-1.5 at 950 tokens/second) finish noticeably earlier than slower frontier models. Windsurf labels the responses &ldquo;Model A&rdquo; and &ldquo;Model B&rdquo; during the session. You can ask follow-up questions — with two modes: synchronized (same follow-up sent to both) and branched (different follow-ups for each model to test how they handle divergent paths). The conversation continues with identities hidden until you cast your final vote. After voting, Windsurf reveals which model was A and which was B, adds your vote to the leaderboard, and logs the result in your personal comparison history. The blind reveal matters: in the Chatbot Arena study it was built on, researchers found that disclosed model identity shifted user preferences by 15–20% independent of response quality.</p>
+<h2 id="swe-15-windsurfs-fastest-coding-model-explained">SWE-1.5: Windsurf&rsquo;s Fastest Coding Model Explained</h2>
+<p>SWE-1.5 is Cognition AI&rsquo;s coding model integrated into Windsurf through the Wave 13 update. It scores 40.08% on SWE-Bench, matching Claude Sonnet accuracy for coding tasks, while running at 950 tokens per second — 14× faster than Claude Sonnet. For Arena Mode use cases, this speed difference is visible: SWE-1.5 responses typically appear 3–5 seconds before frontier model responses on equivalent prompts. The speed comes from architectural choices that prioritize efficient code-specific token patterns over general reasoning. In practice, SWE-1.5 handles well-defined coding tasks extremely fast — refactoring, test generation, boilerplate writing, standard debugging — but shows more variability than Claude on ambiguous prompts that require reasoning across multiple files or architectural judgment. When you use Arena Mode with SWE-1.5 as one of the competitors, it almost always wins on objective speed. Whether it wins on quality depends heavily on task type: SWE-1.5 tends to win straightforward implementation tasks, while Claude Opus or GPT-5 tends to win on architectural advice, security analysis, and complex multi-file refactoring where the slower, deeper reasoning pays off.</p>
+<h2 id="step-by-step-using-arena-mode-for-real-coding-tasks">Step-by-Step: Using Arena Mode for Real Coding Tasks</h2>
+<p>Setting up Arena Mode for the first time takes under two minutes. Here&rsquo;s the complete workflow.</p>
+<p><strong>Enable Arena Mode:</strong></p>
+<ol>
+<li>Open Command Palette in Windsurf (<code>Ctrl+Shift+P</code> / <code>Cmd+Shift+P</code>)</li>
+<li>Type &ldquo;Arena Mode&rdquo; and select &ldquo;Enable Cascade Arena Mode&rdquo;</li>
+<li>Choose your comparison: Specific Models, Faster Models group, or Higher Capability Models group</li>
+</ol>
+<p><strong>Run your first comparison:</strong></p>
+<ol>
+<li>Write your prompt normally in the Cascade chat panel</li>
+<li>Arena Mode splits the view — left panel shows Model A, right panel shows Model B</li>
+<li>Both models begin generating simultaneously</li>
+<li>Read both responses (scroll to compare if they&rsquo;re long)</li>
+<li>Click &ldquo;Vote A&rdquo; or &ldquo;Vote B&rdquo; (or &ldquo;Tie&rdquo; if quality is equivalent)</li>
+<li>Windsurf reveals the model identities and logs your vote</li>
+</ol>
+<p><strong>For code tasks specifically</strong>, the most useful prompt patterns in Arena Mode are:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 704 233"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>I</text>
+<text text-anchor='middle' x='0' y='36' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='0' y='68' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='0' y='84' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='0' y='100' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='0' y='132' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='0' y='148' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='0' y='164' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='0' y='196' fill='currentColor' style='font-size:1em'>#</text>
+<text text-anchor='middle' x='0' y='212' fill='currentColor' style='font-size:1em'>I</text>
+<text text-anchor='middle' x='8' y='36' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='8' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='100' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='8' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='164' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>D</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='16' y='36' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='16' y='68' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='16' y='84' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='16' y='100' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='16' y='132' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='16' y='148' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='16' y='164' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='16' y='196' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='16' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='24' y='36' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='24' y='100' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='24' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='148' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='24' y='164' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='24' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='24' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='32' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='32' y='84' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='32' y='100' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='32' y='132' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='32' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='32' y='164' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='32' y='196' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='32' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='40' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='132' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='40' y='148' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='40' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='40' y='196' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='40' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='48' y='68' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='48' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='48' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='48' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='56' y='36' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='56' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='84' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='56' y='100' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='56' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='56' y='148' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='56' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='64' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='64' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='64' y='100' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='64' y='132' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='64' y='148' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='64' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='64' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='72' y='36' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='72' y='68' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='72' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='72' y='100' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='72' y='132' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='72' y='148' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='72' y='164' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='72' y='196' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='80' y='36' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='80' y='68' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='80' y='84' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='80' y='100' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='80' y='148' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='80' y='164' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='80' y='196' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='80' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='88' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='88' y='84' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='88' y='100' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='88' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='88' y='164' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='196' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='88' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='96' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='96' y='68' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='96' y='84' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='96' y='100' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='96' y='148' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='96' y='164' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='96' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='104' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='104' y='100' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='104' y='132' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='104' y='148' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='104' y='164' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='104' y='196' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='112' y='36' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='112' y='68' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='112' y='84' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='112' y='100' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='112' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='148' fill='currentColor' style='font-size:1em'>I</text>
+<text text-anchor='middle' x='112' y='164' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='112' y='212' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='120' y='36' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='120' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='120' y='84' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='120' y='132' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='120' y='196' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='120' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='128' y='68' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='84' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='128' y='100' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='128' y='132' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='128' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='128' y='164' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='128' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='128' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='136' y='36' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='136' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='136' y='84' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='136' y='100' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='136' y='148' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='164' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='136' y='196' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='136' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='144' y='36' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='144' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='144' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='144' y='100' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='132' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='144' y='148' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='164' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='144' y='196' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='152' y='36' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='152' y='68' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='152' y='84' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='152' y='100' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='148' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='152' y='164' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='152' y='196' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='152' y='212' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='36' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='160' y='68' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='160' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='100' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='160' y='132' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='160' y='148' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='164' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='160' y='196' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='160' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='36' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='168' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='168' y='84' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='168' y='132' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='168' y='148' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='196' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='212' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='176' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='176' y='132' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='176' y='148' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='176' y='196' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='176' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='184' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='184' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='132' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='184' y='148' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='196' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='184' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='192' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='192' y='132' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='192' y='196' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='192' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='200' y='132' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='148' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='200' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='208' y='84' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='208' y='132' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='208' y='148' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='208' y='212' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='216' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='216' y='132' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='216' y='148' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='224' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='232' y='84' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='232' y='148' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='232' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='240' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='240' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='248' y='84' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='248' y='148' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='248' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='256' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='256' y='148' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='256' y='212' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='264' y='148' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='264' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='272' y='84' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='272' y='148' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='272' y='212' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='280' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='280' y='148' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='288' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='288' y='148' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='288' y='212' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='296' y='84' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='296' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='304' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='304' y='148' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='304' y='212' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='312' y='84' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='312' y='148' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='312' y='212' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='320' y='84' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='320' y='148' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='320' y='212' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='328' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='328' y='148' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='328' y='212' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='336' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='336' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='344' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='344' y='84' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='344' y='148' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='344' y='212' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='352' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='352' y='84' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='352' y='148' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='360' y='84' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='360' y='148' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='360' y='212' fill='currentColor' style='font-size:1em'>W</text>
+<text text-anchor='middle' x='368' y='20' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='368' y='84' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='368' y='148' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='368' y='212' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='376' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='376' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='376' y='148' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='376' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='384' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='384' y='148' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='384' y='212' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='392' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='392' y='84' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='392' y='148' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='400' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='400' y='148' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='400' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='408' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='408' y='84' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='408' y='148' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='408' y='212' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='416' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='416' y='84' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='416' y='148' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='416' y='212' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='424' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='424' y='148' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='424' y='212' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='432' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='432' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='432' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='440' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='440' y='84' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='440' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='448' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='448' y='84' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='448' y='212' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='456' y='84' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='456' y='212' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='464' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='464' y='84' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='472' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='472' y='84' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='472' y='212' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='480' y='20' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='480' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='488' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='488' y='212' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='496' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='496' y='84' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='496' y='212' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='504' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='504' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='504' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='512' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='512' y='84' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='520' y='84' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='520' y='212' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='528' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='536' y='84' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='536' y='212' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='544' y='84' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='552' y='84' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='552' y='212' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='560' y='84' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='560' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='568' y='84' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='568' y='212' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='576' y='84' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='576' y='212' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='584' y='84' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='584' y='212' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='592' y='84' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='592' y='212' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='600' y='84' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='600' y='212' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='608' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='616' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='632' y='212' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='640' y='212' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='648' y='212' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='664' y='212' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='672' y='212' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='680' y='212' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='688' y='212' fill='currentColor' style='font-size:1em'>?</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>The key is using prompts with a clear correct answer (for debugging/security) or genuine design trade-offs (for architecture) where model differences will be meaningful. Prompts where either response will be equally good (&ldquo;write a Python hello world&rdquo;) don&rsquo;t produce useful leaderboard signal.</p>
+<h2 id="synchronized-vs-branched-conversations-in-arena-mode">Synchronized vs Branched Conversations in Arena Mode</h2>
+<p>The choice between synchronized and branched follow-up prompts changes what you learn from Arena Mode. Synchronized follow-ups send the same next message to both models — useful when you want to see how each model handles a multi-step problem from the same starting point. Branched follow-ups let you interact differently with each model — asking Model A to elaborate on its approach while asking Model B a critical question about its implementation. Branched mode is more powerful but harder to evaluate fairly since you&rsquo;re comparing different conversations, not the same one. For citability (producing votes the global leaderboard can actually use), synchronized mode is more valuable. Branched mode is better for your personal exploration of a model&rsquo;s reasoning depth. In practice, the most useful Arena Mode sessions follow this pattern: start with a synchronized first prompt, see how both models approach the problem, then branch into follow-ups once you have a hypothesis about which model is taking a better approach. This gives you a fair initial comparison and lets you probe each model&rsquo;s thinking separately.</p>
+<h2 id="understanding-the-personal-and-global-leaderboards">Understanding the Personal and Global Leaderboards</h2>
+<p>Windsurf maintains two leaderboards from Arena Mode vote data. The global leaderboard aggregates votes from all Windsurf users across all coding tasks, updated continuously. The personal leaderboard tracks only your votes, segmented by your most frequent task types (based on your workspace language, project type, and prompt patterns). The global leaderboard as of early 2026 is a useful starting point but has significant noise from task heterogeneity — a vote comparing models on a Python data science task and a vote comparing them on TypeScript frontend work both count equally, but model strengths differ substantially across these domains. The personal leaderboard, once you&rsquo;ve cast 20–30 votes, is more actionable than the global one because it reflects your actual use patterns. If your work is primarily API backend code in Go, your personal leaderboard will surface which models handle Go idioms, error handling patterns, and system design questions best for your style — information the global leaderboard can&rsquo;t provide at that resolution.</p>
+<h2 id="best-models-for-different-task-types-based-on-arena-data">Best Models for Different Task Types (Based on Arena Data)</h2>
+<p>Based on publicly reported Arena Mode leaderboard data and community-shared vote breakdowns from early 2026:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Task Type</th>
+          <th>Best Performing</th>
+          <th>Why</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Boilerplate generation</td>
+          <td>SWE-1.5</td>
+          <td>14× faster, sufficient accuracy for standard patterns</td>
+      </tr>
+      <tr>
+          <td>Test generation</td>
+          <td>Qodo Gen / GPT-5</td>
+          <td>Test-specific training data and code coverage awareness</td>
+      </tr>
+      <tr>
+          <td>Security review</td>
+          <td>Claude Opus 4.5</td>
+          <td>Better at reasoning across multi-file attack surfaces</td>
+      </tr>
+      <tr>
+          <td>Debugging (simple)</td>
+          <td>SWE-1.5</td>
+          <td>Speed advantage; quality comparable for common bugs</td>
+      </tr>
+      <tr>
+          <td>Debugging (complex)</td>
+          <td>Claude Sonnet 4.6</td>
+          <td>Better error trace reasoning on multi-component bugs</td>
+      </tr>
+      <tr>
+          <td>Architecture advice</td>
+          <td>GPT-5 / Claude Opus</td>
+          <td>Sustained reasoning depth required</td>
+      </tr>
+      <tr>
+          <td>Documentation</td>
+          <td>Claude Sonnet 4.6</td>
+          <td>Clearer prose and context-aware summaries</td>
+      </tr>
+      <tr>
+          <td>Code review</td>
+          <td>Greptile-powered / Qodo</td>
+          <td>Whole-codebase context advantages</td>
+      </tr>
+  </tbody>
+</table>
+<p>The most consistent finding: SWE-1.5 wins on speed-sensitive, well-defined tasks; Claude models win on tasks requiring contextual reasoning; GPT-5 wins on open-ended architectural questions where answer quality is hard to verify quickly. Your personal leaderboard will reflect different weights based on which task types you actually do.</p>
+<h2 id="arena-mode-vs-plan-mode-when-to-use-which">Arena Mode vs Plan Mode: When to Use Which</h2>
+<p>Windsurf introduced Plan Mode in the same Wave 13 update as Arena Mode, and developers often confuse their use cases. They solve different problems. Plan Mode runs a single model that first generates a structured plan (what it intends to do, in what order, with what tools) before executing. You review and approve the plan before code changes happen. Plan Mode is valuable when you want oversight over a complex, potentially destructive task — database migrations, large refactors, multi-file changes where a wrong decision early cascades into a mess. Arena Mode runs two models simultaneously on the same prompt for comparison. It&rsquo;s about model selection and evaluation, not oversight. Use Plan Mode when you know which model you want to use and want to control what it does. Use Arena Mode when you&rsquo;re uncertain which model handles your task type best and want empirical data from your own work rather than synthetic benchmarks. In a typical workflow: use Arena Mode periodically (once per week, say) to calibrate which model you should be using for your current project, then use that model via Plan Mode for your actual production coding sessions.</p>
+<h2 id="credit-costs-and-pricing-for-arena-mode-models">Credit Costs and Pricing for Arena Mode Models</h2>
+<p>Arena Mode costs credits for both models in each comparison — two completions per prompt instead of one. Credit costs vary by model. As of Wave 13, approximate costs per Arena session (both models per prompt exchange):</p>
+<table>
+  <thead>
+      <tr>
+          <th>Model Tier</th>
+          <th>Credits per Arena Exchange</th>
+          <th>Suitable for</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>SWE-1.5</td>
+          <td>2–4 credits</td>
+          <td>All sessions; fast payoff</td>
+      </tr>
+      <tr>
+          <td>Claude Sonnet 4.6</td>
+          <td>8–12 credits</td>
+          <td>Quality-sensitive code tasks</td>
+      </tr>
+      <tr>
+          <td>Claude Opus 4.5</td>
+          <td>20–30 credits</td>
+          <td>Architecture/security; expensive in Arena</td>
+      </tr>
+      <tr>
+          <td>GPT-5</td>
+          <td>15–25 credits</td>
+          <td>Complex reasoning tasks</td>
+      </tr>
+      <tr>
+          <td>GPT-4o</td>
+          <td>6–10 credits</td>
+          <td>Balanced quality/cost</td>
+      </tr>
+  </tbody>
+</table>
+<p>The most cost-efficient Arena Mode usage: start with lower-cost model pairings (SWE-1.5 vs GPT-4o) to get baseline data, then run targeted comparisons between your top candidates for your specific task type. Running Claude Opus vs GPT-5 for every prompt will deplete credits quickly — reserve high-cost pairings for the 3–4 prompts per session that represent your most critical and representative work.</p>
+<h2 id="tips-and-tricks-for-getting-the-most-from-arena-mode">Tips and Tricks for Getting the Most from Arena Mode</h2>
+<p>A few patterns that produce more useful data from Arena Mode:</p>
+<p><strong>Rotate your comparison pairs.</strong> If you always compare the same two models, you&rsquo;ll learn how those two compare but not how other models might outperform both. Rotate your comparison pairs every 10–15 votes.</p>
+<p><strong>Vote immediately after reading.</strong> Research on human evaluation shows that the longer you deliberate, the more your decision drifts toward the longer response (not the better one). Vote within 60 seconds of finishing both responses.</p>
+<p><strong>Use Arena Mode for code you care about.</strong> Voting on throwaway code produces noise. Your best Arena Mode sessions are on prompts from your actual current project — real bugs, real refactoring tasks, real architectural questions. These votes train your personal leaderboard to reflect what matters for your work.</p>
+<p><strong>Check the reveal before closing.</strong> After voting, Windsurf shows which model was A and which was B. Note it — especially when one model significantly outperformed the other. Over time, you&rsquo;ll build intuition for which model &ldquo;feels&rdquo; like which before the reveal, which is a useful signal.</p>
+<p><strong>Don&rsquo;t use Arena Mode for time-sensitive work.</strong> The dual-agent overhead adds latency. Arena Mode sessions take 30–60% longer than single-agent sessions for the same prompts. Schedule Arena Mode for code review and non-blocking tasks, not for live debugging under pressure.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>What is Windsurf Arena Mode?</strong></p>
+<p>Windsurf Arena Mode is a feature that runs two AI models simultaneously on the same coding prompt inside the Windsurf IDE, hiding both models&rsquo; identities until you vote on which produced the better response. Votes contribute to personal and global leaderboards tracking model performance on real developer tasks.</p>
+<p><strong>Which models can I compare in Arena Mode?</strong></p>
+<p>You can compare any models available in Windsurf — including SWE-1.5, Claude Sonnet 4.6, Claude Opus 4.5, GPT-5, GPT-4o, and others. You can choose specific pairings or let Windsurf randomly select from groups (faster models or higher-capability models).</p>
+<p><strong>Does Arena Mode cost more credits?</strong></p>
+<p>Yes. Each Arena Mode session runs two models instead of one, consuming credits for both completions. A single exchange in Arena Mode costs roughly 2× the credits of the same prompt in standard mode. Higher-capability model pairings (Claude Opus vs GPT-5) can be expensive to run extensively.</p>
+<p><strong>What is SWE-1.5 and how does it perform in Arena Mode?</strong></p>
+<p>SWE-1.5 is Cognition AI&rsquo;s coding model integrated into Windsurf, scoring 40.08% on SWE-Bench at 950 tokens per second (14× faster than Claude Sonnet). In Arena Mode, it frequently wins speed comparisons and performs competitively on well-defined coding tasks, while trailing frontier models on complex multi-file reasoning.</p>
+<p><strong>How many votes do I need before my personal leaderboard is useful?</strong></p>
+<p>About 20–30 votes on tasks representative of your actual work produce a meaningful personal leaderboard. Votes on diverse task types improve the signal. Votes on trivial prompts (hello world, simple syntax questions) add noise rather than signal.</p>
+]]></content:encoded></item><item><title>Cursor + Claude Code + Codex Composable Stack 2026: The New AI Coding Architecture</title><link>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</link><pubDate>Fri, 01 May 2026 06:05:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</guid><description>How to combine Cursor, Claude Code, and OpenAI Codex into a composable AI coding stack — with setup guide, workflow patterns, and pricing breakdown.</description><content:encoded><![CDATA[<p>The best AI coding setup in 2026 isn&rsquo;t a single tool — it&rsquo;s a composable stack: Cursor as the IDE and orchestration layer, Claude Code as the deep-reasoning terminal agent, and OpenAI Codex as the cloud-native background automation engine. Using all three together costs as little as $40/month and delivers capabilities no single tool can match.</p>
 <h2 id="what-is-the-cursor--claude-code--codex-composable-stack">What Is the Cursor + Claude Code + Codex Composable Stack?</h2>
 <p>The Cursor + Claude Code + Codex composable stack is a three-tool AI coding architecture where each product owns a distinct phase of the development workflow: Cursor 3.0 handles the interactive editor and agent orchestration layer, Claude Code (powered by Anthropic&rsquo;s Opus 4.6) executes deep reasoning and terminal-level autonomy, and OpenAI Codex runs cloud-native background automation across repositories. As of April 2026, 70% of professional engineers run 2–4 AI coding tools simultaneously — and the Cursor + Claude Code + Codex combination is the most cited trio. This isn&rsquo;t tool hoarding. The three products solve fundamentally different problems, communicate via MCP (Model Context Protocol), and compound each other&rsquo;s strengths. Claude Code now accounts for 4% of all GitHub commits globally, while Cursor has crossed $2B ARR with roughly 1 million paying users. The composable stack represents a shift from &ldquo;which AI tool is best&rdquo; to &ldquo;which tool fits this specific task,&rdquo; a mindset that the most productive 10% of developers have already internalized.</p>
 <h2 id="the-three-layer-ai-coding-architecture-explained">The Three-Layer AI Coding Architecture Explained</h2>
