@@ -26,6 +26,8 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [VS Code vs Cursor vs Windsurf vs JetBrains AI 2026: Which IDE Should You Use?](https://baeseokjae.github.io/posts/vscode-cursor-windsurf-jetbrains-comparison-2026/) — Cursor leads on speed (72% autocomplete acceptance), Windsurf wins enterprise, VS Code &#43; Copilot is safest. Full 2026 comparison with benchmarks and pricing.
+- [Roo Code Review 2026: Open-Source Cline Fork with Multi-Agent Mode](https://baeseokjae.github.io/posts/roo-code-review-2026/) — Complete Roo Code review covering its multi-agent orchestration, Boomerang Tasks, shutdown, and where to migrate in 2026.
 - [Vibe Coding Tools Comparison 2026: Cursor vs Replit vs Bolt vs Lovable vs v0](https://baeseokjae.github.io/posts/vibe-coding-tools-comparison-2026/) — Hands-on comparison of the 5 major vibe coding tools in 2026 — Cursor, Replit, Bolt, Lovable, and v0 — with pricing, use cases, and a decision framework.
 - [Cline vs Roo Code 2026: Best Open-Source VS Code AI Agent Compared](https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/) — Cline vs Roo Code compared on architecture, Boomerang Tasks, cost control, and IDE support — find the right open-source VS Code AI agent for 2026.
 - [Lovable vs Bolt.new Comparison 2026: Which AI App Builder Is Right for You?](https://baeseokjae.github.io/posts/lovable-vs-bolt-comparison-2026/) — Lovable vs Bolt.new 2026 in-depth comparison: pricing, features, backend capabilities, and which AI app builder fits your use case.
@@ -254,6 +256,8 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [VS Code vs Cursor vs Windsurf vs JetBrains AI 2026: Which IDE Should You Use?](https://baeseokjae.github.io/posts/vscode-cursor-windsurf-jetbrains-comparison-2026/) — Cursor leads on speed (72% autocomplete acceptance), Windsurf wins enterprise, VS Code &#43; Copilot is safest. Full 2026 comparison with benchmarks and pricing.
+- [Roo Code Review 2026: Open-Source Cline Fork with Multi-Agent Mode](https://baeseokjae.github.io/posts/roo-code-review-2026/) — Complete Roo Code review covering its multi-agent orchestration, Boomerang Tasks, shutdown, and where to migrate in 2026.
 - [Vibe Coding Tools Comparison 2026: Cursor vs Replit vs Bolt vs Lovable vs v0](https://baeseokjae.github.io/posts/vibe-coding-tools-comparison-2026/) — Hands-on comparison of the 5 major vibe coding tools in 2026 — Cursor, Replit, Bolt, Lovable, and v0 — with pricing, use cases, and a decision framework.
 - [Cline vs Roo Code 2026: Best Open-Source VS Code AI Agent Compared](https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/) — Cline vs Roo Code compared on architecture, Boomerang Tasks, cost control, and IDE support — find the right open-source VS Code AI agent for 2026.
 - [Lovable vs Bolt.new Comparison 2026: Which AI App Builder Is Right for You?](https://baeseokjae.github.io/posts/lovable-vs-bolt-comparison-2026/) — Lovable vs Bolt.new 2026 in-depth comparison: pricing, features, backend capabilities, and which AI app builder fits your use case.
