@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [GPT-6 Review 2026: OpenAI&#39;s New Flagship Model — Benchmarks, API, and Developer Use Cases](https://baeseokjae.github.io/posts/gpt-6-review-2026/) — GPT-6 pre-training is done but not yet released. Here&#39;s every confirmed fact, benchmark projection, and API detail developers need to plan ahead.
 - [VS Code vs Cursor vs Windsurf vs JetBrains AI 2026: Which IDE Should You Use?](https://baeseokjae.github.io/posts/vscode-cursor-windsurf-jetbrains-comparison-2026/) — Cursor leads on speed (72% autocomplete acceptance), Windsurf wins enterprise, VS Code &#43; Copilot is safest. Full 2026 comparison with benchmarks and pricing.
 - [Roo Code Review 2026: Open-Source Cline Fork with Multi-Agent Mode](https://baeseokjae.github.io/posts/roo-code-review-2026/) — Complete Roo Code review covering its multi-agent orchestration, Boomerang Tasks, shutdown, and where to migrate in 2026.
 - [Vibe Coding Tools Comparison 2026: Cursor vs Replit vs Bolt vs Lovable vs v0](https://baeseokjae.github.io/posts/vibe-coding-tools-comparison-2026/) — Hands-on comparison of the 5 major vibe coding tools in 2026 — Cursor, Replit, Bolt, Lovable, and v0 — with pricing, use cases, and a decision framework.
@@ -259,6 +260,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [GPT-6 Review 2026: OpenAI&#39;s New Flagship Model — Benchmarks, API, and Developer Use Cases](https://baeseokjae.github.io/posts/gpt-6-review-2026/) — GPT-6 pre-training is done but not yet released. Here&#39;s every confirmed fact, benchmark projection, and API detail developers need to plan ahead.
 - [Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase](https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/) — Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.
 - [Cloudflare Project Think Guide 2026: Build Long-Running AI Agents with Durable Execution](https://baeseokjae.github.io/posts/cloudflare-project-think-ai-agents-guide/) — Cloudflare Project Think을 이용해 내구성 있는 장기 실행 AI 에이전트를 구축하는 완전 가이드.
 - [Llama 4 API Developer Guide 2026: Scout, Maverick, MoE Architecture and Integration](https://baeseokjae.github.io/posts/llama-4-api-developer-guide-2026/) — Complete developer guide to Llama 4 Scout and Maverick APIs: MoE architecture, 10M-token context, pricing, vLLM deployment, and OpenAI-compatible integration.
