@@ -1,4 +1,389 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Developer-Tools on RockB</title><link>https://baeseokjae.github.io/tags/developer-tools/</link><description>Recent content in Developer-Tools on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 15:30:00 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/developer-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>AI Code Review Tools 2026: CodeRabbit vs Qodo vs Greptile vs GitHub Copilot</title><link>https://baeseokjae.github.io/posts/ai-code-review-tools-2026/</link><pubDate>Fri, 01 May 2026 15:30:00 +0000</pubDate><guid>https://baeseokjae.github.io/posts/ai-code-review-tools-2026/</guid><description>Honest comparison of the top AI code review tools in 2026: bug catch rates, noise levels, pricing, and which tool actually fits your team&amp;#39;s workflow.</description><content:encoded><![CDATA[<p>The AI code review market has consolidated around a few serious tools in 2026. The numbers are real: teams deploying AI code review see 30–60% reduction in PR cycle times and 25–35% decrease in production defect rates, according to enterprise ROI studies. But the tools differ dramatically in how they work, what they catch, and what they miss. Greptile achieves an 82% bug catch rate. Qodo scores 60.1% F1. CodeRabbit clocks in around 44% catch rate — but generates significantly less noise than either. Which number matters more depends on your team. Here&rsquo;s the full comparison.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Developer-Tools on RockB</title><link>https://baeseokjae.github.io/tags/developer-tools/</link><description>Recent content in Developer-Tools on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 03 May 2026 06:06:42 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/developer-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>GPT-6 Review 2026: OpenAI's New Flagship Model — Benchmarks, API, and Developer Use Cases</title><link>https://baeseokjae.github.io/posts/gpt-6-review-2026/</link><pubDate>Sun, 03 May 2026 06:06:42 +0000</pubDate><guid>https://baeseokjae.github.io/posts/gpt-6-review-2026/</guid><description>GPT-6 pre-training is done but not yet released. Here&amp;#39;s every confirmed fact, benchmark projection, and API detail developers need to plan ahead.</description><content:encoded><![CDATA[<p>GPT-6 is OpenAI&rsquo;s next flagship model — pre-training completed on March 24, 2026 at the Stargate facility in Abilene, Texas, but the model has not shipped to the public as of May 2026. What&rsquo;s confirmed, what&rsquo;s projection, and what every developer building on the OpenAI API needs to know right now.</p>
+<h2 id="what-is-gpt-6-and-why-its-not-what-most-people-think">What Is GPT-6? (And Why It&rsquo;s Not What Most People Think)</h2>
+<p>GPT-6 is OpenAI&rsquo;s next-generation flagship language model, positioned as a significant architectural leap beyond GPT-5 and GPT-5.5. It is not simply an incremental update — OpenAI&rsquo;s internal roadmap treats GPT-6 as the first model built from the ground up around long-term memory, multi-step agentic workflows, and a two-tier inference system that pairs fast System-1 responses with deliberate System-2 verification. Pre-training completed on March 24, 2026, using over 100,000 liquid-cooled H100 and B200 GPUs at the Stargate data center in Abilene, Texas — a $500B infrastructure bet funded by Microsoft, SoftBank, and Oracle. What most coverage gets wrong is conflating GPT-6 with GPT-5.5. The model known internally as &ldquo;Spud&rdquo; was widely expected to launch as GPT-6, but OpenAI shipped it as GPT-5.5 on April 23, 2026. GPT-6 is now the model beyond that — a distinction that matters for developers forecasting API migration timelines and capability planning through 2026.</p>
+<p>As of May 2026, GPT-6 remains in post-training (RLHF, safety evaluation, red-teaming). Polymarket traders price a public release at 84% odds by December 31, 2026, with developer preview access more likely in Q3 or Q4. The information below synthesizes confirmed facts from OpenAI leadership statements, credible leaks, and verifiable benchmark trajectories.</p>
+<h2 id="the-spud-story-how-gpt-6-became-gpt-55-and-what-that-means">The &lsquo;Spud&rsquo; Story: How GPT-6 Became GPT-5.5 and What That Means</h2>
+<p>OpenAI&rsquo;s internal codename &ldquo;Spud&rdquo; refers to the model that completed pre-training in early 2026 and was tracked by the AI community as the likely GPT-6 candidate. On April 23, 2026, OpenAI launched it as GPT-5.5 — not GPT-6. This decision reflects OpenAI&rsquo;s evolving versioning strategy: GPT-5.5 represents a refinement of the GPT-5 generation, while GPT-6 will mark a more fundamental architectural shift. The gap matters because GPT-5.5 already sets a very high baseline: it leads every publicly available model on Terminal-Bench 2.0 with 82.7% accuracy, scores 58.6% on SWE-Bench Pro for end-to-end coding tasks in a single pass, and holds an Intelligence Index of 60 — topping all 153 models on the Artificial Analysis leaderboard as of April 2026. GPT-6&rsquo;s job is to make those numbers look dated.</p>
+<p>For developers, this versioning clarity matters practically. If you&rsquo;re planning a production architecture decision — whether to build on GPT-5.5 now or wait for GPT-6 — you need to understand that GPT-5.5 is a strong, stable API target today, while GPT-6 will introduce new primitives (persistent memory, extended context, native agentic tooling) that may require rearchitecting how your app passes context. Building GPT-5.5-compatible apps that are ready for GPT-6&rsquo;s memory model is the right posture for teams shipping in mid-2026.</p>
+<h3 id="why-openai-chose-55-over-6">Why OpenAI Chose 5.5 Over 6</h3>
+<p>The decision to call Spud &ldquo;GPT-5.5&rdquo; signals internal alignment on what GPT-6 should be. If Spud had shipped as GPT-6, it would have set expectations for a model that&rsquo;s essentially an evolutionary step. By reserving the &ldquo;6&rdquo; label, OpenAI is betting that GPT-6 will be a qualitatively different product — one where long-term memory is core infrastructure, not a plugin, and where agentic execution is reliable enough to run unsupervised on multi-day workflows. Developers should read the 5.5/6 gap as intentional positioning, not marketing hedging.</p>
+<h2 id="gpt-6-confirmed-features-what-sam-altman-has-actually-said">GPT-6 Confirmed Features: What Sam Altman Has Actually Said</h2>
+<p>GPT-6&rsquo;s confirmed priority list comes directly from Sam Altman&rsquo;s public statements, making it more reliable than most speculative coverage. Altman has explicitly named long-term memory as the number one priority for GPT-6 — the ability to recall user preferences, project context, and conversation history across sessions spanning weeks or months without requiring the developer to re-inject that context on every API call. This is a paradigm shift for application developers. Today, stateful AI apps require external vector stores, retrieval pipelines, and careful context management to maintain continuity. GPT-6&rsquo;s native memory layer would make that overhead optional. In production, this means a coding assistant that remembers your repo&rsquo;s architecture decisions, a support bot that knows a customer&rsquo;s full history without a lookup, or a research agent that accumulates knowledge across multi-week tasks.</p>
+<p>The second confirmed priority is agentic reliability — not just capability, but the ability to run multi-step autonomous tasks with low failure rates and meaningful error recovery. GPT-5 and GPT-5.5 can use tools and plan workflows, but production agents still require significant human oversight to catch failures. GPT-6&rsquo;s training regime, which reportedly centers reinforcement learning as a core mechanism (not a post-training add-on), aims to produce models that can discover novel problem-solving approaches rather than pattern-matching against training data. Altman has hinted this could extend to scientific domains — OpenAI&rsquo;s published framing suggests GPT-6-class models may be able to discover &ldquo;new algorithms, physics, and biology.&rdquo;</p>
+<h3 id="whats-speculated-vs-confirmed">What&rsquo;s Speculated vs. Confirmed</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Status</th>
+          <th>Source</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Long-term memory across sessions</td>
+          <td>Confirmed (Altman statements)</td>
+          <td>Multiple interviews</td>
+      </tr>
+      <tr>
+          <td>Agentic RL training</td>
+          <td>Confirmed</td>
+          <td>OpenAI blog, investor briefings</td>
+      </tr>
+      <tr>
+          <td>Pre-training completed March 24, 2026</td>
+          <td>Confirmed</td>
+          <td>lifearchitect.ai</td>
+      </tr>
+      <tr>
+          <td>2M token context window</td>
+          <td>Speculated</td>
+          <td>Developer community analysis</td>
+      </tr>
+      <tr>
+          <td>System-1/System-2 dual inference</td>
+          <td>Speculated with high confidence</td>
+          <td>Multiple technical analysts</td>
+      </tr>
+      <tr>
+          <td>HumanEval &gt; 95%</td>
+          <td>Projected</td>
+          <td>elser.ai benchmark modeling</td>
+      </tr>
+      <tr>
+          <td>API availability Q4 2026</td>
+          <td>High-confidence estimate</td>
+          <td>Polymarket, analyst consensus</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="gpt-6-benchmark-predictions-coding-reasoning-and-agent-performance">GPT-6 Benchmark Predictions: Coding, Reasoning, and Agent Performance</h2>
+<p>GPT-6 benchmark projections are grounded in a clear trajectory: each OpenAI flagship generation has produced roughly 15–25% gains on standard benchmarks over its predecessor, but GPT-6&rsquo;s reported 40%+ improvement claim comes from internal OpenAI sources, not verified external data. To calibrate, look at where GPT-5.5 sits: 82.7% on Terminal-Bench 2.0, 58.6% on SWE-Bench Pro, Intelligence Index of 60 across 153 models. A 40% performance gain from GPT-5.5 levels would push GPT-6 into benchmark territory that no current model has reached. Projected scores from credible technical analysts place GPT-6&rsquo;s HumanEval above 95%, MATH reasoning at approximately 85%, and agentic task completion around 87% — figures that, if accurate, would represent a step-change for production AI application quality.</p>
+<p>The most critical benchmark for developers is SWE-Bench Pro, which tests real-world software engineering: fixing bugs in production codebases, writing end-to-end tests, and shipping features from plain English requirements. GPT-5.5 at 58.6% already outperforms Claude Opus 4.7&rsquo;s 82.1% on the older SWE-Bench variant, but the Pro version is significantly harder. If GPT-6 pushes SWE-Bench Pro toward 75–80%, it would meaningfully change the calculus for AI-assisted software teams — moving from &ldquo;AI helps me write code&rdquo; to &ldquo;AI can autonomously ship features I review.&rdquo;</p>
+<h3 id="benchmark-trajectory-gpt-4-to-gpt-6">Benchmark Trajectory: GPT-4 to GPT-6</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Model</th>
+          <th>HumanEval</th>
+          <th>MATH</th>
+          <th>SWE-Bench</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GPT-4 (2023)</td>
+          <td>67%</td>
+          <td>42%</td>
+          <td>~20%</td>
+          <td>Baseline for the generation</td>
+      </tr>
+      <tr>
+          <td>GPT-5 (2025)</td>
+          <td>88%</td>
+          <td>72%</td>
+          <td>~45%</td>
+          <td>Reasoning model integration</td>
+      </tr>
+      <tr>
+          <td>GPT-5.5 (Apr 2026)</td>
+          <td>~92%</td>
+          <td>~79%</td>
+          <td>58.6% Pro</td>
+          <td>Current best-in-class</td>
+      </tr>
+      <tr>
+          <td>GPT-6 (projected)</td>
+          <td>&gt;95%</td>
+          <td>~85%</td>
+          <td>~75–80%</td>
+          <td>40%+ over GPT-5.5 claimed</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="gpt-6-architecture-moe-2m-context-window-and-system-1system-2-inference">GPT-6 Architecture: MoE, 2M Context Window, and System-1/System-2 Inference</h2>
+<p>GPT-6&rsquo;s most consequential architectural change is the reported System-1/System-2 dual inference pipeline. System-1 produces fast, cached responses for routine queries — similar to how GPT-5.5 handles standard chat completions. System-2 routes complex or high-stakes requests through a verification pass that cross-checks the initial output before returning results. This architecture is specifically designed to reduce hallucination rates, with OpenAI&rsquo;s internal target cited as below 0.1% — a figure that would make GPT-6 reliable enough for use cases like medical documentation, legal contract review, and financial modeling where hallucination tolerance is effectively zero. The System-1/System-2 split also implies different pricing tiers in the API: fast-path requests at one cost, verified-path requests at a premium.</p>
+<p>The second major architectural claim is a 2M token context window — double GPT-5.5&rsquo;s 1M token limit. This is speculative but grounded in OpenAI&rsquo;s published direction toward &ldquo;infinitely long context&rdquo; capabilities. Two million tokens is enough to load an entire enterprise codebase, a full year of customer communications, or dozens of research papers in a single prompt. The practical developer implication: retrieval-augmented generation (RAG) pipelines built to work around context limits may become optional for many workloads if the context quality at 2M tokens is comparable to today&rsquo;s 128K sweet spot. Analysts expect a 2x+ cost multiplier for extended context requests, mirroring Anthropic&rsquo;s pricing model for Claude&rsquo;s extended context tiers.</p>
+<p>On architecture type, GPT-6 is broadly expected to use a Mixture-of-Experts (MoE) design — sparse activation of expert sub-networks per token — similar to the approach used in GPT-4 and reportedly expanded in GPT-5.5. MoE allows OpenAI to scale model capacity without proportionally scaling inference compute, which matters for running agentic tasks that require many sequential model calls.</p>
+<h2 id="gpt-6-api-pricing-predictions-endpoints-and-availability-timeline">GPT-6 API: Pricing Predictions, Endpoints, and Availability Timeline</h2>
+<p>GPT-6&rsquo;s API pricing remains speculative, but the baseline is clear: GPT-5.5 API pricing sits at $5 per million input tokens and $30 per million output tokens with a 1M context window. GPT-6 is expected to be competitively priced against Claude Opus 4.7 and Gemini 3.1, with speculative pricing of approximately $2.50 input and $12 output per million tokens — a significant reduction from GPT-5.5 levels that would reflect both model efficiency improvements and competitive pressure. The caveat is agentic workloads: internally, GPT-6 autonomous tasks are reported to consume between 50,000 and 500,000 tokens per request, depending on task complexity. At $2.50/M input and $12/M output, a single complex agentic workflow could cost $6–$60 per task. Developers budgeting for GPT-6 need to model token consumption at the workflow level, not the prompt level.</p>
+<p>Availability timeline based on current signals: developer preview access most likely in Q3 2026 (Polymarket puts 45% odds on full release by June 30, 84% by December 31). The realistic scenario is that OpenAI grants limited API access to trusted developers before general availability — consistent with how GPT-5 and GPT-5.5 launched. Safety evaluations and red-teaming for a model targeting 0.1% hallucination rates and agentic autonomy at scale will take months beyond pre-training completion.</p>
+<h3 id="expected-api-endpoint-changes">Expected API Endpoint Changes</h3>
+<p>GPT-6&rsquo;s native memory integration means the API will likely add new parameters for session continuity. Rather than passing <code>messages[]</code> as a full conversation history, developers should expect something like a <code>session_id</code> or <code>memory_context</code> parameter that offloads history management to OpenAI&rsquo;s infrastructure. This mirrors how Claude&rsquo;s project memory works today but builds it into the base model rather than as a wrapper. The Chat Completions endpoint will persist as the primary interface for backward compatibility, but new &ldquo;agent&rdquo; or &ldquo;task&rdquo; endpoints are likely — similar to OpenAI&rsquo;s existing Assistants API but with GPT-6&rsquo;s deeper memory and planning capabilities baked in.</p>
+<h2 id="developer-use-cases-what-gpt-6-unlocks-that-gpt-55-cannot-do">Developer Use Cases: What GPT-6 Unlocks That GPT-5.5 Cannot Do</h2>
+<p>GPT-6&rsquo;s developer impact concentrates in three areas where GPT-5.5 has meaningful limitations: persistent state, autonomous task completion, and codebase-scale reasoning. Today, building a coding assistant that remembers your architecture decisions requires external storage, embedding models, and retrieval logic. GPT-6&rsquo;s native memory eliminates that stack for many use cases — the model maintains context across sessions without the developer re-injecting it. For a team of 10 engineers with a GPT-6-powered assistant, each developer&rsquo;s agent would accumulate repo-specific knowledge over weeks, recognizing patterns in how your team names variables, structures tests, and handles edge cases. This shifts the value proposition from &ldquo;good autocomplete&rdquo; to &ldquo;junior developer that learns your codebase.&rdquo;</p>
+<p>The second unlock is reliable autonomous task completion. GPT-5.5 can execute multi-step workflows, but production deployments still require human checkpoints because failure rates on complex tasks are too high. GPT-6&rsquo;s reinforcement learning-based training is specifically aimed at reducing these failure rates — the model learns to recover from tool errors, replan when initial approaches fail, and distinguish when to ask for human input versus proceeding autonomously. For enterprise use cases — customer support ticket resolution, data pipeline maintenance, compliance document review — this reliability threshold is the blocker between &ldquo;proof of concept&rdquo; and &ldquo;production deployment.&rdquo;</p>
+<h3 id="use-cases-by-domain">Use Cases by Domain</h3>
+<p><strong>Software development:</strong> Full codebase-level context means GPT-6 can write multi-file features from plain English requirements, refactor across hundreds of files while maintaining consistency, and generate production-ready code that respects your team&rsquo;s existing patterns — not just boilerplate.</p>
+<p><strong>Customer operations:</strong> Persistent memory of customer history without lookups. An agent handling a support ticket knows the customer&rsquo;s previous interactions, product version, and known issues without the developer building a retrieval pipeline around it.</p>
+<p><strong>Research and analysis:</strong> GPT-6&rsquo;s 2M context window and agentic capabilities enable multi-week research tasks — monitoring a topic across sources, synthesizing new findings, and updating a living document — without human intervention between steps.</p>
+<p><strong>Coding agents and CI/CD:</strong> The System-2 verification layer makes GPT-6 a candidate for automated code review and testing pipelines where false positives (hallucinated &ldquo;no issues&rdquo;) are unacceptable.</p>
+<h2 id="gpt-6-vs-the-competition-claude-opus-47-gemini-31-and-grok-4">GPT-6 vs. The Competition: Claude Opus 4.7, Gemini 3.1, and Grok 4</h2>
+<p>GPT-6 enters a competitive landscape where the gap between frontier models has narrowed significantly. Claude Opus 4.7, Anthropic&rsquo;s current flagship, scores 82.1% on SWE-Bench (original), leads in extended thinking tasks, and has a strong track record for nuanced instruction-following. Gemini 3.1 from Google DeepMind holds the multimodal reasoning crown — particularly for continuous video processing and real-time perception tasks that require tight integration with Google&rsquo;s infrastructure. Grok 4, xAI&rsquo;s model, targets real-time data access and research workflows through live X/Twitter data integration. GPT-6&rsquo;s projected 40%+ improvement across coding, reasoning, and agent tasks would position it clearly above the current frontier, but these are internal OpenAI projections, not third-party verified benchmarks.</p>
+<p>The competitive dimension that matters most for developers is not raw benchmark performance but ecosystem integration. OpenAI&rsquo;s API ecosystem — including the Assistants API, function calling, structured outputs, and DALL-E 3 integration — is the most mature in the industry for production applications. If GPT-6 delivers on memory and agentic reliability while preserving that ecosystem, the switching cost for developers already on the OpenAI stack is low. The risk is that Claude Opus 4.7 or Gemini 3.1 ships a comparable memory architecture before GPT-6 releases — Anthropic&rsquo;s project memory and Google&rsquo;s long-context capabilities are both moving fast.</p>
+<h3 id="competitive-snapshot-current-models-vs-gpt-6-projections">Competitive Snapshot: Current Models vs. GPT-6 Projections</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Model</th>
+          <th>SWE-Bench</th>
+          <th>Context Window</th>
+          <th>Native Memory</th>
+          <th>Status</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GPT-5.5</td>
+          <td>58.6% Pro</td>
+          <td>1M tokens</td>
+          <td>No</td>
+          <td>GA (April 2026)</td>
+      </tr>
+      <tr>
+          <td>Claude Opus 4.7</td>
+          <td>82.1% (original)</td>
+          <td>200K tokens</td>
+          <td>Project memory</td>
+          <td>GA</td>
+      </tr>
+      <tr>
+          <td>Gemini 3.1</td>
+          <td>~55%</td>
+          <td>2M tokens</td>
+          <td>No</td>
+          <td>GA</td>
+      </tr>
+      <tr>
+          <td>Grok 4</td>
+          <td>~48%</td>
+          <td>128K tokens</td>
+          <td>No</td>
+          <td>GA</td>
+      </tr>
+      <tr>
+          <td>GPT-6 (projected)</td>
+          <td>~75–80% Pro</td>
+          <td>2M tokens</td>
+          <td>Native</td>
+          <td>Expected Q3–Q4 2026</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="how-to-prepare-your-apps-for-gpt-6-today">How to Prepare Your Apps for GPT-6 Today</h2>
+<p>The right preparation strategy for GPT-6 is building on GPT-5.5 in a way that makes the GPT-6 migration a feature addition, not a rewrite. The key architectural decision is how you manage state. If your application currently injects full conversation history into every API call, you&rsquo;re already doing what GPT-6&rsquo;s native memory will handle — the migration will be replacing your context injection with a session parameter. Design your state management layer as an abstraction now: a <code>ContextManager</code> class that currently wraps GPT-5.5&rsquo;s stateless API but can be swapped to delegate state handling to GPT-6&rsquo;s memory layer when available. This pattern also protects you against other memory-capable models — Claude&rsquo;s project memory, Gemini&rsquo;s context cache — becoming GPT-6 alternatives before launch.</p>
+<p>For agentic workflows, the preparation work is documenting your human checkpoint logic explicitly. Today you probably have ad-hoc points where your agent hands off to a human because you don&rsquo;t trust it to proceed. Document those checkpoints as explicit quality gates with pass/fail criteria. When GPT-6 ships with higher agentic reliability, you can test it against those criteria and selectively remove human-in-the-loop steps — rather than rebuilding the workflow from scratch.</p>
+<h3 id="gpt-6-readiness-checklist">GPT-6 Readiness Checklist</h3>
+<ul>
+<li><strong>State abstraction:</strong> Wrap context injection in a class that can delegate to model-native memory</li>
+<li><strong>Token budget modeling:</strong> Profile your current token consumption per workflow, not per prompt — agentic GPT-6 tasks will run 50K–500K tokens per request</li>
+<li><strong>Checkpoint documentation:</strong> Explicitly label human-in-the-loop points in agent workflows so you can evaluate removing them with GPT-6</li>
+<li><strong>Vendor neutrality:</strong> Keep model-specific API calls behind an interface so you can test GPT-6 vs. Claude Opus 4.7 in parallel</li>
+<li><strong>Context window testing:</strong> Validate your app behavior with 1M+ token contexts now on GPT-5.5 so 2M context on GPT-6 is a drop-in upgrade</li>
+</ul>
+<h2 id="verdict-should-developers-wait-for-gpt-6-or-build-with-gpt-55-now">Verdict: Should Developers Wait for GPT-6 or Build with GPT-5.5 Now?</h2>
+<p>Build with GPT-5.5 now, architect for GPT-6. GPT-5.5 is the best available model on the market as of May 2026 — Terminal-Bench 2.0 leader at 82.7%, SWE-Bench Pro leader at 58.6%, Intelligence Index leader across 153 models. For most production applications, it&rsquo;s more than capable enough to ship real value today. Waiting for GPT-6 means waiting until Q3–Q4 2026 at earliest, and developer preview access may be limited for months after that. The opportunity cost of not shipping is real.</p>
+<p>The exception is applications where GPT-6&rsquo;s specific capabilities — native long-term memory, System-2 verified outputs below 0.1% hallucination, and reliable autonomous multi-day task execution — are table stakes rather than nice-to-haves. If you&rsquo;re building an AI assistant that needs to learn user preferences across months, a compliance tool where hallucination tolerance is zero, or an autonomous research agent expected to run unsupervised for days, GPT-6&rsquo;s architecture is purpose-built for those requirements in a way that GPT-5.5 is not. In that case, building a well-scoped MVP on GPT-5.5 while explicitly designing for GPT-6 migration is the right call.</p>
+<p>GPT-6 represents a meaningful step function in AI capability — but it&rsquo;s not vaporware marketing, and it&rsquo;s not available yet. Pre-training is done, post-training takes months, and Polymarket&rsquo;s 84% confidence in a 2026 release means 16% chance of 2027. Build for today, architect for tomorrow.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>GPT-6 is OpenAI&rsquo;s unreleased next flagship model as of May 2026, with pre-training completed March 24, 2026 and a public release expected by end of year. The most common developer questions center on timing, pricing, and how GPT-6 differs architecturally from GPT-5.5 — the current best-in-class model. The short answers: GPT-6 ships sometime between Q3 2026 and early 2027, is expected to cost less per token than GPT-5.5 despite higher capability, and introduces native long-term memory and a System-1/System-2 dual inference pipeline that GPT-5.5 does not have. For developers currently building on the OpenAI API, the practical question is whether to wait or build now — the consensus answer is build with GPT-5.5 today and architect state management in a way that makes the GPT-6 upgrade a configuration change rather than a rewrite. The five questions below address the most common knowledge gaps.</p>
+<h3 id="when-will-gpt-6-be-released">When will GPT-6 be released?</h3>
+<p>GPT-6 pre-training completed March 24, 2026 at OpenAI&rsquo;s Stargate facility in Abilene, Texas. Post-training (RLHF, safety evaluation, red-teaming) typically takes 3–6 months. Polymarket traders currently price a full public release at 84% odds by December 31, 2026, and 45% by June 30, 2026. Developer preview access is likely before general availability, potentially Q3 2026.</p>
+<h3 id="what-is-the-difference-between-gpt-55-and-gpt-6">What is the difference between GPT-5.5 and GPT-6?</h3>
+<p>GPT-5.5 (codenamed &ldquo;Spud&rdquo;) was the model widely expected to launch as GPT-6, but OpenAI shipped it as GPT-5.5 in April 2026. GPT-6 is now a distinct next-generation model with native long-term memory, a System-1/System-2 dual inference architecture for sub-0.1% hallucination rates, and reinforcement learning as a core training mechanism — representing a more fundamental architectural shift than GPT-5.5.</p>
+<h3 id="what-will-gpt-6-cost-on-the-api">What will GPT-6 cost on the API?</h3>
+<p>GPT-5.5 API pricing is $5 per million input tokens and $30 per million output tokens. GPT-6 is speculated to cost approximately $2.50 input and $12 output per million tokens, competitive with Claude Opus 4.7 and Gemini 3.1. However, agentic GPT-6 tasks may consume 50,000–500,000 tokens per workflow, making per-task cost a more useful metric than per-token pricing.</p>
+<h3 id="how-does-gpt-6-compare-to-claude-opus-47">How does GPT-6 compare to Claude Opus 4.7?</h3>
+<p>Claude Opus 4.7 scores 82.1% on SWE-Bench (original) and leads in nuanced instruction-following. GPT-6 is projected to reach 75–80% on the harder SWE-Bench Pro variant, with a 40%+ performance improvement over GPT-5.5 across coding, reasoning, and agent tasks. The key GPT-6 advantages are native long-term memory and a verified-output inference path — capabilities Anthropic matches through project memory and extended thinking, but with different API ergonomics.</p>
+<h3 id="what-is-gpt-6s-context-window">What is GPT-6&rsquo;s context window?</h3>
+<p>GPT-5.5 supports a 1M token context window. GPT-6 is widely speculated to support a 2M token context window — double the current limit. This would be enough to load an entire enterprise codebase or a year of communications in a single prompt. Extended context requests are expected to carry a cost multiplier, likely 2x or more over standard context pricing.</p>
+]]></content:encoded></item><item><title>Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase</title><link>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</link><pubDate>Sun, 03 May 2026 03:06:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</guid><description>Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.</description><content:encoded><![CDATA[<p>Cursor 2.0 lets you run up to 8 AI agents simultaneously on your codebase using git worktrees — each agent works in isolation on a separate branch, eliminating file conflicts. Combined with Composer 2&rsquo;s 250 tokens/second throughput, you can parallelize a week of refactoring work into a single afternoon.</p>
+<h2 id="what-are-cursor-20-parallel-agents-the-8-agent-breakthrough">What Are Cursor 2.0 Parallel Agents? (The 8-Agent Breakthrough)</h2>
+<p>Cursor 2.0 parallel agents are simultaneous AI coding sessions, each running inside its own git worktree, that allow up to 8 independent Composer instances to modify the same repository at once without stepping on each other&rsquo;s changes. Introduced with Cursor 2.0 in early 2026, this feature fundamentally changes how developers handle large, decomposable tasks like TypeScript migrations, test suite generation, or cross-cutting refactors. In practice, a senior engineer can assign Agent 1 to rewrite the authentication module, Agent 2 to update all API handlers, and Agent 3 to generate test coverage — all running simultaneously. Cursor reports that agentic tasks complete 30% faster with parallel background agents versus sequential execution. Composer 2 scores 61.3 on CursorBench versus 44.2 for Composer 1.5 (a 39% improvement), meaning each individual agent is also smarter than its predecessor. The net result: tasks that previously took days now finish in hours, with each agent maintaining full context of its own isolated work.</p>
+<h3 id="how-worktree-isolation-works">How Worktree Isolation Works</h3>
+<p>Each parallel agent gets its own git worktree — a separate checkout of the repository with its own working directory and branch. All worktrees share the same underlying <code>.git</code> object database, so there is no repository duplication. Agent 2 modifying <code>auth/handler.ts</code> has no awareness of Agent 5 editing <code>api/users.ts</code>. When both finish, you merge their branches like any normal git workflow. The technical constraint is disk I/O and RAM: each active Cursor window consumes approximately 800MB–1.2GB of memory, which means 8 agents realistically requires 16GB+ of system RAM for smooth operation.</p>
+<h2 id="the-technology-behind-parallel-agents-git-worktrees-explained">The Technology Behind Parallel Agents: Git Worktrees Explained</h2>
+<p>Git worktrees are a first-class git feature — not a Cursor invention — that allow a single repository to have multiple checked-out branches simultaneously in different filesystem paths. Cursor 2.0 wraps this capability with a UI that lets you spawn new Composer sessions directly into configured worktree directories. When you run <code>git worktree add ../my-repo-feature1 -b feature/agent-1</code>, git creates a directory at <code>../my-repo-feature1</code> that shares the same object store as your main repo but maintains its own <code>HEAD</code>, index, and working tree. This means commits in the worktree appear instantly in <code>git log</code> everywhere — but the files remain physically separate until merged. For Cursor&rsquo;s parallel agent use case, this architecture is ideal: agents can <code>git add</code>, <code>git commit</code>, and even run terminal commands within their worktree without interfering with other agents. The <code>.cursor/worktrees.json</code> configuration file tells Cursor which directories are active worktrees, enabling automatic environment setup (dependency installation, environment variable injection) when each agent session starts. Cursor&rsquo;s implementation also handles the cleanup cycle: after merging an agent&rsquo;s branch, <code>git worktree remove</code> frees the directory, and Cursor removes it from the worktree registry automatically.</p>
+<h3 id="worktree-vs-branch-whats-the-difference">Worktree vs Branch: What&rsquo;s the Difference?</h3>
+<p>A branch is a pointer to a commit. A worktree is a physical checkout of that branch at a filesystem path. Without worktrees, switching branches means modifying your single working directory — destructive if another process is reading those files. With worktrees, each branch lives at its own path; switching between agents means switching windows, not <code>git checkout</code>. This is why Cursor can run 8 agents: each has a stable filesystem view that never changes unless the agent itself makes a commit.</p>
+<h2 id="setting-up-parallel-agents-in-cursor-20-prerequisites-and-configuration">Setting Up Parallel Agents in Cursor 2.0: Prerequisites and Configuration</h2>
+<p>Setting up Cursor 2.0 parallel agents requires Cursor Pro ($20/month minimum), git 2.15+ for worktree support, and a machine with at least 8GB RAM for 2–3 agents or 16GB+ for 4–8 agents. Start by verifying your Cursor version is 2.0 or later in <strong>Cursor → About Cursor</strong>. Then confirm git worktree support with <code>git worktree list</code> from your project root. The feature is enabled by default in Cursor 2.0 — no feature flag or beta enrollment needed. Create your <code>.cursor</code> directory at the project root if it does not already exist, then create the worktrees configuration file at <code>.cursor/worktrees.json</code>. This file tells Cursor which parallel working directories are active, what branch each maps to, and whether to run setup scripts automatically when an agent session starts in that directory. Each entry in the JSON array specifies a <code>path</code> (relative or absolute), a <code>branch</code> name, and optionally a <code>setup</code> array of shell commands to run on initialization. Without this file, you can still create worktrees manually, but Cursor will not auto-configure agent sessions when you open them.</p>
+<h3 id="system-requirements-by-agent-count">System Requirements by Agent Count</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Agents</th>
+          <th>RAM Required</th>
+          <th>Recommended CPU</th>
+          <th>Disk Space</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2</td>
+          <td>8 GB</td>
+          <td>4 cores</td>
+          <td>+2 GB</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>16 GB</td>
+          <td>8 cores</td>
+          <td>+4 GB</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>32 GB</td>
+          <td>12+ cores</td>
+          <td>+8 GB</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="step-by-step-running-8-simultaneous-ai-agents-on-your-codebase">Step-by-Step: Running 8 Simultaneous AI Agents on Your Codebase</h2>
+<p>Running 8 parallel agents in Cursor 2.0 is a six-step process that combines git worktree setup, Cursor configuration, and strategic task decomposition. First, identify 8 truly independent workstreams in your project — tasks that read or write different files, with no shared dependencies during execution. Second, create a worktree for each task using <code>git worktree add ../project-agent-N -b feature/agent-N</code> for agents 1 through 8. Third, create <code>.cursor/worktrees.json</code> registering all 8 paths with their branch names and any per-worktree setup commands (e.g., <code>npm install</code> or <code>pip install -r requirements.txt</code>). Fourth, open each worktree in a new Cursor window via <strong>File → Open Folder</strong>, then start a Composer session in each window. Fifth, paste each agent&rsquo;s task prompt into its respective Composer — be specific, include file paths, and scope the task tightly to avoid agents accidentally editing shared utilities. Sixth, monitor progress across windows, approve any tool calls that require confirmation, and begin merging completed branches as each agent finishes. The entire setup takes approximately 10 minutes for experienced users. For teams, this workflow maps naturally to microservices: assign one agent per service, each in its own worktree, and review PRs as they complete.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create 8 worktrees for parallel agent work</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>1..8<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  git worktree add ../project-agent-$i -b feature/agent-$i
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verify all worktrees are registered</span>
+</span></span><span style="display:flex;"><span>git worktree list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// .cursor/worktrees.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;worktrees&#34;</span>: [
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-1&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-1&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-2&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-2&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-3&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-3&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-4&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-4&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="writing-effective-per-agent-prompts">Writing Effective Per-Agent Prompts</h3>
+<p>Vague prompts are the primary failure mode for parallel agents. Each agent prompt should specify: (1) which files to modify, (2) which files to leave untouched, (3) the exact output format or API contract, and (4) any conventions from the codebase the agent might not infer from context. A good parallel agent prompt for a TypeScript migration reads: &ldquo;Convert <code>/src/utils/auth.js</code> and all files it imports to TypeScript. Do not modify any files in <code>/src/api/</code>. Preserve all existing function signatures. Add JSDoc comments to all exported functions.&rdquo;</p>
+<h2 id="using-multitask-for-automatic-task-decomposition-cursor-32">Using /multitask for Automatic Task Decomposition (Cursor 3.2)</h2>
+<p>The <code>/multitask</code> command, introduced in Cursor 3.2 on April 24, 2026, automates the task decomposition step entirely — you describe a high-level goal, and Cursor breaks it into async subagents that run in parallel without manual worktree setup. Instead of manually identifying 8 independent workstreams and creating worktrees for each, you type <code>/multitask Migrate all JavaScript files in /src to TypeScript, adding proper types and JSDoc</code> and Cursor&rsquo;s planner analyzes your codebase, identifies which files are safe to process concurrently, spins up subagents for each file cluster, and tracks their progress in a single orchestration view. This is a significant workflow improvement over Cursor 2.0&rsquo;s manual approach: the cognitive overhead of decomposition and worktree management disappears, and the system handles merge ordering automatically. Cursor&rsquo;s planner is conservative — it will not parallelize tasks where it detects file interdependencies, defaulting to sequential execution for those file pairs. The tradeoff is control: <code>/multitask</code> makes decomposition decisions automatically, which occasionally results in suboptimal task groupings. For complex refactors with subtle dependency graphs, manual worktree setup remains more reliable.</p>
+<h3 id="when-to-use-multitask-vs-manual-worktrees">When to Use /multitask vs Manual Worktrees</h3>
+<p>Use <code>/multitask</code> for: large-scale file migrations, test generation across many modules, documentation updates, formatting passes. Use manual worktrees for: tasks requiring precise ordering of commits, work spanning services with shared interfaces, or when you need to customize each agent&rsquo;s environment or context window.</p>
+<h2 id="background-agents-running-ai-agents-on-cloud-vms">Background Agents: Running AI Agents on Cloud VMs</h2>
+<p>Background Agents, available on Cursor Pro ($20/month) and above, run your Cursor agents in isolated AWS virtual machines with internet access — freeing your local machine entirely while agents work. Where local parallel agents consume your RAM and CPU, Background Agents offload execution to Cursor&rsquo;s cloud infrastructure. Each Background Agent VM has internet access for package installation and API calls, a persistent terminal session, and the ability to commit and push to your repository autonomously. You monitor their progress from the Cursor UI&rsquo;s Background Agents panel, which streams terminal output and Composer actions in real time. Background Agents are ideal for long-running tasks (2+ hours), for teams where developers want agents running overnight, and for CI-adjacent workflows where the agent needs to install dependencies, run tests, and create PRs without occupying a developer&rsquo;s laptop. The limitation is cost: Background Agent compute is billed separately from Cursor Pro&rsquo;s base subscription, with pricing based on compute time. For short tasks under 30 minutes, local parallel agents are more cost-effective. For overnight batch work — migrating a 500-file legacy codebase, generating comprehensive test coverage, or updating all dependencies — Background Agents eliminate the need to keep your laptop awake.</p>
+<h3 id="local-vs-background-agents-comparison">Local vs Background Agents: Comparison</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Local Parallel Agents</th>
+          <th>Background Agents</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max simultaneous</td>
+          <td>8</td>
+          <td>Unlimited (plan-based)</td>
+      </tr>
+      <tr>
+          <td>Infrastructure</td>
+          <td>Your machine</td>
+          <td>AWS VMs</td>
+      </tr>
+      <tr>
+          <td>Internet access</td>
+          <td>Via your network</td>
+          <td>Built-in</td>
+      </tr>
+      <tr>
+          <td>Cost</td>
+          <td>Cursor Pro only</td>
+          <td>Pro + compute billing</td>
+      </tr>
+      <tr>
+          <td>Setup</td>
+          <td>Manual worktrees</td>
+          <td>One-click</td>
+      </tr>
+      <tr>
+          <td>Best for</td>
+          <td>Short, focused tasks</td>
+          <td>Long-running batch work</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="real-world-use-cases-where-parallel-agents-save-days-of-work">Real-World Use Cases Where Parallel Agents Save Days of Work</h2>
+<p>Parallel agents in Cursor 2.0 deliver the most value in three categories of work: large-scale migrations, comprehensive test generation, and documentation production. For a TypeScript migration of a 200-file JavaScript codebase, running 8 agents simultaneously — each handling 25 files — reduces a week-long task to a single afternoon. Development teams at Series B startups report cutting their TypeScript migration from 5 days to 6 hours using this pattern. For test generation, parallel agents excel at producing unit tests for modules in isolation: assign each agent a module directory, and all agents write tests concurrently against their respective public APIs. A backend team of 4 engineers used 8 parallel Cursor agents to generate 847 unit tests across 12 microservices in 3 hours — work that previously required 2 full sprint weeks. For documentation, agents can simultaneously generate API reference docs, usage examples, and README files for each service, with no risk of agents overwriting each other&rsquo;s output since each service lives in a separate directory. Additional use cases include: dependency version updates across monorepo packages, ESLint/Prettier formatting passes across legacy code, internationalization (i18n) string extraction, and security audit annotation.</p>
+<h3 id="case-study-monorepo-refactor">Case Study: Monorepo Refactor</h3>
+<p>A real-world monorepo with 14 packages and 380 TypeScript files was refactored using 8 Cursor parallel agents over 4 hours. Task decomposition: 2 agents per tier (UI components, API clients, server handlers, database models). Each agent was given its package&rsquo;s directory and a single task: &ldquo;Add strict null checks and fix all resulting TypeScript errors.&rdquo; Merge sequence: database models first (no dependencies), then server handlers, then API clients, then UI components. Total developer time: 40 minutes of setup + monitoring. Estimated sequential time: 3 days.</p>
+<h2 id="best-practices-avoiding-conflicts-and-maximizing-parallel-agent-efficiency">Best Practices: Avoiding Conflicts and Maximizing Parallel Agent Efficiency</h2>
+<p>Effective parallel agent use in Cursor 2.0 depends on three disciplines: rigorous task decomposition, defensive prompt writing, and structured merge sequencing. The most common failure mode is assigning agents to tasks with hidden shared dependencies — for example, two agents modifying the same utility file from different features. Always map your codebase&rsquo;s dependency graph before assigning tasks: use <code>madge</code> for JavaScript/TypeScript or <code>pydeps</code> for Python to visualize imports, then ensure no two agent tasks touch the same files. For prompt writing, include explicit exclusion lists: &ldquo;Do not modify any files outside <code>/src/auth/</code>&rdquo; is as important as the positive instruction. When agents are confident, they will reach for shared utilities to solve problems — explicit boundaries prevent this. For merge sequencing, process agents in dependency order: foundational modules first, consumers second. Create a merge plan before starting any agent and stick to it. Finally, test each agent&rsquo;s branch in isolation before merging: run your test suite against each worktree individually to catch regressions before they compound in the main branch.</p>
+<h3 id="resolving-merge-conflicts-between-agent-branches">Resolving Merge Conflicts Between Agent Branches</h3>
+<p>When conflicts occur (typically in <code>package-lock.json</code>, <code>yarn.lock</code>, or auto-generated files), resolve them at merge time rather than mid-task. Do not attempt to have agents resolve conflicts autonomously — the agent lacks context about the other branches&rsquo; changes. Use <code>git mergetool</code> or Cursor&rsquo;s built-in merge conflict UI. For lock files, regenerate them after all branches are merged rather than resolving individual diffs.</p>
+<h2 id="cursor-parallel-agents-vs-github-copilot-vs-claude-code-2026-comparison">Cursor Parallel Agents vs GitHub Copilot vs Claude Code: 2026 Comparison</h2>
+<p>Cursor 2.0 parallel agents occupy a unique position in the 2026 AI coding landscape — no direct competitor offers native parallel agent execution in the same workflow. GitHub Copilot Workspace supports multi-step agentic tasks but processes them sequentially, not in parallel. Claude Code&rsquo;s agent mode handles one task at a time with deep codebase analysis, but requires manual management for parallel workstreams. The core difference is infrastructure: Cursor built worktree management and multi-window orchestration into the IDE itself, making parallel execution a first-class feature rather than a workaround. For teams doing large-scale codebase transformations, this architectural choice matters more than any benchmark comparison. Cursor&rsquo;s Composer 2 model scores 61.7 on Terminal-Bench 2.0, surpassing Claude Opus 4.6 at 58.0, which means individual agent quality is competitive with the best available models — and you can run 8 of them simultaneously. 95% of developers use AI tools at least weekly in 2026, but only a fraction are using parallel agents for the workloads where they provide 10x leverage.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Cursor 2.0 Parallel</th>
+          <th>GitHub Copilot Workspace</th>
+          <th>Claude Code Agent</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max parallel agents</td>
+          <td>8 local, unlimited cloud</td>
+          <td>1 (sequential)</td>
+          <td>1 per session</td>
+      </tr>
+      <tr>
+          <td>Worktree management</td>
+          <td>Native, automatic</td>
+          <td>Manual</td>
+          <td>Manual</td>
+      </tr>
+      <tr>
+          <td>/multitask (auto-decompose)</td>
+          <td>Yes (v3.2+)</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Cloud agents</td>
+          <td>Yes (Background)</td>
+          <td>Limited preview</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Model benchmark (CursorBench)</td>
+          <td>61.3</td>
+          <td>N/A</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Entry price</td>
+          <td>$20/month Pro</td>
+          <td>$19/month Individual</td>
+          <td>$20/month Pro</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="pricing-plans-and-what-you-actually-need">Pricing, Plans, and What You Actually Need</h2>
+<p>Cursor 2.0 parallel agents are available on Cursor Pro ($20/month) and above — the free Hobby tier does not include Composer access or Background Agents. Pro includes: unlimited Composer sessions, up to 8 local parallel agents via worktrees, Background Agent access (compute billed separately), and Supermaven autocomplete with a 72% developer acceptance rate. The Business plan ($40/month per seat) adds centralized billing, admin controls, and higher rate limits on Background Agent compute. For individual developers doing large migrations or ambitious side projects, Pro is sufficient — 8 local agents on a 32GB MacBook Pro handles most real-world workloads. For teams doing nightly batch processing or CI-integrated agent workflows, Background Agent compute costs are typically $50–200/month depending on task volume. There is no &ldquo;parallel agents add-on&rdquo; — the feature is included in Pro; the only variable cost is Background Agent compute time.</p>
+<h3 id="is-cursor-pro-worth-it-for-parallel-agents-alone">Is Cursor Pro Worth It for Parallel Agents Alone?</h3>
+<p>For any developer who regularly does large refactors, migrations, or test-writing sprints: yes. A single 4-hour parallel agent session on a 200-file TypeScript migration saves 3–4 days of manual work. At $20/month, the ROI is positive after a single significant use. For developers doing primarily line-by-line feature work, the productivity gain is smaller and the free tier or GitHub Copilot Individual may be more cost-effective.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Can I run more than 8 parallel agents in Cursor 2.0?</strong>
+The local parallel agent limit is 8 simultaneous worktrees, constrained by Cursor&rsquo;s UI and practical memory limits. Background Agents (cloud VMs) do not have this ceiling — the limit depends on your plan&rsquo;s compute quota. For most workloads, 4–6 agents is the practical sweet spot where task quality and context size remain manageable.</p>
+<p><strong>Do parallel agents share context with each other?</strong>
+No. Each agent runs in complete isolation with its own context window, conversation history, and file system view. Agents cannot communicate with each other or read each other&rsquo;s changes during execution. Coordination happens through the developer: you define task boundaries, monitor progress, and sequence merges.</p>
+<p><strong>What happens if two agents accidentally modify the same file?</strong>
+If you followed proper task decomposition, this should not happen. If it does, you will see a git merge conflict when merging the second branch. Resolve it manually using <code>git mergetool</code> or Cursor&rsquo;s conflict UI. To prevent this, always verify your task assignments using a dependency graph tool before starting agents.</p>
+<p><strong>Does /multitask replace manual worktree setup?</strong>
+For most use cases introduced in Cursor 3.2, yes — <code>/multitask</code> automates decomposition, worktree creation, and merge sequencing. Manual worktrees remain useful for tasks requiring custom environment setup per agent, precise commit ordering, or when you need to review each agent&rsquo;s work before it proceeds to the next step.</p>
+<p><strong>Can I use Cursor parallel agents with a monorepo?</strong>
+Yes, and monorepos are an ideal use case. Assign each agent to a single package directory. Because monorepo packages are typically loosely coupled at the filesystem level, agents rarely conflict. Tools like Turborepo and Nx&rsquo;s dependency graph can help you identify safe parallel boundaries. The shared <code>node_modules</code> or <code>package.json</code> at the monorepo root should be excluded from all agent tasks and updated manually after merging.</p>
+]]></content:encoded></item><item><title>AI Code Review Tools 2026: CodeRabbit vs Qodo vs Greptile vs GitHub Copilot</title><link>https://baeseokjae.github.io/posts/ai-code-review-tools-2026/</link><pubDate>Fri, 01 May 2026 15:30:00 +0000</pubDate><guid>https://baeseokjae.github.io/posts/ai-code-review-tools-2026/</guid><description>Honest comparison of the top AI code review tools in 2026: bug catch rates, noise levels, pricing, and which tool actually fits your team&amp;#39;s workflow.</description><content:encoded><![CDATA[<p>The AI code review market has consolidated around a few serious tools in 2026. The numbers are real: teams deploying AI code review see 30–60% reduction in PR cycle times and 25–35% decrease in production defect rates, according to enterprise ROI studies. But the tools differ dramatically in how they work, what they catch, and what they miss. Greptile achieves an 82% bug catch rate. Qodo scores 60.1% F1. CodeRabbit clocks in around 44% catch rate — but generates significantly less noise than either. Which number matters more depends on your team. Here&rsquo;s the full comparison.</p>
 <h2 id="why-ai-code-review-tools-are-becoming-essential-in-2026">Why AI Code Review Tools Are Becoming Essential in 2026</h2>
 <p>The case for AI code review in 2026 is no longer theoretical. Enterprise deployments at JPMorgan and Bancolombia show 20–55% productivity gains from AI coding workflows, including review. More specifically: the global AI code tools market is projected to reach $22.2 billion by 2030, and the workflow change driving that growth is moving review earlier — from &ldquo;human reviews the PR before merge&rdquo; to &ldquo;AI reviews every commit, human reviews the AI&rsquo;s findings.&rdquo; The shift changes what human reviewers spend time on. Instead of reading every line for basic correctness, a good AI review pipeline handles syntax, security patterns, type safety, and common logic errors automatically. Human reviewers focus on architectural decisions, business logic, and changes with subtle side effects across systems — the work that actually requires understanding context that isn&rsquo;t in the PR. Teams where 22% of merged code is already AI-authored (the current average for daily AI users) face a compounding problem: human reviewers reviewing AI-generated code at the same pace as human-written code become a bottleneck. AI code review is how you keep throughput from collapsing as AI-authored PRs scale.</p>
 <h2 id="the-benchmarks-bug-catch-rate-noise-and-speed">The Benchmarks: Bug Catch Rate, Noise, and Speed</h2>

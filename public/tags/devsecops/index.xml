@@ -1,4 +1,254 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Devsecops on RockB</title><link>https://baeseokjae.github.io/tags/devsecops/</link><description>Recent content in Devsecops on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 25 Apr 2026 19:04:45 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/devsecops/index.xml" rel="self" type="application/rss+xml"/><item><title>RunSybil AI Pentesting Review 2026: IAM and Container Security Testing Evaluated</title><link>https://baeseokjae.github.io/posts/runsybil-cloud-pentesting-review-2026/</link><pubDate>Sat, 25 Apr 2026 19:04:45 +0000</pubDate><guid>https://baeseokjae.github.io/posts/runsybil-cloud-pentesting-review-2026/</guid><description>Hands-on review of RunSybil&amp;#39;s AI-native pentesting platform: IAM misconfiguration testing, container escape, CI/CD secret exposure, and how it compares to Pentera and NodeZero.</description><content:encoded><![CDATA[<p>RunSybil is an AI-native offensive security platform that autonomously chains IAM misconfigurations, container escapes, and CI/CD secret exposures into full attack paths — operating black-box against live cloud environments the same way a real attacker would, with no source code or agent credentials required.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Devsecops on RockB</title><link>https://baeseokjae.github.io/tags/devsecops/</link><description>Recent content in Devsecops on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 03 May 2026 12:04:33 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/devsecops/index.xml" rel="self" type="application/rss+xml"/><item><title>Sweep AI Review 2026: GitHub Issue to PR Automation — Is It Worth It?</title><link>https://baeseokjae.github.io/posts/sweep-ai-review-2026/</link><pubDate>Sun, 03 May 2026 12:04:33 +0000</pubDate><guid>https://baeseokjae.github.io/posts/sweep-ai-review-2026/</guid><description>Honest Sweep AI review for 2026: 92% issue resolution rate, GitHub-native workflow, pricing vs Devin, and whether the JetBrains pivot changes the value proposition.</description><content:encoded><![CDATA[<p>Sweep AI is a GitHub App that converts issues into pull requests autonomously — you add a <code>sweep</code> label to an issue, and Sweep analyzes the codebase, writes a plan, generates code changes, and opens a PR. With 7,600+ GitHub stars (Apache-2.0), a 92% issue resolution rate in controlled evaluations, and a free tier that starts at $0 versus Devin&rsquo;s $500/month, it occupies a specific and defensible niche. Here&rsquo;s whether it&rsquo;s the right tool for your team in 2026.</p>
+<h2 id="what-is-sweep-ai-the-ai-junior-developer-for-github">What Is Sweep AI? The AI Junior Developer for GitHub</h2>
+<p>Sweep AI is a GitHub-native AI coding agent that launched in 2023 as part of Y Combinator&rsquo;s S23 batch. The core design is deliberately narrow: it takes a well-defined GitHub issue and produces a pull request, without requiring developers to switch context, open a separate dashboard, or learn a new interface. Sweep lives entirely inside GitHub — it reads issues, posts comments, and creates PRs using the GitHub API. The &ldquo;AI junior developer&rdquo; framing is accurate and intentional. Sweep doesn&rsquo;t attempt to architect systems or make high-stakes design decisions. It handles the tasks that accumulate in every backlog: specific bugs with clear reproduction steps, missing tests, small refactors, type additions, and documentation updates. These are the issues that sit unresolved for weeks because they&rsquo;re not interesting enough for senior developers to prioritize, but have real cost when left unaddressed. In 2026, Sweep has executed a strategic pivot toward JetBrains IDE integration alongside the original GitHub App product. The GitHub App remains the primary product and the focus of this review. The JetBrains plugin extends Sweep&rsquo;s capabilities to interactive coding sessions within IntelliJ-based IDEs, but the issue-to-PR automation that made Sweep notable is still GitHub App territory.</p>
+<h2 id="how-sweep-ai-works-from-issue-label-to-merged-pr">How Sweep AI Works: From Issue Label to Merged PR</h2>
+<p>The workflow from issue label to PR takes roughly 5–15 minutes depending on codebase size and task complexity. Understanding each step matters for setting the right expectations.</p>
+<p><strong>Step 1: Label the issue.</strong> Add the <code>sweep</code> label to any GitHub issue, or mention <code>@sweepai</code> in an issue comment. Sweep receives a webhook notification and begins processing.</p>
+<p><strong>Step 2: Codebase indexing.</strong> Sweep vectorizes the repository to identify which files, functions, and dependencies are relevant to the issue. It uses LLM-based semantic understanding rather than language-specific parsers, which is why it handles TypeScript, Go, Rust, Python, and Java with equivalent quality. For large repos, this step benefits from prior indexing — Sweep caches embeddings between runs.</p>
+<p><strong>Step 3: Plan publication (the key trust mechanism).</strong> Before writing a single line of code, Sweep posts a detailed comment on the issue describing its implementation plan: which files will be modified, what approach it will take, and what it expects to change. Developers can correct the direction at this stage — if Sweep misunderstood the issue or is heading toward the wrong architectural solution, you intervene before any code is written. This pre-execution plan is the design decision that sets Sweep apart from fully autonomous agents that surprise you with a complete (and sometimes wrong) PR.</p>
+<p><strong>Step 4: PR generation.</strong> After the plan phase, Sweep writes the code changes and opens a pull request with a structured description: what changed, why, and how to test it. The PR is ready for review.</p>
+<p><strong>Step 5: Iteration via PR comments.</strong> Leave a natural language comment on the PR with any corrections — &ldquo;add error handling for the null case&rdquo; or &ldquo;this breaks the existing unit tests, fix them&rdquo; — and Sweep pushes new commits responding to the feedback. All collaboration happens inside GitHub without a separate tool.</p>
+<h2 id="key-features-of-sweep-ai-in-2026">Key Features of Sweep AI in 2026</h2>
+<p>The feature set hasn&rsquo;t changed dramatically since launch — Sweep does one thing well rather than expanding to multiple surfaces. The notable capabilities in 2026:</p>
+<p><strong>Vector-based codebase indexing</strong> understands cross-file dependencies. If modifying <code>auth.ts</code>, Sweep finds all files importing it and understands the impact surface. This is why it outperforms naive LLM-in-a-chat-window approaches on non-trivial issues.</p>
+<p><strong><code>sweep.yaml</code> configuration</strong> lets teams codify their standards directly in the repository, so generated code respects conventions without manual correction on every PR:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">branch</span>: <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#e6db74">&#34;TypeScript/React project, ESLint + Prettier enforced&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">rules</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;Add JSDoc comments to all new functions&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;Handle errors with try-catch, never swallow exceptions silently&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;Follow existing naming conventions in the file you&#39;re modifying&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">blocked_dirs</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;node_modules&#34;</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#e6db74">&#34;.git&#34;</span>
+</span></span></code></pre></div><p><strong>Self-hosting via Docker</strong> is available due to the Apache-2.0 license. Teams in regulated industries or air-gapped environments can run Sweep on their own infrastructure — code never leaves the premises:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull sweepai/sweep:latest
+</span></span><span style="display:flex;"><span>docker run -e GITHUB_TOKEN<span style="color:#f92672">=</span>ghp_xxx <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e OPENAI_API_KEY<span style="color:#f92672">=</span>sk-xxx <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  sweepai/sweep
+</span></span></code></pre></div><p><strong>Multi-language support</strong> covers TypeScript, JavaScript, Python, Go, Rust, Java, and others. The LLM-based approach means language support is effectively as broad as the underlying model&rsquo;s capabilities — no language-specific parser maintenance required.</p>
+<p><strong>SOC 2 and ISO/IEC 27001 certification</strong> for enterprise deployments, addressing the security review requirements most enterprise teams encounter before approving a new tool with repository access.</p>
+<h2 id="sweep-ai-pricing-free-tier-pro-and-enterprise-plans">Sweep AI Pricing: Free Tier, Pro, and Enterprise Plans</h2>
+<p>Sweep&rsquo;s pricing covers both the GitHub App and the JetBrains plugin, with different tier structures for each product line.</p>
+<p><strong>GitHub App pricing:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Plan</th>
+          <th>Price</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Free</td>
+          <td>$0/month</td>
+          <td>Open-source repos, limited monthly PRs</td>
+      </tr>
+      <tr>
+          <td>Pro</td>
+          <td>Contact</td>
+          <td>Private repos, higher PR volume, priority queue</td>
+      </tr>
+      <tr>
+          <td>Enterprise</td>
+          <td>Contact</td>
+          <td>Self-hosting, compliance, custom LLM endpoint</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>JetBrains Plugin pricing:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Plan</th>
+          <th>Price</th>
+          <th>Best For</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Basic</td>
+          <td>$10/month</td>
+          <td>Individual developers, standard usage</td>
+      </tr>
+      <tr>
+          <td>Pro</td>
+          <td>$20/month</td>
+          <td>Higher usage limits, faster response times</td>
+      </tr>
+      <tr>
+          <td>Ultra</td>
+          <td>$60/month</td>
+          <td>Heavy users, priority processing</td>
+      </tr>
+  </tbody>
+</table>
+<p>For open-source maintainers, the free tier is genuinely useful — automating a significant portion of &ldquo;good first issue&rdquo; backlog without paying anything. For private repos on a small team, the Pro GitHub App tier provides the volume needed for daily use. The JetBrains plans are positioned for developers who want Sweep in interactive coding sessions, not just issue automation.</p>
+<h2 id="sweep-ai-performance-92-success-rate-and-real-world-results">Sweep AI Performance: 92% Success Rate and Real-World Results</h2>
+<p>The 92% success rate in IEEE evaluations is the headline number. It measures whether Sweep produces a passing PR — code that builds, passes existing tests, and correctly addresses the stated issue. This number holds for well-scoped, clearly-written issues. The number drops significantly for ambiguous issues, architectural decisions, and tasks requiring information that isn&rsquo;t in the codebase. For calibration: the best models on SWE-Bench Pro (GPT-5, Claude Opus 4.1) resolve approximately 23% of complex real-world issues. Sweep&rsquo;s 92% works because it operates on a different distribution of problems — well-defined, reproducible, self-contained tasks rather than the open-ended challenges SWE-Bench measures. The real-world signal from teams using Sweep consistently: it performs best on &ldquo;bug + fix + test&rdquo; combinations where the issue clearly describes the failure mode, the codebase is the source of truth, and the fix doesn&rsquo;t require external knowledge. These are precisely the issues that pile up unaddressed in every active repository.</p>
+<h2 id="best-use-cases-for-sweep-ai-and-when-to-skip-it">Best Use Cases for Sweep AI (and When to Skip It)</h2>
+<p><strong>High-confidence use cases</strong> — where 92% success rate applies:</p>
+<ul>
+<li>Specific bugs with reproduction steps: &ldquo;Login redirects to 404 after password change&rdquo; — clear failure, localized fix</li>
+<li>Missing tests: &ldquo;Add unit tests for the authentication module&rdquo; — implementation exists, tests follow predictable patterns</li>
+<li>Type safety work: &ldquo;Add TypeScript types to this JavaScript file&rdquo; — pattern-following with clear success criteria</li>
+<li>Documentation: &ldquo;Add JSDoc to all exported functions in api.ts&rdquo; — mechanical, consistent</li>
+<li>Small refactors: &ldquo;Extract this repeated database query into a shared utility function&rdquo;</li>
+</ul>
+<p><strong>Skip Sweep and use a human (or Devin) for:</strong></p>
+<ul>
+<li>Architecture decisions with multiple valid approaches and unclear tradeoffs</li>
+<li>Performance optimization requiring profiling and measurement</li>
+<li>Security-sensitive code where auto-merge without deep review is unacceptable</li>
+<li>Issues where correct behavior isn&rsquo;t documented anywhere in the codebase</li>
+<li>Cross-cutting concerns requiring organizational context not visible in code</li>
+</ul>
+<p>The failure mode to watch: issues that look well-defined but have hidden complexity. &ldquo;Fix the performance issue in the dashboard&rdquo; sounds specific but requires profiling, measurement, and design judgment that Sweep doesn&rsquo;t have. Writing clear, reproduction-focused issues before adding the <code>sweep</code> label is the highest-leverage investment for getting good PR quality.</p>
+<h2 id="sweep-ai-alternatives-coderabbit-devin-github-copilot-agent-swe-agent">Sweep AI Alternatives: CodeRabbit, Devin, GitHub Copilot Agent, SWE-agent</h2>
+<p><strong>Sweep vs. Devin:</strong> Devin ($500/month) offers more autonomy — web browsing, code execution, multi-session tasks requiring external information. Sweep handles the 80% of backlog items that don&rsquo;t need that capability at 0–20% of the cost. Unless your backlog is dominated by tasks requiring external research or complex multi-system coordination, Sweep covers more ground per dollar.</p>
+<p><strong>Sweep vs. GitHub Copilot Coding Agent:</strong> GitHub Copilot&rsquo;s agent mode operates similarly within GitHub. Copilot&rsquo;s advantage: included in Enterprise subscriptions. Sweep&rsquo;s advantage: the pre-execution plan comment, Apache-2.0 self-hosting option, and more mature issue automation workflow. For teams already on GitHub Enterprise, trying the built-in agent first before adding Sweep is rational.</p>
+<p><strong>Sweep vs. CodeRabbit:</strong> These are complementary. CodeRabbit reviews PRs after they&rsquo;re created (2M+ repos, 13M+ PRs processed as of 2026). Sweep creates the PRs. Teams running both — Sweep to generate fixes for labeled issues, CodeRabbit to review the resulting PRs — have a complete automated code cycle for their backlog.</p>
+<p><strong>Sweep vs. SWE-agent (open source):</strong> SWE-agent (Princeton/Stanford) is the open-source academic benchmark leader. For teams comfortable with self-hosted ML infrastructure wanting maximum flexibility, SWE-agent is worth evaluating. For teams wanting a maintained GitHub App product that works in minutes, Sweep is easier to adopt.</p>
+<h2 id="sweep-ai-verdict-is-it-worth-it-in-2026">Sweep AI Verdict: Is It Worth It in 2026?</h2>
+<p>For the right team, yes. Sweep is most valuable when three conditions hold: you&rsquo;re on GitHub (not GitLab or Bitbucket), you have a well-maintained backlog of clearly-written issues, and your team has the review capacity to process AI-generated PRs. Under those conditions, the free tier alone handles a significant volume of routine work, and the paid tiers are inexpensive relative to the time saved. The JetBrains pivot introduces uncertainty about the GitHub App&rsquo;s long-term roadmap. This is worth monitoring — if Sweep&rsquo;s core team is investing primarily in the IDE product, the issue-to-PR automation may receive less development attention over time. As of mid-2026, the GitHub App is active and maintained, but teams building long-term workflows around Sweep should track development velocity. The 92% success rate is real but conditional. Setting up <code>sweep.yaml</code> with your team&rsquo;s conventions, writing issues with reproduction steps rather than vague descriptions, and reviewing generated PRs before merge is the required operating model. Sweep doesn&rsquo;t replace code review — it generates code that humans review, which is a different and ultimately more valuable role than passive autocomplete.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>How does Sweep AI work?</strong></p>
+<p>Sweep AI is a GitHub App that converts issues into pull requests autonomously. You add a <code>sweep</code> label to a GitHub issue. Sweep indexes your codebase using vector embeddings, posts an implementation plan as an issue comment for developer review, then generates code changes and opens a pull request. Feedback on the PR via comments triggers new commits from Sweep.</p>
+<p><strong>Is Sweep AI free?</strong></p>
+<p>Yes, with limits. The GitHub App free tier covers open-source repositories with a monthly PR limit. Private repo teams and higher-volume users need paid plans. The JetBrains plugin starts at $10/month (Basic), with Pro at $20/month and Ultra at $60/month.</p>
+<p><strong>How does Sweep AI compare to Devin?</strong></p>
+<p>Devin ($500/month) handles more complex autonomous tasks including web browsing and code execution across multiple sessions. Sweep handles well-defined, self-contained issues at 0–20% of the cost. For routine backlog work — specific bugs, missing tests, small refactors — Sweep&rsquo;s free tier covers most teams&rsquo; needs. Devin&rsquo;s cost premium is justified only for tasks requiring genuine multi-step autonomy that Sweep cannot handle.</p>
+<p><strong>Does Sweep AI support GitLab or Bitbucket?</strong></p>
+<p>No. Sweep is GitHub-only. Teams on GitLab or Bitbucket need to look at alternatives like CodeRabbit&rsquo;s PR review or OpenHands for issue automation.</p>
+<p><strong>What is the 92% success rate based on?</strong></p>
+<p>The 92% success rate comes from controlled IEEE evaluations measuring whether Sweep produces a passing PR on well-defined issues — code that builds, passes existing tests, and correctly addresses the stated problem. This rate applies to clearly-scoped issues and drops significantly on ambiguous requirements or tasks needing architectural judgment.</p>
+]]></content:encoded></item><item><title>Best AI SAST Tools 2026: Snyk vs Semgrep vs Checkmarx vs Corgea Ranked</title><link>https://baeseokjae.github.io/posts/ai-sast-tools-comparison-2026/</link><pubDate>Sat, 02 May 2026 21:30:00 +0000</pubDate><guid>https://baeseokjae.github.io/posts/ai-sast-tools-comparison-2026/</guid><description>Ranked comparison of the best AI SAST tools in 2026: Snyk Code vs Semgrep vs Checkmarx vs Corgea — accuracy, false positive rates, AI auto-fix, and pricing.</description><content:encoded><![CDATA[<p>AI-generated code contains security vulnerabilities 3.2× more frequently than human-written code, according to Snyk&rsquo;s 2026 State of AI Code Security report. Static Application Security Testing (SAST) tools that were designed for human-written code are scrambling to keep up with the patterns that LLMs introduce: hallucinated API calls, incomplete error handling, missing authentication checks, and prompt injection surface areas that didn&rsquo;t exist three years ago. The best tools in 2026 have adapted. Here&rsquo;s how the top four — Snyk Code, Semgrep, Checkmarx, and Corgea — compare on the dimensions that actually matter for modern development teams.</p>
+<h2 id="why-ai-generated-code-changes-the-sast-landscape">Why AI-Generated Code Changes the SAST Landscape</h2>
+<p>The security challenges introduced by AI-generated code are qualitatively different from traditional SAST targets. Classic SAST rules catch known patterns: SQL injection sinks, XSS vectors, buffer overflow signatures. AI-generated code introduces new failure modes that pattern-matching rules don&rsquo;t cover well. LLMs hallucinate library names and import paths that don&rsquo;t exist — code that calls <code>requests.secure_get()</code> (a real hallucination pattern) doesn&rsquo;t trigger any existing SQL injection rule. They generate incomplete error handling that silently swallows exceptions, leaving code in undefined states that become exploitable under race conditions. They produce authentication logic that looks structurally correct but misses the specific sequence of checks your codebase requires. And applications that use LLMs internally create new prompt injection surfaces that traditional SAST tooling has no rules for. The tools that are winning in 2026 are the ones that extended beyond rule databases into ML-based detection, semantic analysis, and — in Corgea&rsquo;s case — automated remediation. The tools still operating primarily on rule matching are losing accuracy ground against AI-generated code even as they add AI-specific rule libraries.</p>
+<h2 id="snyk-code-best-overall-for-ai-generated-code-security">Snyk Code: Best Overall for AI-Generated Code Security</h2>
+<p>Snyk Code is the SAST tool with the strongest adaptation to AI-generated code, and the one I&rsquo;d recommend first for teams actively using Claude Code, Cursor, or GitHub Copilot. The key differentiator is its ML-based detection engine that adapts to new AI coding patterns without requiring manual rule updates. When Claude Code generates a new variant of an insecure pattern, Snyk Code&rsquo;s model picks it up — Semgrep and Checkmarx require someone to write a new YAML rule first. In head-to-head testing against AI-generated Python code, Snyk Code caught 41% more vulnerabilities than Semgrep without custom rules. The false positive rate for AI-generated code is 12%, compared to Semgrep&rsquo;s 18% — not a massive difference, but meaningful at scale. The AI Assistant feature explains every finding in plain language and generates fix suggestions using an LLM, then summarizes why the fix works. For teams where developers don&rsquo;t have deep security expertise, this significantly reduces the friction of actually acting on findings. Snyk Code&rsquo;s IDE integration (VS Code, JetBrains, VS Code forks like Cursor and Windsurf) enables real-time scanning as code is written — you see the security finding in your editor before the PR is even created. For AI-assisted coding workflows where code changes happen fast, catching issues at write time rather than PR time matters. Pricing at $25/developer/month puts it in the mid-range — more expensive than Semgrep, cheaper than Checkmarx enterprise. 65% of Fortune 500 companies use Snyk in some capacity, which provides the network effects that matter for rule quality and integrations.</p>
+<h3 id="snyk-code-pros-and-cons">Snyk Code Pros and Cons</h3>
+<p><strong>Pros:</strong> Best ML-based detection for AI-generated code, 12% false positive rate, real-time IDE scanning, AI Assistant fix generation, widest language support (50+ languages)<br>
+<strong>Cons:</strong> $25/dev/month is expensive for large teams, Snyk Open Source required separately for dependency scanning, can be noisy on legacy codebases with accumulated debt</p>
+<h2 id="semgrep-best-for-customization-and-large-codebases">Semgrep: Best for Customization and Large Codebases</h2>
+<p>Semgrep&rsquo;s strength is the inverse of Snyk&rsquo;s. Where Snyk adapts automatically, Semgrep gives you control. Its YAML-based rule syntax lets you write precision rules for your organization&rsquo;s specific patterns — if your team uses a custom auth wrapper that every endpoint must call, you can write a Semgrep rule that catches any endpoint missing that call. No other tool in this comparison gives you that granularity. The community rules repository has grown to over 2,000 contributed patterns, including 280% growth in AI-specific rules over 2025–2026. For teams building AI applications (RAG pipelines, LLM integrations, agent systems), the AI-specific community rules for prompt injection, unsafe deserialization in model outputs, and insecure API key handling are directly relevant. Speed is Semgrep&rsquo;s other differentiator: it scans large codebases approximately 2× faster than Snyk Code on monorepos over 1 million lines of code. For CI/CD pipelines where scan time affects developer feedback loops, this matters. The false negative rate with custom rules (5%) actually beats Snyk Code&rsquo;s overall false negative rate (8%), though reaching that 5% requires investing in rule development. Semgrep AppSec at $17/developer/month is more affordable than Snyk Code, and the free tier for open-source projects is fully featured. The limitation: out-of-the-box, Semgrep&rsquo;s detection for novel AI-generated patterns is weaker than Snyk until you&rsquo;ve invested in rules. It&rsquo;s the better choice for security teams, worse for developer-driven security programs where ease-of-adoption matters.</p>
+<h3 id="semgrep-pros-and-cons">Semgrep Pros and Cons</h3>
+<p><strong>Pros:</strong> Most customizable (YAML rules), fastest scanning at scale, 5% false negative with custom rules, $17/dev/month pricing, strong open-source community<br>
+<strong>Cons:</strong> Higher false positive rate (18%) out of box, requires rule investment for AI-generated code patterns, less IDE integration polish than Snyk</p>
+<h2 id="checkmarx-best-for-enterprise-compliance-and-large-team-management">Checkmarx: Best for Enterprise Compliance and Large Team Management</h2>
+<p>Checkmarx occupies the enterprise tier of this comparison. Its SAST engine (CxSAST) has been the enterprise default for regulated industries — banking, healthcare, government — for a decade, and its 2026 update adds an AI security module specifically targeting LLM-generated code patterns. The compliance story is the strongest of any tool here: out-of-box support for PCI DSS, HIPAA, SOC 2, GDPR, and OWASP standards, with audit-ready reports that satisfy most security certification requirements without manual formatting. For enterprises running security programs across 500+ developers, Checkmarx&rsquo;s centralized management features — policy enforcement, team-level dashboards, risk trending, SLA tracking — provide visibility that Snyk and Semgrep require third-party tools to match. The scan accuracy for AI-generated code is solid (~60% catch rate with the AI module enabled) but behind Snyk Code for the specific challenge of LLM-generated patterns. The pricing is enterprise-contact, typically ranging from $40–80/developer/month at volume, making it 2–3× more expensive than Snyk Code for equivalent coverage. Checkmarx makes sense for: teams in regulated industries where compliance reporting is mandatory, enterprises already standardized on Checkmarx who are adding AI module coverage, and security teams running enterprise-scale programs where centralized governance matters more than per-developer pricing.</p>
+<h3 id="checkmarx-pros-and-cons">Checkmarx Pros and Cons</h3>
+<p><strong>Pros:</strong> Best compliance reporting (PCI DSS, HIPAA, GDPR), enterprise team management, audit-ready output, established enterprise support<br>
+<strong>Cons:</strong> Most expensive (contact pricing), slower to adapt to AI-generated code patterns, heavier tooling than small teams need</p>
+<h2 id="corgea-best-for-automated-remediation-the-newest-approach">Corgea: Best for Automated Remediation (The Newest Approach)</h2>
+<p>Corgea is the newest entrant in this comparison and the most differentiated by design philosophy. Every other tool in this comparison finds vulnerabilities and tells developers to fix them. Corgea finds vulnerabilities and writes the fix as a PR. The 80% reduction in remediation effort isn&rsquo;t about scanning accuracy — it&rsquo;s about the step after scanning that every other tool ignores. The traditional SAST adoption problem is real: teams install a scanner, the scanner generates 400 findings, developers triage 40 as real issues, actually fix 10, and the other 390 accumulate as ignored noise. Corgea&rsquo;s auto-fix PR workflow addresses the 390. When it finds a SQL injection risk, it generates a parameterized query patch and opens a PR with the fix. The developer reviews the patch (30 seconds) instead of writing it from scratch (30 minutes). The catch rate is lower than Snyk or Semgrep out of the box — Corgea&rsquo;s detection layer is newer and less mature. But for teams where the bottleneck is remediation bandwidth rather than detection coverage, this is the right trade-off. Corgea integrates with VS Code, GitHub, and GitLab, and its AI agent operates continuously rather than running at PR time only — it scans the entire codebase on a schedule and queues auto-fix PRs for any new findings. This shifts security from a reactive PR gate to an ongoing background process. Pricing is startup-competitive; contact for enterprise terms.</p>
+<h3 id="corgea-pros-and-cons">Corgea Pros and Cons</h3>
+<p><strong>Pros:</strong> Auto-fix PRs are genuinely novel, reduces remediation effort by ~80%, continuous scanning model, low developer friction<br>
+<strong>Cons:</strong> Newer detection engine (lower recall than mature tools), depends heavily on AI-fix quality, requires trust in automated PRs touching security-sensitive code</p>
+<h2 id="head-to-head-scanning-accuracy-and-false-positive-rates">Head-to-Head: Scanning Accuracy and False Positive Rates</h2>
+<p>For a direct comparison on the core scanning metrics:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Catch Rate (AI code)</th>
+          <th>False Positive Rate</th>
+          <th>Languages</th>
+          <th>Price</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Snyk Code</td>
+          <td>High (~70%)</td>
+          <td>12%</td>
+          <td>50+</td>
+          <td>$25/dev/mo</td>
+      </tr>
+      <tr>
+          <td>Semgrep</td>
+          <td>High (~65%) with rules</td>
+          <td>18%</td>
+          <td>30+</td>
+          <td>$17/dev/mo</td>
+      </tr>
+      <tr>
+          <td>Checkmarx</td>
+          <td>Moderate (~60%)</td>
+          <td>~15%</td>
+          <td>30+</td>
+          <td>Contact</td>
+      </tr>
+      <tr>
+          <td>Corgea</td>
+          <td>Developing</td>
+          <td>Low</td>
+          <td>10+</td>
+          <td>Contact</td>
+      </tr>
+  </tbody>
+</table>
+<p>These numbers reflect AI-generated code specifically. On human-written code with established patterns, all four tools perform comparably. The differentiation shows under AI-generated code load because that&rsquo;s where ML-based detection (Snyk) and customized rules (Semgrep) diverge from pattern-only approaches. The false positive rate difference between Snyk (12%) and Semgrep (18%) matters at scale: for a team merging 100 PRs/week, that&rsquo;s 12 vs 18 false findings per week to triage — a 50% overhead difference. Corgea&rsquo;s detection engine is still maturing — its recall is lower than Snyk or Semgrep, which is why it works best as a remediation layer on top of another tool rather than as a standalone scanner. Checkmarx&rsquo;s numbers improve significantly with its AI security module enabled, but the baseline configuration still reflects its origin in rule-based detection designed for pre-LLM code patterns. The practical implication: if you&rsquo;re deploying one tool for a team generating significant AI-assisted code, Snyk Code&rsquo;s ML adaptation provides the best out-of-box coverage without requiring security team investment in rule development.</p>
+<h2 id="integration-with-ai-coding-assistants">Integration with AI Coding Assistants</h2>
+<p>All four tools support GitHub Actions and GitLab CI as trigger points. The IDE integration story varies significantly. Snyk Code has the most polished VS Code and JetBrains extensions, with inline highlights that appear as you type. Importantly, it works inside Cursor and Windsurf (both VS Code-based) without configuration, which means developers using AI coding assistants see Snyk findings in the same editor where they&rsquo;re accepting AI suggestions. This combination — AI-generated code + real-time security scanning — is the workflow most teams should be targeting in 2026. Semgrep has a VS Code extension but it&rsquo;s less mature than Snyk&rsquo;s for in-editor real-time scanning. Checkmarx&rsquo;s IDE plugins are focused on the security workflow rather than developer experience. Corgea&rsquo;s integration is deeper on the Git hosting layer (GitHub/GitLab) rather than the IDE — appropriate for a tool that works via PR rather than in-editor feedback.</p>
+<h2 id="pricing-comparison-and-cost-justification">Pricing Comparison and Cost Justification</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Free Tier</th>
+          <th>Team</th>
+          <th>Enterprise</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Snyk Code</td>
+          <td>100 tests/mo (free)</td>
+          <td>$25/dev/mo</td>
+          <td>Custom</td>
+      </tr>
+      <tr>
+          <td>Semgrep</td>
+          <td>Unlimited OSS</td>
+          <td>$17/dev/mo</td>
+          <td>Custom</td>
+      </tr>
+      <tr>
+          <td>Checkmarx</td>
+          <td>No</td>
+          <td>Contact ($40–80/dev est.)</td>
+          <td>Custom</td>
+      </tr>
+      <tr>
+          <td>Corgea</td>
+          <td>Trial</td>
+          <td>Contact</td>
+          <td>Contact</td>
+      </tr>
+  </tbody>
+</table>
+<p>The ROI case for SAST in 2026: a production security incident costs $100K–$1M+ to remediate, investigate, and report. Preventing one incident per year covers 2–3 years of Snyk Code licenses for a 50-developer team. The harder ROI question is developer time: at 12% false positive rate, Snyk generates 1.2 false alerts per 10 findings. At $150/hour fully loaded developer cost, each false alert costs ~$15 to triage. For a team finding 20 real issues/month, that&rsquo;s $36/month in triage overhead — trivial against the $25/dev/month license. The calculation tips the other way only on very large teams generating thousands of findings/month where Semgrep&rsquo;s customizability to reduce noise becomes the economically rational choice.</p>
+<h2 id="how-to-choose-decision-framework">How to Choose: Decision Framework</h2>
+<p><strong>Choose Snyk Code</strong> if your team uses AI coding assistants heavily and you want the best out-of-box detection for AI-generated patterns with real-time IDE feedback. Best for teams where developers are the primary security champions.</p>
+<p><strong>Choose Semgrep</strong> if you have a dedicated security team willing to invest in rule development, need the fastest CI/CD scan times, or are primarily protecting open-source projects (free unlimited scanning).</p>
+<p><strong>Choose Checkmarx</strong> if you&rsquo;re in a regulated industry where compliance reporting is a requirement, you have 200+ developers, and enterprise vendor support and SLA guarantees matter.</p>
+<p><strong>Choose Corgea</strong> if you&rsquo;ve already deployed another SAST tool, developers aren&rsquo;t acting on findings, and the bottleneck is remediation bandwidth rather than detection. It works best as a layer on top of, not a replacement for, a mature detection tool.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>What is the best AI SAST tool in 2026?</strong></p>
+<p>Snyk Code is the best overall AI SAST tool for teams actively using AI coding assistants — its ML-based detection catches 41% more AI-generated code vulnerabilities than Semgrep without custom rules and provides real-time IDE feedback in VS Code, Cursor, and Windsurf. Semgrep is better for security teams that want rule customizability and faster scanning at scale.</p>
+<p><strong>How does AI-generated code create new security risks?</strong></p>
+<p>AI-generated code introduces hallucinated API calls, incomplete error handling, missing authentication steps, and prompt injection vulnerabilities that traditional SAST rule sets weren&rsquo;t designed to detect. AI-generated code contains security vulnerabilities 3.2× more frequently than human-written code according to Snyk&rsquo;s 2026 research.</p>
+<p><strong>What is Corgea and how does its auto-fix work?</strong></p>
+<p>Corgea is an AI-native SAST tool that automatically generates fix PRs for detected vulnerabilities rather than just reporting them. When it finds a SQL injection risk, it writes a parameterized query patch and opens a PR for developer review. This reduces remediation effort by approximately 80% compared to manual fixes, addressing the common problem where developers triage findings but don&rsquo;t act on them.</p>
+<p><strong>Does Semgrep work for AI-generated code?</strong></p>
+<p>Yes, with investment. Semgrep&rsquo;s community rules repository includes 2,000+ patterns including AI-specific ones that grew 280% in 2025–2026. Out of the box, Semgrep&rsquo;s 18% false positive rate on AI-generated code is higher than Snyk Code&rsquo;s 12%. With custom rules tuned to your specific AI coding patterns, Semgrep can achieve a 5% false negative rate — better than Snyk&rsquo;s default 8%.</p>
+<p><strong>Is Checkmarx worth the cost for smaller teams?</strong></p>
+<p>No. Checkmarx&rsquo;s pricing (typically $40–80/dev/month at enterprise volume) and compliance-focused feature set are designed for regulated enterprises with 200+ developers. For teams under 100 developers without hard compliance requirements, Snyk Code or Semgrep provide better value per dollar.</p>
+]]></content:encoded></item><item><title>RunSybil AI Pentesting Review 2026: IAM and Container Security Testing Evaluated</title><link>https://baeseokjae.github.io/posts/runsybil-cloud-pentesting-review-2026/</link><pubDate>Sat, 25 Apr 2026 19:04:45 +0000</pubDate><guid>https://baeseokjae.github.io/posts/runsybil-cloud-pentesting-review-2026/</guid><description>Hands-on review of RunSybil&amp;#39;s AI-native pentesting platform: IAM misconfiguration testing, container escape, CI/CD secret exposure, and how it compares to Pentera and NodeZero.</description><content:encoded><![CDATA[<p>RunSybil is an AI-native offensive security platform that autonomously chains IAM misconfigurations, container escapes, and CI/CD secret exposures into full attack paths — operating black-box against live cloud environments the same way a real attacker would, with no source code or agent credentials required.</p>
 <h2 id="what-is-runsybil-the-ai-native-pentesting-platform-explained">What Is RunSybil? The AI-Native Pentesting Platform Explained</h2>
 <p>RunSybil is an AI-native penetration testing platform founded in 2023 by Ari Herbert-Voss — OpenAI&rsquo;s first security research hire — and Vlad Ionescu, formerly of Meta&rsquo;s Red Team X. The company raised $40M in a Series A in March 2026, backed by Khosla Ventures, the Anthropic Anthology Fund, Menlo Ventures, Conviction, and Elad Gil, with angels from OpenAI, Palo Alto Networks, Stripe, and Google. The product centers on an autonomous AI agent called Sybil that operates against live cloud environments in pure black-box mode — no source code, no privileged credentials, no static playbook. Sybil observes what access it can gain, adapts its attack path accordingly, and chains multiple vulnerability classes together the way an actual human attacker would. This is a fundamentally different model from legacy automated scanners that run pre-defined scripts or check configuration against a compliance checklist. The platform specifically targets the attack surface that dominates modern cloud breaches: IAM misconfiguration, non-human identities (NHIs), container workloads, and CI/CD pipeline secrets — the four categories that together account for over 80% of cloud security incidents in 2026.</p>
 <p>The founding team&rsquo;s pedigree matters here. Herbert-Voss spent years modeling adversarial AI at OpenAI before pivoting to offensive security tooling. Ionescu ran red team operations at Meta at enterprise scale. The combination shows in the product philosophy: RunSybil treats pentesting as an inference problem, not a rule-matching problem. Sybil generates hypotheses about what a lateral movement chain might look like, tests them, and updates based on what it observes — the same loop a skilled red teamer runs, but automated and continuous.</p>

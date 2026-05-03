@@ -1,4 +1,1033 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 21:04:40 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Cline vs Roo Code 2026: Best Open-Source VS Code AI Agent Compared</title><link>https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/</link><pubDate>Fri, 01 May 2026 21:04:40 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/</guid><description>Cline vs Roo Code compared on architecture, Boomerang Tasks, cost control, and IDE support — find the right open-source VS Code AI agent for 2026.</description><content:encoded><![CDATA[<p>Cline is the better choice when you need strict human-in-the-loop control and JetBrains support. Roo Code wins for autonomous multi-agent workflows, structured modes, and teams that want to cut API costs by assigning cheaper models to lighter tasks. Both are free, Apache 2.0 licensed, and use a bring-your-own-key model.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 03 May 2026 15:04:32 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Figma MCP Server Guide 2026: Design to Code with AI</title><link>https://baeseokjae.github.io/posts/figma-mcp-design-to-code-2026/</link><pubDate>Sun, 03 May 2026 15:04:32 +0000</pubDate><guid>https://baeseokjae.github.io/posts/figma-mcp-design-to-code-2026/</guid><description>Complete guide to the Figma MCP server: setup, remote vs desktop, Code Connect, and real-world design-to-code workflows with AI agents in 2026.</description><content:encoded><![CDATA[<p>The Figma MCP server turns your design files into a live context source for AI agents — eliminating the screenshot-and-describe loop that slows down design implementation. With one properly configured endpoint, tools like Cursor, Claude Code, and Windsurf can read your exact component hierarchy, tokens, and constraints in real time.</p>
+<h2 id="what-is-the-figma-mcp-server-and-why-developers-care-in-2026">What Is the Figma MCP Server? (And Why Developers Care in 2026)</h2>
+<p>The Figma MCP server is an implementation of the Model Context Protocol (MCP) that exposes your Figma design files as structured, queryable context for AI coding agents. Unlike exporting assets or taking screenshots, the MCP server streams design metadata — component names, layout constraints, spacing tokens, font styles, and the full layer tree — directly into the context window of whatever AI tool you&rsquo;re using. Figma officially launched bidirectional Claude Code integration (Design to Code + Code to Canvas) in February 2026, and since then adoption has accelerated sharply. The public MCP server registry expanded from 1,200 servers in Q1 2025 to 9,400+ by April 2026, and 78% of enterprise AI teams report at least one MCP-backed agent in production. For frontend developers, the Figma MCP server is the most direct path from a designer&rsquo;s intent to production-ready component code — without a handoff document, Zeplin export, or a six-round revision cycle.</p>
+<h3 id="why-traditional-design-handoffs-break-down">Why Traditional Design Handoffs Break Down</h3>
+<p>Traditional design handoffs break down because they freeze the design at export time. A static Figma export, Zeplin spec, or even a copied CSS value becomes stale the moment the designer iterates. Engineers then work from outdated specs, generating mismatch bugs that require another round of review. The Figma MCP server solves this by making the design a continuously-queried live reference — your AI agent re-reads the current file state every time it generates code, not the state from last Tuesday&rsquo;s export.</p>
+<h2 id="remote-server-vs-desktop-server--which-should-you-use">Remote Server vs Desktop Server — Which Should You Use?</h2>
+<p>The Figma MCP server ships in two flavors, and choosing the wrong one will either block your workflow or add unnecessary complexity. The <strong>remote server</strong> connects to Figma&rsquo;s hosted endpoint at <code>https://mcp.figma.com/mcp</code> and is available on all Figma seats and plans — no Figma desktop app required. You authenticate with a personal access token, pass a file link in your prompt, and the server fetches the design data on demand. The <strong>desktop server</strong> runs locally through the Figma desktop app and requires a Dev seat or Full seat. It unlocks one major feature the remote server lacks: selection-based context — you can select a specific frame or component in Figma and have the MCP server automatically scope the context to just that element, rather than the whole file. Developers using MCP servers report 40–60% faster workflow completion vs. built-in AI capabilities alone, and most of that gain comes from the remote server alone for teams without a Dev seat.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Remote Server</th>
+          <th>Desktop Server</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Seat requirement</td>
+          <td>Any (Viewer, Editor)</td>
+          <td>Dev or Full seat</td>
+      </tr>
+      <tr>
+          <td>Figma desktop app required</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Authentication</td>
+          <td>Personal access token</td>
+          <td>Desktop app session</td>
+      </tr>
+      <tr>
+          <td>Selection-based context</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Skills / guided workflows</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Works with Claude Code</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Works with Cursor</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Enterprise SSO</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Recommendation:</strong> Start with the remote server unless you specifically need selection-based context or are in an enterprise environment that requires the desktop app.</p>
+<h2 id="how-to-set-up-the-figma-remote-mcp-server-step-by-step">How to Set Up the Figma Remote MCP Server (Step by Step)</h2>
+<p>Setting up the Figma remote MCP server takes under five minutes once you have a Figma personal access token. The token must have <code>file:read</code> scope; without it the server returns a 403 on every design fetch. Here is the full setup sequence:</p>
+<p><strong>Step 1: Generate a Figma Personal Access Token</strong></p>
+<ol>
+<li>Open Figma → Profile → Settings → Security</li>
+<li>Scroll to &ldquo;Personal access tokens&rdquo;</li>
+<li>Click &ldquo;Generate new token&rdquo;</li>
+<li>Name it (e.g., <code>mcp-server</code>), set scope to <code>file:read</code></li>
+<li>Copy the token immediately — it won&rsquo;t be shown again</li>
+</ol>
+<p><strong>Step 2: Add the MCP Server to Your AI Tool Config</strong></p>
+<p>For Claude Code (<code>~/.claude/mcp.json</code> or project-level <code>.claude/mcp.json</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;figma&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;http&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://mcp.figma.com/mcp&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;headers&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Authorization&#34;</span>: <span style="color:#e6db74">&#34;Bearer YOUR_FIGMA_TOKEN&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For Cursor (<code>.cursor/mcp.json</code> in your project or globally):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;figma&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;figma-developer-mcp&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;FIGMA_API_TOKEN&#34;</span>: <span style="color:#e6db74">&#34;YOUR_FIGMA_TOKEN&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Step 3: Verify the Connection</strong></p>
+<p>Restart your AI tool, then run a quick test prompt:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 408 41"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>D</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='336' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='344' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='352' y='20' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='360' y='20' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='368' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='376' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='384' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='392' y='20' fill='currentColor' style='font-size:1em'>m</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>If the server is configured correctly, the agent lists all frames and components. If you see a 401 error, the token is wrong or expired.</p>
+<h3 id="setting-up-the-desktop-server-instead">Setting Up the Desktop Server Instead</h3>
+<p>Setting up the desktop server requires Figma desktop app version 116.3 or later with a Dev or Full seat. Enable MCP under <code>Figma menu → Preferences → Enable MCP Server</code>. The local server runs on <code>http://localhost:3845/mcp</code>. Add this URL (with no auth headers) to your tool&rsquo;s MCP config. The desktop server exposes an additional <code>get_selection</code> tool that returns metadata for whatever frame or component is currently selected in the Figma canvas.</p>
+<h2 id="connecting-figma-mcp-to-cursor-claude-code-and-windsurf">Connecting Figma MCP to Cursor, Claude Code, and Windsurf</h2>
+<p>Connecting the Figma MCP server to your AI coding tool follows the same pattern across clients — define the server URL or command in the tool&rsquo;s MCP config file — but each tool has a slightly different config location and syntax. Cursor uses <code>.cursor/mcp.json</code> (project-level) or <code>~/.cursor/mcp.json</code> (global). Claude Code uses <code>.claude/mcp.json</code> at the project root or <code>~/.claude/mcp.json</code> globally. Windsurf reads <code>~/.codeium/windsurf/mcp_config.json</code>. VS Code with the Copilot extension reads <code>.vscode/mcp.json</code>. Zed reads <code>~/.config/zed/settings.json</code> under an <code>&quot;experimental.context_servers&quot;</code> key. All clients support both the HTTP endpoint (remote server) and the npm package wrapper <code>figma-developer-mcp</code> (local npx runner). The HTTP endpoint is simpler for teams because there is no node runtime dependency; the npx package is useful when you need to run a custom fork or an older pinned version.</p>
+<h3 id="testing-the-integration-in-cursor">Testing the Integration in Cursor</h3>
+<p>Once the config file is in place, open a Cursor Chat window and enable MCP in the model picker. Paste a Figma frame URL and ask:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 656 41"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>?</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='344' y='20' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='352' y='20' fill='currentColor' style='font-size:1em'>3</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='360' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='368' y='20' fill='currentColor' style='font-size:1em'>4</text>
+<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='376' y='20' fill='currentColor' style='font-size:1em'>5</text>
+<text text-anchor='middle' x='384' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='384' y='20' fill='currentColor' style='font-size:1em'>6</text>
+<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='400' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='416' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='424' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='432' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='440' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='456' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='464' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='472' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='480' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='488' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='496' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='504' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='512' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='520' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='536' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='544' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='560' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='568' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='576' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='584' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='600' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='608' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='616' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='624' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='632' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='640' y='4' fill='currentColor' style='font-size:1em'>:</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>A working integration returns structured JSON describing the frame dimensions, children, text content, fill colors, and spacing values. If Cursor returns a generic error about &ldquo;no MCP tools available,&rdquo; the config file path is wrong — confirm it is at the root of the workspace, not inside a subfolder.</p>
+<h2 id="your-first-design-to-code-workflow-with-figma-mcp">Your First Design-to-Code Workflow with Figma MCP</h2>
+<p>A Figma MCP design-to-code workflow follows a repeatable three-step pattern: point the AI agent at a Figma frame URL, describe what component framework you&rsquo;re targeting, and let the agent generate code grounded in the actual design data rather than a screenshot approximation. The real-world time savings are substantial — dashboard interfaces with 8 complex UI components that previously took 2–3 days to implement are now completed in one afternoon. Here is an example first workflow using Claude Code with the remote server configured:</p>
+<p><strong>Prompt:</strong></p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 920 73"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='8' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='48' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='64' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='88' y='52' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='96' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='128' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='136' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='144' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='160' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='168' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='176' y='52' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='52' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='200' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='208' y='52' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='216' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='224' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='232' y='52' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>?</text>
+<text text-anchor='middle' x='264' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='272' y='52' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='280' y='52' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='296' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='304' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='312' y='52' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='328' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>4</text>
+<text text-anchor='middle' x='336' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='344' y='20' fill='currentColor' style='font-size:1em'>5</text>
+<text text-anchor='middle' x='344' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='352' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='352' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='360' y='20' fill='currentColor' style='font-size:1em'>7</text>
+<text text-anchor='middle' x='360' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='368' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='368' y='20' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='376' y='20' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='376' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='384' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='384' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='392' y='52' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='400' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='400' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='408' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='408' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='416' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='424' y='52' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='432' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='440' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='440' y='52' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='448' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='448' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='456' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='464' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='472' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='472' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='480' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='480' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='488' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='488' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='504' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='504' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='512' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='512' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='520' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='520' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='528' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='528' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='536' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='544' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='544' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='552' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='552' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='560' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='568' y='4' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='568' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='576' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='584' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='584' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='592' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='592' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='600' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='600' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='608' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='616' y='4' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='616' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='632' y='4' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='632' y='52' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='640' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='640' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='648' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='648' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='656' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='656' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='664' y='4' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='672' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='672' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='680' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='680' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='688' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='688' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='696' y='4' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='704' y='52' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='712' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='720' y='52' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='728' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='736' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='752' y='52' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='760' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='768' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='776' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='792' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='800' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='816' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='824' y='52' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='832' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='840' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='848' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='856' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='864' y='52' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='872' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='880' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='888' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='896' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='904' y='52' fill='currentColor' style='font-size:1em'>.</text>
+</g>
+
+    </svg>
+  
+</div>
+<p><strong>What the agent does:</strong></p>
+<ol>
+<li>Calls the Figma MCP <code>get_file_nodes</code> tool with the node ID</li>
+<li>Reads the layer tree: component name (<code>DashboardCard</code>), children (<code>CardHeader</code>, <code>CardMetric</code>, <code>CardTrend</code>), spacing (<code>gap: 16</code>, <code>padding: 24</code>), fill (<code>#1A1A2E</code>)</li>
+<li>Maps color fills to Tailwind classes or inline styles</li>
+<li>Generates JSX using the exact component hierarchy from the design</li>
+</ol>
+<p><strong>What you get without Code Connect:</strong> Generic React JSX with hardcoded Tailwind classes. Functional but not using your actual design system components.</p>
+<p><strong>What you get with Code Connect:</strong> The agent imports <code>DashboardCard</code> from your actual package, uses your <code>useMetric</code> hook, and matches the variant props your design system exposes.</p>
+<h3 id="prompting-strategies-that-get-better-results">Prompting Strategies That Get Better Results</h3>
+<p>Prompting strategies that improve Figma MCP output quality share one common principle: scope the context aggressively. A whole-file query returns thousands of layers and the agent spends token budget parsing irrelevant screens. Node-ID-scoped queries — using <code>?node-id=FRAME_ID</code> in the URL — focus the server on exactly the component you&rsquo;re implementing. For multi-component pages, run separate prompts per component rather than one giant prompt covering the full design.</p>
+<h2 id="code-connect-the-key-to-generating-your-actual-components">Code Connect: The Key to Generating Your Actual Components</h2>
+<p>Code Connect is Figma&rsquo;s open-source mapping layer that links a Figma component to its real codebase counterpart — the actual import path, prop names, and variant mappings — so that when an AI agent reads a Figma component via MCP, it can generate code using your specific library rather than inventing generic HTML. Without Code Connect, current beta reports show 85–90% styling inaccuracy in generated code, requiring significant manual correction. With Code Connect properly configured, the same agent prompt generates code that imports from your actual package: <code>import { Button } from '@your-org/design-system'</code> instead of <code>&lt;button className=&quot;px-4 py-2 bg-blue-500&quot;&gt;</code>. Code Connect files live in your codebase alongside the component they describe. A minimal example for a <code>Button</code> component looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#75715e">// Button.figma.tsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">figma</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@figma/code-connect&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Button</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./Button&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">figma</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">Button</span>, <span style="color:#e6db74">&#39;https://www.figma.com/design/XXXX?node-id=100-200&#39;</span>, {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">variant</span>: <span style="color:#66d9ef">figma.enum</span>(<span style="color:#e6db74">&#39;Variant&#39;</span>, {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">primary</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;primary&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">secondary</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;secondary&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ghost</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ghost&#39;</span>,
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">label</span>: <span style="color:#66d9ef">figma.string</span>(<span style="color:#e6db74">&#39;Label&#39;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">disabled</span>: <span style="color:#66d9ef">figma.boolean</span>(<span style="color:#e6db74">&#39;Disabled&#39;</span>),
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">example</span><span style="color:#f92672">:</span> ({ <span style="color:#a6e22e">variant</span>, <span style="color:#a6e22e">label</span>, <span style="color:#a6e22e">disabled</span> }) <span style="color:#f92672">=&gt;</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">Button</span> <span style="color:#a6e22e">variant</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">variant</span>} <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">disabled</span>}&gt;{<span style="color:#a6e22e">label</span>}&lt;/<span style="color:#f92672">Button</span>&gt;
+</span></span><span style="display:flex;"><span>  ),
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Publish the Code Connect mappings with <code>npx @figma/code-connect publish</code>. After publishing, the Figma MCP server automatically includes Code Connect metadata in every response that mentions a connected component. The investment is real — teams report 40–80 hours of initial setup time for a full Figma MCP + Code Connect pipeline — but teams that complete it reduce revision cycles from 4–5 rounds to typically just one.</p>
+<h3 id="which-components-to-connect-first">Which Components to Connect First</h3>
+<p>Which components to connect first is a strategic decision that shapes ROI. Prioritize leaf-level primitives used everywhere: Button, Input, Text, Badge, Icon. These appear in almost every screen, so Code Connect coverage on primitives cascades across all generated code. Skip complex composed components (DataTable, Modal with custom logic) until primitives are stable — the agent composes correctly once it has the building blocks.</p>
+<h2 id="code-to-canvas--pushing-code-back-to-figma">Code to Canvas — Pushing Code Back to Figma</h2>
+<p>Code to Canvas is the less-discussed half of Figma&rsquo;s bidirectional MCP integration: instead of reading a Figma design to generate code, you push code into Figma as editable vector layers. This workflow is useful when a developer has built a component variant that the designer wants to incorporate into the source-of-truth Figma file. The integration, launched as part of the February 2026 Claude Code partnership, uses the MCP server&rsquo;s <code>write</code> capability (currently Claude Code only; Cursor and Windsurf support is in beta). The prompt pattern is straightforward:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 696 89"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>G</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='0' y='68' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='8' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='8' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='16' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='40' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='48' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='56' y='68' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='64' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='64' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='72' y='68' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='80' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='88' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='96' y='52' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='96' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='104' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='112' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='120' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='136' y='68' fill='currentColor' style='font-size:1em'>J</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='144' y='68' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='68' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='168' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='176' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='68' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='192' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='200' y='68' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='336' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='368' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='400' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='408' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='424' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='432' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='440' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='456' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='464' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='480' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='488' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='504' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='512' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='520' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='536' y='4' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='544' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='552' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='560' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='568' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='576' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='584' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='592' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='600' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='608' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='624' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='632' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='640' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='648' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='664' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='672' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='680' y='4' fill='currentColor' style='font-size:1em'>:</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>The agent reads the component&rsquo;s JSX structure, maps props to Figma layer properties, and calls the MCP server&rsquo;s write endpoint to create a new frame. The output is fully editable — auto layout, component properties, and local styles are preserved. The limitation is that complex logic (conditional renders, data fetching) is flattened to a single state in the generated frame. The agent will pick the component&rsquo;s default props unless you explicitly specify the state to render.</p>
+<h2 id="real-world-results-limitations-and-what-to-expect">Real-World Results, Limitations, and What to Expect</h2>
+<p>Real-world Figma MCP results in 2026 are genuinely impressive but unevenly distributed — teams with mature, well-structured design systems see dramatic gains, while teams with disorganized Figma files see marginal improvement over a screenshot workflow. Dashboard interfaces with 8 complex UI components that previously took 2–3 days to implement are now completed in one afternoon with a well-configured setup. Revision cycles drop from 4–5 rounds to typically just one. However, the 85–90% styling inaccuracy rate without Code Connect is a real ceiling — expect to correct spacing, border-radius, and responsive behavior by hand unless your design system is fully connected. The 40–80 hour initial setup cost is also real; teams that skip it and use the remote server on a disorganized file with inconsistent naming will generate code that requires heavy editing.</p>
+<h3 id="what-the-figma-mcp-server-does-not-do">What the Figma MCP Server Does Not Do</h3>
+<p>The Figma MCP server does not generate pixel-perfect code autonomously. It provides structured context — the AI agent still interprets that context and generates code, and that interpretation can go wrong. It does not handle responsive breakpoints automatically unless they are defined as Figma variables. It does not generate animations or complex interaction states. It does not replace a design system — it amplifies one. If your Figma file has inconsistent naming, unlabeled layers, or missing Auto Layout, the MCP server faithfully exposes that inconsistency to the AI agent, which then produces inconsistent code.</p>
+<h3 id="common-setup-errors">Common Setup Errors</h3>
+<ul>
+<li><strong>401 errors</strong>: Token missing <code>file:read</code> scope or expired — regenerate the token</li>
+<li><strong>Empty layer tree</strong>: Wrong node ID in the URL — use the node selector in Figma (<code>Right-click → Copy link to selection</code>) to get the exact ID</li>
+<li><strong>Generic code despite Code Connect</strong>: Code Connect metadata not published — run <code>npx @figma/code-connect publish</code> after editing <code>.figma.tsx</code> files</li>
+<li><strong>Cursor can&rsquo;t find MCP tools</strong>: Config file is not at workspace root — move <code>.cursor/mcp.json</code> to the project root directory</li>
+</ul>
+<h2 id="best-practices-for-teams-using-figma-mcp-at-scale">Best Practices for Teams Using Figma MCP at Scale</h2>
+<p>Best practices for teams scaling Figma MCP across multiple engineers center on three areas: Figma file hygiene, Code Connect coverage strategy, and shared AI agent configuration. Teams that succeed at scale treat their Figma file structure as a developer dependency — not an artifact that gets cleaned up &ldquo;someday.&rdquo; Enforcing naming conventions (PascalCase for components, kebab-case for layers), using Auto Layout everywhere, and keeping design tokens as Figma variables (not hardcoded fills) makes the MCP context structurally consistent across files, which directly improves code generation quality. Sharing the MCP config file in the repository root means every developer on the team uses identical server configuration without per-machine setup. Storing the Figma access token in a shared secrets manager (rather than each developer&rsquo;s <code>.env</code>) prevents token drift and revocation surprises.</p>
+<h3 id="structuring-your-figma-file-for-mcp">Structuring Your Figma File for MCP</h3>
+<p>Structuring your Figma file for MCP output quality follows the same principles as structuring it for developer handoff, but with stricter enforcement. Name every component and layer descriptively — the MCP server returns layer names as-is, so <code>Frame 457</code> in the AI context produces <code>frame457</code> in the generated code. Use Figma Variables for all color, spacing, and typography tokens; the MCP server exposes variable names alongside values, and Code Connect can map them to your codebase token names. Enable Auto Layout on all container frames — without Auto Layout, the agent has to infer layout intent from absolute positioning, which produces brittle CSS. Keep each Figma page focused: a <code>Components</code> page, a <code>Screens</code> page, and a <code>Tokens</code> page are easier to query than a single sprawling canvas.</p>
+<h3 id="team-workflow-recommendations">Team Workflow Recommendations</h3>
+<ul>
+<li><strong>Commit <code>.figma.tsx</code> Code Connect files alongside component source</strong> — treat them as first-class code, not documentation</li>
+<li><strong>Run Code Connect publish in CI</strong> — prevents stale mappings from drifting out of sync with the component implementation</li>
+<li><strong>Create a shared Figma MCP config file</strong> in your repo&rsquo;s <code>.claude/mcp.json</code> and <code>.cursor/mcp.json</code> — no per-developer setup</li>
+<li><strong>Document the &ldquo;canonical frame&rdquo; for each screen</strong> — a named, top-level frame that is always the reference for AI-driven implementation</li>
+<li><strong>Review generated code against the Figma source at PR time</strong> — add a Figma frame URL to the PR description so reviewers can compare visually</li>
+</ul>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>Does the Figma MCP server work with free Figma accounts?</strong>
+Yes. The remote server at <code>https://mcp.figma.com/mcp</code> works on all Figma plans including the free Starter plan. You only need a Figma account and a personal access token with <code>file:read</code> scope. The desktop server (for selection-based context) requires a Dev or Full seat.</p>
+<p><strong>What is the difference between the Figma MCP server and Figma Dev Mode?</strong>
+Figma Dev Mode is a UI layer in the Figma app that shows developers CSS, spacing, and asset specs. The MCP server is a protocol endpoint that exposes the same underlying data to AI agents programmatically. Dev Mode is for manual inspection; the MCP server is for AI-driven code generation. You can use both — Dev Mode for understanding, MCP for generating.</p>
+<p><strong>Can I use the Figma MCP server without Code Connect?</strong>
+Yes, but code quality is significantly lower. Without Code Connect, the agent generates generic HTML/JSX with hardcoded values. Current data suggests 85–90% styling inaccuracy without Code Connect, meaning most AI-generated code will need substantial manual correction. If your design system is small or you&rsquo;re prototyping, the remote server alone may be good enough; for production use, Code Connect is worth the investment.</p>
+<p><strong>How do I scope the Figma MCP context to a single frame instead of the whole file?</strong>
+Append <code>?node-id=FRAME_ID</code> to the Figma URL in your prompt. Get the exact node ID by right-clicking a frame in Figma and selecting &ldquo;Copy link to selection.&rdquo; This dramatically reduces the token footprint of the MCP response and focuses the agent on the component you&rsquo;re implementing.</p>
+<p><strong>Does the Figma MCP server support frameworks other than React?</strong>
+Yes. The Figma MCP server is framework-agnostic — it returns design metadata, not React code. Code Connect has official support for React, iOS (SwiftUI), and Android (Jetpack Compose), and community packages cover Vue, Angular, Svelte, and HTML/CSS. The AI agent translates the design metadata into whatever framework you specify in your prompt.</p>
+]]></content:encoded></item><item><title>Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase</title><link>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</link><pubDate>Sun, 03 May 2026 03:06:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</guid><description>Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.</description><content:encoded><![CDATA[<p>Cursor 2.0 lets you run up to 8 AI agents simultaneously on your codebase using git worktrees — each agent works in isolation on a separate branch, eliminating file conflicts. Combined with Composer 2&rsquo;s 250 tokens/second throughput, you can parallelize a week of refactoring work into a single afternoon.</p>
+<h2 id="what-are-cursor-20-parallel-agents-the-8-agent-breakthrough">What Are Cursor 2.0 Parallel Agents? (The 8-Agent Breakthrough)</h2>
+<p>Cursor 2.0 parallel agents are simultaneous AI coding sessions, each running inside its own git worktree, that allow up to 8 independent Composer instances to modify the same repository at once without stepping on each other&rsquo;s changes. Introduced with Cursor 2.0 in early 2026, this feature fundamentally changes how developers handle large, decomposable tasks like TypeScript migrations, test suite generation, or cross-cutting refactors. In practice, a senior engineer can assign Agent 1 to rewrite the authentication module, Agent 2 to update all API handlers, and Agent 3 to generate test coverage — all running simultaneously. Cursor reports that agentic tasks complete 30% faster with parallel background agents versus sequential execution. Composer 2 scores 61.3 on CursorBench versus 44.2 for Composer 1.5 (a 39% improvement), meaning each individual agent is also smarter than its predecessor. The net result: tasks that previously took days now finish in hours, with each agent maintaining full context of its own isolated work.</p>
+<h3 id="how-worktree-isolation-works">How Worktree Isolation Works</h3>
+<p>Each parallel agent gets its own git worktree — a separate checkout of the repository with its own working directory and branch. All worktrees share the same underlying <code>.git</code> object database, so there is no repository duplication. Agent 2 modifying <code>auth/handler.ts</code> has no awareness of Agent 5 editing <code>api/users.ts</code>. When both finish, you merge their branches like any normal git workflow. The technical constraint is disk I/O and RAM: each active Cursor window consumes approximately 800MB–1.2GB of memory, which means 8 agents realistically requires 16GB+ of system RAM for smooth operation.</p>
+<h2 id="the-technology-behind-parallel-agents-git-worktrees-explained">The Technology Behind Parallel Agents: Git Worktrees Explained</h2>
+<p>Git worktrees are a first-class git feature — not a Cursor invention — that allow a single repository to have multiple checked-out branches simultaneously in different filesystem paths. Cursor 2.0 wraps this capability with a UI that lets you spawn new Composer sessions directly into configured worktree directories. When you run <code>git worktree add ../my-repo-feature1 -b feature/agent-1</code>, git creates a directory at <code>../my-repo-feature1</code> that shares the same object store as your main repo but maintains its own <code>HEAD</code>, index, and working tree. This means commits in the worktree appear instantly in <code>git log</code> everywhere — but the files remain physically separate until merged. For Cursor&rsquo;s parallel agent use case, this architecture is ideal: agents can <code>git add</code>, <code>git commit</code>, and even run terminal commands within their worktree without interfering with other agents. The <code>.cursor/worktrees.json</code> configuration file tells Cursor which directories are active worktrees, enabling automatic environment setup (dependency installation, environment variable injection) when each agent session starts. Cursor&rsquo;s implementation also handles the cleanup cycle: after merging an agent&rsquo;s branch, <code>git worktree remove</code> frees the directory, and Cursor removes it from the worktree registry automatically.</p>
+<h3 id="worktree-vs-branch-whats-the-difference">Worktree vs Branch: What&rsquo;s the Difference?</h3>
+<p>A branch is a pointer to a commit. A worktree is a physical checkout of that branch at a filesystem path. Without worktrees, switching branches means modifying your single working directory — destructive if another process is reading those files. With worktrees, each branch lives at its own path; switching between agents means switching windows, not <code>git checkout</code>. This is why Cursor can run 8 agents: each has a stable filesystem view that never changes unless the agent itself makes a commit.</p>
+<h2 id="setting-up-parallel-agents-in-cursor-20-prerequisites-and-configuration">Setting Up Parallel Agents in Cursor 2.0: Prerequisites and Configuration</h2>
+<p>Setting up Cursor 2.0 parallel agents requires Cursor Pro ($20/month minimum), git 2.15+ for worktree support, and a machine with at least 8GB RAM for 2–3 agents or 16GB+ for 4–8 agents. Start by verifying your Cursor version is 2.0 or later in <strong>Cursor → About Cursor</strong>. Then confirm git worktree support with <code>git worktree list</code> from your project root. The feature is enabled by default in Cursor 2.0 — no feature flag or beta enrollment needed. Create your <code>.cursor</code> directory at the project root if it does not already exist, then create the worktrees configuration file at <code>.cursor/worktrees.json</code>. This file tells Cursor which parallel working directories are active, what branch each maps to, and whether to run setup scripts automatically when an agent session starts in that directory. Each entry in the JSON array specifies a <code>path</code> (relative or absolute), a <code>branch</code> name, and optionally a <code>setup</code> array of shell commands to run on initialization. Without this file, you can still create worktrees manually, but Cursor will not auto-configure agent sessions when you open them.</p>
+<h3 id="system-requirements-by-agent-count">System Requirements by Agent Count</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Agents</th>
+          <th>RAM Required</th>
+          <th>Recommended CPU</th>
+          <th>Disk Space</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2</td>
+          <td>8 GB</td>
+          <td>4 cores</td>
+          <td>+2 GB</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>16 GB</td>
+          <td>8 cores</td>
+          <td>+4 GB</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>32 GB</td>
+          <td>12+ cores</td>
+          <td>+8 GB</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="step-by-step-running-8-simultaneous-ai-agents-on-your-codebase">Step-by-Step: Running 8 Simultaneous AI Agents on Your Codebase</h2>
+<p>Running 8 parallel agents in Cursor 2.0 is a six-step process that combines git worktree setup, Cursor configuration, and strategic task decomposition. First, identify 8 truly independent workstreams in your project — tasks that read or write different files, with no shared dependencies during execution. Second, create a worktree for each task using <code>git worktree add ../project-agent-N -b feature/agent-N</code> for agents 1 through 8. Third, create <code>.cursor/worktrees.json</code> registering all 8 paths with their branch names and any per-worktree setup commands (e.g., <code>npm install</code> or <code>pip install -r requirements.txt</code>). Fourth, open each worktree in a new Cursor window via <strong>File → Open Folder</strong>, then start a Composer session in each window. Fifth, paste each agent&rsquo;s task prompt into its respective Composer — be specific, include file paths, and scope the task tightly to avoid agents accidentally editing shared utilities. Sixth, monitor progress across windows, approve any tool calls that require confirmation, and begin merging completed branches as each agent finishes. The entire setup takes approximately 10 minutes for experienced users. For teams, this workflow maps naturally to microservices: assign one agent per service, each in its own worktree, and review PRs as they complete.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create 8 worktrees for parallel agent work</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>1..8<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  git worktree add ../project-agent-$i -b feature/agent-$i
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verify all worktrees are registered</span>
+</span></span><span style="display:flex;"><span>git worktree list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// .cursor/worktrees.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;worktrees&#34;</span>: [
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-1&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-1&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-2&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-2&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-3&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-3&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-4&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-4&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="writing-effective-per-agent-prompts">Writing Effective Per-Agent Prompts</h3>
+<p>Vague prompts are the primary failure mode for parallel agents. Each agent prompt should specify: (1) which files to modify, (2) which files to leave untouched, (3) the exact output format or API contract, and (4) any conventions from the codebase the agent might not infer from context. A good parallel agent prompt for a TypeScript migration reads: &ldquo;Convert <code>/src/utils/auth.js</code> and all files it imports to TypeScript. Do not modify any files in <code>/src/api/</code>. Preserve all existing function signatures. Add JSDoc comments to all exported functions.&rdquo;</p>
+<h2 id="using-multitask-for-automatic-task-decomposition-cursor-32">Using /multitask for Automatic Task Decomposition (Cursor 3.2)</h2>
+<p>The <code>/multitask</code> command, introduced in Cursor 3.2 on April 24, 2026, automates the task decomposition step entirely — you describe a high-level goal, and Cursor breaks it into async subagents that run in parallel without manual worktree setup. Instead of manually identifying 8 independent workstreams and creating worktrees for each, you type <code>/multitask Migrate all JavaScript files in /src to TypeScript, adding proper types and JSDoc</code> and Cursor&rsquo;s planner analyzes your codebase, identifies which files are safe to process concurrently, spins up subagents for each file cluster, and tracks their progress in a single orchestration view. This is a significant workflow improvement over Cursor 2.0&rsquo;s manual approach: the cognitive overhead of decomposition and worktree management disappears, and the system handles merge ordering automatically. Cursor&rsquo;s planner is conservative — it will not parallelize tasks where it detects file interdependencies, defaulting to sequential execution for those file pairs. The tradeoff is control: <code>/multitask</code> makes decomposition decisions automatically, which occasionally results in suboptimal task groupings. For complex refactors with subtle dependency graphs, manual worktree setup remains more reliable.</p>
+<h3 id="when-to-use-multitask-vs-manual-worktrees">When to Use /multitask vs Manual Worktrees</h3>
+<p>Use <code>/multitask</code> for: large-scale file migrations, test generation across many modules, documentation updates, formatting passes. Use manual worktrees for: tasks requiring precise ordering of commits, work spanning services with shared interfaces, or when you need to customize each agent&rsquo;s environment or context window.</p>
+<h2 id="background-agents-running-ai-agents-on-cloud-vms">Background Agents: Running AI Agents on Cloud VMs</h2>
+<p>Background Agents, available on Cursor Pro ($20/month) and above, run your Cursor agents in isolated AWS virtual machines with internet access — freeing your local machine entirely while agents work. Where local parallel agents consume your RAM and CPU, Background Agents offload execution to Cursor&rsquo;s cloud infrastructure. Each Background Agent VM has internet access for package installation and API calls, a persistent terminal session, and the ability to commit and push to your repository autonomously. You monitor their progress from the Cursor UI&rsquo;s Background Agents panel, which streams terminal output and Composer actions in real time. Background Agents are ideal for long-running tasks (2+ hours), for teams where developers want agents running overnight, and for CI-adjacent workflows where the agent needs to install dependencies, run tests, and create PRs without occupying a developer&rsquo;s laptop. The limitation is cost: Background Agent compute is billed separately from Cursor Pro&rsquo;s base subscription, with pricing based on compute time. For short tasks under 30 minutes, local parallel agents are more cost-effective. For overnight batch work — migrating a 500-file legacy codebase, generating comprehensive test coverage, or updating all dependencies — Background Agents eliminate the need to keep your laptop awake.</p>
+<h3 id="local-vs-background-agents-comparison">Local vs Background Agents: Comparison</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Local Parallel Agents</th>
+          <th>Background Agents</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max simultaneous</td>
+          <td>8</td>
+          <td>Unlimited (plan-based)</td>
+      </tr>
+      <tr>
+          <td>Infrastructure</td>
+          <td>Your machine</td>
+          <td>AWS VMs</td>
+      </tr>
+      <tr>
+          <td>Internet access</td>
+          <td>Via your network</td>
+          <td>Built-in</td>
+      </tr>
+      <tr>
+          <td>Cost</td>
+          <td>Cursor Pro only</td>
+          <td>Pro + compute billing</td>
+      </tr>
+      <tr>
+          <td>Setup</td>
+          <td>Manual worktrees</td>
+          <td>One-click</td>
+      </tr>
+      <tr>
+          <td>Best for</td>
+          <td>Short, focused tasks</td>
+          <td>Long-running batch work</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="real-world-use-cases-where-parallel-agents-save-days-of-work">Real-World Use Cases Where Parallel Agents Save Days of Work</h2>
+<p>Parallel agents in Cursor 2.0 deliver the most value in three categories of work: large-scale migrations, comprehensive test generation, and documentation production. For a TypeScript migration of a 200-file JavaScript codebase, running 8 agents simultaneously — each handling 25 files — reduces a week-long task to a single afternoon. Development teams at Series B startups report cutting their TypeScript migration from 5 days to 6 hours using this pattern. For test generation, parallel agents excel at producing unit tests for modules in isolation: assign each agent a module directory, and all agents write tests concurrently against their respective public APIs. A backend team of 4 engineers used 8 parallel Cursor agents to generate 847 unit tests across 12 microservices in 3 hours — work that previously required 2 full sprint weeks. For documentation, agents can simultaneously generate API reference docs, usage examples, and README files for each service, with no risk of agents overwriting each other&rsquo;s output since each service lives in a separate directory. Additional use cases include: dependency version updates across monorepo packages, ESLint/Prettier formatting passes across legacy code, internationalization (i18n) string extraction, and security audit annotation.</p>
+<h3 id="case-study-monorepo-refactor">Case Study: Monorepo Refactor</h3>
+<p>A real-world monorepo with 14 packages and 380 TypeScript files was refactored using 8 Cursor parallel agents over 4 hours. Task decomposition: 2 agents per tier (UI components, API clients, server handlers, database models). Each agent was given its package&rsquo;s directory and a single task: &ldquo;Add strict null checks and fix all resulting TypeScript errors.&rdquo; Merge sequence: database models first (no dependencies), then server handlers, then API clients, then UI components. Total developer time: 40 minutes of setup + monitoring. Estimated sequential time: 3 days.</p>
+<h2 id="best-practices-avoiding-conflicts-and-maximizing-parallel-agent-efficiency">Best Practices: Avoiding Conflicts and Maximizing Parallel Agent Efficiency</h2>
+<p>Effective parallel agent use in Cursor 2.0 depends on three disciplines: rigorous task decomposition, defensive prompt writing, and structured merge sequencing. The most common failure mode is assigning agents to tasks with hidden shared dependencies — for example, two agents modifying the same utility file from different features. Always map your codebase&rsquo;s dependency graph before assigning tasks: use <code>madge</code> for JavaScript/TypeScript or <code>pydeps</code> for Python to visualize imports, then ensure no two agent tasks touch the same files. For prompt writing, include explicit exclusion lists: &ldquo;Do not modify any files outside <code>/src/auth/</code>&rdquo; is as important as the positive instruction. When agents are confident, they will reach for shared utilities to solve problems — explicit boundaries prevent this. For merge sequencing, process agents in dependency order: foundational modules first, consumers second. Create a merge plan before starting any agent and stick to it. Finally, test each agent&rsquo;s branch in isolation before merging: run your test suite against each worktree individually to catch regressions before they compound in the main branch.</p>
+<h3 id="resolving-merge-conflicts-between-agent-branches">Resolving Merge Conflicts Between Agent Branches</h3>
+<p>When conflicts occur (typically in <code>package-lock.json</code>, <code>yarn.lock</code>, or auto-generated files), resolve them at merge time rather than mid-task. Do not attempt to have agents resolve conflicts autonomously — the agent lacks context about the other branches&rsquo; changes. Use <code>git mergetool</code> or Cursor&rsquo;s built-in merge conflict UI. For lock files, regenerate them after all branches are merged rather than resolving individual diffs.</p>
+<h2 id="cursor-parallel-agents-vs-github-copilot-vs-claude-code-2026-comparison">Cursor Parallel Agents vs GitHub Copilot vs Claude Code: 2026 Comparison</h2>
+<p>Cursor 2.0 parallel agents occupy a unique position in the 2026 AI coding landscape — no direct competitor offers native parallel agent execution in the same workflow. GitHub Copilot Workspace supports multi-step agentic tasks but processes them sequentially, not in parallel. Claude Code&rsquo;s agent mode handles one task at a time with deep codebase analysis, but requires manual management for parallel workstreams. The core difference is infrastructure: Cursor built worktree management and multi-window orchestration into the IDE itself, making parallel execution a first-class feature rather than a workaround. For teams doing large-scale codebase transformations, this architectural choice matters more than any benchmark comparison. Cursor&rsquo;s Composer 2 model scores 61.7 on Terminal-Bench 2.0, surpassing Claude Opus 4.6 at 58.0, which means individual agent quality is competitive with the best available models — and you can run 8 of them simultaneously. 95% of developers use AI tools at least weekly in 2026, but only a fraction are using parallel agents for the workloads where they provide 10x leverage.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Cursor 2.0 Parallel</th>
+          <th>GitHub Copilot Workspace</th>
+          <th>Claude Code Agent</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max parallel agents</td>
+          <td>8 local, unlimited cloud</td>
+          <td>1 (sequential)</td>
+          <td>1 per session</td>
+      </tr>
+      <tr>
+          <td>Worktree management</td>
+          <td>Native, automatic</td>
+          <td>Manual</td>
+          <td>Manual</td>
+      </tr>
+      <tr>
+          <td>/multitask (auto-decompose)</td>
+          <td>Yes (v3.2+)</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Cloud agents</td>
+          <td>Yes (Background)</td>
+          <td>Limited preview</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Model benchmark (CursorBench)</td>
+          <td>61.3</td>
+          <td>N/A</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Entry price</td>
+          <td>$20/month Pro</td>
+          <td>$19/month Individual</td>
+          <td>$20/month Pro</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="pricing-plans-and-what-you-actually-need">Pricing, Plans, and What You Actually Need</h2>
+<p>Cursor 2.0 parallel agents are available on Cursor Pro ($20/month) and above — the free Hobby tier does not include Composer access or Background Agents. Pro includes: unlimited Composer sessions, up to 8 local parallel agents via worktrees, Background Agent access (compute billed separately), and Supermaven autocomplete with a 72% developer acceptance rate. The Business plan ($40/month per seat) adds centralized billing, admin controls, and higher rate limits on Background Agent compute. For individual developers doing large migrations or ambitious side projects, Pro is sufficient — 8 local agents on a 32GB MacBook Pro handles most real-world workloads. For teams doing nightly batch processing or CI-integrated agent workflows, Background Agent compute costs are typically $50–200/month depending on task volume. There is no &ldquo;parallel agents add-on&rdquo; — the feature is included in Pro; the only variable cost is Background Agent compute time.</p>
+<h3 id="is-cursor-pro-worth-it-for-parallel-agents-alone">Is Cursor Pro Worth It for Parallel Agents Alone?</h3>
+<p>For any developer who regularly does large refactors, migrations, or test-writing sprints: yes. A single 4-hour parallel agent session on a 200-file TypeScript migration saves 3–4 days of manual work. At $20/month, the ROI is positive after a single significant use. For developers doing primarily line-by-line feature work, the productivity gain is smaller and the free tier or GitHub Copilot Individual may be more cost-effective.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Can I run more than 8 parallel agents in Cursor 2.0?</strong>
+The local parallel agent limit is 8 simultaneous worktrees, constrained by Cursor&rsquo;s UI and practical memory limits. Background Agents (cloud VMs) do not have this ceiling — the limit depends on your plan&rsquo;s compute quota. For most workloads, 4–6 agents is the practical sweet spot where task quality and context size remain manageable.</p>
+<p><strong>Do parallel agents share context with each other?</strong>
+No. Each agent runs in complete isolation with its own context window, conversation history, and file system view. Agents cannot communicate with each other or read each other&rsquo;s changes during execution. Coordination happens through the developer: you define task boundaries, monitor progress, and sequence merges.</p>
+<p><strong>What happens if two agents accidentally modify the same file?</strong>
+If you followed proper task decomposition, this should not happen. If it does, you will see a git merge conflict when merging the second branch. Resolve it manually using <code>git mergetool</code> or Cursor&rsquo;s conflict UI. To prevent this, always verify your task assignments using a dependency graph tool before starting agents.</p>
+<p><strong>Does /multitask replace manual worktree setup?</strong>
+For most use cases introduced in Cursor 3.2, yes — <code>/multitask</code> automates decomposition, worktree creation, and merge sequencing. Manual worktrees remain useful for tasks requiring custom environment setup per agent, precise commit ordering, or when you need to review each agent&rsquo;s work before it proceeds to the next step.</p>
+<p><strong>Can I use Cursor parallel agents with a monorepo?</strong>
+Yes, and monorepos are an ideal use case. Assign each agent to a single package directory. Because monorepo packages are typically loosely coupled at the filesystem level, agents rarely conflict. Tools like Turborepo and Nx&rsquo;s dependency graph can help you identify safe parallel boundaries. The shared <code>node_modules</code> or <code>package.json</code> at the monorepo root should be excluded from all agent tasks and updated manually after merging.</p>
+]]></content:encoded></item><item><title>Roo Code Review 2026: Open-Source Cline Fork with Multi-Agent Mode</title><link>https://baeseokjae.github.io/posts/roo-code-review-2026/</link><pubDate>Sat, 02 May 2026 18:02:05 +0000</pubDate><guid>https://baeseokjae.github.io/posts/roo-code-review-2026/</guid><description>Complete Roo Code review covering its multi-agent orchestration, Boomerang Tasks, shutdown, and where to migrate in 2026.</description><content:encoded><![CDATA[<p>Roo Code was an open-source VS Code extension that forked from Cline to build a multi-agent AI coding system inside your IDE. It reached 23,300+ GitHub stars and 1.52 million active installs before announcing its shutdown on April 20, 2026 — with all products ceasing on May 15, 2026. If you used it, here is the full story of what made it exceptional and what to do next.</p>
+<h2 id="what-is-roo-code-the-open-source-ai-dev-team-inside-vs-code">What Is Roo Code? The Open-Source AI Dev Team Inside VS Code</h2>
+<p>Roo Code is a VS Code extension that turns your editor into an autonomous AI coding agent — not just a code completion tool, but a system that reads files, runs commands, browses the web, and executes multi-step engineering tasks without waiting for per-action approval. Unlike GitHub Copilot or Tabnine, which insert completions reactively, Roo Code operates with full agency over your local environment: it can open terminals, edit multiple files, install packages, run tests, and iterate on failures. The tool reached 23,300+ GitHub stars and 1.52 million active VS Code installs with 3 million cumulative downloads as of April 2026, driven by a community of 300+ active contributors. What differentiated Roo from standard AI coding assistants was its multi-mode architecture — separate operating modes for coding, architecture planning, debugging, and orchestration — each configurable to use a different underlying LLM. This per-mode model routing made it the most cost-efficient open-source AI coding agent available for complex, multi-file tasks before its May 2026 shutdown.</p>
+<h2 id="how-roo-code-forked-from-cline--and-why-it-mattered">How Roo Code Forked from Cline — and Why It Mattered</h2>
+<p>Roo Code forked directly from Cline&rsquo;s open-source codebase in late 2024, choosing a separate repository rather than contributing upstream. The reason was velocity: the Roo team wanted to ship the multi-mode architecture and Orchestrator system faster than Cline&rsquo;s contribution review process allowed. Cline had established itself as the dominant open-source AI coding agent with 58K+ GitHub stars and 5M+ installs as of February 2026 — approximately 2.5× more community adoption than Roo Code. Despite this gap, Roo carved a distinct niche by introducing features that Cline did not have: a full mode system (Code, Architect, Ask, Debug, Orchestrator), per-mode model assignment, and Boomerang Tasks for multi-agent orchestration. The fork strategy paid off technically but created a split community. Both tools use Apache 2.0 licensing and a BYOK (Bring Your Own Key) model, meaning users pay their LLM provider directly with no markup. The critical difference: Roo Code was better for fully autonomous multi-file workflows, while Cline offered more granular, step-by-step user control. For senior engineers comfortable with autonomous execution, Roo Code was the more powerful choice — at least until the shutdown announcement.</p>
+<h2 id="key-features-the-multi-agent-mode-system-explained">Key Features: The Multi-Agent Mode System Explained</h2>
+<p>Roo Code&rsquo;s multi-agent mode system is what separates it from every other VS Code AI coding tool. The extension ships with five built-in modes — Code, Architect, Ask, Debug, and Orchestrator — each designed for a specific stage of the development workflow, each configurable to use a different language model. Code mode handles implementation and file editing with access to all tools. Architect mode generates high-level plans without directly touching code, making it ideal for technical design decisions before implementation starts. Ask mode answers questions about the codebase using read-only access, so you can route queries to a cheaper model like GPT-4o Mini without burning credits on a premium model. Debug mode specializes in diagnosis — analyzing logs, tracing errors, proposing targeted fixes. The Orchestrator mode (discussed in detail in the next section) coordinates all other modes as sub-agents for complex workflows. Beyond the built-ins, the Custom Modes system lets developers define entirely new modes with specific system prompts, allowed tools, and model assignments — enabling domain-specific AI personas for data science, security auditing, API design, or anything else. This multi-mode design reduced token waste and API costs for teams running large projects, since you only use expensive frontier models for the tasks that actually require them.</p>
+<h2 id="boomerang-tasks-orchestrating-complex-multi-file-workflows">Boomerang Tasks: Orchestrating Complex Multi-File Workflows</h2>
+<p>Boomerang Tasks is Roo Code&rsquo;s flagship multi-agent orchestration feature and the most technically sophisticated capability any VS Code AI coding extension had delivered as of early 2026. The system works by allowing the Orchestrator mode to decompose a complex engineering request into discrete subtasks, launch each subtask as an independent agent in its own context window, and collect the results back when each sub-agent completes — hence the &ldquo;boomerang&rdquo; metaphor. Each subtask runs in an isolated context, which solves one of the core problems with long-running AI coding sessions: context window pollution from accumulated file contents and tool outputs. By keeping subtasks separate, Boomerang Tasks prevents earlier decisions from polluting later ones. More importantly, each subtask can be assigned to a different model: the Architect sub-agent might use Claude Opus for high-quality planning, while the Ask sub-agents query GPT-4o Mini for cost efficiency, and the Code sub-agents use Claude Sonnet for implementation. According to Roo Code&rsquo;s documentation, this per-subtask model routing significantly reduces overall inference costs for large workflows compared to routing every action through a single premium model. For engineering teams managing large codebases with multiple simultaneous workstreams, Boomerang Tasks delivered a capability closer to a cloud agent platform than a VS Code extension.</p>
+<h2 id="custom-modes--the-community-marketplace">Custom Modes &amp; the Community Marketplace</h2>
+<p>Custom Modes extend Roo Code&rsquo;s built-in five-mode system with developer-defined AI personas scoped to specific tasks. A Custom Mode defines three things: a system prompt (what role the AI takes), a list of allowed tools (read-only, execute, browse, etc.), and an optional model override. This combination means a security audit mode can have read-only file access and a specific security-focused prompt, while a documentation mode can have write access limited to Markdown files. The community built a marketplace of shared Custom Mode configurations distributed via the Roo Code community channels and GitHub discussions. Common community modes included a Test Writer mode that generates test coverage for untested functions, a Refactor mode that applies specific style guides, a Schema Designer mode for database modeling, and a DevOps mode for writing infrastructure-as-code. The marketplace was informal — no centralized registry like VS Code&rsquo;s extension marketplace — but active. Community modes became a significant adoption driver for teams with specialized workflows. The Custom Modes system, combined with per-mode model routing, meant Roo Code could effectively become a different specialized tool for every developer role on a team, all from the same extension and the same VS Code window.</p>
+<h2 id="pricing-breakdown-free-byok-cloud-agents-and-team-plans">Pricing Breakdown: Free BYOK, Cloud Agents, and Team Plans</h2>
+<p>Roo Code operated a three-tier pricing model layered on top of its free open-source core. The base extension was completely free with BYOK — users connected their own API keys from Anthropic, OpenAI, Google, or any OpenAI-compatible endpoint. The only cost was the API usage paid directly to the model provider. This made Roo Code the cheapest option for developers who already had API access, since there was no subscription markup. The Pro tier at $20/month added access to Roo Code Router (managed model routing without needing individual API keys) and priority support. The Team tier at $99/month covered up to 10 users and added team-shared custom modes, audit logs, and SSO. Above that, Roo Code Cloud offered managed cloud agents at $5/hour — a price that adds up quickly: a team using cloud agents 4 hours per day would spend an additional $600/month on top of the Team plan. SOC 2 Type 2 compliance — achieved through the paid tiers — was an unusually strong security credential for an open-source tool and a key selling point for enterprise teams. The BYOK free tier was the primary adoption driver, lowering the barrier to entry to near-zero for individual developers while the commercial tiers monetized enterprise usage. The gap between this model&rsquo;s adoption (1.52M installs) and sustainable revenue proved difficult to bridge, which contributed to the shutdown decision.</p>
+<h2 id="real-world-performance-pros-and-cons-from-developers">Real-World Performance: Pros and Cons from Developers</h2>
+<p>Roo Code&rsquo;s real-world performance placed it among the top tier of autonomous AI coding agents for complex, multi-file tasks — with specific friction points that prevented mainstream adoption. On the positive side, developers consistently praised the multi-mode architecture for cost control: routing simple queries through Ask mode with a cheap model and reserving Code mode for Claude Sonnet or Opus meant API costs stayed predictable even on large projects. The Boomerang Tasks system handled genuinely complex workflows — full feature implementations spanning 10+ files — that would overwhelm simpler tools. SOC 2 Type 2 compliance satisfied enterprise security reviews that blocked other AI tools entirely. The Apache 2.0 license allowed teams to self-host and inspect the code, addressing data privacy concerns. On the negative side, approval fatigue was the most-cited UX complaint: Roo Code&rsquo;s default behavior frequently paused to request user approval before executing commands or writing files, interrupting the autonomous flow the tool was designed to deliver. The learning curve was steeper than Cursor or GitHub Copilot — new users had to understand mode selection, model routing, and tool permissions before the system delivered its full value. Context management in very large codebases (100K+ LOC) remained a challenge despite Boomerang Tasks&rsquo; isolation model. For power users who invested the setup time, Roo Code delivered more autonomous capability per dollar than any alternative. For developers who wanted a drop-in, zero-configuration AI coding assistant, it was not the right tool.</p>
+<h2 id="the-may-2026-shutdown-what-happened-and-the-pivot-to-roomote">The May 2026 Shutdown: What Happened and the Pivot to Roomote</h2>
+<p>Roo Code announced its shutdown on April 20, 2026, with all products — the VS Code extension, Roo Code Cloud, and Roo Code Router — ceasing operations on May 15, 2026. The announcement explained the shutdown as a strategic pivot, not a failure: the team concluded that IDEs are not the future of AI-assisted development. Their thesis — articulated in the shutdown blog post and covered by The New Stack — held that cloud-based agent platforms would replace local IDE extensions as the primary environment for AI coding work. Rather than continue maintaining an IDE extension while the market moved toward cloud agents, the team chose to redirect all resources to Roomote, a cloud agent product they had been building in parallel. The GitHub repository for the VS Code extension was archived after May 15 with no further updates. The team explicitly recommended Cline as the successor for users who want to remain in VS Code — a notable endorsement given that Roo Code had forked from Cline and competed directly with it. The shutdown affected 1.52 million active users on short notice, creating an immediate demand for migration paths. Kilo Code, a fork of both Cline and Roo Code that had been building independently, emerged as the primary beneficiary, claiming 1.5M+ users after the shutdown announcement and securing $8 million in seed funding.</p>
+<h2 id="where-roo-code-users-should-go-next-kilo-code-cline-or-roomote">Where Roo Code Users Should Go Next: Kilo Code, Cline, or Roomote</h2>
+<p>The right migration path from Roo Code depends on what you valued most about the tool. If Boomerang Tasks and multi-agent orchestration were central to your workflow, Kilo Code is the closest successor — it forked from both Cline and Roo Code, retained the multi-mode architecture, added its own routing layer, raised $8 million in seed funding to sustain development, and claims 1.5M+ users post-Roo shutdown. If you preferred Roo Code&rsquo;s BYOK model and open-source transparency but primarily used Code and Ask modes for single-session tasks, migrating to Cline makes sense. Cline has 58K+ GitHub stars and active development, maintains the same Apache 2.0 license, and the Roo team explicitly recommended it. If the shutdown pivot to cloud agents resonates — if you agree that IDE extensions are transitional and cloud-based agents are the real future — then following the Roo team to Roomote is the philosophically consistent choice. Roomote is early-stage and less mature than the VS Code extension was at peak, but it represents the team&rsquo;s highest-conviction bet. For enterprise teams that valued Roo Code&rsquo;s SOC 2 compliance and were using the Team plan for audit trails and SSO, both Kilo Code and Cline offer enterprise tiers worth evaluating. The short summary: most former Roo Code users with active workflows should migrate to Kilo Code first, evaluate it for 30 days, and then consider Cline or Roomote based on whether multi-agent orchestration or cloud-native execution matters more to their team&rsquo;s direction.</p>
+<h2 id="faq">FAQ</h2>
+<p>The following questions cover the most common queries about Roo Code that developers are asking in 2026, particularly following the May 15 shutdown. Roo Code was an open-source, Apache 2.0-licensed VS Code extension that forked from Cline to build a multi-mode AI coding agent with Boomerang Tasks orchestration. It reached 1.52 million active installs before shutting down on May 15, 2026. The team&rsquo;s stated rationale was a strategic pivot to cloud-native agent development via Roomote, rather than continued investment in an IDE extension. For users seeking migration guidance, the answers below address the shutdown context, the best alternatives (Kilo Code, Cline), pricing history, and what made Roo Code technically distinct. Whether you are evaluating its open-source successors or trying to understand what the &ldquo;Boomerang Tasks&rdquo; architecture means for multi-agent AI coding in 2026, these answers provide the direct context you need.</p>
+<h3 id="is-roo-code-still-available-in-2026">Is Roo Code still available in 2026?</h3>
+<p>No. Roo Code announced its shutdown on April 20, 2026, and all products — the VS Code extension, Roo Code Cloud, and Roo Code Router — ceased operations on May 15, 2026. The GitHub repository was archived with no further updates. Existing installations stop receiving updates and support.</p>
+<h3 id="what-is-the-best-roo-code-alternative-after-the-shutdown">What is the best Roo Code alternative after the shutdown?</h3>
+<p>Kilo Code is the most feature-complete Roo Code alternative, having forked from both Cline and Roo Code and retained the multi-mode architecture including Boomerang Tasks-style orchestration. It raised $8 million in seed funding and claimed 1.5M+ users after Roo&rsquo;s shutdown. Cline is the runner-up and was explicitly recommended by the Roo team itself.</p>
+<h3 id="what-made-roo-codes-boomerang-tasks-different-from-other-ai-coding-tools">What made Roo Code&rsquo;s Boomerang Tasks different from other AI coding tools?</h3>
+<p>Boomerang Tasks decomposed complex engineering requests into subtasks, each running in its own isolated context window with its own model assignment. This prevented context window pollution from long sessions and allowed per-subtask model routing — using cheap models for simple queries and premium models only for complex implementation steps — significantly reducing API costs for large workflows.</p>
+<h3 id="was-roo-code-free-to-use">Was Roo Code free to use?</h3>
+<p>The base VS Code extension was completely free with BYOK — you paid API providers directly with no markup from Roo Code. Paid tiers added managed routing (Pro, $20/month) and team features including SOC 2 compliance and SSO (Team, $99/month). Cloud agents were priced at $5/hour separately.</p>
+<h3 id="why-did-roo-code-shut-down-despite-having-15-million-users">Why did Roo Code shut down despite having 1.5 million users?</h3>
+<p>The Roo Code team framed the shutdown as a strategic pivot rather than a business failure, concluding that IDE extensions are transitional technology and that cloud-native agent platforms represent the future of AI-assisted coding. They redirected all resources to Roomote, a cloud agent product, rather than continuing to invest in a VS Code extension they believed the market was moving away from. The challenge of monetizing a free open-source extension with high adoption but limited paid conversion likely contributed to the decision.</p>
+]]></content:encoded></item><item><title>Cline vs Roo Code 2026: Best Open-Source VS Code AI Agent Compared</title><link>https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/</link><pubDate>Fri, 01 May 2026 21:04:40 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cline-vs-roo-code-2026/</guid><description>Cline vs Roo Code compared on architecture, Boomerang Tasks, cost control, and IDE support — find the right open-source VS Code AI agent for 2026.</description><content:encoded><![CDATA[<p>Cline is the better choice when you need strict human-in-the-loop control and JetBrains support. Roo Code wins for autonomous multi-agent workflows, structured modes, and teams that want to cut API costs by assigning cheaper models to lighter tasks. Both are free, Apache 2.0 licensed, and use a bring-your-own-key model.</p>
 <h2 id="cline-vs-roo-code-at-a-glance-quick-comparison-table">Cline vs Roo Code at a Glance (Quick Comparison Table)</h2>
 <p>Cline and Roo Code are the two dominant open-source AI coding agents for VS Code in 2026, and the right choice depends almost entirely on how much autonomy you want the agent to have. Cline has 57,900+ GitHub stars and 4 million+ installations across VS Code and JetBrains, making it the more established option with a larger community. Roo Code, forked from Cline in early 2024, has 23,800+ stars and 1.55 million VS Code installs, but has grown at a faster rate — reaching 300+ active contributors by March 2026. The core architectural difference is Cline&rsquo;s Plan/Act two-phase workflow versus Roo Code&rsquo;s multi-mode system (Code, Architect, Ask, Debug) with Boomerang Tasks for parallel sub-agent orchestration. For regulated industries or teams that require step-by-step approval, Cline&rsquo;s conservative control model is a significant advantage. For solo founders and teams shipping complex multi-file changes quickly, Roo Code&rsquo;s autonomous execution is the decisive edge.</p>
 <table>

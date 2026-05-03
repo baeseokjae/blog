@@ -1,4 +1,1570 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cursor on RockB</title><link>https://baeseokjae.github.io/tags/cursor/</link><description>Recent content in Cursor on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 01 May 2026 06:05:19 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/cursor/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursor + Claude Code + Codex Composable Stack 2026: The New AI Coding Architecture</title><link>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</link><pubDate>Fri, 01 May 2026 06:05:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</guid><description>How to combine Cursor, Claude Code, and OpenAI Codex into a composable AI coding stack — with setup guide, workflow patterns, and pricing breakdown.</description><content:encoded><![CDATA[<p>The best AI coding setup in 2026 isn&rsquo;t a single tool — it&rsquo;s a composable stack: Cursor as the IDE and orchestration layer, Claude Code as the deep-reasoning terminal agent, and OpenAI Codex as the cloud-native background automation engine. Using all three together costs as little as $40/month and delivers capabilities no single tool can match.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Cursor on RockB</title><link>https://baeseokjae.github.io/tags/cursor/</link><description>Recent content in Cursor on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 03 May 2026 18:04:28 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/cursor/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursor BugBot Review 2026: AI Security Checks in Every PR</title><link>https://baeseokjae.github.io/posts/cursor-bugbot-review-2026/</link><pubDate>Sun, 03 May 2026 18:04:28 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-bugbot-review-2026/</guid><description>Honest Cursor BugBot review: benchmarks, pricing, Autofix, learned rules, and how it stacks up against CodeRabbit and GitHub Copilot.</description><content:encoded><![CDATA[<p>Cursor BugBot is an AI-powered code reviewer that automatically checks every pull request for real bugs and security vulnerabilities — not style issues or formatting complaints. It catches logic flaws, null-pointer errors, and CVEs inside PRs before they merge, with an 80% resolution rate and 2 million+ PRs reviewed per month as of 2026.</p>
+<h2 id="what-is-cursor-bugbot-and-why-it-matters-in-2026">What Is Cursor BugBot? (And Why It Matters in 2026)</h2>
+<p>Cursor BugBot is an autonomous AI code reviewer built by the team behind the Cursor IDE, designed to detect actual bugs and security vulnerabilities in every pull request before they reach production. Unlike traditional linters that flag style violations and formatting inconsistencies, BugBot focuses exclusively on logic errors, race conditions, SQL injection vectors, and CVE-class vulnerabilities. By 2026, it processes over 2 million pull requests every month across 110,000+ enabled repositories — making it one of the most widely deployed AI review systems in production use. The timing matters: a January–April 2026 audit found that 92% of AI-built applications had critical security flaws, and 53% of AI-generated code ships with at least one vulnerability. BugBot fills the gap that emerges when teams ship faster using AI coding assistants but lack review bandwidth to manually scrutinize every change. It integrates directly with GitHub and surfaces comments inside PRs — no workflow changes required, no new dashboards to maintain. For teams already using Cursor&rsquo;s IDE, BugBot represents a natural extension of the same AI-first philosophy into the review stage.</p>
+<h2 id="how-bugbot-works--the-agentic-architecture-explained">How BugBot Works — The Agentic Architecture Explained</h2>
+<p>BugBot is not a static analysis pipeline with an AI coat of paint — it was rebuilt from the ground up as an agentic system in fall 2025, and that rebuild is the single biggest reason its resolution rate jumped from 52% to 76% in recent months. An agentic reviewer means BugBot doesn&rsquo;t just scan a diff in isolation; it spins up context about the surrounding codebase, reasons about data flow across function boundaries, and evaluates the semantic intent of the change before deciding whether to flag something. When BugBot detects a potential issue, it writes a comment in the PR explaining the root cause, the affected code path, and — increasingly — a proposed fix via the Autofix feature. The shift away from rule-only matching toward contextual agent reasoning is what allows BugBot to catch the logic-level errors that traditional SAST tools miss. Traditional static analysis operates on ASTs and pattern hashes; BugBot operates on meaning. For teams experiencing the false-positive fatigue that plagues tools like SonarQube and Semgrep, the signal-to-noise improvement is immediate. BugBot&rsquo;s agentic rebuild runs in isolated cloud compute, meaning review quality doesn&rsquo;t degrade under repository size or PR volume.</p>
+<h3 id="the-role-of-learned-rules">The Role of Learned Rules</h3>
+<p>BugBot learns from your team&rsquo;s behavior across every review session. When a developer resolves a comment, reacts to a suggestion, or leaves a follow-up note, BugBot records that signal and adjusts its detection profile for future PRs. With 110,000+ repositories enabled and 44,000+ custom learned rules generated, BugBot&rsquo;s institutional memory compounds over time — the more your team uses it, the better it gets at finding what matters to your specific codebase and tech stack.</p>
+<h2 id="key-features-from-bug-detection-to-autofix">Key Features: From Bug Detection to Autofix</h2>
+<p>Cursor BugBot ships with four capabilities that distinguish it from generic AI code reviewers: automated PR scanning, Autofix, learned rules, and security benchmarking. Automated PR scanning fires on every pull request without manual triggering — BugBot reads the diff, traces data flows, evaluates error handling paths, and posts targeted comments. It ignores whitespace, style preferences, and formatting entirely, which dramatically reduces the noise that makes developers start dismissing AI review comments. Autofix, launched in February 2026, goes further: when BugBot identifies a bug, it can spawn an autonomous Cloud Agent in an isolated VM that actually tests the code, proposes a patch, and opens that patch as a suggestion inside the PR. Over 35% of Autofix proposed changes are merged directly into base PRs — a strikingly high acceptance rate that validates the quality of the fix logic, not just the detection. The combination of detection plus remediation closes the loop that most SAST tools leave open: finding the bug is half the job; BugBot increasingly does the other half too.</p>
+<h3 id="autofix-in-practice">Autofix in Practice</h3>
+<p>Autofix is the most operationally significant BugBot feature for small teams. Rather than receiving a comment that says &ldquo;potential null dereference on line 47,&rdquo; developers receive a ready-to-merge fix. The Cloud Agent runs in an isolated VM — it can install dependencies, run tests, and validate the patch before proposing it. For teams without dedicated security engineers, this effectively provides automated remediation at scale.</p>
+<h2 id="bugbot-learned-rules-the-self-improving-reviewer">BugBot Learned Rules: The Self-Improving Reviewer</h2>
+<p>BugBot&rsquo;s learned rules system turns every PR interaction into training signal for future reviews, creating a self-improving feedback loop that makes the reviewer progressively more accurate over time. Unlike static rule libraries that require manual updates, BugBot&rsquo;s learned rules are generated automatically from three input signals: developer reactions to BugBot comments (upvotes, downvotes, emoji reactions), developer replies that accept or dismiss a finding, and human reviewer comments that independently flag or clear the same issue. From 110,000+ repositories, BugBot has generated 44,000+ custom rules — rules that are specific to the patterns, idioms, and risk tolerances of individual codebases. A fintech team that consistently marks authentication bypass findings as critical trains BugBot to surface those with higher confidence; a team that repeatedly dismisses &ldquo;unused variable&rdquo; false positives suppresses that pattern. The practical result is that BugBot&rsquo;s false-positive rate for established teams is dramatically lower than for new deployments, and accuracy continues to improve passively as long as developers interact with its comments. This learning architecture is also BugBot&rsquo;s clearest structural advantage over newer AI reviewers that lack institutional memory — the first six months of deployment are the learning period; after that, the system knows your codebase.</p>
+<h2 id="security-performance--benchmarks-and-real-world-results">Security Performance — Benchmarks and Real-World Results</h2>
+<p>On the OpenSSF CVE Benchmark — the most widely cited independent evaluation for AI security tools — BugBot scored 80.45% F1, placing second overall. DeepSource leads at 84.51%, but BugBot holds a meaningful gap over most competitors. More operationally, BugBot&rsquo;s resolution rate has reached 80%, which is 15 percentage points higher than the next-closest AI code review product according to Cursor&rsquo;s own metrics. Resolution rate measures whether flagged issues actually get fixed — a metric that meaningfully includes both detection quality and developer trust. High resolution rates require low false positives; if developers stop reading BugBot comments, resolution rates collapse. The jump from 52% to 76% resolution since the agentic rebuild, and then to 80% as of early 2026, reflects both improved accuracy and better-formatted suggestions that developers can act on quickly. For context, traditional SAST tools routinely achieve resolution rates under 30% due to false-positive fatigue. The 2026 AI security landscape makes BugBot&rsquo;s performance figures more urgent: 65% of enterprises plan to increase investment in AI code security testing this year, partly because AI-generated code ships with vulnerabilities at rates far higher than human-written code. BugBot is positioned as the layer that catches what AI coding assistants introduce.</p>
+<h3 id="cve-detection-and-real-world-security">CVE Detection and Real-World Security</h3>
+<p>BugBot&rsquo;s security focus goes beyond logic errors. It detects injection vulnerabilities, insecure deserialization patterns, broken access control, and CVE-class flaws by reasoning about data flows across the PR diff and surrounding context. Teams using Cursor&rsquo;s AI coding features — where AI writes substantial portions of PRs — report that BugBot catches a disproportionate share of issues in AI-generated sections of code.</p>
+<h2 id="pricing-breakdown--what-40user-actually-gets-you">Pricing Breakdown — What $40/User Actually Gets You</h2>
+<p>BugBot is the most expensive dedicated AI code review tool on the market at $40/user/month, and the pricing structure has several non-obvious elements teams need to evaluate carefully. First, the $40 is on top of a Cursor subscription — it is not included with any Cursor IDE plan. Second, billing counts unique PR authors, not just your internal team; if external contributors open PRs against your repository, each unique author in a billing period counts as a seat. Third, the Pro plan caps reviews at 200 PRs per month; the Teams plan removes that cap. For a ten-person team with moderate external contribution, actual monthly cost can exceed $500 before hitting the unlimited tier. Compared to CodeRabbit ($24/dev/month, no PR cap, GitHub + GitLab + Bitbucket support), BugBot&rsquo;s per-seat cost is 67% higher. GitHub Copilot PR review is included in Enterprise and Business plans at no additional charge. BugBot&rsquo;s pricing is defensible if the team is already embedded in the Cursor ecosystem and values the learned-rules feedback loop and Autofix — but teams doing a pure cost-per-review comparison will find cheaper alternatives with broader platform support.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Plan</th>
+          <th>Price</th>
+          <th>PR Cap</th>
+          <th>External Contributors</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>BugBot Pro</td>
+          <td>$40/user/month</td>
+          <td>200/month</td>
+          <td>Billed separately</td>
+      </tr>
+      <tr>
+          <td>BugBot Teams</td>
+          <td>$40/user/month</td>
+          <td>Unlimited</td>
+          <td>Billed separately</td>
+      </tr>
+      <tr>
+          <td>CodeRabbit</td>
+          <td>$24/dev/month</td>
+          <td>None</td>
+          <td>Included</td>
+      </tr>
+      <tr>
+          <td>GitHub Copilot (Enterprise)</td>
+          <td>Included</td>
+          <td>None</td>
+          <td>Included</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="bugbot-vs-competitors-coderabbit-github-copilot-qodo">BugBot vs. Competitors: CodeRabbit, GitHub Copilot, Qodo</h2>
+<p>BugBot competes in a crowded market of AI PR reviewers, and the right choice depends heavily on which platforms your team uses and whether self-improving accuracy justifies premium pricing. CodeRabbit is BugBot&rsquo;s most direct competitor: it costs $24/dev/month (40% cheaper), supports GitHub, GitLab, and Bitbucket, and in independent head-to-head testing caught more planted issues with fewer false positives. For multi-platform organizations or cost-sensitive teams, CodeRabbit is the stronger default. GitHub Copilot PR review is available at no added cost for GitHub Enterprise and Business subscribers, making it the obvious choice for organizations already committed to that tier — though it lacks BugBot&rsquo;s learned rules and agentic Autofix capability. Qodo targets teams needing deep test coverage insights alongside review, while Greptile emphasizes semantic search and context-aware review across monorepos. BugBot&rsquo;s unique value proposition is the learned rules + Autofix combination: no other major AI reviewer currently offers a comparable self-improving system paired with autonomous fix generation. Teams that have operated BugBot for six months or more report noticeably fewer false positives than day-one deployments, a durability advantage that cheaper tools don&rsquo;t replicate. For GitHub-only shops in the Cursor ecosystem with the budget, BugBot&rsquo;s compound accuracy improvement is the differentiator.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Price</th>
+          <th>Platforms</th>
+          <th>Autofix</th>
+          <th>Learned Rules</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Cursor BugBot</td>
+          <td>$40/user/month</td>
+          <td>GitHub only</td>
+          <td>Yes</td>
+          <td>Yes (44K+ rules)</td>
+      </tr>
+      <tr>
+          <td>CodeRabbit</td>
+          <td>$24/dev/month</td>
+          <td>GitHub, GitLab, Bitbucket</td>
+          <td>Limited</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>GitHub Copilot PR</td>
+          <td>Included (Enterprise)</td>
+          <td>GitHub</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Qodo</td>
+          <td>$19/dev/month</td>
+          <td>GitHub, GitLab</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Greptile</td>
+          <td>$25/dev/month</td>
+          <td>GitHub, GitLab</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="limitations-and-who-should-skip-bugbot">Limitations and Who Should Skip BugBot</h2>
+<p>BugBot has two hard limitations and several soft ones that disqualify it for specific teams. The hard limitations: GitHub only, no exceptions. If your team uses GitLab, Bitbucket, Azure DevOps, or a self-hosted git system, BugBot cannot review your PRs as of April 2026. No roadmap has been publicly committed for additional platform support. The second hard limitation is the cost structure: $40/user/month plus Cursor subscription plus per-external-contributor billing makes BugBot materially expensive for open-source projects, agencies with many client repositories, or organizations with high external contributor volume. Teams that should skip BugBot include: any team not exclusively on GitHub; any team where per-external-contributor billing creates unpredictable monthly costs; any team using GitLab or Bitbucket as primary; and any team for whom the $40/seat premium over CodeRabbit cannot be justified by the Autofix and learned rules advantages. Teams that are a good fit: Cursor IDE shops already on GitHub with stable contributor pools, teams experiencing false-positive fatigue from traditional SAST tools, and engineering organizations that value automated remediation over pure detection. The agentic Autofix feature is genuinely differentiated — if your team&rsquo;s bottleneck is not finding bugs but fixing them quickly, BugBot&rsquo;s 35%+ Autofix merge rate addresses a real operational problem.</p>
+<h2 id="how-to-set-up-bugbot-in-5-minutes">How to Set Up BugBot in 5 Minutes</h2>
+<p>Getting BugBot running on a GitHub repository is straightforward: navigate to cursor.com/bugbot, connect your GitHub organization via OAuth, select the repositories to enable, and BugBot begins reviewing new PRs immediately. No YAML configuration, no CI/CD pipeline changes, no new toolchain to maintain. The setup flow takes under five minutes for a single repository and under fifteen for organization-wide rollout. Once enabled, BugBot automatically reviews every new PR opened against the enabled repositories. For existing PRs, you can trigger a manual review by commenting <code>/bugbot review</code> on the PR. The learned rules system activates automatically — no training step required — and begins accumulating signals from day one. To enable Autofix, navigate to the BugBot settings dashboard and toggle Autofix on per-repository. Autofix requires slightly elevated permissions (it needs to push branches and open PRs on your behalf), which the OAuth flow handles during initial setup if you grant the extended permission scope. For team-wide deployment, BugBot&rsquo;s admin console provides per-repository enable/disable, a review history dashboard, and billing management for external contributors.</p>
+<h3 id="configuring-review-focus">Configuring Review Focus</h3>
+<p>BugBot&rsquo;s detection defaults are tuned for broad coverage, but teams can configure severity thresholds and suppress specific finding categories from the dashboard. Teams that want BugBot to focus exclusively on security vulnerabilities (and suppress logic warnings) can configure that in three clicks — useful for organizations that already run dedicated linters for code quality but want BugBot only on the security layer.</p>
+<h2 id="verdict-is-cursor-bugbot-worth-it-in-2026">Verdict: Is Cursor BugBot Worth It in 2026?</h2>
+<p>Cursor BugBot is worth it for GitHub-only teams deeply embedded in the Cursor ecosystem who can justify the $40/user premium for autonomous Autofix and self-improving detection accuracy. The core case is compelling: 80% resolution rate (15 points above the next competitor), 80.45% F1 on the OpenSSF CVE Benchmark, and an Autofix system that merges fixes in over 35% of cases. The learned rules engine is genuinely differentiated — six months of team usage produces a reviewer that knows your codebase&rsquo;s risk patterns better than any off-the-shelf rule library. The weak points are real: GitHub-only coverage, the most expensive per-seat cost in the category, and a billing model that punishes open-source projects and high-external-contributor repositories. Teams on GitLab or Bitbucket have no viable path to BugBot and should evaluate CodeRabbit first. Teams on GitHub with stable contributor pools and Autofix workflows will find BugBot&rsquo;s compound accuracy improvement worth the premium after the six-month learning ramp. For organizations asking whether they need any AI PR reviewer in 2026, the answer is increasingly yes — 53% of AI-generated code shipping with vulnerabilities makes automated review a baseline competency, not a nice-to-have.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>Is Cursor BugBot free?</strong>
+No. BugBot costs $40/user/month as a standalone add-on, separate from any Cursor IDE subscription. There is no free tier as of 2026, though a trial period may be available during onboarding.</p>
+<p><strong>What platforms does BugBot support?</strong>
+BugBot currently integrates exclusively with GitHub. GitLab, Bitbucket, and Azure DevOps are not supported as of April 2026. Teams on other platforms should evaluate CodeRabbit or Greptile instead.</p>
+<p><strong>How is BugBot different from GitHub Copilot PR review?</strong>
+BugBot includes Autofix (autonomous fix generation via cloud agents) and learned rules that self-improve based on your team&rsquo;s behavior. GitHub Copilot PR review offers neither capability and is included at no extra cost with Enterprise/Business plans.</p>
+<p><strong>What is BugBot Autofix?</strong>
+Autofix is a feature launched in February 2026 that spawns an autonomous Cloud Agent in an isolated VM to test, patch, and propose fixes for issues BugBot detects. Over 35% of Autofix proposals are merged directly into the base PR.</p>
+<p><strong>How does BugBot handle external contributors?</strong>
+External contributors who open PRs against BugBot-enabled repositories are billed as unique users in the billing period. Teams with high external contributor volume should calculate expected monthly billing carefully before committing to BugBot&rsquo;s pricing model.</p>
+]]></content:encoded></item><item><title>Figma MCP Server Guide 2026: Design to Code with AI</title><link>https://baeseokjae.github.io/posts/figma-mcp-design-to-code-2026/</link><pubDate>Sun, 03 May 2026 15:04:32 +0000</pubDate><guid>https://baeseokjae.github.io/posts/figma-mcp-design-to-code-2026/</guid><description>Complete guide to the Figma MCP server: setup, remote vs desktop, Code Connect, and real-world design-to-code workflows with AI agents in 2026.</description><content:encoded><![CDATA[<p>The Figma MCP server turns your design files into a live context source for AI agents — eliminating the screenshot-and-describe loop that slows down design implementation. With one properly configured endpoint, tools like Cursor, Claude Code, and Windsurf can read your exact component hierarchy, tokens, and constraints in real time.</p>
+<h2 id="what-is-the-figma-mcp-server-and-why-developers-care-in-2026">What Is the Figma MCP Server? (And Why Developers Care in 2026)</h2>
+<p>The Figma MCP server is an implementation of the Model Context Protocol (MCP) that exposes your Figma design files as structured, queryable context for AI coding agents. Unlike exporting assets or taking screenshots, the MCP server streams design metadata — component names, layout constraints, spacing tokens, font styles, and the full layer tree — directly into the context window of whatever AI tool you&rsquo;re using. Figma officially launched bidirectional Claude Code integration (Design to Code + Code to Canvas) in February 2026, and since then adoption has accelerated sharply. The public MCP server registry expanded from 1,200 servers in Q1 2025 to 9,400+ by April 2026, and 78% of enterprise AI teams report at least one MCP-backed agent in production. For frontend developers, the Figma MCP server is the most direct path from a designer&rsquo;s intent to production-ready component code — without a handoff document, Zeplin export, or a six-round revision cycle.</p>
+<h3 id="why-traditional-design-handoffs-break-down">Why Traditional Design Handoffs Break Down</h3>
+<p>Traditional design handoffs break down because they freeze the design at export time. A static Figma export, Zeplin spec, or even a copied CSS value becomes stale the moment the designer iterates. Engineers then work from outdated specs, generating mismatch bugs that require another round of review. The Figma MCP server solves this by making the design a continuously-queried live reference — your AI agent re-reads the current file state every time it generates code, not the state from last Tuesday&rsquo;s export.</p>
+<h2 id="remote-server-vs-desktop-server--which-should-you-use">Remote Server vs Desktop Server — Which Should You Use?</h2>
+<p>The Figma MCP server ships in two flavors, and choosing the wrong one will either block your workflow or add unnecessary complexity. The <strong>remote server</strong> connects to Figma&rsquo;s hosted endpoint at <code>https://mcp.figma.com/mcp</code> and is available on all Figma seats and plans — no Figma desktop app required. You authenticate with a personal access token, pass a file link in your prompt, and the server fetches the design data on demand. The <strong>desktop server</strong> runs locally through the Figma desktop app and requires a Dev seat or Full seat. It unlocks one major feature the remote server lacks: selection-based context — you can select a specific frame or component in Figma and have the MCP server automatically scope the context to just that element, rather than the whole file. Developers using MCP servers report 40–60% faster workflow completion vs. built-in AI capabilities alone, and most of that gain comes from the remote server alone for teams without a Dev seat.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Remote Server</th>
+          <th>Desktop Server</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Seat requirement</td>
+          <td>Any (Viewer, Editor)</td>
+          <td>Dev or Full seat</td>
+      </tr>
+      <tr>
+          <td>Figma desktop app required</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Authentication</td>
+          <td>Personal access token</td>
+          <td>Desktop app session</td>
+      </tr>
+      <tr>
+          <td>Selection-based context</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Skills / guided workflows</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Works with Claude Code</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Works with Cursor</td>
+          <td>Yes</td>
+          <td>Yes</td>
+      </tr>
+      <tr>
+          <td>Enterprise SSO</td>
+          <td>No</td>
+          <td>Yes</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Recommendation:</strong> Start with the remote server unless you specifically need selection-based context or are in an enterprise environment that requires the desktop app.</p>
+<h2 id="how-to-set-up-the-figma-remote-mcp-server-step-by-step">How to Set Up the Figma Remote MCP Server (Step by Step)</h2>
+<p>Setting up the Figma remote MCP server takes under five minutes once you have a Figma personal access token. The token must have <code>file:read</code> scope; without it the server returns a 403 on every design fetch. Here is the full setup sequence:</p>
+<p><strong>Step 1: Generate a Figma Personal Access Token</strong></p>
+<ol>
+<li>Open Figma → Profile → Settings → Security</li>
+<li>Scroll to &ldquo;Personal access tokens&rdquo;</li>
+<li>Click &ldquo;Generate new token&rdquo;</li>
+<li>Name it (e.g., <code>mcp-server</code>), set scope to <code>file:read</code></li>
+<li>Copy the token immediately — it won&rsquo;t be shown again</li>
+</ol>
+<p><strong>Step 2: Add the MCP Server to Your AI Tool Config</strong></p>
+<p>For Claude Code (<code>~/.claude/mcp.json</code> or project-level <code>.claude/mcp.json</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;figma&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;http&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://mcp.figma.com/mcp&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;headers&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Authorization&#34;</span>: <span style="color:#e6db74">&#34;Bearer YOUR_FIGMA_TOKEN&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For Cursor (<code>.cursor/mcp.json</code> in your project or globally):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;figma&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;-y&#34;</span>, <span style="color:#e6db74">&#34;figma-developer-mcp&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;FIGMA_API_TOKEN&#34;</span>: <span style="color:#e6db74">&#34;YOUR_FIGMA_TOKEN&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Step 3: Verify the Connection</strong></p>
+<p>Restart your AI tool, then run a quick test prompt:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 408 41"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>D</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='336' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='344' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='352' y='20' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='360' y='20' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='368' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='376' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='384' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='392' y='20' fill='currentColor' style='font-size:1em'>m</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>If the server is configured correctly, the agent lists all frames and components. If you see a 401 error, the token is wrong or expired.</p>
+<h3 id="setting-up-the-desktop-server-instead">Setting Up the Desktop Server Instead</h3>
+<p>Setting up the desktop server requires Figma desktop app version 116.3 or later with a Dev or Full seat. Enable MCP under <code>Figma menu → Preferences → Enable MCP Server</code>. The local server runs on <code>http://localhost:3845/mcp</code>. Add this URL (with no auth headers) to your tool&rsquo;s MCP config. The desktop server exposes an additional <code>get_selection</code> tool that returns metadata for whatever frame or component is currently selected in the Figma canvas.</p>
+<h2 id="connecting-figma-mcp-to-cursor-claude-code-and-windsurf">Connecting Figma MCP to Cursor, Claude Code, and Windsurf</h2>
+<p>Connecting the Figma MCP server to your AI coding tool follows the same pattern across clients — define the server URL or command in the tool&rsquo;s MCP config file — but each tool has a slightly different config location and syntax. Cursor uses <code>.cursor/mcp.json</code> (project-level) or <code>~/.cursor/mcp.json</code> (global). Claude Code uses <code>.claude/mcp.json</code> at the project root or <code>~/.claude/mcp.json</code> globally. Windsurf reads <code>~/.codeium/windsurf/mcp_config.json</code>. VS Code with the Copilot extension reads <code>.vscode/mcp.json</code>. Zed reads <code>~/.config/zed/settings.json</code> under an <code>&quot;experimental.context_servers&quot;</code> key. All clients support both the HTTP endpoint (remote server) and the npm package wrapper <code>figma-developer-mcp</code> (local npx runner). The HTTP endpoint is simpler for teams because there is no node runtime dependency; the npx package is useful when you need to run a custom fork or an older pinned version.</p>
+<h3 id="testing-the-integration-in-cursor">Testing the Integration in Cursor</h3>
+<p>Once the config file is in place, open a Cursor Chat window and enable MCP in the model picker. Paste a Figma frame URL and ask:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 656 41"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>?</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>1</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='344' y='20' fill='currentColor' style='font-size:1em'>2</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='352' y='20' fill='currentColor' style='font-size:1em'>3</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='360' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='368' y='20' fill='currentColor' style='font-size:1em'>4</text>
+<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='376' y='20' fill='currentColor' style='font-size:1em'>5</text>
+<text text-anchor='middle' x='384' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='384' y='20' fill='currentColor' style='font-size:1em'>6</text>
+<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='400' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='408' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='416' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='424' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='432' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='440' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='456' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='464' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='472' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='480' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='488' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='496' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='504' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='512' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='520' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='536' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='544' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='560' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='568' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='576' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='584' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='600' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='608' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='616' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='624' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='632' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='640' y='4' fill='currentColor' style='font-size:1em'>:</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>A working integration returns structured JSON describing the frame dimensions, children, text content, fill colors, and spacing values. If Cursor returns a generic error about &ldquo;no MCP tools available,&rdquo; the config file path is wrong — confirm it is at the root of the workspace, not inside a subfolder.</p>
+<h2 id="your-first-design-to-code-workflow-with-figma-mcp">Your First Design-to-Code Workflow with Figma MCP</h2>
+<p>A Figma MCP design-to-code workflow follows a repeatable three-step pattern: point the AI agent at a Figma frame URL, describe what component framework you&rsquo;re targeting, and let the agent generate code grounded in the actual design data rather than a screenshot approximation. The real-world time savings are substantial — dashboard interfaces with 8 complex UI components that previously took 2–3 days to implement are now completed in one afternoon. Here is an example first workflow using Claude Code with the remote server configured:</p>
+<p><strong>Prompt:</strong></p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 920 73"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='8' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='48' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='64' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='88' y='52' fill='currentColor' style='font-size:1em'>x</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='96' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>M</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='128' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='136' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='144' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='160' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='168' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='176' y='52' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='52' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='200' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='208' y='52' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='216' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='224' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='232' y='52' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='264' y='20' fill='currentColor' style='font-size:1em'>?</text>
+<text text-anchor='middle' x='264' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='272' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='272' y='52' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='280' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='280' y='52' fill='currentColor' style='font-size:1em'>,</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='288' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='296' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='296' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='304' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='304' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='312' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='312' y='52' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='320' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='328' y='20' fill='currentColor' style='font-size:1em'>=</text>
+<text text-anchor='middle' x='328' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='336' y='20' fill='currentColor' style='font-size:1em'>4</text>
+<text text-anchor='middle' x='336' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='344' y='20' fill='currentColor' style='font-size:1em'>5</text>
+<text text-anchor='middle' x='344' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='352' y='20' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='352' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='360' y='20' fill='currentColor' style='font-size:1em'>7</text>
+<text text-anchor='middle' x='360' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='368' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='368' y='20' fill='currentColor' style='font-size:1em'>8</text>
+<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='376' y='20' fill='currentColor' style='font-size:1em'>9</text>
+<text text-anchor='middle' x='376' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='384' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='384' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='392' y='52' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='400' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='400' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='408' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='408' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='416' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='424' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='424' y='52' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='432' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='440' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='440' y='52' fill='currentColor' style='font-size:1em'>U</text>
+<text text-anchor='middle' x='448' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='448' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='456' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='464' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='472' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='472' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='480' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='480' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='488' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='488' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='496' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='504' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='504' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='512' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='512' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='520' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='520' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='528' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='528' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='536' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='544' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='544' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='552' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='552' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='560' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='568' y='4' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='568' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='576' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='584' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='584' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='592' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='592' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='600' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='600' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='608' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='616' y='4' fill='currentColor' style='font-size:1em'>+</text>
+<text text-anchor='middle' x='616' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='632' y='4' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='632' y='52' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='640' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='640' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='648' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='648' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='656' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='656' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='664' y='4' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='672' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='672' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='680' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='680' y='52' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='688' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='688' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='696' y='4' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='704' y='52' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='712' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='720' y='52' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='728' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='736' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='752' y='52' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='760' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='768' y='52' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='776' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='792' y='52' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='800' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='816' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='824' y='52' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='832' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='840' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='848' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='856' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='864' y='52' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='872' y='52' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='880' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='888' y='52' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='896' y='52' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='904' y='52' fill='currentColor' style='font-size:1em'>.</text>
+</g>
+
+    </svg>
+  
+</div>
+<p><strong>What the agent does:</strong></p>
+<ol>
+<li>Calls the Figma MCP <code>get_file_nodes</code> tool with the node ID</li>
+<li>Reads the layer tree: component name (<code>DashboardCard</code>), children (<code>CardHeader</code>, <code>CardMetric</code>, <code>CardTrend</code>), spacing (<code>gap: 16</code>, <code>padding: 24</code>), fill (<code>#1A1A2E</code>)</li>
+<li>Maps color fills to Tailwind classes or inline styles</li>
+<li>Generates JSX using the exact component hierarchy from the design</li>
+</ol>
+<p><strong>What you get without Code Connect:</strong> Generic React JSX with hardcoded Tailwind classes. Functional but not using your actual design system components.</p>
+<p><strong>What you get with Code Connect:</strong> The agent imports <code>DashboardCard</code> from your actual package, uses your <code>useMetric</code> hook, and matches the variant props your design system exposes.</p>
+<h3 id="prompting-strategies-that-get-better-results">Prompting Strategies That Get Better Results</h3>
+<p>Prompting strategies that improve Figma MCP output quality share one common principle: scope the context aggressively. A whole-file query returns thousands of layers and the agent spends token budget parsing irrelevant screens. Node-ID-scoped queries — using <code>?node-id=FRAME_ID</code> in the URL — focus the server on exactly the component you&rsquo;re implementing. For multi-component pages, run separate prompts per component rather than one giant prompt covering the full design.</p>
+<h2 id="code-connect-the-key-to-generating-your-actual-components">Code Connect: The Key to Generating Your Actual Components</h2>
+<p>Code Connect is Figma&rsquo;s open-source mapping layer that links a Figma component to its real codebase counterpart — the actual import path, prop names, and variant mappings — so that when an AI agent reads a Figma component via MCP, it can generate code using your specific library rather than inventing generic HTML. Without Code Connect, current beta reports show 85–90% styling inaccuracy in generated code, requiring significant manual correction. With Code Connect properly configured, the same agent prompt generates code that imports from your actual package: <code>import { Button } from '@your-org/design-system'</code> instead of <code>&lt;button className=&quot;px-4 py-2 bg-blue-500&quot;&gt;</code>. Code Connect files live in your codebase alongside the component they describe. A minimal example for a <code>Button</code> component looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#75715e">// Button.figma.tsx
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">figma</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;@figma/code-connect&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Button</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./Button&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">figma</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">Button</span>, <span style="color:#e6db74">&#39;https://www.figma.com/design/XXXX?node-id=100-200&#39;</span>, {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">variant</span>: <span style="color:#66d9ef">figma.enum</span>(<span style="color:#e6db74">&#39;Variant&#39;</span>, {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">primary</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;primary&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">secondary</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;secondary&#39;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">ghost</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ghost&#39;</span>,
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">label</span>: <span style="color:#66d9ef">figma.string</span>(<span style="color:#e6db74">&#39;Label&#39;</span>),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">disabled</span>: <span style="color:#66d9ef">figma.boolean</span>(<span style="color:#e6db74">&#39;Disabled&#39;</span>),
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">example</span><span style="color:#f92672">:</span> ({ <span style="color:#a6e22e">variant</span>, <span style="color:#a6e22e">label</span>, <span style="color:#a6e22e">disabled</span> }) <span style="color:#f92672">=&gt;</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">Button</span> <span style="color:#a6e22e">variant</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">variant</span>} <span style="color:#a6e22e">disabled</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">disabled</span>}&gt;{<span style="color:#a6e22e">label</span>}&lt;/<span style="color:#f92672">Button</span>&gt;
+</span></span><span style="display:flex;"><span>  ),
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>Publish the Code Connect mappings with <code>npx @figma/code-connect publish</code>. After publishing, the Figma MCP server automatically includes Code Connect metadata in every response that mentions a connected component. The investment is real — teams report 40–80 hours of initial setup time for a full Figma MCP + Code Connect pipeline — but teams that complete it reduce revision cycles from 4–5 rounds to typically just one.</p>
+<h3 id="which-components-to-connect-first">Which Components to Connect First</h3>
+<p>Which components to connect first is a strategic decision that shapes ROI. Prioritize leaf-level primitives used everywhere: Button, Input, Text, Badge, Icon. These appear in almost every screen, so Code Connect coverage on primitives cascades across all generated code. Skip complex composed components (DataTable, Modal with custom logic) until primitives are stable — the agent composes correctly once it has the building blocks.</p>
+<h2 id="code-to-canvas--pushing-code-back-to-figma">Code to Canvas — Pushing Code Back to Figma</h2>
+<p>Code to Canvas is the less-discussed half of Figma&rsquo;s bidirectional MCP integration: instead of reading a Figma design to generate code, you push code into Figma as editable vector layers. This workflow is useful when a developer has built a component variant that the designer wants to incorporate into the source-of-truth Figma file. The integration, launched as part of the February 2026 Claude Code partnership, uses the MCP server&rsquo;s <code>write</code> capability (currently Claude Code only; Cursor and Windsurf support is in beta). The prompt pattern is straightforward:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 696 89"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>G</text>
+<text text-anchor='middle' x='0' y='20' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='0' y='52' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='0' y='68' fill='currentColor' style='font-size:1em'>[</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='8' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='8' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='8' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='16' y='20' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='52' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='16' y='68' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='24' y='20' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='52' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='24' y='68' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='32' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='32' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='32' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='40' y='20' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='40' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='40' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='48' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='48' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='56' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='52' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='56' y='68' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='64' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='64' y='52' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='64' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='72' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='72' y='68' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='80' y='20' fill='currentColor' style='font-size:1em'>w</text>
+<text text-anchor='middle' x='80' y='52' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='80' y='68' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>F</text>
+<text text-anchor='middle' x='88' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='88' y='52' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='88' y='68' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='96' y='20' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='96' y='52' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='96' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='104' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='104' y='52' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='104' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='112' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='112' y='52' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='112' y='68' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='120' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='120' y='68' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='128' y='20' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='136' y='20' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='136' y='68' fill='currentColor' style='font-size:1em'>J</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='144' y='20' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='144' y='68' fill='currentColor' style='font-size:1em'>S</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='152' y='20' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='152' y='68' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='160' y='20' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='168' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='168' y='68' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='176' y='20' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='176' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='184' y='20' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='68' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='192' y='20' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='192' y='68' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='200' y='20' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='200' y='68' fill='currentColor' style='font-size:1em'>]</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='208' y='20' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='216' y='20' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='224' y='20' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='232' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='240' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='248' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='256' y='20' fill='currentColor' style='font-size:1em'>X</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>R</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='336' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='344' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='352' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='360' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='368' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='376' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='392' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='400' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='408' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='424' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='432' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='440' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='456' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='464' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='480' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='488' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='504' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='512' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='520' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='536' y='4' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='544' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='552' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='560' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='568' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='576' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='584' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='592' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='600' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='608' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='624' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='632' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='640' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='648' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='664' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='672' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='680' y='4' fill='currentColor' style='font-size:1em'>:</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>The agent reads the component&rsquo;s JSX structure, maps props to Figma layer properties, and calls the MCP server&rsquo;s write endpoint to create a new frame. The output is fully editable — auto layout, component properties, and local styles are preserved. The limitation is that complex logic (conditional renders, data fetching) is flattened to a single state in the generated frame. The agent will pick the component&rsquo;s default props unless you explicitly specify the state to render.</p>
+<h2 id="real-world-results-limitations-and-what-to-expect">Real-World Results, Limitations, and What to Expect</h2>
+<p>Real-world Figma MCP results in 2026 are genuinely impressive but unevenly distributed — teams with mature, well-structured design systems see dramatic gains, while teams with disorganized Figma files see marginal improvement over a screenshot workflow. Dashboard interfaces with 8 complex UI components that previously took 2–3 days to implement are now completed in one afternoon with a well-configured setup. Revision cycles drop from 4–5 rounds to typically just one. However, the 85–90% styling inaccuracy rate without Code Connect is a real ceiling — expect to correct spacing, border-radius, and responsive behavior by hand unless your design system is fully connected. The 40–80 hour initial setup cost is also real; teams that skip it and use the remote server on a disorganized file with inconsistent naming will generate code that requires heavy editing.</p>
+<h3 id="what-the-figma-mcp-server-does-not-do">What the Figma MCP Server Does Not Do</h3>
+<p>The Figma MCP server does not generate pixel-perfect code autonomously. It provides structured context — the AI agent still interprets that context and generates code, and that interpretation can go wrong. It does not handle responsive breakpoints automatically unless they are defined as Figma variables. It does not generate animations or complex interaction states. It does not replace a design system — it amplifies one. If your Figma file has inconsistent naming, unlabeled layers, or missing Auto Layout, the MCP server faithfully exposes that inconsistency to the AI agent, which then produces inconsistent code.</p>
+<h3 id="common-setup-errors">Common Setup Errors</h3>
+<ul>
+<li><strong>401 errors</strong>: Token missing <code>file:read</code> scope or expired — regenerate the token</li>
+<li><strong>Empty layer tree</strong>: Wrong node ID in the URL — use the node selector in Figma (<code>Right-click → Copy link to selection</code>) to get the exact ID</li>
+<li><strong>Generic code despite Code Connect</strong>: Code Connect metadata not published — run <code>npx @figma/code-connect publish</code> after editing <code>.figma.tsx</code> files</li>
+<li><strong>Cursor can&rsquo;t find MCP tools</strong>: Config file is not at workspace root — move <code>.cursor/mcp.json</code> to the project root directory</li>
+</ul>
+<h2 id="best-practices-for-teams-using-figma-mcp-at-scale">Best Practices for Teams Using Figma MCP at Scale</h2>
+<p>Best practices for teams scaling Figma MCP across multiple engineers center on three areas: Figma file hygiene, Code Connect coverage strategy, and shared AI agent configuration. Teams that succeed at scale treat their Figma file structure as a developer dependency — not an artifact that gets cleaned up &ldquo;someday.&rdquo; Enforcing naming conventions (PascalCase for components, kebab-case for layers), using Auto Layout everywhere, and keeping design tokens as Figma variables (not hardcoded fills) makes the MCP context structurally consistent across files, which directly improves code generation quality. Sharing the MCP config file in the repository root means every developer on the team uses identical server configuration without per-machine setup. Storing the Figma access token in a shared secrets manager (rather than each developer&rsquo;s <code>.env</code>) prevents token drift and revocation surprises.</p>
+<h3 id="structuring-your-figma-file-for-mcp">Structuring Your Figma File for MCP</h3>
+<p>Structuring your Figma file for MCP output quality follows the same principles as structuring it for developer handoff, but with stricter enforcement. Name every component and layer descriptively — the MCP server returns layer names as-is, so <code>Frame 457</code> in the AI context produces <code>frame457</code> in the generated code. Use Figma Variables for all color, spacing, and typography tokens; the MCP server exposes variable names alongside values, and Code Connect can map them to your codebase token names. Enable Auto Layout on all container frames — without Auto Layout, the agent has to infer layout intent from absolute positioning, which produces brittle CSS. Keep each Figma page focused: a <code>Components</code> page, a <code>Screens</code> page, and a <code>Tokens</code> page are easier to query than a single sprawling canvas.</p>
+<h3 id="team-workflow-recommendations">Team Workflow Recommendations</h3>
+<ul>
+<li><strong>Commit <code>.figma.tsx</code> Code Connect files alongside component source</strong> — treat them as first-class code, not documentation</li>
+<li><strong>Run Code Connect publish in CI</strong> — prevents stale mappings from drifting out of sync with the component implementation</li>
+<li><strong>Create a shared Figma MCP config file</strong> in your repo&rsquo;s <code>.claude/mcp.json</code> and <code>.cursor/mcp.json</code> — no per-developer setup</li>
+<li><strong>Document the &ldquo;canonical frame&rdquo; for each screen</strong> — a named, top-level frame that is always the reference for AI-driven implementation</li>
+<li><strong>Review generated code against the Figma source at PR time</strong> — add a Figma frame URL to the PR description so reviewers can compare visually</li>
+</ul>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p><strong>Does the Figma MCP server work with free Figma accounts?</strong>
+Yes. The remote server at <code>https://mcp.figma.com/mcp</code> works on all Figma plans including the free Starter plan. You only need a Figma account and a personal access token with <code>file:read</code> scope. The desktop server (for selection-based context) requires a Dev or Full seat.</p>
+<p><strong>What is the difference between the Figma MCP server and Figma Dev Mode?</strong>
+Figma Dev Mode is a UI layer in the Figma app that shows developers CSS, spacing, and asset specs. The MCP server is a protocol endpoint that exposes the same underlying data to AI agents programmatically. Dev Mode is for manual inspection; the MCP server is for AI-driven code generation. You can use both — Dev Mode for understanding, MCP for generating.</p>
+<p><strong>Can I use the Figma MCP server without Code Connect?</strong>
+Yes, but code quality is significantly lower. Without Code Connect, the agent generates generic HTML/JSX with hardcoded values. Current data suggests 85–90% styling inaccuracy without Code Connect, meaning most AI-generated code will need substantial manual correction. If your design system is small or you&rsquo;re prototyping, the remote server alone may be good enough; for production use, Code Connect is worth the investment.</p>
+<p><strong>How do I scope the Figma MCP context to a single frame instead of the whole file?</strong>
+Append <code>?node-id=FRAME_ID</code> to the Figma URL in your prompt. Get the exact node ID by right-clicking a frame in Figma and selecting &ldquo;Copy link to selection.&rdquo; This dramatically reduces the token footprint of the MCP response and focuses the agent on the component you&rsquo;re implementing.</p>
+<p><strong>Does the Figma MCP server support frameworks other than React?</strong>
+Yes. The Figma MCP server is framework-agnostic — it returns design metadata, not React code. Code Connect has official support for React, iOS (SwiftUI), and Android (Jetpack Compose), and community packages cover Vue, Angular, Svelte, and HTML/CSS. The AI agent translates the design metadata into whatever framework you specify in your prompt.</p>
+]]></content:encoded></item><item><title>Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase</title><link>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</link><pubDate>Sun, 03 May 2026 03:06:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</guid><description>Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.</description><content:encoded><![CDATA[<p>Cursor 2.0 lets you run up to 8 AI agents simultaneously on your codebase using git worktrees — each agent works in isolation on a separate branch, eliminating file conflicts. Combined with Composer 2&rsquo;s 250 tokens/second throughput, you can parallelize a week of refactoring work into a single afternoon.</p>
+<h2 id="what-are-cursor-20-parallel-agents-the-8-agent-breakthrough">What Are Cursor 2.0 Parallel Agents? (The 8-Agent Breakthrough)</h2>
+<p>Cursor 2.0 parallel agents are simultaneous AI coding sessions, each running inside its own git worktree, that allow up to 8 independent Composer instances to modify the same repository at once without stepping on each other&rsquo;s changes. Introduced with Cursor 2.0 in early 2026, this feature fundamentally changes how developers handle large, decomposable tasks like TypeScript migrations, test suite generation, or cross-cutting refactors. In practice, a senior engineer can assign Agent 1 to rewrite the authentication module, Agent 2 to update all API handlers, and Agent 3 to generate test coverage — all running simultaneously. Cursor reports that agentic tasks complete 30% faster with parallel background agents versus sequential execution. Composer 2 scores 61.3 on CursorBench versus 44.2 for Composer 1.5 (a 39% improvement), meaning each individual agent is also smarter than its predecessor. The net result: tasks that previously took days now finish in hours, with each agent maintaining full context of its own isolated work.</p>
+<h3 id="how-worktree-isolation-works">How Worktree Isolation Works</h3>
+<p>Each parallel agent gets its own git worktree — a separate checkout of the repository with its own working directory and branch. All worktrees share the same underlying <code>.git</code> object database, so there is no repository duplication. Agent 2 modifying <code>auth/handler.ts</code> has no awareness of Agent 5 editing <code>api/users.ts</code>. When both finish, you merge their branches like any normal git workflow. The technical constraint is disk I/O and RAM: each active Cursor window consumes approximately 800MB–1.2GB of memory, which means 8 agents realistically requires 16GB+ of system RAM for smooth operation.</p>
+<h2 id="the-technology-behind-parallel-agents-git-worktrees-explained">The Technology Behind Parallel Agents: Git Worktrees Explained</h2>
+<p>Git worktrees are a first-class git feature — not a Cursor invention — that allow a single repository to have multiple checked-out branches simultaneously in different filesystem paths. Cursor 2.0 wraps this capability with a UI that lets you spawn new Composer sessions directly into configured worktree directories. When you run <code>git worktree add ../my-repo-feature1 -b feature/agent-1</code>, git creates a directory at <code>../my-repo-feature1</code> that shares the same object store as your main repo but maintains its own <code>HEAD</code>, index, and working tree. This means commits in the worktree appear instantly in <code>git log</code> everywhere — but the files remain physically separate until merged. For Cursor&rsquo;s parallel agent use case, this architecture is ideal: agents can <code>git add</code>, <code>git commit</code>, and even run terminal commands within their worktree without interfering with other agents. The <code>.cursor/worktrees.json</code> configuration file tells Cursor which directories are active worktrees, enabling automatic environment setup (dependency installation, environment variable injection) when each agent session starts. Cursor&rsquo;s implementation also handles the cleanup cycle: after merging an agent&rsquo;s branch, <code>git worktree remove</code> frees the directory, and Cursor removes it from the worktree registry automatically.</p>
+<h3 id="worktree-vs-branch-whats-the-difference">Worktree vs Branch: What&rsquo;s the Difference?</h3>
+<p>A branch is a pointer to a commit. A worktree is a physical checkout of that branch at a filesystem path. Without worktrees, switching branches means modifying your single working directory — destructive if another process is reading those files. With worktrees, each branch lives at its own path; switching between agents means switching windows, not <code>git checkout</code>. This is why Cursor can run 8 agents: each has a stable filesystem view that never changes unless the agent itself makes a commit.</p>
+<h2 id="setting-up-parallel-agents-in-cursor-20-prerequisites-and-configuration">Setting Up Parallel Agents in Cursor 2.0: Prerequisites and Configuration</h2>
+<p>Setting up Cursor 2.0 parallel agents requires Cursor Pro ($20/month minimum), git 2.15+ for worktree support, and a machine with at least 8GB RAM for 2–3 agents or 16GB+ for 4–8 agents. Start by verifying your Cursor version is 2.0 or later in <strong>Cursor → About Cursor</strong>. Then confirm git worktree support with <code>git worktree list</code> from your project root. The feature is enabled by default in Cursor 2.0 — no feature flag or beta enrollment needed. Create your <code>.cursor</code> directory at the project root if it does not already exist, then create the worktrees configuration file at <code>.cursor/worktrees.json</code>. This file tells Cursor which parallel working directories are active, what branch each maps to, and whether to run setup scripts automatically when an agent session starts in that directory. Each entry in the JSON array specifies a <code>path</code> (relative or absolute), a <code>branch</code> name, and optionally a <code>setup</code> array of shell commands to run on initialization. Without this file, you can still create worktrees manually, but Cursor will not auto-configure agent sessions when you open them.</p>
+<h3 id="system-requirements-by-agent-count">System Requirements by Agent Count</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Agents</th>
+          <th>RAM Required</th>
+          <th>Recommended CPU</th>
+          <th>Disk Space</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2</td>
+          <td>8 GB</td>
+          <td>4 cores</td>
+          <td>+2 GB</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>16 GB</td>
+          <td>8 cores</td>
+          <td>+4 GB</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>32 GB</td>
+          <td>12+ cores</td>
+          <td>+8 GB</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="step-by-step-running-8-simultaneous-ai-agents-on-your-codebase">Step-by-Step: Running 8 Simultaneous AI Agents on Your Codebase</h2>
+<p>Running 8 parallel agents in Cursor 2.0 is a six-step process that combines git worktree setup, Cursor configuration, and strategic task decomposition. First, identify 8 truly independent workstreams in your project — tasks that read or write different files, with no shared dependencies during execution. Second, create a worktree for each task using <code>git worktree add ../project-agent-N -b feature/agent-N</code> for agents 1 through 8. Third, create <code>.cursor/worktrees.json</code> registering all 8 paths with their branch names and any per-worktree setup commands (e.g., <code>npm install</code> or <code>pip install -r requirements.txt</code>). Fourth, open each worktree in a new Cursor window via <strong>File → Open Folder</strong>, then start a Composer session in each window. Fifth, paste each agent&rsquo;s task prompt into its respective Composer — be specific, include file paths, and scope the task tightly to avoid agents accidentally editing shared utilities. Sixth, monitor progress across windows, approve any tool calls that require confirmation, and begin merging completed branches as each agent finishes. The entire setup takes approximately 10 minutes for experienced users. For teams, this workflow maps naturally to microservices: assign one agent per service, each in its own worktree, and review PRs as they complete.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create 8 worktrees for parallel agent work</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>1..8<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  git worktree add ../project-agent-$i -b feature/agent-$i
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verify all worktrees are registered</span>
+</span></span><span style="display:flex;"><span>git worktree list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// .cursor/worktrees.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;worktrees&#34;</span>: [
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-1&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-1&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-2&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-2&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-3&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-3&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-4&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-4&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="writing-effective-per-agent-prompts">Writing Effective Per-Agent Prompts</h3>
+<p>Vague prompts are the primary failure mode for parallel agents. Each agent prompt should specify: (1) which files to modify, (2) which files to leave untouched, (3) the exact output format or API contract, and (4) any conventions from the codebase the agent might not infer from context. A good parallel agent prompt for a TypeScript migration reads: &ldquo;Convert <code>/src/utils/auth.js</code> and all files it imports to TypeScript. Do not modify any files in <code>/src/api/</code>. Preserve all existing function signatures. Add JSDoc comments to all exported functions.&rdquo;</p>
+<h2 id="using-multitask-for-automatic-task-decomposition-cursor-32">Using /multitask for Automatic Task Decomposition (Cursor 3.2)</h2>
+<p>The <code>/multitask</code> command, introduced in Cursor 3.2 on April 24, 2026, automates the task decomposition step entirely — you describe a high-level goal, and Cursor breaks it into async subagents that run in parallel without manual worktree setup. Instead of manually identifying 8 independent workstreams and creating worktrees for each, you type <code>/multitask Migrate all JavaScript files in /src to TypeScript, adding proper types and JSDoc</code> and Cursor&rsquo;s planner analyzes your codebase, identifies which files are safe to process concurrently, spins up subagents for each file cluster, and tracks their progress in a single orchestration view. This is a significant workflow improvement over Cursor 2.0&rsquo;s manual approach: the cognitive overhead of decomposition and worktree management disappears, and the system handles merge ordering automatically. Cursor&rsquo;s planner is conservative — it will not parallelize tasks where it detects file interdependencies, defaulting to sequential execution for those file pairs. The tradeoff is control: <code>/multitask</code> makes decomposition decisions automatically, which occasionally results in suboptimal task groupings. For complex refactors with subtle dependency graphs, manual worktree setup remains more reliable.</p>
+<h3 id="when-to-use-multitask-vs-manual-worktrees">When to Use /multitask vs Manual Worktrees</h3>
+<p>Use <code>/multitask</code> for: large-scale file migrations, test generation across many modules, documentation updates, formatting passes. Use manual worktrees for: tasks requiring precise ordering of commits, work spanning services with shared interfaces, or when you need to customize each agent&rsquo;s environment or context window.</p>
+<h2 id="background-agents-running-ai-agents-on-cloud-vms">Background Agents: Running AI Agents on Cloud VMs</h2>
+<p>Background Agents, available on Cursor Pro ($20/month) and above, run your Cursor agents in isolated AWS virtual machines with internet access — freeing your local machine entirely while agents work. Where local parallel agents consume your RAM and CPU, Background Agents offload execution to Cursor&rsquo;s cloud infrastructure. Each Background Agent VM has internet access for package installation and API calls, a persistent terminal session, and the ability to commit and push to your repository autonomously. You monitor their progress from the Cursor UI&rsquo;s Background Agents panel, which streams terminal output and Composer actions in real time. Background Agents are ideal for long-running tasks (2+ hours), for teams where developers want agents running overnight, and for CI-adjacent workflows where the agent needs to install dependencies, run tests, and create PRs without occupying a developer&rsquo;s laptop. The limitation is cost: Background Agent compute is billed separately from Cursor Pro&rsquo;s base subscription, with pricing based on compute time. For short tasks under 30 minutes, local parallel agents are more cost-effective. For overnight batch work — migrating a 500-file legacy codebase, generating comprehensive test coverage, or updating all dependencies — Background Agents eliminate the need to keep your laptop awake.</p>
+<h3 id="local-vs-background-agents-comparison">Local vs Background Agents: Comparison</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Local Parallel Agents</th>
+          <th>Background Agents</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max simultaneous</td>
+          <td>8</td>
+          <td>Unlimited (plan-based)</td>
+      </tr>
+      <tr>
+          <td>Infrastructure</td>
+          <td>Your machine</td>
+          <td>AWS VMs</td>
+      </tr>
+      <tr>
+          <td>Internet access</td>
+          <td>Via your network</td>
+          <td>Built-in</td>
+      </tr>
+      <tr>
+          <td>Cost</td>
+          <td>Cursor Pro only</td>
+          <td>Pro + compute billing</td>
+      </tr>
+      <tr>
+          <td>Setup</td>
+          <td>Manual worktrees</td>
+          <td>One-click</td>
+      </tr>
+      <tr>
+          <td>Best for</td>
+          <td>Short, focused tasks</td>
+          <td>Long-running batch work</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="real-world-use-cases-where-parallel-agents-save-days-of-work">Real-World Use Cases Where Parallel Agents Save Days of Work</h2>
+<p>Parallel agents in Cursor 2.0 deliver the most value in three categories of work: large-scale migrations, comprehensive test generation, and documentation production. For a TypeScript migration of a 200-file JavaScript codebase, running 8 agents simultaneously — each handling 25 files — reduces a week-long task to a single afternoon. Development teams at Series B startups report cutting their TypeScript migration from 5 days to 6 hours using this pattern. For test generation, parallel agents excel at producing unit tests for modules in isolation: assign each agent a module directory, and all agents write tests concurrently against their respective public APIs. A backend team of 4 engineers used 8 parallel Cursor agents to generate 847 unit tests across 12 microservices in 3 hours — work that previously required 2 full sprint weeks. For documentation, agents can simultaneously generate API reference docs, usage examples, and README files for each service, with no risk of agents overwriting each other&rsquo;s output since each service lives in a separate directory. Additional use cases include: dependency version updates across monorepo packages, ESLint/Prettier formatting passes across legacy code, internationalization (i18n) string extraction, and security audit annotation.</p>
+<h3 id="case-study-monorepo-refactor">Case Study: Monorepo Refactor</h3>
+<p>A real-world monorepo with 14 packages and 380 TypeScript files was refactored using 8 Cursor parallel agents over 4 hours. Task decomposition: 2 agents per tier (UI components, API clients, server handlers, database models). Each agent was given its package&rsquo;s directory and a single task: &ldquo;Add strict null checks and fix all resulting TypeScript errors.&rdquo; Merge sequence: database models first (no dependencies), then server handlers, then API clients, then UI components. Total developer time: 40 minutes of setup + monitoring. Estimated sequential time: 3 days.</p>
+<h2 id="best-practices-avoiding-conflicts-and-maximizing-parallel-agent-efficiency">Best Practices: Avoiding Conflicts and Maximizing Parallel Agent Efficiency</h2>
+<p>Effective parallel agent use in Cursor 2.0 depends on three disciplines: rigorous task decomposition, defensive prompt writing, and structured merge sequencing. The most common failure mode is assigning agents to tasks with hidden shared dependencies — for example, two agents modifying the same utility file from different features. Always map your codebase&rsquo;s dependency graph before assigning tasks: use <code>madge</code> for JavaScript/TypeScript or <code>pydeps</code> for Python to visualize imports, then ensure no two agent tasks touch the same files. For prompt writing, include explicit exclusion lists: &ldquo;Do not modify any files outside <code>/src/auth/</code>&rdquo; is as important as the positive instruction. When agents are confident, they will reach for shared utilities to solve problems — explicit boundaries prevent this. For merge sequencing, process agents in dependency order: foundational modules first, consumers second. Create a merge plan before starting any agent and stick to it. Finally, test each agent&rsquo;s branch in isolation before merging: run your test suite against each worktree individually to catch regressions before they compound in the main branch.</p>
+<h3 id="resolving-merge-conflicts-between-agent-branches">Resolving Merge Conflicts Between Agent Branches</h3>
+<p>When conflicts occur (typically in <code>package-lock.json</code>, <code>yarn.lock</code>, or auto-generated files), resolve them at merge time rather than mid-task. Do not attempt to have agents resolve conflicts autonomously — the agent lacks context about the other branches&rsquo; changes. Use <code>git mergetool</code> or Cursor&rsquo;s built-in merge conflict UI. For lock files, regenerate them after all branches are merged rather than resolving individual diffs.</p>
+<h2 id="cursor-parallel-agents-vs-github-copilot-vs-claude-code-2026-comparison">Cursor Parallel Agents vs GitHub Copilot vs Claude Code: 2026 Comparison</h2>
+<p>Cursor 2.0 parallel agents occupy a unique position in the 2026 AI coding landscape — no direct competitor offers native parallel agent execution in the same workflow. GitHub Copilot Workspace supports multi-step agentic tasks but processes them sequentially, not in parallel. Claude Code&rsquo;s agent mode handles one task at a time with deep codebase analysis, but requires manual management for parallel workstreams. The core difference is infrastructure: Cursor built worktree management and multi-window orchestration into the IDE itself, making parallel execution a first-class feature rather than a workaround. For teams doing large-scale codebase transformations, this architectural choice matters more than any benchmark comparison. Cursor&rsquo;s Composer 2 model scores 61.7 on Terminal-Bench 2.0, surpassing Claude Opus 4.6 at 58.0, which means individual agent quality is competitive with the best available models — and you can run 8 of them simultaneously. 95% of developers use AI tools at least weekly in 2026, but only a fraction are using parallel agents for the workloads where they provide 10x leverage.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Cursor 2.0 Parallel</th>
+          <th>GitHub Copilot Workspace</th>
+          <th>Claude Code Agent</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max parallel agents</td>
+          <td>8 local, unlimited cloud</td>
+          <td>1 (sequential)</td>
+          <td>1 per session</td>
+      </tr>
+      <tr>
+          <td>Worktree management</td>
+          <td>Native, automatic</td>
+          <td>Manual</td>
+          <td>Manual</td>
+      </tr>
+      <tr>
+          <td>/multitask (auto-decompose)</td>
+          <td>Yes (v3.2+)</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Cloud agents</td>
+          <td>Yes (Background)</td>
+          <td>Limited preview</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Model benchmark (CursorBench)</td>
+          <td>61.3</td>
+          <td>N/A</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Entry price</td>
+          <td>$20/month Pro</td>
+          <td>$19/month Individual</td>
+          <td>$20/month Pro</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="pricing-plans-and-what-you-actually-need">Pricing, Plans, and What You Actually Need</h2>
+<p>Cursor 2.0 parallel agents are available on Cursor Pro ($20/month) and above — the free Hobby tier does not include Composer access or Background Agents. Pro includes: unlimited Composer sessions, up to 8 local parallel agents via worktrees, Background Agent access (compute billed separately), and Supermaven autocomplete with a 72% developer acceptance rate. The Business plan ($40/month per seat) adds centralized billing, admin controls, and higher rate limits on Background Agent compute. For individual developers doing large migrations or ambitious side projects, Pro is sufficient — 8 local agents on a 32GB MacBook Pro handles most real-world workloads. For teams doing nightly batch processing or CI-integrated agent workflows, Background Agent compute costs are typically $50–200/month depending on task volume. There is no &ldquo;parallel agents add-on&rdquo; — the feature is included in Pro; the only variable cost is Background Agent compute time.</p>
+<h3 id="is-cursor-pro-worth-it-for-parallel-agents-alone">Is Cursor Pro Worth It for Parallel Agents Alone?</h3>
+<p>For any developer who regularly does large refactors, migrations, or test-writing sprints: yes. A single 4-hour parallel agent session on a 200-file TypeScript migration saves 3–4 days of manual work. At $20/month, the ROI is positive after a single significant use. For developers doing primarily line-by-line feature work, the productivity gain is smaller and the free tier or GitHub Copilot Individual may be more cost-effective.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Can I run more than 8 parallel agents in Cursor 2.0?</strong>
+The local parallel agent limit is 8 simultaneous worktrees, constrained by Cursor&rsquo;s UI and practical memory limits. Background Agents (cloud VMs) do not have this ceiling — the limit depends on your plan&rsquo;s compute quota. For most workloads, 4–6 agents is the practical sweet spot where task quality and context size remain manageable.</p>
+<p><strong>Do parallel agents share context with each other?</strong>
+No. Each agent runs in complete isolation with its own context window, conversation history, and file system view. Agents cannot communicate with each other or read each other&rsquo;s changes during execution. Coordination happens through the developer: you define task boundaries, monitor progress, and sequence merges.</p>
+<p><strong>What happens if two agents accidentally modify the same file?</strong>
+If you followed proper task decomposition, this should not happen. If it does, you will see a git merge conflict when merging the second branch. Resolve it manually using <code>git mergetool</code> or Cursor&rsquo;s conflict UI. To prevent this, always verify your task assignments using a dependency graph tool before starting agents.</p>
+<p><strong>Does /multitask replace manual worktree setup?</strong>
+For most use cases introduced in Cursor 3.2, yes — <code>/multitask</code> automates decomposition, worktree creation, and merge sequencing. Manual worktrees remain useful for tasks requiring custom environment setup per agent, precise commit ordering, or when you need to review each agent&rsquo;s work before it proceeds to the next step.</p>
+<p><strong>Can I use Cursor parallel agents with a monorepo?</strong>
+Yes, and monorepos are an ideal use case. Assign each agent to a single package directory. Because monorepo packages are typically loosely coupled at the filesystem level, agents rarely conflict. Tools like Turborepo and Nx&rsquo;s dependency graph can help you identify safe parallel boundaries. The shared <code>node_modules</code> or <code>package.json</code> at the monorepo root should be excluded from all agent tasks and updated manually after merging.</p>
+]]></content:encoded></item><item><title>VS Code vs Cursor vs Windsurf vs JetBrains AI 2026: Which IDE Should You Use?</title><link>https://baeseokjae.github.io/posts/vscode-cursor-windsurf-jetbrains-comparison-2026/</link><pubDate>Sat, 02 May 2026 18:06:35 +0000</pubDate><guid>https://baeseokjae.github.io/posts/vscode-cursor-windsurf-jetbrains-comparison-2026/</guid><description>Cursor leads on speed (72% autocomplete acceptance), Windsurf wins enterprise, VS Code + Copilot is safest. Full 2026 comparison with benchmarks and pricing.</description><content:encoded><![CDATA[<p>In 2026, the best AI IDE depends on your workflow. Cursor leads for individual velocity with a 72% autocomplete acceptance rate and $2B ARR. Windsurf dominates enterprise regulated environments with FedRAMP/HIPAA certifications. VS Code + Copilot is the safest bet for teams already on GitHub. JetBrains AI wins for Java/Kotlin teams needing semantic precision.</p>
+<h2 id="the-2026-ai-ide-landscape-four-different-bets">The 2026 AI IDE Landscape: Four Different Bets</h2>
+<p>The AI IDE market in 2026 represents four fundamentally different philosophies about how developers should work with AI. VS Code, holding approximately 70% of the developer market, added GitHub Copilot integration while preserving its 100,000-extension ecosystem — the &ldquo;safe upgrade&rdquo; path. Cursor forked VS Code entirely and rebuilt it as an AI-first editor, reaching $2 billion in annual recurring revenue and 18% market share among paid AI tools. Windsurf emerged as the enterprise contender, earning the #1 AI Developer Tool award from LogRocket in February 2026 and securing FedRAMP, HIPAA, and ITAR certifications for regulated industries. JetBrains doubled down on semantic intelligence — analyzing code as structured syntax trees rather than tokens — saving developers up to 8 hours per week on the Java, Kotlin, and Python workflows where it excels. The AI coding tools market hit $7.37 billion in 2025 and is projected to reach $30.1 billion by 2032. Choosing wrong means leaving real productivity on the table: McKinsey&rsquo;s February 2026 study of 4,500 developers across 150 enterprises found AI coding tools reduce routine coding time by 46%. The question is which tool delivers that gain for your specific stack.</p>
+<h3 id="why-the-best-ide-question-is-more-nuanced-than-it-looks">Why the &ldquo;Best IDE&rdquo; Question Is More Nuanced Than It Looks</h3>
+<p>The traditional IDE selection framework — language support, debugger quality, plugin availability — still matters, but AI capabilities have added a new dimension. A tool that offers 72% autocomplete acceptance (Cursor&rsquo;s Supermaven) but poor refactoring across large codebases may be worse than one with 71% task completion and agentic multi-file editing (Windsurf Cascade). Context window size, how each tool handles large monorepos, and whether AI suggestions leak proprietary code to external servers are now first-class evaluation criteria alongside startup time and keyboard shortcuts.</p>
+<h2 id="vs-code--github-copilot-the-safe-ecosystem-rich-choice">VS Code + GitHub Copilot: The Safe, Ecosystem-Rich Choice</h2>
+<p>VS Code with GitHub Copilot is the dominant combination for developer teams in 2026, backed by 70% market share and deployment at approximately 90% of Fortune 100 companies. GitHub Copilot reached 20 million total users by July 2025 and 4.7 million paid subscribers by January 2026 — a 75% year-over-year growth rate. The value proposition is clear: if your team already uses GitHub Actions, GitHub Security, and GitHub Projects, adding Copilot is a zero-disruption upgrade that works across VS Code, Visual Studio, Neovim, JetBrains, and Xcode. Developers using Copilot complete tasks 55% faster and see pull request cycle time drop from 9.6 days to 2.4 days on average. Copilot holds 42% of the paid AI coding tools market — not because it&rsquo;s the most technically impressive option, but because it integrates without forcing teams to switch editors, retrain on new UX patterns, or negotiate new enterprise security approvals. For teams that value stability and ecosystem over cutting-edge AI features, VS Code + Copilot is the default-correct choice.</p>
+<h3 id="copilot-pricing-tiers-in-2026">Copilot Pricing Tiers in 2026</h3>
+<p>GitHub Copilot comes in three tiers: Free (limited completions, GPT-4o mini model), Pro ($10/month, unlimited completions with GPT-4o and Claude Sonnet access), and Enterprise ($19/user/month, org-wide policy controls and fine-tuned models). The Enterprise tier adds knowledge base integration with your repositories, audit logs for compliance, and admin controls over which models developers can use — making it the practical choice for regulated industries that don&rsquo;t need Windsurf&rsquo;s FedRAMP certification.</p>
+<h3 id="when-vs-code--copilot-falls-short">When VS Code + Copilot Falls Short</h3>
+<p>VS Code + Copilot trails on agentic workflows. It lacks the autonomous multi-file editing that Cursor and Windsurf offer natively. Copilot Workspace has closed the gap significantly, but Cursor&rsquo;s Composer and Windsurf&rsquo;s Cascade both outperform it on complex refactors that span 10+ files. If your workflow involves frequent &ldquo;rewrite this service to use the new API&rdquo; tasks, you&rsquo;ll feel the difference.</p>
+<h2 id="cursor-the-ai-native-powerhouse-for-individual-developers">Cursor: The AI-Native Powerhouse for Individual Developers</h2>
+<p>Cursor is the AI-first VS Code fork that reached $2 billion in annual recurring revenue in 2026 by delivering the fastest individual developer experience in the market. Built on the same VS Code foundation (supporting 48,000 extensions), Cursor adds Supermaven-powered autocomplete with a 72% acceptance rate — the highest measured among AI coding tools — alongside Composer for multi-file agentic edits, native 200K token context windows for large codebase reasoning, and a built-in terminal agent that can run, debug, and fix code without leaving the editor. Cursor&rsquo;s task completion rate on complex coding benchmarks sits at 71%, and the tool added JetBrains IDE support via the Agent Client Protocol in early 2026, letting JetBrains users bring Cursor&rsquo;s AI layer into their existing workflow. The Cursor pricing structure starts at free (limited), Pro at $20/month, and Pro+ at $60/month — a meaningful jump that reflects Cursor&rsquo;s positioning as a serious professional tool. For individual developers and small teams where AI velocity directly translates to shipping speed, Cursor consistently outperforms alternatives on raw coding throughput.</p>
+<h3 id="cursors-key-differentiators">Cursor&rsquo;s Key Differentiators</h3>
+<p><strong>Supermaven Autocomplete:</strong> The 72% acceptance rate is the stat that gets cited most, but the more important metric is how it feels — Supermaven&rsquo;s predictions arrive before you finish typing the current token, which eliminates the cognitive stutter of waiting for suggestions. On codebases you&rsquo;ve worked in for weeks, acceptance rates often exceed 80%.</p>
+<p><strong>Cursor Composer (Agentic Mode):</strong> Composer handles multi-file edits by understanding the dependency graph of your changes. Unlike simple search-and-replace AI tools, Composer can refactor an interface, find all implementations, update tests, and regenerate documentation in a single pass. This is where the 71% task completion rate benchmark comes from.</p>
+<p><strong>Context Window and Privacy:</strong> Cursor offers both 200K token context windows (using Claude Sonnet or GPT-4 Turbo backends) and Privacy Mode, which prevents code from being stored on Cursor&rsquo;s servers. The combination of large context and code privacy is why Cursor has penetrated teams that initially rejected it on security grounds.</p>
+<h3 id="cursors-limitations">Cursor&rsquo;s Limitations</h3>
+<p>Cursor&rsquo;s agentic mode occasionally hallucinates when working with complex legacy codebases where implicit conventions are undocumented. It performs best on well-typed TypeScript, Python with type hints, and Go — less reliably on older Java or COBOL with sparse inline documentation. The $60/month Pro+ tier also strains budgets for teams of 10+ where Windsurf&rsquo;s enterprise pricing may be more cost-effective.</p>
+<h2 id="windsurf-the-enterprise-ready-ai-ide-with-cascade-agent">Windsurf: The Enterprise-Ready AI IDE with Cascade Agent</h2>
+<p>Windsurf earned the #1 AI Developer Tool award from LogRocket in February 2026 by combining Cursor-level agentic capabilities with enterprise security certifications that no competitor has matched. The core technical differentiator is the SWE-1.5 model: trained specifically for software engineering tasks, it processes at 950 tokens per second — 13 times faster than the nearest rival and 6 times faster than Haiku 4.5 — while achieving 78% on the SWE-bench Verified benchmark. Windsurf&rsquo;s Cascade agent mode delivers an 84% success rate on multi-file refactoring tasks, the highest published figure in the market. On the enterprise side, Windsurf carries FedRAMP, HIPAA, and ITAR certifications, making it the default choice for healthcare startups, defense contractors, and financial services firms whose security teams would reject Cursor&rsquo;s privacy controls as insufficient. Windsurf&rsquo;s plugin architecture supports 45,000 extensions and runs as a plugin inside 40+ IDEs including JetBrains, Vim, NeoVim, and Xcode — meaning development teams don&rsquo;t have to mandate editor switches to get Windsurf&rsquo;s AI capabilities. At $20/month for Pro (matching Cursor) and custom enterprise pricing, Windsurf competes directly with Cursor on individual features while winning decisively on regulated-industry deals.</p>
+<h3 id="cascade-agent-how-windsurf-handles-complex-tasks">Cascade Agent: How Windsurf Handles Complex Tasks</h3>
+<p>Windsurf&rsquo;s Cascade agent uses a &ldquo;flow&rdquo; metaphor — the AI maintains a persistent understanding of your codebase state across a session, rather than treating each prompt as independent. This means Cascade can run a refactor, notice that a test failed, diagnose the root cause, fix it, and continue — without requiring you to manage the loop. The 84% multi-file refactoring success rate benchmark reflects this persistence. Cursor&rsquo;s Composer is roughly comparable for new code generation, but Cascade outperforms on legacy codebase modifications where state tracking across many files matters.</p>
+<h3 id="windsurf-for-enterprise-and-regulated-industries">Windsurf for Enterprise and Regulated Industries</h3>
+<p>For teams in healthcare, defense, or financial services, the compliance certifications aren&rsquo;t a nice-to-have — they&rsquo;re table stakes. Windsurf&rsquo;s FedRAMP authorization means federal agencies and contractors can deploy it without custom security exceptions. The HIPAA compliance covers protected health information handling. ITAR certification allows use on export-controlled technical data. No other AI-native IDE in 2026 offers this combination, which gives Windsurf a near-monopoly in regulated enterprise segments.</p>
+<h2 id="jetbrains-ai-the-semantic-intelligence-advantage-for-enterprise-teams">JetBrains AI: The Semantic Intelligence Advantage for Enterprise Teams</h2>
+<p>JetBrains AI takes a fundamentally different approach from the VS Code-derived tools: instead of treating code as text tokens, it analyzes code as structured syntax trees with full semantic understanding, leveraging decades of JetBrains&rsquo; static analysis investment built into IntelliJ IDEA, PyCharm, GoLand, WebStorm, and Rider. This distinction produces measurable practical benefits — JetBrains AI saves developers up to 8 hours per week, comparable to Cursor, but with substantially fewer hallucinations on complex refactors in statically-typed languages because it understands symbol references, type hierarchies, and call graphs natively. JetBrains AI isn&rsquo;t AI-native in the Cursor/Windsurf sense — it&rsquo;s an AI layer on top of the world&rsquo;s most sophisticated language-specific tooling. The pricing model reflects this positioning: the AI Free tier offers 3 AI credits per 30 days, Pro costs $10/month, and Ultimate costs $30/month — significantly cheaper than Cursor Pro ($20/month) when paired with the JetBrains IDE subscription many enterprise developers already hold. In early 2026, JetBrains began integrating Claude Agent Protocol support and an inline agent mode, signaling a serious effort to close the gap with Cursor and Windsurf on agentic tasks.</p>
+<h3 id="jetbrains-ais-language-specific-strengths">JetBrains AI&rsquo;s Language-Specific Strengths</h3>
+<p>For Java and Kotlin development, JetBrains AI is categorically better than alternatives. The semantic understanding means it can suggest refactors that correctly handle polymorphism, generics, and annotation processors — areas where token-based AI tools frequently produce plausible-looking but subtly broken code. For teams on Spring Boot, Android, or large Kotlin multiplatform projects, switching to Cursor may actually reduce code quality while improving typing speed — a trade-off many teams reject.</p>
+<h3 id="jetbrains-ai-limitations-in-2026">JetBrains AI Limitations in 2026</h3>
+<p>The agentic capabilities are genuinely behind Cursor and Windsurf as of mid-2026. Multi-file autonomous editing is available but less fluid than Cursor&rsquo;s Composer or Windsurf&rsquo;s Cascade. For greenfield TypeScript or Python projects where the AI is generating substantial new code rather than modifying existing structures, JetBrains AI&rsquo;s advantages diminish. The inline agent mode launched in 2026 is promising but still maturing — expect parity with Cursor on most agentic tasks by late 2026 based on the current development trajectory.</p>
+<h2 id="feature-by-feature-comparison-ai-capabilities-pricing-and-performance">Feature-by-Feature Comparison: AI Capabilities, Pricing, and Performance</h2>
+<p>A direct feature comparison of VS Code + Copilot, Cursor, Windsurf, and JetBrains AI reveals four tools with different performance profiles depending on the metric you prioritize. Cursor leads on autocomplete acceptance rate (72% via Supermaven) and has the largest extension library among AI-native IDEs (48,000). Windsurf leads on multi-file agentic success rate (Cascade at 84%) and holds the only FedRAMP/HIPAA/ITAR certifications in the category. VS Code + Copilot leads on raw extension breadth (100,000+) and market penetration (90% of Fortune 100 companies). JetBrains AI leads on semantic code understanding and cost efficiency for teams already holding JetBrains IDE subscriptions. No single tool wins every column — which is why the decision framework matters more than the comparison table alone. The table below captures the key technical and business dimensions as of May 2026.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>VS Code + Copilot</th>
+          <th>Cursor</th>
+          <th>Windsurf</th>
+          <th>JetBrains AI</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>AI Approach</strong></td>
+          <td>Plugin/overlay</td>
+          <td>AI-native fork</td>
+          <td>AI-native editor</td>
+          <td>Semantic-first plugin</td>
+      </tr>
+      <tr>
+          <td><strong>Autocomplete Acceptance Rate</strong></td>
+          <td>~30%</td>
+          <td>72% (Supermaven)</td>
+          <td>~65%</td>
+          <td>~55%</td>
+      </tr>
+      <tr>
+          <td><strong>Multi-file Agent</strong></td>
+          <td>Copilot Workspace</td>
+          <td>Composer (71% task rate)</td>
+          <td>Cascade (84% success rate)</td>
+          <td>Inline Agent (2026)</td>
+      </tr>
+      <tr>
+          <td><strong>Context Window</strong></td>
+          <td>64K tokens</td>
+          <td>200K tokens</td>
+          <td>RAG-based (large repos)</td>
+          <td>Project-wide semantic</td>
+      </tr>
+      <tr>
+          <td><strong>SWE-bench Score</strong></td>
+          <td>Not published</td>
+          <td>Not published</td>
+          <td>78% (SWE-1.5)</td>
+          <td>Not published</td>
+      </tr>
+      <tr>
+          <td><strong>Starting Price</strong></td>
+          <td>Free / $10/mo (Pro)</td>
+          <td>Free / $20/mo (Pro)</td>
+          <td>Free / $20/mo (Pro)</td>
+          <td>Free / $10/mo (Pro)</td>
+      </tr>
+      <tr>
+          <td><strong>Extensions</strong></td>
+          <td>100,000+</td>
+          <td>48,000</td>
+          <td>45,000</td>
+          <td>IDE-specific</td>
+      </tr>
+      <tr>
+          <td><strong>Enterprise Certs</strong></td>
+          <td>SOC 2</td>
+          <td>SOC 2 + Privacy Mode</td>
+          <td>FedRAMP/HIPAA/ITAR</td>
+          <td>GDPR/SOC 2</td>
+      </tr>
+      <tr>
+          <td><strong>Best For</strong></td>
+          <td>Teams on GitHub</td>
+          <td>Individual velocity</td>
+          <td>Regulated enterprise</td>
+          <td>Java/Kotlin/semantic</td>
+      </tr>
+      <tr>
+          <td><strong>Market Share</strong></td>
+          <td>42% (Copilot)</td>
+          <td>18%</td>
+          <td>8%</td>
+          <td>Not tracked separately</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="pricing-reality-check">Pricing Reality Check</h3>
+<p>The &ldquo;true cost&rdquo; comparison matters for teams of 10+. Cursor Pro+ at $60/month per developer becomes $7,200/year for a 10-person team. Windsurf enterprise pricing (custom) often comes in below that for regulated industries that need the compliance certs anyway. JetBrains AI Pro at $10/month per developer is $1,200/year for the same team — but only if they&rsquo;re already paying for JetBrains IDE licenses (~$24-77/month depending on tier). The VS Code + Copilot Enterprise combination at $19/user/month hits $2,280/year — the sweet spot for teams that don&rsquo;t need cutting-edge AI features but want enterprise admin controls.</p>
+<h3 id="speed-and-performance">Speed and Performance</h3>
+<p>Windsurf SWE-1.5 processing 950 tokens/second is the fastest available as of May 2026. For interactive use, this means essentially no perceptible latency between requesting a code generation and receiving the first tokens. Cursor&rsquo;s Supermaven feels fast for autocomplete but the Composer multi-file agent can take 15-45 seconds on complex refactors. JetBrains AI Assistant feels slightly slower on generation but faster on semantic lookups because it queries the local index rather than always hitting the cloud.</p>
+<h2 id="use-case-decision-guide-which-ide-fits-your-workflow">Use Case Decision Guide: Which IDE Fits Your Workflow?</h2>
+<p>Choosing the right AI IDE in 2026 requires matching tool capabilities to your specific development context — team size, language stack, compliance requirements, and the ratio of greenfield coding to legacy maintenance in your typical week. Survey data shows Claude Code and Cursor account for 28% and 24% of primary tool selections among developers who actively benchmark AI tools (Pragmatic Engineer 2026 survey), suggesting that among sophisticates, VS Code + Copilot&rsquo;s market share lead is narrowing. Here is the decision framework based on the most common developer profiles.</p>
+<p><strong>Choose VS Code + GitHub Copilot if:</strong></p>
+<ul>
+<li>Your team already uses GitHub Actions, GitHub Projects, and GitHub Security</li>
+<li>You need AI assistance that works across VS Code, Visual Studio, JetBrains, and Neovim simultaneously (Copilot supports all of them)</li>
+<li>Your enterprise is already in the 90% of Fortune 100 companies where Copilot is approved</li>
+<li>You need proven, stable tooling more than bleeding-edge AI features</li>
+</ul>
+<p><strong>Choose Cursor if:</strong></p>
+<ul>
+<li>You&rsquo;re an individual developer or small team where raw coding velocity is the primary metric</li>
+<li>Your stack is TypeScript, Python, Go, or Rust — languages where Cursor&rsquo;s 72% autocomplete acceptance rate is achievable</li>
+<li>You do frequent greenfield work or large-scale refactors that benefit from Composer&rsquo;s multi-file agentic mode</li>
+<li>You can afford $20-60/month per developer and want the best AI coding experience available</li>
+</ul>
+<p><strong>Choose Windsurf if:</strong></p>
+<ul>
+<li>Your company operates in healthcare, defense, financial services, or any sector requiring FedRAMP/HIPAA/ITAR compliance</li>
+<li>You need a team of 10+ developers to benefit from a unified AI platform without forcing everyone onto the same editor</li>
+<li>You want Cascade&rsquo;s 84% multi-file refactoring success rate for a large legacy codebase</li>
+<li>You&rsquo;re evaluating both IDE replacement and plugin-in-existing-IDE deployment options</li>
+</ul>
+<p><strong>Choose JetBrains AI if:</strong></p>
+<ul>
+<li>Your team primarily writes Java, Kotlin, Scala, or other JVM languages where semantic understanding outweighs raw autocomplete speed</li>
+<li>You&rsquo;re already paying for JetBrains IDE licenses and want AI capabilities at minimal additional cost</li>
+<li>You work on large, complex object-oriented codebases where correctness of AI suggestions matters more than generation speed</li>
+<li>You want the tightest possible integration between AI suggestions and language-specific refactoring tools</li>
+</ul>
+<h3 id="the-use-multiple-tools-strategy">The &ldquo;Use Multiple Tools&rdquo; Strategy</h3>
+<p>84% of developers are actively using or planning to adopt AI coding tools (Stack Overflow Developer Survey 2026), and a growing number use more than one. A common pattern among senior developers: JetBrains AI for complex refactoring in the primary IDE, Cursor for standalone scripts and prototypes, and Claude Code for large context tasks that span the full repository. This isn&rsquo;t inefficiency — it&rsquo;s matching tools to tasks.</p>
+<h2 id="the-bottom-line-our-2026-recommendation">The Bottom Line: Our 2026 Recommendation</h2>
+<p>After analyzing benchmarks, pricing, enterprise certifications, and developer survey data, the honest 2026 recommendation is not a single winner but a clear decision tree. Cursor is the best AI IDE for individual developers and small teams who want maximum coding velocity on modern stacks — the 72% autocomplete acceptance rate and Composer agent are genuinely ahead of the field. Windsurf is the correct choice for any team with compliance requirements: FedRAMP/HIPAA/ITAR certifications combined with an 84% multi-file refactoring success rate make it the only enterprise-credible AI-native IDE. VS Code + GitHub Copilot remains the safe, politically defensible choice for large organizations where stability and ecosystem lock-in matter more than AI performance benchmarks. JetBrains AI is non-negotiable for Java/Kotlin enterprise teams where semantic precision beats raw generation speed. The wrong answer is defaulting to what you already have without evaluating whether the alternatives have overtaken it — AI IDEs are saving developers 8-12 hours per week in aggregate, and the specific tool determines whether you capture that gain or leave it behind.</p>
+<h3 id="quick-decision-summary">Quick Decision Summary</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Situation</th>
+          <th>Best Choice</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Individual developer, TypeScript/Python/Go</td>
+          <td>Cursor Pro ($20/mo)</td>
+      </tr>
+      <tr>
+          <td>Team on GitHub, needs stability</td>
+          <td>VS Code + Copilot Pro</td>
+      </tr>
+      <tr>
+          <td>Healthcare/Defense/Finance regulated</td>
+          <td>Windsurf Enterprise</td>
+      </tr>
+      <tr>
+          <td>Java/Kotlin enterprise team</td>
+          <td>JetBrains AI Pro + existing IDE</td>
+      </tr>
+      <tr>
+          <td>Need AI in JetBrains <em>and</em> VS Code</td>
+          <td>GitHub Copilot (multi-IDE)</td>
+      </tr>
+      <tr>
+          <td>Budget-constrained team, semantic-heavy</td>
+          <td>JetBrains AI Free → Pro</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>The following questions address the most common decision points developers face when choosing between VS Code + Copilot, Cursor, Windsurf, and JetBrains AI in 2026. These answers reflect benchmark data, pricing as of May 2026, and real-world developer workflows rather than vendor marketing. The short version: Cursor wins on autocomplete speed (72% Supermaven acceptance rate), Windsurf wins on enterprise compliance (FedRAMP/HIPAA/ITAR), VS Code + Copilot wins on ecosystem breadth and organizational safety, and JetBrains AI wins on semantic correctness for JVM language teams. Each answer below expands on the specific trade-offs for common decision scenarios — including switching costs, team size, compliance requirements, and language stack. With 84% of developers now using or planning to adopt AI coding tools, these are not hypothetical questions but practical choices with measurable productivity and cost implications for every engineering team in 2026.</p>
+<h3 id="is-cursor-better-than-vs-code-in-2026">Is Cursor better than VS Code in 2026?</h3>
+<p>Cursor outperforms VS Code + GitHub Copilot on raw AI capabilities: 72% autocomplete acceptance rate versus Copilot&rsquo;s ~30%, and a more capable agentic mode for multi-file edits. However, VS Code offers 100,000+ extensions versus Cursor&rsquo;s 48,000, and Copilot works across multiple editors simultaneously. For individual developers prioritizing AI features, Cursor wins. For teams needing editor flexibility and ecosystem breadth, VS Code + Copilot is the better choice.</p>
+<h3 id="whats-the-difference-between-windsurf-and-cursor-in-2026">What&rsquo;s the difference between Windsurf and Cursor in 2026?</h3>
+<p>Windsurf and Cursor are the two leading AI-native IDEs, both priced at $20/month for Pro. Windsurf&rsquo;s key advantages are FedRAMP/HIPAA/ITAR enterprise certifications, Cascade agent with 84% multi-file refactoring success rate, and the SWE-1.5 model at 78% SWE-bench. Cursor&rsquo;s advantages are 72% autocomplete acceptance rate (higher than Windsurf&rsquo;s ~65%), a larger extension library (48,000 vs 45,000), and broader community adoption (18% vs 8% market share).</p>
+<h3 id="is-jetbrains-ai-worth-it-for-enterprise-java-teams">Is JetBrains AI worth it for enterprise Java teams?</h3>
+<p>Yes. JetBrains AI&rsquo;s semantic code understanding — analyzing syntax trees rather than treating code as text — produces materially fewer hallucinations on complex Java and Kotlin refactors than Cursor or Windsurf. At $10/month for Pro, it&rsquo;s also the most cost-effective option for teams already paying JetBrains IDE licenses. The main limitation is agentic capabilities, which trail Cursor and Windsurf as of mid-2026 but are catching up with the 2026 inline agent mode update.</p>
+<h3 id="how-much-does-cursor-actually-cost-for-a-team-of-10">How much does Cursor actually cost for a team of 10?</h3>
+<p>Cursor Pro is $20/month per developer, totaling $2,400/year for 10 developers. Cursor Pro+ is $60/month per developer, totaling $7,200/year. For comparison, VS Code + Copilot Enterprise costs $19/user/month ($2,280/year for 10), JetBrains AI Pro costs $10/month ($1,200/year for 10, assuming existing JetBrains licenses), and Windsurf enterprise is custom pricing that often lands below Cursor Pro+ for regulated industry teams.</p>
+<h3 id="can-i-use-multiple-ai-ides-on-the-same-team">Can I use multiple AI IDEs on the same team?</h3>
+<p>Yes, and many teams do. GitHub Copilot supports VS Code, Visual Studio, JetBrains, Neovim, and Xcode simultaneously under a single license — making it the most practical option for teams with diverse editor preferences. Windsurf also runs as a plugin inside 40+ IDEs. The main cost is context switching for developers who work across multiple editors, but for teams with specialized roles (frontend in VS Code, backend in IntelliJ), multi-IDE AI strategies are common and practical in 2026.</p>
+]]></content:encoded></item><item><title>Vibe Coding Tools Comparison 2026: Cursor vs Replit vs Bolt vs Lovable vs v0</title><link>https://baeseokjae.github.io/posts/vibe-coding-tools-comparison-2026/</link><pubDate>Sat, 02 May 2026 17:09:28 +0000</pubDate><guid>https://baeseokjae.github.io/posts/vibe-coding-tools-comparison-2026/</guid><description>Hands-on comparison of the 5 major vibe coding tools in 2026 — Cursor, Replit, Bolt, Lovable, and v0 — with pricing, use cases, and a decision framework.</description><content:encoded><![CDATA[<p>The five tools that dominate vibe coding in 2026 — Cursor, Replit, Bolt, Lovable, and v0 — all work, but each wins a different use case. Cursor is for professional devs shipping production code. Bolt wins on speed. Lovable is the non-technical founder&rsquo;s tool. v0 owns the React/UI niche. Replit is where beginners learn.</p>
+<hr>
+<h2 id="what-is-vibe-coding-and-why-it-exploded-into-a-47b-market">What Is Vibe Coding? (And Why It Exploded into a $4.7B Market)</h2>
+<p>Vibe coding is the practice of building software by describing intent in natural language and letting AI tools generate, iterate, and deploy code — without writing every line manually. The term was coined in early 2025 and gained mainstream traction after tools like Cursor, Lovable, and Bolt demonstrated that a non-developer could ship a working full-stack app in under an hour. By 2026, the vibe coding market reached $4.7B and is projected to hit $12.3B by 2027 (38% CAGR). 41% of all global code is AI-generated, 92% of US developers use AI coding tools daily, and 87% of Fortune 500 companies run at least one vibe coding platform. The growth isn&rsquo;t driven by hype alone — Lovable hit $400M ARR (the fastest SaaS ramp ever recorded), and Cursor reached $9.9B in valuation at $2B ARR as of February 2026. What changed? These tools stopped requiring developer expertise to use. Non-technical user adoption grew 520% year-over-year. That&rsquo;s the real inflection point.</p>
+<p>The important caveat no one puts in their headline: 96% of developers say AI-generated code isn&rsquo;t functionally correct out of the box. Vibe coding gets you to a working prototype fast, but the last 30% — security, performance, edge cases — still requires human judgment or disciplined tooling. This comparison focuses on what each tool is genuinely best at, not what their marketing says.</p>
+<hr>
+<h2 id="the-5-major-vibe-coding-tools-at-a-glance">The 5 Major Vibe Coding Tools at a Glance</h2>
+<p>The five tools in this comparison represent fundamentally different approaches to AI-assisted development. Cursor is a code editor that wraps AI around your existing workflow. Replit is a browser-based IDE with a built-in autonomous agent. Bolt and Lovable are full-stack app builders that generate from a chat prompt. v0 is a React component generator by Vercel. Understanding which category a tool falls into matters more than looking at feature lists — a hammer and a screwdriver are both useful, but not interchangeable. Enterprise adoption of vibe coding grew 340% between 2024 and 2026, and the teams that got the most value chose tools that matched their builders&rsquo; skill levels rather than tools with the longest feature matrix. The summary below gets you to the right starting point; the sections below go deeper on each.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Best For</th>
+          <th>Starting Price</th>
+          <th>Backend?</th>
+          <th>Mobile?</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Cursor</td>
+          <td>Professional developers</td>
+          <td>Free / $20/mo</td>
+          <td>Yes (yours)</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Replit</td>
+          <td>Learners, soloists</td>
+          <td>~$20/mo</td>
+          <td>Yes (hosted)</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Bolt</td>
+          <td>Speed prototyping, mobile</td>
+          <td>Free (1M tokens)</td>
+          <td>Yes</td>
+          <td>Yes (React Native)</td>
+      </tr>
+      <tr>
+          <td>Lovable</td>
+          <td>Non-technical founders</td>
+          <td>Free (30 credits)</td>
+          <td>Yes (Supabase)</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>v0</td>
+          <td>React/UI specialists</td>
+          <td>Free ($5 credits)</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="cursor--the-professional-developers-ai-code-editor">Cursor — The Professional Developer&rsquo;s AI Code Editor</h2>
+<p>Cursor is a VS Code fork with AI baked into every layer of the editor — autocomplete, inline editing, chat with codebase context, and autonomous Agent mode that handles multi-file tasks end to end. In February 2026, Anysphere (Cursor&rsquo;s parent) hit $2B ARR with over 2 million users, 1 million paying customers, and 1 million daily active users. The $9.9B valuation makes it the most valuable pure-play AI coding tool company. The Pro plan at $20/month is where most developers start, but serious agentic use pushes people to Pro+ ($60) or Ultra ($200). The Supermaven autocomplete — acquired by Anysphere — is the fastest and most accurate completion engine available in any IDE, and it&rsquo;s a meaningful productivity multiplier even before you use Agent mode.</p>
+<h3 id="when-to-choose-cursor">When to Choose Cursor</h3>
+<p>Cursor earns its reputation on complex, multi-file engineering tasks. When you&rsquo;re refactoring a 50-file codebase, adding a feature across service boundaries, or debugging a subtle async race condition, Cursor&rsquo;s agent compresses hours of work into minutes. Background agents — available in Cursor 3+ — let you run parallel tasks while you stay in flow on another feature. If you have an existing codebase, VS Code extensions you rely on, and comfort reading generated code, Cursor is the default pick. The learning curve for the Agent interface is real but pays off within a week.</p>
+<h3 id="cursor-pricing-reality">Cursor Pricing Reality</h3>
+<p>The credit system switched from request-based to credit-based in June 2025. Heavy Agent users on the $20 Pro plan burn through fast. I&rsquo;ve seen professional developers routinely hit the Pro+ ceiling on two-week sprints. If you&rsquo;re evaluating Cursor for a team, budget for Pro+ or Ultra, and track usage against the cost of the engineering time it saves — the math almost always works out.</p>
+<hr>
+<h2 id="replit-agent--the-all-in-one-browser-ide-for-learners">Replit Agent — The All-in-One Browser IDE for Learners</h2>
+<p>Replit Agent is the autonomous AI layer inside Replit&rsquo;s browser-based IDE, and it&rsquo;s the only tool in this comparison that requires zero local setup. Open a browser, describe your app, and Replit Agent handles frontend, backend, database, and deployment in a single flow. Agent 4, launched in 2026, was built around four pillars: tighter iteration loops, less context switching, fewer mundane tasks, and more progress per minute. The Core plan at approximately $20/month unlocks full Agent access, built-in hosting, Google Imagen 4 image generation, and support for 50+ languages. For someone learning to code or a developer who wants to prototype without touching local tooling, it&rsquo;s the lowest-friction starting point in the comparison. Replit also stands out for supporting multi-language workflows — you can prototype in Python, switch to Node, or experiment with Go without reconfiguring anything locally. That versatility makes it the best tool for developers who explore multiple languages or tech stacks in their learning path.</p>
+<h3 id="replits-real-limitation">Replit&rsquo;s Real Limitation</h3>
+<p>Replit&rsquo;s cost unpredictability is a genuine concern. Agent 4 consumption is tied to AI credits that scale with task complexity, and heavy usage sessions can drain a monthly credit allocation faster than expected. The agent results are also occasionally inconsistent — I&rsquo;ve seen the same prompt produce a clean app one session and a broken one the next. For production workloads, the inconsistency is a blocker. For learning, exploring ideas, or validating concepts, it&rsquo;s entirely acceptable because the iteration speed is high and you&rsquo;re not paying for infra separately.</p>
+<hr>
+<h2 id="bolt--the-fastest-way-to-prototype-and-the-only-one-with-mobile">Bolt — The Fastest Way to Prototype (And the Only One with Mobile)</h2>
+<p>Bolt is a full-stack AI app builder that produces a working web application in 3–7 minutes from a natural language description — the fastest time-to-demo in this comparison by a wide margin. Built on the StackBlitz in-browser runtime, Bolt runs Node.js directly in the browser: a React frontend, an Express or serverless backend, and a live URL appear without any local installation or configuration step. The defining differentiator in 2026 is mobile: Bolt is the only tool in this five-way comparison that supports React Native and Expo, meaning you can generate a deployable iOS/Android app from the same chat-first workflow used for web. The free tier includes 1 million tokens per month — the most generous of any tool here — which is enough to build multiple real prototypes before hitting a paid tier. For hackathons, investor-pitch demos, and any MVP that needs both web and mobile reach, Bolt is the default first choice when speed matters more than long-term code quality.</p>
+<h3 id="where-bolt-falls-short">Where Bolt Falls Short</h3>
+<p>Bolt&rsquo;s UI output is functional but less polished than v0 for React component work. On complex multi-page apps with intricate state management, the generated code starts to sprawl in ways that are painful to maintain. The tool is excellent at getting to a demo-ready state fast; it&rsquo;s less reliable as the codebase grows past 2,000 lines. The typical hybrid workflow I see professionals use: prototype in Bolt, validate the concept, then move to Cursor when the feature complexity grows.</p>
+<hr>
+<h2 id="lovable--the-non-technical-founders-best-friend">Lovable — The Non-Technical Founder&rsquo;s Best Friend</h2>
+<p>Lovable is the vibe coding tool built explicitly for people who have never written a line of code. The interface is a chat window: you describe your app in plain English, Lovable generates a full-stack application backed by Supabase (Postgres database, row-level security, authentication), and you iterate through conversation. Lovable hit $400M ARR in 2026 — doubling from $200M ARR in just 4 months after reaching the $200M milestone in 12 months, which became the fastest SaaS revenue ramp ever recorded. The enterprise compliance features — SSO, data opt-out, audit logs — made it viable for companies that previously couldn&rsquo;t consider AI-generated tooling. Non-technical user adoption grew 520% year-over-year across the vibe coding category, and Lovable captured the largest share of that growth by removing every technical barrier that other tools retained. If you need a production-grade full-stack app and cannot write SQL or TypeScript, Lovable is the clearest recommendation in this comparison.</p>
+<h3 id="lovable-pricing-the-credit-math">Lovable Pricing: The Credit Math</h3>
+<p>The credit system is the most opaque in this comparison. Free tier gives 30 credits/month. The $20/month plan adds 100 credits, $50 gives 300, $100 gives 800. Every prompt consumes credits — but there&rsquo;s no public formula for how many credits a &ldquo;complex&rdquo; prompt costs versus a &ldquo;simple&rdquo; one. In practice, a moderately complex app with 5-6 iteration rounds can consume 30-50 credits. That means the free tier realistically covers 1-2 app prototypes per month. For teams shipping regularly, the $50-100 tier is the realistic starting point. See the <a href="/posts/lovable-pricing-guide-2026">Lovable pricing deep-dive</a> for a full breakdown of credit consumption by task type.</p>
+<hr>
+<h2 id="v0-by-vercel--the-react-and-ui-specialist">v0 by Vercel — The React and UI Specialist</h2>
+<p>v0 is Vercel&rsquo;s AI interface for generating production-quality React components, and it does one thing better than every other tool in this comparison: UI. The output is React + Tailwind CSS + shadcn/ui — the stack that most serious frontend teams in 2026 are running — and the component quality is visibly higher than competitors: animations are smooth, spacing is correct, accessible markup is consistent, and the output integrates into existing Next.js projects without restructuring. By March 2026, v0 has over 6 million developers on the platform. The Vercel deployment pipeline is one click away. The free tier gives $5 in monthly credits — enough for casual experimentation — and the $20 Premium plan unlocks meaningful usage volumes for developers generating components regularly. For teams building in the Next.js and Vercel ecosystem, v0 removes the gap between &ldquo;I know what this UI should look like&rdquo; and &ldquo;I have production-ready component code.&rdquo;</p>
+<h3 id="v0s-hard-boundary">v0&rsquo;s Hard Boundary</h3>
+<p>v0 doesn&rsquo;t generate backend code. If you need a database, an API route beyond Vercel serverless functions, or anything that lives outside the frontend layer, v0 isn&rsquo;t the tool. It&rsquo;s a React component factory. For developers building in the Vercel ecosystem, that&rsquo;s a feature — one focused tool for one focused job. For founders who want a complete app from one tool, it&rsquo;s a gap.</p>
+<hr>
+<h2 id="head-to-head-comparison-which-tool-wins-each-use-case">Head-to-Head Comparison: Which Tool Wins Each Use Case?</h2>
+<p>Different builders have fundamentally different needs, and picking the wrong tool for your context is the most common mistake in vibe coding adoption. The comparison below synthesizes the practical experience of building with all five tools across different project types. The key insight from testing: tool choice matters less than prompt quality and knowing when to switch tools mid-project. Enterprise teams that got the most value in 2026 all converged on a hybrid workflow rather than committing to a single tool. The &ldquo;70% problem&rdquo; is real across all of them — every vibe coding tool gets you to a working demo, but the difference is in how the last 30% is handled.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Use Case</th>
+          <th>Winner</th>
+          <th>Runner-Up</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Non-technical founder shipping MVP</td>
+          <td>Lovable</td>
+          <td>Bolt</td>
+          <td>Lovable&rsquo;s chat interface requires zero code literacy</td>
+      </tr>
+      <tr>
+          <td>Speed prototyping / hackathon</td>
+          <td>Bolt</td>
+          <td>Replit</td>
+          <td>Bolt wins on time to working demo (3-7 min)</td>
+      </tr>
+      <tr>
+          <td>React/UI component work</td>
+          <td>v0</td>
+          <td>Lovable</td>
+          <td>v0 output quality is measurably better</td>
+      </tr>
+      <tr>
+          <td>Learning to code</td>
+          <td>Replit</td>
+          <td>Bolt</td>
+          <td>Replit&rsquo;s environment teaches as it builds</td>
+      </tr>
+      <tr>
+          <td>Professional dev on real codebase</td>
+          <td>Cursor</td>
+          <td>—</td>
+          <td>No competition for multi-file engineering</td>
+      </tr>
+      <tr>
+          <td>Mobile app (iOS/Android)</td>
+          <td>Bolt</td>
+          <td>—</td>
+          <td>Only option in this group</td>
+      </tr>
+      <tr>
+          <td>Enterprise / compliance</td>
+          <td>Lovable</td>
+          <td>Cursor</td>
+          <td>Lovable has SSO, data opt-out, audit logs</td>
+      </tr>
+      <tr>
+          <td>Full-stack autonomy, zero setup</td>
+          <td>Replit</td>
+          <td>Bolt</td>
+          <td>Browser-based, no local install</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="pricing-breakdown-and-hidden-costs-the-honest-numbers">Pricing Breakdown and Hidden Costs (The Honest Numbers)</h2>
+<p>Every vibe coding tool has a pricing page that looks reasonable at first glance and a credit/token system that confuses you by your second week. Here&rsquo;s the honest breakdown based on real usage patterns. The free tiers are fine for evaluation but inadequate for regular use — Bolt is the only exception, with 1M tokens/month that covers many full prototypes. For teams, the calculation is: what&rsquo;s the engineering time cost of the equivalent manual work, versus what you&rsquo;re paying monthly? That math almost always favors the tool, but the budget planning needs to account for the right tier. The $20/month entry point that all tools share masks meaningful differences in what you can actually build at that price.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Free Tier</th>
+          <th>$20/mo</th>
+          <th>$50-100/mo</th>
+          <th>Unpredictability Risk</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Cursor</td>
+          <td>Hobby (limited)</td>
+          <td>Pro — good for most devs</td>
+          <td>Pro+ ($60) or Ultra ($200)</td>
+          <td>Medium — credits burn on heavy agentic use</td>
+      </tr>
+      <tr>
+          <td>Replit</td>
+          <td>Very limited</td>
+          <td>Core — full Agent access</td>
+          <td>Business plans</td>
+          <td>High — agent runs consume credits unpredictably</td>
+      </tr>
+      <tr>
+          <td>Bolt</td>
+          <td>1M tokens (generous)</td>
+          <td>Paid plans available</td>
+          <td>—</td>
+          <td>Low — token count is transparent</td>
+      </tr>
+      <tr>
+          <td>Lovable</td>
+          <td>30 credits</td>
+          <td>100 credits</td>
+          <td>300-800 credits</td>
+          <td>High — credit math is opaque per prompt</td>
+      </tr>
+      <tr>
+          <td>v0</td>
+          <td>$5 credits</td>
+          <td>Premium — practical usage</td>
+          <td>Team ($30/user), Business ($100/user)</td>
+          <td>Medium — token-based but more transparent</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="the-hybrid-workflow-how-pros-use-multiple-tools-together">The Hybrid Workflow: How Pros Use Multiple Tools Together</h2>
+<p>The most productive developers in 2026 use two or three vibe coding tools in sequence based on project phase, not a single tool for everything. The pattern that emerges consistently from experienced practitioners: start in Bolt or Lovable for the initial prototype (get to a working demo in under an hour), validate the concept with real users or stakeholders, then port the generated architecture to Cursor once complexity grows past what auto-generated code handles cleanly. v0 gets pulled in for any serious UI work that needs polished React components matching an existing design system. Replit handles quick language experiments or anything that needs to run in isolation without touching local environment configuration. The reason this multi-tool pattern works is that each tool&rsquo;s ceiling is another tool&rsquo;s starting point — Bolt&rsquo;s speed advantage tops out around 2,000 lines of generated code, exactly where Cursor&rsquo;s indexed-codebase agent starts providing maximum value.</p>
+<h3 id="the-phase-based-approach">The Phase-Based Approach</h3>
+<p><strong>Phase 1 (Prototype):</strong> Bolt for full-stack speed, or Lovable if you have a non-technical co-founder. Target: working demo in under 2 hours.</p>
+<p><strong>Phase 2 (Iterate):</strong> Stay in the vibe coding tool until you hit the wall. The wall is usually around 2,000 lines of generated code or the first complex state management requirement.</p>
+<p><strong>Phase 3 (Scale):</strong> Move to Cursor. Import the generated code, let Cursor&rsquo;s agent clean up the technical debt, then build new features with proper codebase context.</p>
+<p><strong>Ongoing:</strong> Use v0 for any new UI components that need design quality. Use Replit for isolated experiments that don&rsquo;t belong in the main repo.</p>
+<p>For more on pairing tools effectively, see <a href="/posts/bolt-new-vs-replit-vs-v0-2026">Bolt vs Replit vs v0: Deep Comparison</a>.</p>
+<hr>
+<h2 id="security-reality-check-what-to-do-after-vibe-coding">Security Reality Check: What to Do After Vibe Coding</h2>
+<p>45% of AI-generated code fails OWASP security tests without additional scanning — and that number hasn&rsquo;t dropped significantly despite tool improvements in 2026. The security gap is structural: vibe coding tools optimize for getting working code fast, not for security-first design patterns. The specific failure modes that appear most frequently in AI-generated codebases are SQL injection via unsanitized form inputs, missing CSRF protection on state-changing routes, hardcoded API keys embedded in generated files, and missing rate limiting on authentication endpoints. Tools have improved their defaults — Lovable now includes security best practices in its generation templates, and Cursor&rsquo;s agent mode will flag some vulnerabilities when directly prompted — but none of the five tools in this comparison runs an automatic post-generation security scan. Treating AI-generated code as production-ready without a security review is the most expensive mistake you can make after vibe coding.</p>
+<h3 id="the-post-generation-security-checklist">The Post-Generation Security Checklist</h3>
+<p>Before any vibe-coded app hits production:</p>
+<ol>
+<li><strong>Dependency scan</strong> — run <code>npm audit</code> or Snyk against generated dependencies. AI tools sometimes pull outdated packages.</li>
+<li><strong>OWASP Top 10 review</strong> — focus on injection (A03), broken authentication (A07), and security misconfiguration (A05).</li>
+<li><strong>Secret detection</strong> — grep for hardcoded keys, or use a tool like git-secrets or TruffleHog.</li>
+<li><strong>Input validation</strong> — audit every form and API endpoint for unvalidated user input.</li>
+<li><strong>Auth review</strong> — verify session expiry, token rotation, and privilege escalation paths.</li>
+</ol>
+<p>This isn&rsquo;t optional at any scale. The 96% of developers who report AI-generated code isn&rsquo;t functionally correct out of the box are mostly referring to logic bugs — but the 45% OWASP failure rate is about security vulnerabilities that are exploitable in production.</p>
+<hr>
+<h2 id="which-vibe-coding-tool-should-you-choose-in-2026">Which Vibe Coding Tool Should You Choose in 2026?</h2>
+<p>The right answer depends entirely on who you are and what you&rsquo;re building. There is no single &ldquo;best&rdquo; vibe coding tool — the market in 2026 has matured to the point where each tool has a genuine differentiated use case. The clearest signal for choosing: if you can read code and have an existing project, start with Cursor. If you have zero coding background, start with Lovable. If you&rsquo;re racing to a demo in under an hour, start with Bolt. If you&rsquo;re building React UI components in the Vercel ecosystem, v0 is the obvious choice. If you want to learn and experiment without local setup, Replit has the lowest barrier. The hybrid workflow — using multiple tools at different project phases — is how the most effective teams operate.</p>
+<p><strong>Start with Cursor</strong> if: you&rsquo;re a developer with an existing codebase, you want the deepest AI integration in a professional IDE, and you&rsquo;re willing to invest a week in learning the agent interface.</p>
+<p><strong>Start with Bolt</strong> if: you need a working app in under an hour, you&rsquo;re targeting mobile as well as web, or you&rsquo;re building for a hackathon or demo.</p>
+<p><strong>Start with Lovable</strong> if: you&rsquo;re a non-technical founder, PM, or designer who needs to ship a full-stack app without learning to code.</p>
+<p><strong>Start with v0</strong> if: you&rsquo;re a React developer who needs production-quality UI components and lives in the Vercel ecosystem.</p>
+<p><strong>Start with Replit</strong> if: you&rsquo;re learning to code, want browser-based everything, or need to prototype in a non-JavaScript language quickly.</p>
+<p>For the deeper take on the Cursor side of the equation, see the <a href="/posts/cursor-3-guide-2026">Cursor 3 guide</a>.</p>
+<hr>
+<h2 id="faq">FAQ</h2>
+<p>The five questions developers and founders ask most about vibe coding tools in 2026 cluster around beginner recommendations, pricing ROI, mobile support, security handling, and the Bolt vs Lovable decision. The short version: Lovable for non-technical builders, Cursor for developers, Bolt for speed and mobile, v0 for React UI, Replit for learning. For anything beyond an MVP, plan for a hybrid workflow — no single tool handles both the discovery phase and the production engineering phase at equal quality. One recurring theme in these questions: the $20/month price point shared by all five tools masks dramatic differences in what that $20 actually buys in practice, from generous token budgets (Bolt) to opaque credit systems (Lovable) to agentic tasks with unpredictable consumption (Replit). The answers below cover the most common decision points in detail, with honest context on where each tool excels and where it disappoints.</p>
+<h3 id="what-is-the-best-vibe-coding-tool-for-beginners-in-2026">What is the best vibe coding tool for beginners in 2026?</h3>
+<p>Lovable and Replit are the best choices for beginners. Lovable requires no coding knowledge at all — you describe your app in plain English and it generates a full-stack result with database and authentication. Replit is better if you want to learn while building, as the browser-based IDE teaches coding concepts as it generates. Bolt is a close third for beginners who want speed over polish.</p>
+<h3 id="is-cursor-worth-20month-for-vibe-coding">Is Cursor worth $20/month for vibe coding?</h3>
+<p>Yes, if you&rsquo;re a developer. Cursor&rsquo;s $20 Pro plan is the best ROI in the comparison for anyone who can read and modify code. The Agent mode alone saves hours per week on complex tasks. The credit system can be a constraint for very heavy agentic usage — at that point, Pro+ at $60 is the right tier. The free Hobby plan is too limited for daily use.</p>
+<h3 id="can-you-vibe-code-a-full-mobile-app">Can you vibe code a full mobile app?</h3>
+<p>Bolt is the only tool in this comparison that supports mobile development via React Native and Expo. The other tools (Cursor, Replit, Lovable, v0) target web applications. Bolt&rsquo;s mobile support is functional but not as polished as native mobile development — it&rsquo;s best for cross-platform apps that prioritize speed to market over platform-native UX.</p>
+<h3 id="how-does-vibe-coding-handle-security">How does vibe coding handle security?</h3>
+<p>Not well by default. 45% of AI-generated code fails OWASP security tests without additional scanning. All five tools have improved their security defaults in 2026, but none automatically run a security scan post-generation. The minimum viable security process for production is a dependency audit, OWASP Top 10 review, secret detection scan, and manual auth review. Treat AI-generated code as first-draft code that needs security review, not production-ready output.</p>
+<h3 id="whats-the-difference-between-bolt-and-lovable">What&rsquo;s the difference between Bolt and Lovable?</h3>
+<p>Both generate full-stack applications from a chat prompt, but they target different users. Bolt is faster (3-7 minutes to working app), supports mobile (React Native), and has the most generous free tier (1M tokens/month). Lovable is more accessible for non-technical users, has better Supabase integration (best-in-class database + auth), and includes enterprise compliance features (SSO, data opt-out). Bolt wins on speed and mobile. Lovable wins on accessibility and enterprise readiness. See the <a href="/posts/lovable-vs-bolt-comparison-2026">Lovable vs Bolt deep dive</a> for a detailed breakdown.</p>
+]]></content:encoded></item><item><title>Cursor + Claude Code + Codex Composable Stack 2026: The New AI Coding Architecture</title><link>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</link><pubDate>Fri, 01 May 2026 06:05:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-claude-code-codex-stack-2026/</guid><description>How to combine Cursor, Claude Code, and OpenAI Codex into a composable AI coding stack — with setup guide, workflow patterns, and pricing breakdown.</description><content:encoded><![CDATA[<p>The best AI coding setup in 2026 isn&rsquo;t a single tool — it&rsquo;s a composable stack: Cursor as the IDE and orchestration layer, Claude Code as the deep-reasoning terminal agent, and OpenAI Codex as the cloud-native background automation engine. Using all three together costs as little as $40/month and delivers capabilities no single tool can match.</p>
 <h2 id="what-is-the-cursor--claude-code--codex-composable-stack">What Is the Cursor + Claude Code + Codex Composable Stack?</h2>
 <p>The Cursor + Claude Code + Codex composable stack is a three-tool AI coding architecture where each product owns a distinct phase of the development workflow: Cursor 3.0 handles the interactive editor and agent orchestration layer, Claude Code (powered by Anthropic&rsquo;s Opus 4.6) executes deep reasoning and terminal-level autonomy, and OpenAI Codex runs cloud-native background automation across repositories. As of April 2026, 70% of professional engineers run 2–4 AI coding tools simultaneously — and the Cursor + Claude Code + Codex combination is the most cited trio. This isn&rsquo;t tool hoarding. The three products solve fundamentally different problems, communicate via MCP (Model Context Protocol), and compound each other&rsquo;s strengths. Claude Code now accounts for 4% of all GitHub commits globally, while Cursor has crossed $2B ARR with roughly 1 million paying users. The composable stack represents a shift from &ldquo;which AI tool is best&rdquo; to &ldquo;which tool fits this specific task,&rdquo; a mindset that the most productive 10% of developers have already internalized.</p>
 <h2 id="the-three-layer-ai-coding-architecture-explained">The Three-Layer AI Coding Architecture Explained</h2>
