@@ -177,6 +177,7 @@ RockB specializes in:
 - [Best AI Coding Assistants in 2026: The Definitive Comparison](https://baeseokjae.github.io/posts/best-ai-coding-assistants-2026/) — The best AI coding assistants in 2026 are Cursor, Claude Code, and GitHub Copilot — but the smartest developers combine two or more into a unified stack.
 
 ### In-depth Guides & Explainers
+- [Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase](https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/) — Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.
 - [Cloudflare Project Think Guide 2026: Build Long-Running AI Agents with Durable Execution](https://baeseokjae.github.io/posts/cloudflare-project-think-ai-agents-guide/) — Cloudflare Project Think을 이용해 내구성 있는 장기 실행 AI 에이전트를 구축하는 완전 가이드.
 - [Llama 4 API Developer Guide 2026: Scout, Maverick, MoE Architecture and Integration](https://baeseokjae.github.io/posts/llama-4-api-developer-guide-2026/) — Complete developer guide to Llama 4 Scout and Maverick APIs: MoE architecture, 10M-token context, pricing, vLLM deployment, and OpenAI-compatible integration.
 - [Windsurf Arena Mode Guide 2026: Run Two AI Models Side-by-Side on Your Code](https://baeseokjae.github.io/posts/windsurf-arena-mode-guide-2026/) — Complete guide to Windsurf Arena Mode: how blind model comparison works, SWE-1.5 vs Claude benchmarks, leaderboard mechanics, and credit cost breakdown.
@@ -258,6 +259,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase](https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/) — Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.
 - [Cloudflare Project Think Guide 2026: Build Long-Running AI Agents with Durable Execution](https://baeseokjae.github.io/posts/cloudflare-project-think-ai-agents-guide/) — Cloudflare Project Think을 이용해 내구성 있는 장기 실행 AI 에이전트를 구축하는 완전 가이드.
 - [Llama 4 API Developer Guide 2026: Scout, Maverick, MoE Architecture and Integration](https://baeseokjae.github.io/posts/llama-4-api-developer-guide-2026/) — Complete developer guide to Llama 4 Scout and Maverick APIs: MoE architecture, 10M-token context, pricing, vLLM deployment, and OpenAI-compatible integration.
 - [VS Code vs Cursor vs Windsurf vs JetBrains AI 2026: Which IDE Should You Use?](https://baeseokjae.github.io/posts/vscode-cursor-windsurf-jetbrains-comparison-2026/) — Cursor leads on speed (72% autocomplete acceptance), Windsurf wins enterprise, VS Code &#43; Copilot is safest. Full 2026 comparison with benchmarks and pricing.

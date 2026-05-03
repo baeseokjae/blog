@@ -1,4 +1,188 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 02 May 2026 18:02:05 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Roo Code Review 2026: Open-Source Cline Fork with Multi-Agent Mode</title><link>https://baeseokjae.github.io/posts/roo-code-review-2026/</link><pubDate>Sat, 02 May 2026 18:02:05 +0000</pubDate><guid>https://baeseokjae.github.io/posts/roo-code-review-2026/</guid><description>Complete Roo Code review covering its multi-agent orchestration, Boomerang Tasks, shutdown, and where to migrate in 2026.</description><content:encoded><![CDATA[<p>Roo Code was an open-source VS Code extension that forked from Cline to build a multi-agent AI coding system inside your IDE. It reached 23,300+ GitHub stars and 1.52 million active installs before announcing its shutdown on April 20, 2026 — with all products ceasing on May 15, 2026. If you used it, here is the full story of what made it exceptional and what to do next.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Ai-Coding on RockB</title><link>https://baeseokjae.github.io/tags/ai-coding/</link><description>Recent content in Ai-Coding on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 03 May 2026 03:06:19 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/ai-coding/index.xml" rel="self" type="application/rss+xml"/><item><title>Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase</title><link>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</link><pubDate>Sun, 03 May 2026 03:06:19 +0000</pubDate><guid>https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/</guid><description>Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.</description><content:encoded><![CDATA[<p>Cursor 2.0 lets you run up to 8 AI agents simultaneously on your codebase using git worktrees — each agent works in isolation on a separate branch, eliminating file conflicts. Combined with Composer 2&rsquo;s 250 tokens/second throughput, you can parallelize a week of refactoring work into a single afternoon.</p>
+<h2 id="what-are-cursor-20-parallel-agents-the-8-agent-breakthrough">What Are Cursor 2.0 Parallel Agents? (The 8-Agent Breakthrough)</h2>
+<p>Cursor 2.0 parallel agents are simultaneous AI coding sessions, each running inside its own git worktree, that allow up to 8 independent Composer instances to modify the same repository at once without stepping on each other&rsquo;s changes. Introduced with Cursor 2.0 in early 2026, this feature fundamentally changes how developers handle large, decomposable tasks like TypeScript migrations, test suite generation, or cross-cutting refactors. In practice, a senior engineer can assign Agent 1 to rewrite the authentication module, Agent 2 to update all API handlers, and Agent 3 to generate test coverage — all running simultaneously. Cursor reports that agentic tasks complete 30% faster with parallel background agents versus sequential execution. Composer 2 scores 61.3 on CursorBench versus 44.2 for Composer 1.5 (a 39% improvement), meaning each individual agent is also smarter than its predecessor. The net result: tasks that previously took days now finish in hours, with each agent maintaining full context of its own isolated work.</p>
+<h3 id="how-worktree-isolation-works">How Worktree Isolation Works</h3>
+<p>Each parallel agent gets its own git worktree — a separate checkout of the repository with its own working directory and branch. All worktrees share the same underlying <code>.git</code> object database, so there is no repository duplication. Agent 2 modifying <code>auth/handler.ts</code> has no awareness of Agent 5 editing <code>api/users.ts</code>. When both finish, you merge their branches like any normal git workflow. The technical constraint is disk I/O and RAM: each active Cursor window consumes approximately 800MB–1.2GB of memory, which means 8 agents realistically requires 16GB+ of system RAM for smooth operation.</p>
+<h2 id="the-technology-behind-parallel-agents-git-worktrees-explained">The Technology Behind Parallel Agents: Git Worktrees Explained</h2>
+<p>Git worktrees are a first-class git feature — not a Cursor invention — that allow a single repository to have multiple checked-out branches simultaneously in different filesystem paths. Cursor 2.0 wraps this capability with a UI that lets you spawn new Composer sessions directly into configured worktree directories. When you run <code>git worktree add ../my-repo-feature1 -b feature/agent-1</code>, git creates a directory at <code>../my-repo-feature1</code> that shares the same object store as your main repo but maintains its own <code>HEAD</code>, index, and working tree. This means commits in the worktree appear instantly in <code>git log</code> everywhere — but the files remain physically separate until merged. For Cursor&rsquo;s parallel agent use case, this architecture is ideal: agents can <code>git add</code>, <code>git commit</code>, and even run terminal commands within their worktree without interfering with other agents. The <code>.cursor/worktrees.json</code> configuration file tells Cursor which directories are active worktrees, enabling automatic environment setup (dependency installation, environment variable injection) when each agent session starts. Cursor&rsquo;s implementation also handles the cleanup cycle: after merging an agent&rsquo;s branch, <code>git worktree remove</code> frees the directory, and Cursor removes it from the worktree registry automatically.</p>
+<h3 id="worktree-vs-branch-whats-the-difference">Worktree vs Branch: What&rsquo;s the Difference?</h3>
+<p>A branch is a pointer to a commit. A worktree is a physical checkout of that branch at a filesystem path. Without worktrees, switching branches means modifying your single working directory — destructive if another process is reading those files. With worktrees, each branch lives at its own path; switching between agents means switching windows, not <code>git checkout</code>. This is why Cursor can run 8 agents: each has a stable filesystem view that never changes unless the agent itself makes a commit.</p>
+<h2 id="setting-up-parallel-agents-in-cursor-20-prerequisites-and-configuration">Setting Up Parallel Agents in Cursor 2.0: Prerequisites and Configuration</h2>
+<p>Setting up Cursor 2.0 parallel agents requires Cursor Pro ($20/month minimum), git 2.15+ for worktree support, and a machine with at least 8GB RAM for 2–3 agents or 16GB+ for 4–8 agents. Start by verifying your Cursor version is 2.0 or later in <strong>Cursor → About Cursor</strong>. Then confirm git worktree support with <code>git worktree list</code> from your project root. The feature is enabled by default in Cursor 2.0 — no feature flag or beta enrollment needed. Create your <code>.cursor</code> directory at the project root if it does not already exist, then create the worktrees configuration file at <code>.cursor/worktrees.json</code>. This file tells Cursor which parallel working directories are active, what branch each maps to, and whether to run setup scripts automatically when an agent session starts in that directory. Each entry in the JSON array specifies a <code>path</code> (relative or absolute), a <code>branch</code> name, and optionally a <code>setup</code> array of shell commands to run on initialization. Without this file, you can still create worktrees manually, but Cursor will not auto-configure agent sessions when you open them.</p>
+<h3 id="system-requirements-by-agent-count">System Requirements by Agent Count</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Agents</th>
+          <th>RAM Required</th>
+          <th>Recommended CPU</th>
+          <th>Disk Space</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>2</td>
+          <td>8 GB</td>
+          <td>4 cores</td>
+          <td>+2 GB</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>16 GB</td>
+          <td>8 cores</td>
+          <td>+4 GB</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>32 GB</td>
+          <td>12+ cores</td>
+          <td>+8 GB</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="step-by-step-running-8-simultaneous-ai-agents-on-your-codebase">Step-by-Step: Running 8 Simultaneous AI Agents on Your Codebase</h2>
+<p>Running 8 parallel agents in Cursor 2.0 is a six-step process that combines git worktree setup, Cursor configuration, and strategic task decomposition. First, identify 8 truly independent workstreams in your project — tasks that read or write different files, with no shared dependencies during execution. Second, create a worktree for each task using <code>git worktree add ../project-agent-N -b feature/agent-N</code> for agents 1 through 8. Third, create <code>.cursor/worktrees.json</code> registering all 8 paths with their branch names and any per-worktree setup commands (e.g., <code>npm install</code> or <code>pip install -r requirements.txt</code>). Fourth, open each worktree in a new Cursor window via <strong>File → Open Folder</strong>, then start a Composer session in each window. Fifth, paste each agent&rsquo;s task prompt into its respective Composer — be specific, include file paths, and scope the task tightly to avoid agents accidentally editing shared utilities. Sixth, monitor progress across windows, approve any tool calls that require confirmation, and begin merging completed branches as each agent finishes. The entire setup takes approximately 10 minutes for experienced users. For teams, this workflow maps naturally to microservices: assign one agent per service, each in its own worktree, and review PRs as they complete.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create 8 worktrees for parallel agent work</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#f92672">{</span>1..8<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  git worktree add ../project-agent-$i -b feature/agent-$i
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verify all worktrees are registered</span>
+</span></span><span style="display:flex;"><span>git worktree list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">// .cursor/worktrees.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;worktrees&#34;</span>: [
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-1&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-1&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-2&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-2&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-3&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-3&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] },
+</span></span><span style="display:flex;"><span>    { <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;../project-agent-4&#34;</span>, <span style="color:#f92672">&#34;branch&#34;</span>: <span style="color:#e6db74">&#34;feature/agent-4&#34;</span>, <span style="color:#f92672">&#34;setup&#34;</span>: [<span style="color:#e6db74">&#34;npm install&#34;</span>] }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="writing-effective-per-agent-prompts">Writing Effective Per-Agent Prompts</h3>
+<p>Vague prompts are the primary failure mode for parallel agents. Each agent prompt should specify: (1) which files to modify, (2) which files to leave untouched, (3) the exact output format or API contract, and (4) any conventions from the codebase the agent might not infer from context. A good parallel agent prompt for a TypeScript migration reads: &ldquo;Convert <code>/src/utils/auth.js</code> and all files it imports to TypeScript. Do not modify any files in <code>/src/api/</code>. Preserve all existing function signatures. Add JSDoc comments to all exported functions.&rdquo;</p>
+<h2 id="using-multitask-for-automatic-task-decomposition-cursor-32">Using /multitask for Automatic Task Decomposition (Cursor 3.2)</h2>
+<p>The <code>/multitask</code> command, introduced in Cursor 3.2 on April 24, 2026, automates the task decomposition step entirely — you describe a high-level goal, and Cursor breaks it into async subagents that run in parallel without manual worktree setup. Instead of manually identifying 8 independent workstreams and creating worktrees for each, you type <code>/multitask Migrate all JavaScript files in /src to TypeScript, adding proper types and JSDoc</code> and Cursor&rsquo;s planner analyzes your codebase, identifies which files are safe to process concurrently, spins up subagents for each file cluster, and tracks their progress in a single orchestration view. This is a significant workflow improvement over Cursor 2.0&rsquo;s manual approach: the cognitive overhead of decomposition and worktree management disappears, and the system handles merge ordering automatically. Cursor&rsquo;s planner is conservative — it will not parallelize tasks where it detects file interdependencies, defaulting to sequential execution for those file pairs. The tradeoff is control: <code>/multitask</code> makes decomposition decisions automatically, which occasionally results in suboptimal task groupings. For complex refactors with subtle dependency graphs, manual worktree setup remains more reliable.</p>
+<h3 id="when-to-use-multitask-vs-manual-worktrees">When to Use /multitask vs Manual Worktrees</h3>
+<p>Use <code>/multitask</code> for: large-scale file migrations, test generation across many modules, documentation updates, formatting passes. Use manual worktrees for: tasks requiring precise ordering of commits, work spanning services with shared interfaces, or when you need to customize each agent&rsquo;s environment or context window.</p>
+<h2 id="background-agents-running-ai-agents-on-cloud-vms">Background Agents: Running AI Agents on Cloud VMs</h2>
+<p>Background Agents, available on Cursor Pro ($20/month) and above, run your Cursor agents in isolated AWS virtual machines with internet access — freeing your local machine entirely while agents work. Where local parallel agents consume your RAM and CPU, Background Agents offload execution to Cursor&rsquo;s cloud infrastructure. Each Background Agent VM has internet access for package installation and API calls, a persistent terminal session, and the ability to commit and push to your repository autonomously. You monitor their progress from the Cursor UI&rsquo;s Background Agents panel, which streams terminal output and Composer actions in real time. Background Agents are ideal for long-running tasks (2+ hours), for teams where developers want agents running overnight, and for CI-adjacent workflows where the agent needs to install dependencies, run tests, and create PRs without occupying a developer&rsquo;s laptop. The limitation is cost: Background Agent compute is billed separately from Cursor Pro&rsquo;s base subscription, with pricing based on compute time. For short tasks under 30 minutes, local parallel agents are more cost-effective. For overnight batch work — migrating a 500-file legacy codebase, generating comprehensive test coverage, or updating all dependencies — Background Agents eliminate the need to keep your laptop awake.</p>
+<h3 id="local-vs-background-agents-comparison">Local vs Background Agents: Comparison</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Local Parallel Agents</th>
+          <th>Background Agents</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max simultaneous</td>
+          <td>8</td>
+          <td>Unlimited (plan-based)</td>
+      </tr>
+      <tr>
+          <td>Infrastructure</td>
+          <td>Your machine</td>
+          <td>AWS VMs</td>
+      </tr>
+      <tr>
+          <td>Internet access</td>
+          <td>Via your network</td>
+          <td>Built-in</td>
+      </tr>
+      <tr>
+          <td>Cost</td>
+          <td>Cursor Pro only</td>
+          <td>Pro + compute billing</td>
+      </tr>
+      <tr>
+          <td>Setup</td>
+          <td>Manual worktrees</td>
+          <td>One-click</td>
+      </tr>
+      <tr>
+          <td>Best for</td>
+          <td>Short, focused tasks</td>
+          <td>Long-running batch work</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="real-world-use-cases-where-parallel-agents-save-days-of-work">Real-World Use Cases Where Parallel Agents Save Days of Work</h2>
+<p>Parallel agents in Cursor 2.0 deliver the most value in three categories of work: large-scale migrations, comprehensive test generation, and documentation production. For a TypeScript migration of a 200-file JavaScript codebase, running 8 agents simultaneously — each handling 25 files — reduces a week-long task to a single afternoon. Development teams at Series B startups report cutting their TypeScript migration from 5 days to 6 hours using this pattern. For test generation, parallel agents excel at producing unit tests for modules in isolation: assign each agent a module directory, and all agents write tests concurrently against their respective public APIs. A backend team of 4 engineers used 8 parallel Cursor agents to generate 847 unit tests across 12 microservices in 3 hours — work that previously required 2 full sprint weeks. For documentation, agents can simultaneously generate API reference docs, usage examples, and README files for each service, with no risk of agents overwriting each other&rsquo;s output since each service lives in a separate directory. Additional use cases include: dependency version updates across monorepo packages, ESLint/Prettier formatting passes across legacy code, internationalization (i18n) string extraction, and security audit annotation.</p>
+<h3 id="case-study-monorepo-refactor">Case Study: Monorepo Refactor</h3>
+<p>A real-world monorepo with 14 packages and 380 TypeScript files was refactored using 8 Cursor parallel agents over 4 hours. Task decomposition: 2 agents per tier (UI components, API clients, server handlers, database models). Each agent was given its package&rsquo;s directory and a single task: &ldquo;Add strict null checks and fix all resulting TypeScript errors.&rdquo; Merge sequence: database models first (no dependencies), then server handlers, then API clients, then UI components. Total developer time: 40 minutes of setup + monitoring. Estimated sequential time: 3 days.</p>
+<h2 id="best-practices-avoiding-conflicts-and-maximizing-parallel-agent-efficiency">Best Practices: Avoiding Conflicts and Maximizing Parallel Agent Efficiency</h2>
+<p>Effective parallel agent use in Cursor 2.0 depends on three disciplines: rigorous task decomposition, defensive prompt writing, and structured merge sequencing. The most common failure mode is assigning agents to tasks with hidden shared dependencies — for example, two agents modifying the same utility file from different features. Always map your codebase&rsquo;s dependency graph before assigning tasks: use <code>madge</code> for JavaScript/TypeScript or <code>pydeps</code> for Python to visualize imports, then ensure no two agent tasks touch the same files. For prompt writing, include explicit exclusion lists: &ldquo;Do not modify any files outside <code>/src/auth/</code>&rdquo; is as important as the positive instruction. When agents are confident, they will reach for shared utilities to solve problems — explicit boundaries prevent this. For merge sequencing, process agents in dependency order: foundational modules first, consumers second. Create a merge plan before starting any agent and stick to it. Finally, test each agent&rsquo;s branch in isolation before merging: run your test suite against each worktree individually to catch regressions before they compound in the main branch.</p>
+<h3 id="resolving-merge-conflicts-between-agent-branches">Resolving Merge Conflicts Between Agent Branches</h3>
+<p>When conflicts occur (typically in <code>package-lock.json</code>, <code>yarn.lock</code>, or auto-generated files), resolve them at merge time rather than mid-task. Do not attempt to have agents resolve conflicts autonomously — the agent lacks context about the other branches&rsquo; changes. Use <code>git mergetool</code> or Cursor&rsquo;s built-in merge conflict UI. For lock files, regenerate them after all branches are merged rather than resolving individual diffs.</p>
+<h2 id="cursor-parallel-agents-vs-github-copilot-vs-claude-code-2026-comparison">Cursor Parallel Agents vs GitHub Copilot vs Claude Code: 2026 Comparison</h2>
+<p>Cursor 2.0 parallel agents occupy a unique position in the 2026 AI coding landscape — no direct competitor offers native parallel agent execution in the same workflow. GitHub Copilot Workspace supports multi-step agentic tasks but processes them sequentially, not in parallel. Claude Code&rsquo;s agent mode handles one task at a time with deep codebase analysis, but requires manual management for parallel workstreams. The core difference is infrastructure: Cursor built worktree management and multi-window orchestration into the IDE itself, making parallel execution a first-class feature rather than a workaround. For teams doing large-scale codebase transformations, this architectural choice matters more than any benchmark comparison. Cursor&rsquo;s Composer 2 model scores 61.7 on Terminal-Bench 2.0, surpassing Claude Opus 4.6 at 58.0, which means individual agent quality is competitive with the best available models — and you can run 8 of them simultaneously. 95% of developers use AI tools at least weekly in 2026, but only a fraction are using parallel agents for the workloads where they provide 10x leverage.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Feature</th>
+          <th>Cursor 2.0 Parallel</th>
+          <th>GitHub Copilot Workspace</th>
+          <th>Claude Code Agent</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Max parallel agents</td>
+          <td>8 local, unlimited cloud</td>
+          <td>1 (sequential)</td>
+          <td>1 per session</td>
+      </tr>
+      <tr>
+          <td>Worktree management</td>
+          <td>Native, automatic</td>
+          <td>Manual</td>
+          <td>Manual</td>
+      </tr>
+      <tr>
+          <td>/multitask (auto-decompose)</td>
+          <td>Yes (v3.2+)</td>
+          <td>No</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Cloud agents</td>
+          <td>Yes (Background)</td>
+          <td>Limited preview</td>
+          <td>No</td>
+      </tr>
+      <tr>
+          <td>Model benchmark (CursorBench)</td>
+          <td>61.3</td>
+          <td>N/A</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Entry price</td>
+          <td>$20/month Pro</td>
+          <td>$19/month Individual</td>
+          <td>$20/month Pro</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="pricing-plans-and-what-you-actually-need">Pricing, Plans, and What You Actually Need</h2>
+<p>Cursor 2.0 parallel agents are available on Cursor Pro ($20/month) and above — the free Hobby tier does not include Composer access or Background Agents. Pro includes: unlimited Composer sessions, up to 8 local parallel agents via worktrees, Background Agent access (compute billed separately), and Supermaven autocomplete with a 72% developer acceptance rate. The Business plan ($40/month per seat) adds centralized billing, admin controls, and higher rate limits on Background Agent compute. For individual developers doing large migrations or ambitious side projects, Pro is sufficient — 8 local agents on a 32GB MacBook Pro handles most real-world workloads. For teams doing nightly batch processing or CI-integrated agent workflows, Background Agent compute costs are typically $50–200/month depending on task volume. There is no &ldquo;parallel agents add-on&rdquo; — the feature is included in Pro; the only variable cost is Background Agent compute time.</p>
+<h3 id="is-cursor-pro-worth-it-for-parallel-agents-alone">Is Cursor Pro Worth It for Parallel Agents Alone?</h3>
+<p>For any developer who regularly does large refactors, migrations, or test-writing sprints: yes. A single 4-hour parallel agent session on a 200-file TypeScript migration saves 3–4 days of manual work. At $20/month, the ROI is positive after a single significant use. For developers doing primarily line-by-line feature work, the productivity gain is smaller and the free tier or GitHub Copilot Individual may be more cost-effective.</p>
+<hr>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<p><strong>Can I run more than 8 parallel agents in Cursor 2.0?</strong>
+The local parallel agent limit is 8 simultaneous worktrees, constrained by Cursor&rsquo;s UI and practical memory limits. Background Agents (cloud VMs) do not have this ceiling — the limit depends on your plan&rsquo;s compute quota. For most workloads, 4–6 agents is the practical sweet spot where task quality and context size remain manageable.</p>
+<p><strong>Do parallel agents share context with each other?</strong>
+No. Each agent runs in complete isolation with its own context window, conversation history, and file system view. Agents cannot communicate with each other or read each other&rsquo;s changes during execution. Coordination happens through the developer: you define task boundaries, monitor progress, and sequence merges.</p>
+<p><strong>What happens if two agents accidentally modify the same file?</strong>
+If you followed proper task decomposition, this should not happen. If it does, you will see a git merge conflict when merging the second branch. Resolve it manually using <code>git mergetool</code> or Cursor&rsquo;s conflict UI. To prevent this, always verify your task assignments using a dependency graph tool before starting agents.</p>
+<p><strong>Does /multitask replace manual worktree setup?</strong>
+For most use cases introduced in Cursor 3.2, yes — <code>/multitask</code> automates decomposition, worktree creation, and merge sequencing. Manual worktrees remain useful for tasks requiring custom environment setup per agent, precise commit ordering, or when you need to review each agent&rsquo;s work before it proceeds to the next step.</p>
+<p><strong>Can I use Cursor parallel agents with a monorepo?</strong>
+Yes, and monorepos are an ideal use case. Assign each agent to a single package directory. Because monorepo packages are typically loosely coupled at the filesystem level, agents rarely conflict. Tools like Turborepo and Nx&rsquo;s dependency graph can help you identify safe parallel boundaries. The shared <code>node_modules</code> or <code>package.json</code> at the monorepo root should be excluded from all agent tasks and updated manually after merging.</p>
+]]></content:encoded></item><item><title>Roo Code Review 2026: Open-Source Cline Fork with Multi-Agent Mode</title><link>https://baeseokjae.github.io/posts/roo-code-review-2026/</link><pubDate>Sat, 02 May 2026 18:02:05 +0000</pubDate><guid>https://baeseokjae.github.io/posts/roo-code-review-2026/</guid><description>Complete Roo Code review covering its multi-agent orchestration, Boomerang Tasks, shutdown, and where to migrate in 2026.</description><content:encoded><![CDATA[<p>Roo Code was an open-source VS Code extension that forked from Cline to build a multi-agent AI coding system inside your IDE. It reached 23,300+ GitHub stars and 1.52 million active installs before announcing its shutdown on April 20, 2026 — with all products ceasing on May 15, 2026. If you used it, here is the full story of what made it exceptional and what to do next.</p>
 <h2 id="what-is-roo-code-the-open-source-ai-dev-team-inside-vs-code">What Is Roo Code? The Open-Source AI Dev Team Inside VS Code</h2>
 <p>Roo Code is a VS Code extension that turns your editor into an autonomous AI coding agent — not just a code completion tool, but a system that reads files, runs commands, browses the web, and executes multi-step engineering tasks without waiting for per-action approval. Unlike GitHub Copilot or Tabnine, which insert completions reactively, Roo Code operates with full agency over your local environment: it can open terminals, edit multiple files, install packages, run tests, and iterate on failures. The tool reached 23,300+ GitHub stars and 1.52 million active VS Code installs with 3 million cumulative downloads as of April 2026, driven by a community of 300+ active contributors. What differentiated Roo from standard AI coding assistants was its multi-mode architecture — separate operating modes for coding, architecture planning, debugging, and orchestration — each configurable to use a different underlying LLM. This per-mode model routing made it the most cost-efficient open-source AI coding agent available for complex, multi-file tasks before its May 2026 shutdown.</p>
 <h2 id="how-roo-code-forked-from-cline--and-why-it-mattered">How Roo Code Forked from Cline — and Why It Mattered</h2>
