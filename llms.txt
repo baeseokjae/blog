@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Sweep AI Review 2026: GitHub Issue to PR Automation — Is It Worth It?](https://baeseokjae.github.io/posts/sweep-ai-review-2026/) — Honest Sweep AI review for 2026: 92% issue resolution rate, GitHub-native workflow, pricing vs Devin, and whether the JetBrains pivot changes the value proposition.
 - [GPT-6 Review 2026: OpenAI&#39;s New Flagship Model — Benchmarks, API, and Developer Use Cases](https://baeseokjae.github.io/posts/gpt-6-review-2026/) — GPT-6 pre-training is done but not yet released. Here&#39;s every confirmed fact, benchmark projection, and API detail developers need to plan ahead.
 - [Best AI SAST Tools 2026: Snyk vs Semgrep vs Checkmarx vs Corgea Ranked](https://baeseokjae.github.io/posts/ai-sast-tools-comparison-2026/) — Ranked comparison of the best AI SAST tools in 2026: Snyk Code vs Semgrep vs Checkmarx vs Corgea — accuracy, false positive rates, AI auto-fix, and pricing.
 - [VS Code vs Cursor vs Windsurf vs JetBrains AI 2026: Which IDE Should You Use?](https://baeseokjae.github.io/posts/vscode-cursor-windsurf-jetbrains-comparison-2026/) — Cursor leads on speed (72% autocomplete acceptance), Windsurf wins enterprise, VS Code &#43; Copilot is safest. Full 2026 comparison with benchmarks and pricing.
@@ -179,6 +180,7 @@ RockB specializes in:
 - [Best AI Coding Assistants in 2026: The Definitive Comparison](https://baeseokjae.github.io/posts/best-ai-coding-assistants-2026/) — The best AI coding assistants in 2026 are Cursor, Claude Code, and GitHub Copilot — but the smartest developers combine two or more into a unified stack.
 
 ### In-depth Guides & Explainers
+- [Figma MCP Server Guide 2026: Design to Code with AI](https://baeseokjae.github.io/posts/figma-mcp-design-to-code-2026/) — Complete guide to the Figma MCP server: setup, remote vs desktop, Code Connect, and real-world design-to-code workflows with AI agents in 2026.
 - [OpenAI Codex Computer Use Guide 2026: Background Agents That Operate Your Mac](https://baeseokjae.github.io/posts/openai-codex-computer-use-guide-2026/) — OpenAI Codex computer use lets background agents operate your Mac autonomously — here&#39;s the complete setup guide with security, plugins, and real use cases.
 - [Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase](https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/) — Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.
 - [Cloudflare Project Think Guide 2026: Build Long-Running AI Agents with Durable Execution](https://baeseokjae.github.io/posts/cloudflare-project-think-ai-agents-guide/) — Cloudflare Project Think을 이용해 내구성 있는 장기 실행 AI 에이전트를 구축하는 완전 가이드.
@@ -262,6 +264,8 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Figma MCP Server Guide 2026: Design to Code with AI](https://baeseokjae.github.io/posts/figma-mcp-design-to-code-2026/) — Complete guide to the Figma MCP server: setup, remote vs desktop, Code Connect, and real-world design-to-code workflows with AI agents in 2026.
+- [Sweep AI Review 2026: GitHub Issue to PR Automation — Is It Worth It?](https://baeseokjae.github.io/posts/sweep-ai-review-2026/) — Honest Sweep AI review for 2026: 92% issue resolution rate, GitHub-native workflow, pricing vs Devin, and whether the JetBrains pivot changes the value proposition.
 - [OpenAI Codex Computer Use Guide 2026: Background Agents That Operate Your Mac](https://baeseokjae.github.io/posts/openai-codex-computer-use-guide-2026/) — OpenAI Codex computer use lets background agents operate your Mac autonomously — here&#39;s the complete setup guide with security, plugins, and real use cases.
 - [GPT-6 Review 2026: OpenAI&#39;s New Flagship Model — Benchmarks, API, and Developer Use Cases](https://baeseokjae.github.io/posts/gpt-6-review-2026/) — GPT-6 pre-training is done but not yet released. Here&#39;s every confirmed fact, benchmark projection, and API detail developers need to plan ahead.
 - [Cursor 2.0 Parallel Agents Guide: Run 8 Simultaneous AI Agents on Your Codebase](https://baeseokjae.github.io/posts/cursor-2-parallel-agents-guide/) — Run up to 8 AI agents simultaneously in Cursor 2.0 using git worktrees. Complete setup guide, /multitask command, background agents, and real-world use cases.
