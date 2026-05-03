@@ -3003,7 +3003,7 @@
     "keyword": "gpt-6 review",
     "type": "review",
     "priority": 240,
-    "status": "seeded",
+    "status": "published",
     "search_volume_est": 1200,
     "kd_est": 9,
     "cluster": "LLM comparison",
