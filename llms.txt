@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Activepieces vs n8n 2026: Open-Source Automation Compared](https://baeseokjae.github.io/posts/activepieces-vs-n8n-comparison-2026/) — Activepieces vs n8n 2026: pricing model differences, integration counts, self-hosting options, AI agent capabilities, and which open-source automation platform fits your team.
 - [SonarQube AI CodeFix Review 2026: Is It Worth It for Developer Teams?](https://baeseokjae.github.io/posts/sonarqube-ai-codefix-review-2026/) — Honest SonarQube AI CodeFix review: what it does well, where it falls short, pricing breakdown, and who should actually use it in 2026.
 - [Lindy AI Review 2026: No-Code AI Agent Automation Platform](https://baeseokjae.github.io/posts/lindy-ai-review-2026/) — Hands-on Lindy AI review covering pricing, features, Gaia voice agent, Autopilot, and how it compares to Zapier, Make, and n8n in 2026.
 - [AnythingLLM Review 2026: Local AI Knowledge Base and Agent Runtime](https://baeseokjae.github.io/posts/anythingllm-review-2026/) — An honest 2026 review of AnythingLLM covering RAG, agent runtime, MCP support, Docker setup, and how it compares to Open WebUI and PrivateGPT.
@@ -269,6 +270,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Activepieces vs n8n 2026: Open-Source Automation Compared](https://baeseokjae.github.io/posts/activepieces-vs-n8n-comparison-2026/) — Activepieces vs n8n 2026: pricing model differences, integration counts, self-hosting options, AI agent capabilities, and which open-source automation platform fits your team.
 - [AutoAgent LLM Framework 2026: Build AI Agents with Zero Code](https://baeseokjae.github.io/posts/autoagent-llm-framework-2026/) — AutoAgent lets you build production-grade LLM agents using only natural language — no Python required. GAIA #1 open-source, Self-Play optimization.
 - [SonarQube AI CodeFix Review 2026: Is It Worth It for Developer Teams?](https://baeseokjae.github.io/posts/sonarqube-ai-codefix-review-2026/) — Honest SonarQube AI CodeFix review: what it does well, where it falls short, pricing breakdown, and who should actually use it in 2026.
 - [Lindy AI Review 2026: No-Code AI Agent Automation Platform](https://baeseokjae.github.io/posts/lindy-ai-review-2026/) — Hands-on Lindy AI review covering pricing, features, Gaia voice agent, Autopilot, and how it compares to Zapier, Make, and n8n in 2026.
