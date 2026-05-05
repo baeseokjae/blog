@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [MCP Streamable HTTP Production Guide 2026: stdio vs Streamable HTTP](https://baeseokjae.github.io/posts/mcp-production-guide-streamable-http-2026/) — Complete guide to choosing and deploying MCP transports in 2026: stdio vs Streamable HTTP, auth, scaling, and platform recipes for Cloudflare, AWS ECS, and Kubernetes.
 - [Cubic.dev Review 2026: The Honest Developer&#39;s Take on AI Code Review](https://baeseokjae.github.io/posts/cubic-dev-ai-code-review-2026/) — An honest Cubic.dev review for 2026: benchmarks, pricing, real team results, and when it beats CodeRabbit and GitHub Copilot.
 - [AI Workflow Automation Cost Comparison 2026: n8n vs Zapier vs Make at Scale](https://baeseokjae.github.io/posts/ai-workflow-automation-cost-comparison-2026/) — Real cost math comparing n8n, Zapier, and Make.com for AI workflows at scale — billing models, self-hosting, and where each platform wins.
 - [Activepieces vs n8n 2026: Open-Source Automation Compared](https://baeseokjae.github.io/posts/activepieces-vs-n8n-comparison-2026/) — Activepieces vs n8n 2026: pricing model differences, integration counts, self-hosting options, AI agent capabilities, and which open-source automation platform fits your team.
@@ -187,6 +188,7 @@ RockB specializes in:
 - [Best AI Coding Assistants in 2026: The Definitive Comparison](https://baeseokjae.github.io/posts/best-ai-coding-assistants-2026/) — The best AI coding assistants in 2026 are Cursor, Claude Code, and GitHub Copilot — but the smartest developers combine two or more into a unified stack.
 
 ### In-depth Guides & Explainers
+- [MCP Streamable HTTP Production Guide 2026: stdio vs Streamable HTTP](https://baeseokjae.github.io/posts/mcp-production-guide-streamable-http-2026/) — Complete guide to choosing and deploying MCP transports in 2026: stdio vs Streamable HTTP, auth, scaling, and platform recipes for Cloudflare, AWS ECS, and Kubernetes.
 - [Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia](https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/) — Step-by-step guide to building Make.com AI agents with Maia in 2026 — reasoning panel, multimodal inputs, and real-world use cases.
 - [n8n MCP Integration Guide 2026: Connect Claude and AI Agents to Your Workflows](https://baeseokjae.github.io/posts/n8n-mcp-integration-guide-2026/) — How to integrate n8n with Model Context Protocol (MCP) in 2026 — set up n8n as an MCP server, connect Claude Desktop, and build workflows without touching the UI.
 - [Local AI Agents Guide 2026: Build Offline AI Agents with Ollama and Cline](https://baeseokjae.github.io/posts/local-ai-agents-guide-2026/) — Complete guide to building offline AI agents with Ollama and Cline in 2026 — privacy-first, zero API costs, works air-gapped.
@@ -274,6 +276,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [MCP Streamable HTTP Production Guide 2026: stdio vs Streamable HTTP](https://baeseokjae.github.io/posts/mcp-production-guide-streamable-http-2026/) — Complete guide to choosing and deploying MCP transports in 2026: stdio vs Streamable HTTP, auth, scaling, and platform recipes for Cloudflare, AWS ECS, and Kubernetes.
 - [Cubic.dev Review 2026: The Honest Developer&#39;s Take on AI Code Review](https://baeseokjae.github.io/posts/cubic-dev-ai-code-review-2026/) — An honest Cubic.dev review for 2026: benchmarks, pricing, real team results, and when it beats CodeRabbit and GitHub Copilot.
 - [AI Workflow Automation Cost Comparison 2026: n8n vs Zapier vs Make at Scale](https://baeseokjae.github.io/posts/ai-workflow-automation-cost-comparison-2026/) — Real cost math comparing n8n, Zapier, and Make.com for AI workflows at scale — billing models, self-hosting, and where each platform wins.
 - [Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia](https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/) — Step-by-step guide to building Make.com AI agents with Maia in 2026 — reasoning panel, multimodal inputs, and real-world use cases.
