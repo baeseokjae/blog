@@ -26,6 +26,8 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Cubic.dev Review 2026: The Honest Developer&#39;s Take on AI Code Review](https://baeseokjae.github.io/posts/cubic-dev-ai-code-review-2026/) — An honest Cubic.dev review for 2026: benchmarks, pricing, real team results, and when it beats CodeRabbit and GitHub Copilot.
+- [AI Workflow Automation Cost Comparison 2026: n8n vs Zapier vs Make at Scale](https://baeseokjae.github.io/posts/ai-workflow-automation-cost-comparison-2026/) — Real cost math comparing n8n, Zapier, and Make.com for AI workflows at scale — billing models, self-hosting, and where each platform wins.
 - [Activepieces vs n8n 2026: Open-Source Automation Compared](https://baeseokjae.github.io/posts/activepieces-vs-n8n-comparison-2026/) — Activepieces vs n8n 2026: pricing model differences, integration counts, self-hosting options, AI agent capabilities, and which open-source automation platform fits your team.
 - [SonarQube AI CodeFix Review 2026: Is It Worth It for Developer Teams?](https://baeseokjae.github.io/posts/sonarqube-ai-codefix-review-2026/) — Honest SonarQube AI CodeFix review: what it does well, where it falls short, pricing breakdown, and who should actually use it in 2026.
 - [Lindy AI Review 2026: No-Code AI Agent Automation Platform](https://baeseokjae.github.io/posts/lindy-ai-review-2026/) — Hands-on Lindy AI review covering pricing, features, Gaia voice agent, Autopilot, and how it compares to Zapier, Make, and n8n in 2026.
@@ -185,6 +187,8 @@ RockB specializes in:
 - [Best AI Coding Assistants in 2026: The Definitive Comparison](https://baeseokjae.github.io/posts/best-ai-coding-assistants-2026/) — The best AI coding assistants in 2026 are Cursor, Claude Code, and GitHub Copilot — but the smartest developers combine two or more into a unified stack.
 
 ### In-depth Guides & Explainers
+- [Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia](https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/) — Step-by-step guide to building Make.com AI agents with Maia in 2026 — reasoning panel, multimodal inputs, and real-world use cases.
+- [n8n MCP Integration Guide 2026: Connect Claude and AI Agents to Your Workflows](https://baeseokjae.github.io/posts/n8n-mcp-integration-guide-2026/) — How to integrate n8n with Model Context Protocol (MCP) in 2026 — set up n8n as an MCP server, connect Claude Desktop, and build workflows without touching the UI.
 - [Local AI Agents Guide 2026: Build Offline AI Agents with Ollama and Cline](https://baeseokjae.github.io/posts/local-ai-agents-guide-2026/) — Complete guide to building offline AI agents with Ollama and Cline in 2026 — privacy-first, zero API costs, works air-gapped.
 - [Figma MCP Server Guide 2026: Design to Code with AI](https://baeseokjae.github.io/posts/figma-mcp-design-to-code-2026/) — Complete guide to the Figma MCP server: setup, remote vs desktop, Code Connect, and real-world design-to-code workflows with AI agents in 2026.
 - [OpenAI Codex Computer Use Guide 2026: Background Agents That Operate Your Mac](https://baeseokjae.github.io/posts/openai-codex-computer-use-guide-2026/) — OpenAI Codex computer use lets background agents operate your Mac autonomously — here&#39;s the complete setup guide with security, plugins, and real use cases.
@@ -270,7 +274,11 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Cubic.dev Review 2026: The Honest Developer&#39;s Take on AI Code Review](https://baeseokjae.github.io/posts/cubic-dev-ai-code-review-2026/) — An honest Cubic.dev review for 2026: benchmarks, pricing, real team results, and when it beats CodeRabbit and GitHub Copilot.
+- [AI Workflow Automation Cost Comparison 2026: n8n vs Zapier vs Make at Scale](https://baeseokjae.github.io/posts/ai-workflow-automation-cost-comparison-2026/) — Real cost math comparing n8n, Zapier, and Make.com for AI workflows at scale — billing models, self-hosting, and where each platform wins.
+- [Make.com AI Agents Guide 2026: Build Autonomous Workflows with Maia](https://baeseokjae.github.io/posts/make-ai-agents-guide-2026/) — Step-by-step guide to building Make.com AI agents with Maia in 2026 — reasoning panel, multimodal inputs, and real-world use cases.
 - [Activepieces vs n8n 2026: Open-Source Automation Compared](https://baeseokjae.github.io/posts/activepieces-vs-n8n-comparison-2026/) — Activepieces vs n8n 2026: pricing model differences, integration counts, self-hosting options, AI agent capabilities, and which open-source automation platform fits your team.
+- [n8n MCP Integration Guide 2026: Connect Claude and AI Agents to Your Workflows](https://baeseokjae.github.io/posts/n8n-mcp-integration-guide-2026/) — How to integrate n8n with Model Context Protocol (MCP) in 2026 — set up n8n as an MCP server, connect Claude Desktop, and build workflows without touching the UI.
 - [AutoAgent LLM Framework 2026: Build AI Agents with Zero Code](https://baeseokjae.github.io/posts/autoagent-llm-framework-2026/) — AutoAgent lets you build production-grade LLM agents using only natural language — no Python required. GAIA #1 open-source, Self-Play optimization.
 - [SonarQube AI CodeFix Review 2026: Is It Worth It for Developer Teams?](https://baeseokjae.github.io/posts/sonarqube-ai-codefix-review-2026/) — Honest SonarQube AI CodeFix review: what it does well, where it falls short, pricing breakdown, and who should actually use it in 2026.
 - [Lindy AI Review 2026: No-Code AI Agent Automation Platform](https://baeseokjae.github.io/posts/lindy-ai-review-2026/) — Hands-on Lindy AI review covering pricing, features, Gaia voice agent, Autopilot, and how it compares to Zapier, Make, and n8n in 2026.

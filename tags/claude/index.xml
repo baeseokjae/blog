@@ -1,4 +1,434 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Claude on RockB</title><link>https://baeseokjae.github.io/tags/claude/</link><description>Recent content in Claude on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 30 Apr 2026 00:13:10 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/claude/index.xml" rel="self" type="application/rss+xml"/><item><title>Claude Opus 4.7 vs 4.6 vs Mythos Comparison 2026: Which Model Should You Use?</title><link>https://baeseokjae.github.io/posts/claude-opus-47-vs-46-vs-mythos-comparison-2026/</link><pubDate>Thu, 30 Apr 2026 00:13:10 +0000</pubDate><guid>https://baeseokjae.github.io/posts/claude-opus-47-vs-46-vs-mythos-comparison-2026/</guid><description>Claude Opus 4.7, 4.6, and Mythos compared on benchmarks, real cost, and migration risk — so you pick the right model for your workload.</description><content:encoded><![CDATA[<p>Opus 4.7 is a genuine coding leap over 4.6 — 87.6% vs 80.8% on SWE-bench Verified — but it hides a 35% tokenizer cost increase for code and JSON workloads. Mythos Preview blows both out of the water at 93.9% SWE-bench, yet only 12 companies globally can access it. Here&rsquo;s exactly which one you should use.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Claude on RockB</title><link>https://baeseokjae.github.io/tags/claude/</link><description>Recent content in Claude on RockB</description><image><title>RockB</title><url>https://baeseokjae.github.io/images/og-default.png</url><link>https://baeseokjae.github.io/images/og-default.png</link></image><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 04 May 2026 15:04:58 +0000</lastBuildDate><atom:link href="https://baeseokjae.github.io/tags/claude/index.xml" rel="self" type="application/rss+xml"/><item><title>n8n MCP Integration Guide 2026: Connect Claude and AI Agents to Your Workflows</title><link>https://baeseokjae.github.io/posts/n8n-mcp-integration-guide-2026/</link><pubDate>Mon, 04 May 2026 15:04:58 +0000</pubDate><guid>https://baeseokjae.github.io/posts/n8n-mcp-integration-guide-2026/</guid><description>How to integrate n8n with Model Context Protocol (MCP) in 2026 — set up n8n as an MCP server, connect Claude Desktop, and build workflows without touching the UI.</description><content:encoded><![CDATA[<p>n8n MCP integration lets you expose your n8n workflows as tools that Claude, Cursor, and other AI agents can call directly — and lets n8n workflows consume external MCP servers like GitHub, Slack, or any tool that speaks the Model Context Protocol. The result: AI agents that can actually trigger automation, not just describe it.</p>
+<h2 id="what-is-n8n-mcp-integration-and-why-it-matters-in-2026">What Is n8n MCP Integration and Why It Matters in 2026</h2>
+<p>n8n MCP integration refers to connecting n8n&rsquo;s workflow automation platform with the Model Context Protocol (MCP), an open standard that lets AI assistants like Claude discover and invoke external tools at runtime. Rather than hardcoding API calls inside a chat model, MCP creates a structured bridge: the AI agent asks &ldquo;what tools are available?&rdquo; and then calls them with real parameters. With n8n&rsquo;s native MCP support — shipped as the MCP Server Trigger node and MCP Client Tool node — any n8n workflow becomes a first-class tool that Claude Desktop, Cursor, or any MCP-compatible AI client can discover and invoke. This matters because n8n already connects to 1,650 services via its node library; with MCP, that library becomes natively accessible to AI coding assistants. As of 2026, n8n has surpassed 230,000 active users and raised $180M at a $2.5B valuation, signaling that AI-native automation is the dominant growth vector. Gartner projects 40% of enterprise applications will embed task-specific AI agents by end of 2026, up from under 5% in 2025 — and n8n MCP is a direct path to that outcome.</p>
+<h2 id="two-modes-of-n8n-mcp-integration-explained">Two Modes of n8n MCP Integration Explained</h2>
+<p>n8n MCP integration operates in two distinct directions, and understanding both is essential before you touch any configuration. Mode 1 turns n8n into an MCP server — your workflows become discoverable tools that external AI agents can invoke by calling a standard HTTP endpoint. Mode 2 does the reverse — n8n acts as an MCP client, pulling in tools from external MCP servers (GitHub, Slack, Elasticsearch, etc.) and making them available to an AI Agent node inside your workflow. Most real deployments use both simultaneously: Claude orchestrates high-level tasks via Mode 1, but the n8n workflow itself calls out to other services via Mode 2. For example, Claude might invoke an n8n &ldquo;research&rdquo; workflow (Mode 1) that internally consults a Perplexity MCP server for live search results (Mode 2). Knowing which mode solves your specific problem saves hours of debugging the wrong node configuration. Mode 1 is configured via the MCP Server Trigger node; Mode 2 is configured via the MCP Client Tool node inside an AI Agent workflow.</p>
+<h3 id="mode-1--n8n-as-mcp-server-expose-your-workflows-to-ai-agents">Mode 1 — n8n as MCP Server (Expose Your Workflows to AI Agents)</h3>
+<p>When n8n acts as an MCP server, you add an <strong>MCP Server Trigger</strong> node to a workflow. That node registers the workflow as a named tool — complete with a description and parameter schema — at an HTTP endpoint. Any MCP-compatible AI client (Claude Desktop, Cursor, VS Code Copilot, a custom agent) can then call <code>tools/list</code> to discover the tool and <code>tools/call</code> to invoke it. The trigger fires the rest of the workflow with the AI&rsquo;s parameters as input. This is the pattern that lets you say to Claude: &ldquo;Book a meeting for me tomorrow at 2pm&rdquo; and have Claude actually call your n8n calendar workflow, not just generate code for it.</p>
+<h3 id="mode-2--n8n-as-mcp-client-consume-external-mcp-servers-in-workflows">Mode 2 — n8n as MCP Client (Consume External MCP Servers in Workflows)</h3>
+<p>When n8n acts as an MCP client, an <strong>AI Agent</strong> node inside your workflow uses the <strong>MCP Client Tool</strong> node as one of its tool sources. You point the MCP Client Tool node at any external MCP server&rsquo;s SSE or HTTP Streamable endpoint, and the AI Agent node sees those remote tools as if they were native n8n tools. A practical example: connect your n8n AI Agent to an Elasticsearch MCP server, and your workflow can perform semantic search against a production index without writing a single Elasticsearch API call manually.</p>
+<h2 id="prerequisites-what-you-need-before-you-start">Prerequisites: What You Need Before You Start</h2>
+<p>Before configuring n8n MCP integration, verify you have the following in place. A clear checklist prevents the most common setup failures.</p>
+<p><strong>n8n instance requirements:</strong></p>
+<ul>
+<li>n8n version 1.68 or later (MCP Server Trigger and MCP Client Tool nodes require this)</li>
+<li>For self-hosted: a publicly reachable HTTPS URL (MCP clients need to reach your server; <code>http://localhost</code> will not work from Claude Desktop on another machine)</li>
+<li>For n8n Cloud: your workspace URL works out of the box</li>
+</ul>
+<p><strong>AI client requirements:</strong></p>
+<ul>
+<li>Claude Desktop (mac or Windows) for testing MCP server mode</li>
+<li>Node.js 18+ installed on the machine running Claude Desktop (needed for <code>mcp-remote</code> proxy)</li>
+<li>Or: Cursor, VS Code with Claude, or any MCP-compatible client</li>
+</ul>
+<p><strong>Optional but recommended:</strong></p>
+<ul>
+<li>An API key or bearer token for securing your MCP endpoints</li>
+<li>A reverse proxy (Nginx, Caddy, or Cloudflare Access) if exposing self-hosted n8n to the internet</li>
+</ul>
+<h2 id="step-by-step-setting-up-n8n-as-an-mcp-server">Step-by-Step: Setting Up n8n as an MCP Server</h2>
+<p>Setting up n8n as an MCP server means configuring the MCP Server Trigger node so that Claude or another AI client can discover and call your workflows as named tools. The MCP Server Trigger node is the entry point of any n8n workflow you want to expose — it registers a tool name, description, and parameter schema at an HTTPS endpoint, then fires the rest of the workflow when an AI client calls that tool. Each workflow becomes one MCP tool; if you want to expose five tools, you create five workflows each with their own MCP Server Trigger. The test URL is available while the workflow editor is open, but for real AI client usage you must activate the workflow so the production URL is live. This section walks through the complete setup for a single workflow tool, from adding the trigger node to verifying the endpoint responds correctly to a manual HTTP test. Follow the steps in order — skipping authentication is the most common cause of production incidents with MCP deployments.</p>
+<h3 id="adding-the-mcp-server-trigger-node">Adding the MCP Server Trigger Node</h3>
+<p>Open an existing workflow or create a new one in n8n. Delete or bypass any existing trigger node — MCP Server Trigger must be the workflow&rsquo;s entry point.</p>
+<ol>
+<li>Click <strong>Add first step</strong> and search for <strong>MCP Server Trigger</strong></li>
+<li>In the node settings, set <strong>Tool Name</strong> to a short, descriptive name (e.g., <code>send_slack_message</code>). This is what Claude sees in its <code>tools/list</code> response.</li>
+<li>Set <strong>Tool Description</strong> to a plain-English sentence explaining when to call this tool. Claude uses this to decide whether to invoke the tool.</li>
+<li>Add <strong>Parameters</strong> for any inputs the tool needs (e.g., <code>channel: string</code>, <code>message: string</code>). These become the MCP tool&rsquo;s JSON schema.</li>
+</ol>
+<h3 id="connecting-tool-nodes-to-your-mcp-server">Connecting Tool Nodes to Your MCP Server</h3>
+<p>After the MCP Server Trigger, connect whatever workflow logic you need — HTTP Request, Slack, Gmail, Code, etc. The trigger node&rsquo;s output passes the AI&rsquo;s parameter values as <code>$json</code> fields to the next node. Reference them with <code>{{ $json.channel }}</code> or similar.</p>
+<p>At the end of the workflow, return a response. The MCP Server Trigger node automatically packages the last node&rsquo;s output as the tool&rsquo;s response to the AI client.</p>
+<h3 id="configuring-authentication">Configuring Authentication</h3>
+<p>In the MCP Server Trigger node, select an <strong>Authentication</strong> method:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>When to use</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>None</td>
+          <td>Local dev only — never expose unauthenticated endpoints to the internet</td>
+      </tr>
+      <tr>
+          <td>Bearer Token</td>
+          <td>Simple production setup — paste a secret token in Claude&rsquo;s config</td>
+      </tr>
+      <tr>
+          <td>Generic Header</td>
+          <td>When your client sends a custom header (e.g., <code>X-API-Key</code>)</td>
+      </tr>
+      <tr>
+          <td>OAuth2</td>
+          <td>Enterprise setups with existing OAuth2 infrastructure</td>
+      </tr>
+  </tbody>
+</table>
+<p>For most solo developers, <strong>Bearer Token</strong> is the right call. Generate a random 32+ character string and store it in n8n&rsquo;s credentials manager, not in the workflow itself.</p>
+<h3 id="getting-your-mcp-endpoint-url">Getting Your MCP Endpoint URL</h3>
+<p>n8n generates two URLs for every MCP Server Trigger node:</p>
+<ul>
+<li><strong>Test URL</strong>: <code>https://your-n8n-instance/webhook-test/{id}/mcp</code> — fires only while the workflow editor is open. Use this to test from Claude Desktop before activating.</li>
+<li><strong>Production URL</strong>: <code>https://your-n8n-instance/webhook/{id}/mcp</code> — fires when the workflow is activated (toggle in the top-right of the workflow editor).</li>
+</ul>
+<p>n8n supports two transport protocols:</p>
+<ul>
+<li><strong>HTTP Streamable</strong> (recommended for new integrations): append <code>/mcp</code> to the base URL</li>
+<li><strong>SSE</strong> (legacy, still supported): append <code>/sse</code> to the base URL</li>
+</ul>
+<p>Use HTTP Streamable when possible — it handles reconnections and multiplexing more reliably than SSE.</p>
+<h2 id="connecting-claude-desktop-to-your-n8n-mcp-server">Connecting Claude Desktop to Your n8n MCP Server</h2>
+<p>Connecting Claude Desktop to n8n requires a proxy layer because Claude Desktop uses stdio transport internally, but n8n&rsquo;s MCP Server Trigger uses HTTP over SSE or HTTP Streamable. The <code>mcp-remote</code> npm package bridges the gap — it runs as a local subprocess that Claude Desktop spawns on startup, accepts stdio commands from Claude, and forwards them as HTTP requests to your n8n endpoint. Without <code>mcp-remote</code>, Claude Desktop cannot connect to any remote HTTP MCP server, including n8n. The package is configured entirely through Claude Desktop&rsquo;s <code>claude_desktop_config.json</code> file — you specify the <code>npx mcp-remote</code> command, the n8n endpoint URL, and any authentication headers. Once configured, Claude Desktop restarts and shows a hammer icon in the interface, confirming that MCP tools are loaded. The tools remain available for the entire Claude Desktop session without re-authentication. This section covers the installation, configuration, and initial test cycle for connecting Claude Desktop to an n8n workflow endpoint you set up in the previous section.</p>
+<h3 id="installing-and-configuring-mcp-remote-proxy">Installing and Configuring mcp-remote Proxy</h3>
+<p>On the machine running Claude Desktop, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g mcp-remote
+</span></span></code></pre></div><p>Verify installation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npx mcp-remote --version
+</span></span></code></pre></div><p><code>mcp-remote</code> acts as a local stdio server that forwards requests to a remote HTTP or SSE endpoint. You don&rsquo;t need to start it manually — Claude Desktop spawns it on startup.</p>
+<h3 id="adding-n8n-to-claude-desktops-connector-settings">Adding n8n to Claude Desktop&rsquo;s Connector Settings</h3>
+<p>Open Claude Desktop&rsquo;s configuration file. On macOS:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nano ~/Library/Application<span style="color:#ae81ff">\ </span>Support/Claude/claude_desktop_config.json
+</span></span></code></pre></div><p>On Windows:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 352 25"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>%</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>P</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>D</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>T</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>A</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>%</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>\</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>C</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>\</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>l</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>a</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>_</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>d</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>k</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>_</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='272' y='4' fill='currentColor' style='font-size:1em'>n</text>
+<text text-anchor='middle' x='280' y='4' fill='currentColor' style='font-size:1em'>f</text>
+<text text-anchor='middle' x='288' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='296' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='304' y='4' fill='currentColor' style='font-size:1em'>.</text>
+<text text-anchor='middle' x='312' y='4' fill='currentColor' style='font-size:1em'>j</text>
+<text text-anchor='middle' x='320' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='328' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='336' y='4' fill='currentColor' style='font-size:1em'>n</text>
+</g>
+
+    </svg>
+  
+</div>
+<p>Add your n8n workflow as an MCP server entry:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;n8n-workflows&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;mcp-remote&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;https://your-n8n-instance/webhook/your-workflow-id/mcp&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;--header&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;Authorization: Bearer YOUR_SECRET_TOKEN&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Replace <code>your-n8n-instance</code> with your actual n8n URL and <code>YOUR_SECRET_TOKEN</code> with the bearer token you configured in n8n.</p>
+<h3 id="testing-the-connection">Testing the Connection</h3>
+<ol>
+<li>Restart Claude Desktop completely (quit and reopen — reload is not enough)</li>
+<li>In a new conversation, type: &ldquo;What tools do you have available?&rdquo;</li>
+<li>Claude should list your n8n workflow tool by name and description</li>
+<li>Test an invocation: ask Claude to call the tool with specific parameters</li>
+<li>Verify the workflow executed in n8n&rsquo;s execution log</li>
+</ol>
+<p>If Claude doesn&rsquo;t see the tool, check: (a) the workflow is <strong>activated</strong> in n8n, (b) the URL uses the production endpoint (not test), and (c) the bearer token matches exactly.</p>
+<h2 id="using-the-czlonkowskin8n-mcp-package-build-workflows-via-claude-without-the-ui">Using the czlonkowski/n8n-mcp Package: Build Workflows via Claude Without the UI</h2>
+<p>The <code>czlonkowski/n8n-mcp</code> npm package is a separate tool from n8n&rsquo;s native MCP nodes — it gives Claude direct access to n8n&rsquo;s internal API so you can describe a workflow and have Claude build, validate, and deploy it without opening the n8n UI. This is fundamentally different from the MCP Server Trigger and MCP Client Tool nodes: those let you invoke existing workflows via MCP; this package lets you create new workflows through conversation. The package exposes all 1,650 n8n nodes (820 core + 830 community) with 99% node property coverage, 63.6% operation coverage, and 87% documentation coverage — synced with n8n releases within 48 hours. Early adopters report building n8n workflows 10x–20x faster with fewer configuration errors compared to manual UI work, because Claude knows exact node names, parameter schemas, and valid operation values instead of guessing from outdated training data. Use this package when you want to build new workflows from scratch using natural language; use the native MCP nodes when you want to invoke existing deployed workflows from external AI clients.</p>
+<h3 id="installation-and-configuration">Installation and Configuration</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install -g @czlonkowski/n8n-mcp
+</span></span></code></pre></div><p>Add it to Claude Desktop&rsquo;s config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;mcpServers&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;n8n-builder&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;command&#34;</span>: <span style="color:#e6db74">&#34;npx&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;args&#34;</span>: [<span style="color:#e6db74">&#34;@czlonkowski/n8n-mcp&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;env&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;N8N_URL&#34;</span>: <span style="color:#e6db74">&#34;https://your-n8n-instance&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;N8N_API_KEY&#34;</span>: <span style="color:#e6db74">&#34;your-n8n-api-key&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Get your n8n API key from <strong>Settings → API → Create API Key</strong> in the n8n UI.</p>
+<h3 id="giving-claude-knowledge-of-all-1650-n8n-nodes">Giving Claude Knowledge of All 1,650 n8n Nodes</h3>
+<p>Once configured, Claude can answer questions like &ldquo;which n8n nodes support OAuth2?&rdquo; or generate a full workflow JSON from a plain-English description. The package loads node schemas on demand, so Claude doesn&rsquo;t hallucinate node names or parameter keys. A typical workflow-building session looks like:</p>
+<blockquote>
+<p>&ldquo;Build me an n8n workflow that listens for a new GitHub issue, runs it through Claude to generate a triage label, then posts the label back to the issue via the GitHub API.&rdquo;</p></blockquote>
+<p>Claude returns a deployable workflow JSON you can import directly into n8n — no drag-and-drop required.</p>
+<h2 id="step-by-step-using-n8n-as-an-mcp-client">Step-by-Step: Using n8n as an MCP Client</h2>
+<p>n8n acting as an MCP client means your n8n workflow can consume tools from external MCP servers — GitHub, Slack, Elasticsearch, or any service that exposes an MCP endpoint. The AI Agent node in n8n orchestrates the reasoning loop; the MCP Client Tool node provides the external tool connections by fetching the tool list from a remote server and making those tools available to the agent. This is the &ldquo;inbound MCP&rdquo; pattern: instead of Claude calling n8n, n8n calls external MCP servers to enrich its own AI Agent workflows. A practical example is connecting your n8n incident-response workflow to a Grafana MCP server — the AI Agent can query live metrics without you writing a single Grafana API call. MCP Client Tool supports both SSE and HTTP Streamable transports, and authentication is configured per-connection via n8n&rsquo;s credentials manager. You can connect multiple MCP Client Tool nodes to a single AI Agent, giving it tools from several external servers simultaneously. This section walks through a complete MCP client setup from creating the workflow to validating that the external tools appear in the agent&rsquo;s reasoning trace.</p>
+<h3 id="adding-the-mcp-client-tool-node-to-your-ai-agent-workflow">Adding the MCP Client Tool Node to Your AI Agent Workflow</h3>
+<ol>
+<li>Create a workflow with a <strong>trigger</strong> (Chat Trigger, Webhook, Schedule, or manual)</li>
+<li>Add an <strong>AI Agent</strong> node</li>
+<li>In the AI Agent node, configure the <strong>Language Model</strong> (e.g., connect to OpenAI or Anthropic via n8n credentials)</li>
+<li>In the <strong>Tools</strong> section of the AI Agent node, click <strong>Add Tool</strong> → <strong>MCP Client Tool</strong></li>
+</ol>
+<h3 id="configuring-sse-or-http-streamable-endpoint">Configuring SSE or HTTP Streamable Endpoint</h3>
+<p>In the MCP Client Tool node:</p>
+<ul>
+<li><strong>Connection Type</strong>: Select <strong>HTTP Streamable</strong> for modern servers, <strong>SSE</strong> for legacy ones</li>
+<li><strong>SSE Endpoint</strong> / <strong>HTTP Streamable URL</strong>: Paste the full URL of the external MCP server</li>
+<li><strong>Authentication</strong>: Configure as required by the external server (Bearer Token is most common)</li>
+</ul>
+<p>For public MCP servers, check their documentation for the endpoint URL. For a self-hosted GitHub MCP server:</p>
+
+
+
+<div class="goat svg-container ">
+  
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      font-family="Menlo,Lucida Console,monospace"
+      
+        viewBox="0 0 280 25"
+      >
+      <g transform='translate(8,16)'>
+<text text-anchor='middle' x='0' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='8' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='16' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='24' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='32' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='40' y='4' fill='currentColor' style='font-size:1em'>:</text>
+<text text-anchor='middle' x='48' y='4' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='56' y='4' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='64' y='4' fill='currentColor' style='font-size:1em'>y</text>
+<text text-anchor='middle' x='72' y='4' fill='currentColor' style='font-size:1em'>o</text>
+<text text-anchor='middle' x='80' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='88' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='96' y='4' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='104' y='4' fill='currentColor' style='font-size:1em'>g</text>
+<text text-anchor='middle' x='112' y='4' fill='currentColor' style='font-size:1em'>i</text>
+<text text-anchor='middle' x='120' y='4' fill='currentColor' style='font-size:1em'>t</text>
+<text text-anchor='middle' x='128' y='4' fill='currentColor' style='font-size:1em'>h</text>
+<text text-anchor='middle' x='136' y='4' fill='currentColor' style='font-size:1em'>u</text>
+<text text-anchor='middle' x='144' y='4' fill='currentColor' style='font-size:1em'>b</text>
+<text text-anchor='middle' x='152' y='4' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='160' y='4' fill='currentColor' style='font-size:1em'>m</text>
+<text text-anchor='middle' x='168' y='4' fill='currentColor' style='font-size:1em'>c</text>
+<text text-anchor='middle' x='176' y='4' fill='currentColor' style='font-size:1em'>p</text>
+<text text-anchor='middle' x='184' y='4' fill='currentColor' style='font-size:1em'>-</text>
+<text text-anchor='middle' x='192' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='200' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='208' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='216' y='4' fill='currentColor' style='font-size:1em'>v</text>
+<text text-anchor='middle' x='224' y='4' fill='currentColor' style='font-size:1em'>e</text>
+<text text-anchor='middle' x='232' y='4' fill='currentColor' style='font-size:1em'>r</text>
+<text text-anchor='middle' x='240' y='4' fill='currentColor' style='font-size:1em'>/</text>
+<text text-anchor='middle' x='248' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='256' y='4' fill='currentColor' style='font-size:1em'>s</text>
+<text text-anchor='middle' x='264' y='4' fill='currentColor' style='font-size:1em'>e</text>
+</g>
+
+    </svg>
+  
+</div>
+<h3 id="selecting-which-tools-to-expose">Selecting Which Tools to Expose</h3>
+<p>The MCP Client Tool node fetches the tool list from the remote server at workflow execution time. In <strong>Tools to Include</strong>, you can:</p>
+<ul>
+<li>Select <strong>All Tools</strong> to expose everything the remote server offers</li>
+<li>Select <strong>Specific Tools</strong> and list tool names to limit exposure (recommended for production — principle of least privilege)</li>
+</ul>
+<p>Limiting tools also speeds up the AI Agent node&rsquo;s reasoning loop — fewer tools means fewer tokens spent on tool selection.</p>
+<h2 id="real-world-use-cases-and-workflow-examples">Real-World Use Cases and Workflow Examples</h2>
+<p>n8n MCP integration opens practical automation patterns that neither pure n8n nor pure AI could handle alone — the combination gives you AI reasoning applied to real integrations, with n8n handling authentication, rate-limiting, error handling, and execution history. The following three use cases represent real deployment patterns observed in production, not theoretical ones. Each example maps to a specific architecture: MCP tools exposed from n8n (Mode 1), MCP client tools consumed inside n8n AI Agent workflows (Mode 2), or both simultaneously in a multi-agent chain. Delivery Hero&rsquo;s deployment of n8n for IT operations automation saves 200+ hours of manual work monthly via a single well-designed workflow — that scale is achievable precisely because n8n handles the integration complexity while Claude handles the decision-making. Vodafone&rsquo;s security threat intelligence automation using n8n saves approximately £2.2M in annual operational costs. These numbers aren&rsquo;t marketing — they reflect what happens when AI reasoning is paired with reliable, observable automation infrastructure rather than fragile custom glue code.</p>
+<h3 id="ai-powered-customer-support-pipeline">AI-Powered Customer Support Pipeline</h3>
+<p>A support team at a SaaS company exposes three n8n workflows as MCP tools: <code>search_knowledge_base</code>, <code>create_zendesk_ticket</code>, and <code>escalate_to_human</code>. Claude Desktop is configured with these tools. When a support agent types a customer issue into Claude, it automatically searches the knowledge base, drafts a resolution, creates a Zendesk ticket with the resolution pre-filled, and flags for human review if confidence is low — all in one conversation turn. The n8n workflows handle the API authentication, rate limiting, and error handling; Claude handles the reasoning. Delivery Hero-style deployments like this save 200+ hours of manual work monthly via a single well-designed workflow chain.</p>
+<h3 id="automated-incident-response-with-claude--n8n">Automated Incident Response with Claude + n8n</h3>
+<p>An ops team builds an incident response workflow where n8n listens for PagerDuty alerts via webhook, passes the alert details to a Claude-powered AI Agent node, and uses MCP Client Tool nodes to query a Grafana MCP server for relevant metrics and a GitHub MCP server for recent deploys. The AI Agent generates a preliminary root-cause hypothesis and posts it to the incident Slack channel within 30 seconds of the alert firing — before any human is paged. Vodafone uses a similar pattern for security threat intelligence, saving approximately £2.2M in operational costs annually.</p>
+<h3 id="multi-agent-orchestration-claude-as-orchestrator-n8n-workflows-as-tools">Multi-Agent Orchestration: Claude as Orchestrator, n8n Workflows as Tools</h3>
+<p>The most powerful pattern: Claude acts as the central orchestrator, and each n8n workflow is a specialized sub-agent exposed via MCP. A &ldquo;research&rdquo; workflow scrapes and summarizes URLs. A &ldquo;draft&rdquo; workflow writes structured content. A &ldquo;publish&rdquo; workflow posts to a CMS. Claude coordinates them in sequence based on a high-level instruction like &ldquo;write and publish a summary of today&rsquo;s top AI news.&rdquo; This is the architecture behind fully autonomous content pipelines — the pattern that reduces human touch to a single input prompt and a final review.</p>
+<h2 id="security-best-practices-for-production-mcp-deployments">Security Best Practices for Production MCP Deployments</h2>
+<p>Security is non-negotiable when exposing n8n workflows to external AI clients over HTTP. An unsecured MCP endpoint is effectively an unauthenticated API that can trigger your workflows. The following practices form a production-ready baseline.</p>
+<p><strong>Authentication — always required:</strong></p>
+<ul>
+<li>Use Bearer Token or OAuth2 authentication on every MCP Server Trigger node</li>
+<li>Rotate tokens quarterly or after any suspected compromise</li>
+<li>Store tokens in n8n&rsquo;s built-in credentials manager, never hardcoded in workflow JSON</li>
+</ul>
+<p><strong>Network-level controls:</strong></p>
+<ul>
+<li>Self-hosted n8n: put a reverse proxy (Nginx, Caddy) in front of n8n and terminate TLS at the proxy</li>
+<li>Use Cloudflare Access to add a second authentication layer for sensitive workflows</li>
+<li>Restrict inbound traffic to known IP ranges if your AI client has a fixed egress IP</li>
+</ul>
+<p><strong>Principle of least privilege:</strong></p>
+<ul>
+<li>Create one workflow per tool, not one monolithic workflow with branching</li>
+<li>Each workflow should do exactly one thing — easier to audit, easier to disable independently</li>
+<li>Use n8n&rsquo;s execution log to monitor for unexpected invocations</li>
+</ul>
+<p><strong>Input validation:</strong></p>
+<ul>
+<li>Validate all parameters passed by the AI client inside the workflow, not just at the MCP layer</li>
+<li>Use n8n&rsquo;s Code node to sanitize inputs before passing them to downstream HTTP Request or database nodes</li>
+<li>Never pass AI-generated parameters directly to a SQL query or shell command without sanitization</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Threat</th>
+          <th>Mitigation</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Unauthorized invocations</td>
+          <td>Bearer token + IP allowlist</td>
+      </tr>
+      <tr>
+          <td>Prompt injection via tool parameters</td>
+          <td>Input sanitization in Code node</td>
+      </tr>
+      <tr>
+          <td>Overprivileged workflows</td>
+          <td>One workflow per tool, least-privilege credentials</td>
+      </tr>
+      <tr>
+          <td>Plaintext credentials in workflow JSON</td>
+          <td>n8n credentials manager only</td>
+      </tr>
+      <tr>
+          <td>Public test URL exposure</td>
+          <td>Activate workflows before sharing production URL</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="n8n-mcp-vs-competitors-zapier-makecom-and-native-claude-tool-use">n8n MCP vs Competitors: Zapier, Make.com, and Native Claude Tool Use</h2>
+<p>Choosing between n8n MCP, Zapier AI Actions, Make.com, and native Claude tool use depends on your scale, budget, and control requirements. n8n&rsquo;s execution-based pricing delivers 40–60% cost savings vs. Zapier&rsquo;s task-based model when running AI agent workflows at scale — a workflow that calls 10 tools per run costs one execution in n8n, but 10 tasks in Zapier.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Capability</th>
+          <th>n8n MCP</th>
+          <th>Zapier AI Actions</th>
+          <th>Make.com</th>
+          <th>Native Claude Tools</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>MCP protocol support</td>
+          <td>Native (Server Trigger + Client Tool nodes)</td>
+          <td>Via Zapier MCP connector</td>
+          <td>Limited, via webhooks</td>
+          <td>N/A — custom tool definitions</td>
+      </tr>
+      <tr>
+          <td>Self-hosting</td>
+          <td>Yes (full control)</td>
+          <td>No</td>
+          <td>No</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Node/integration count</td>
+          <td>1,650+</td>
+          <td>6,000+</td>
+          <td>1,500+</td>
+          <td>Unlimited (custom)</td>
+      </tr>
+      <tr>
+          <td>Pricing model</td>
+          <td>Execution-based (cheaper at scale)</td>
+          <td>Task-based (expensive at scale)</td>
+          <td>Operation-based</td>
+          <td>API tokens only</td>
+      </tr>
+      <tr>
+          <td>AI workflow building via Claude</td>
+          <td>Yes (czlonkowski/n8n-mcp)</td>
+          <td>No</td>
+          <td>No</td>
+          <td>Not applicable</td>
+      </tr>
+      <tr>
+          <td>Security controls</td>
+          <td>Full (reverse proxy, OAuth2, IP allowlist)</td>
+          <td>Limited</td>
+          <td>Limited</td>
+          <td>Full</td>
+      </tr>
+      <tr>
+          <td>Latency</td>
+          <td>Low (self-hosted)</td>
+          <td>Medium (SaaS)</td>
+          <td>Medium (SaaS)</td>
+          <td>Low (direct API)</td>
+      </tr>
+  </tbody>
+</table>
+<p>Native Claude tool use (defining tools directly in the Anthropic API <code>tools</code> array) gives maximum control and lowest latency but requires custom code for every integration. n8n MCP gives you 1,650 integrations pre-built, with visual debugging and execution logs — the right tradeoff for most production deployments.</p>
+<h2 id="troubleshooting-common-n8n-mcp-issues">Troubleshooting Common n8n MCP Issues</h2>
+<p>n8n MCP integration fails in predictable ways. These are the five most common issues and their fixes.</p>
+<p><strong>Issue: Claude doesn&rsquo;t list the tool after restart</strong></p>
+<p>Check: Is the workflow <strong>activated</strong> (the toggle in the workflow editor)? The test URL only works while the editor is open. Claude Desktop needs the production URL (<code>/webhook/</code>, not <code>/webhook-test/</code>).</p>
+<p><strong>Issue: &ldquo;Connection refused&rdquo; when mcp-remote starts</strong></p>
+<p>Check: Is your n8n instance reachable at the URL in the config? Test with <code>curl https://your-n8n-instance/webhook/your-id/mcp</code> from the machine running Claude Desktop. Firewall rules and VPN configurations are the most common culprits.</p>
+<p><strong>Issue: Authentication failed (401)</strong></p>
+<p>Check: The bearer token in Claude Desktop&rsquo;s config must match exactly what&rsquo;s in n8n&rsquo;s credential. Token comparison is case-sensitive. Re-copy both values to eliminate whitespace issues.</p>
+<p><strong>Issue: Tool call succeeds but returns empty data</strong></p>
+<p>Check: Is the last node in the workflow outputting data? n8n sends the last node&rsquo;s output as the tool response. If the last node is a Slack node (which sends but doesn&rsquo;t output), add a Set node after it to return a confirmation payload.</p>
+<p><strong>Issue: mcp-remote proxy crashes with &ldquo;ECONNRESET&rdquo;</strong></p>
+<p>Check: n8n&rsquo;s SSE connection has a default timeout. Switch from SSE to HTTP Streamable transport in both the n8n MCP Server Trigger node (select &ldquo;HTTP Streamable&rdquo; in Transport settings) and in the <code>mcp-remote</code> URL (use <code>/mcp</code> endpoint instead of <code>/sse</code>).</p>
+<p><strong>Issue: High latency on first tool call</strong></p>
+<p>Expected behavior — the first call after Claude Desktop restarts fetches the tool list, which takes ~1–2 seconds. Subsequent calls in the same session reuse the cached list and respond faster.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>What version of n8n do I need for MCP integration?</strong>
+n8n 1.68 or later includes the MCP Server Trigger and MCP Client Tool nodes. If you&rsquo;re on an older version, update first. Check your version at <strong>Settings → About</strong> in the n8n UI.</p>
+<p><strong>Can I use n8n Cloud instead of self-hosted for MCP?</strong>
+Yes. n8n Cloud instances have a public HTTPS URL out of the box, which is required for MCP Server Trigger nodes to be reachable from Claude Desktop or other external MCP clients. Self-hosted instances need a public URL with TLS — typically achieved via a reverse proxy.</p>
+<p><strong>What&rsquo;s the difference between the czlonkowski/n8n-mcp package and the native MCP nodes?</strong>
+The native MCP nodes (MCP Server Trigger and MCP Client Tool) let you invoke existing n8n workflows from external AI clients and let n8n workflows call external MCP servers. The <code>czlonkowski/n8n-mcp</code> package does something different: it gives Claude knowledge of n8n&rsquo;s node library so Claude can build and deploy new n8n workflows via the n8n API, without you using the visual editor. They solve different problems and can be used together.</p>
+<p><strong>Is n8n MCP integration secure enough for production use?</strong>
+Yes, with proper configuration. Use Bearer Token or OAuth2 authentication on all MCP Server Trigger nodes, put n8n behind a reverse proxy, validate all AI-provided inputs in the workflow, and monitor the execution log. Don&rsquo;t rely solely on the MCP authentication layer — treat incoming tool parameters as untrusted user input.</p>
+<p><strong>How does n8n MCP pricing compare to Zapier for AI agent workflows?</strong>
+n8n charges per workflow execution regardless of how many nodes run in that execution. Zapier charges per task (each node = one task). An AI agent workflow that runs 10 nodes per invocation costs 1 execution in n8n vs. 10 tasks in Zapier. At scale, n8n typically delivers 40–60% cost savings. For high-frequency AI agent workflows, the pricing difference compounds quickly.</p>
+]]></content:encoded></item><item><title>Claude Opus 4.7 vs 4.6 vs Mythos Comparison 2026: Which Model Should You Use?</title><link>https://baeseokjae.github.io/posts/claude-opus-47-vs-46-vs-mythos-comparison-2026/</link><pubDate>Thu, 30 Apr 2026 00:13:10 +0000</pubDate><guid>https://baeseokjae.github.io/posts/claude-opus-47-vs-46-vs-mythos-comparison-2026/</guid><description>Claude Opus 4.7, 4.6, and Mythos compared on benchmarks, real cost, and migration risk — so you pick the right model for your workload.</description><content:encoded><![CDATA[<p>Opus 4.7 is a genuine coding leap over 4.6 — 87.6% vs 80.8% on SWE-bench Verified — but it hides a 35% tokenizer cost increase for code and JSON workloads. Mythos Preview blows both out of the water at 93.9% SWE-bench, yet only 12 companies globally can access it. Here&rsquo;s exactly which one you should use.</p>
 <h2 id="tldr-which-claude-model-should-you-use-in-2026">TL;DR: Which Claude Model Should You Use in 2026?</h2>
 <p>Claude Opus 4.7 is the right default for most production teams as of April 2026. Released on April 16, 2026, it delivers a 12-point CursorBench improvement (58% → 70%), 3x higher production task completion rate versus Opus 4.6, and significantly stronger agentic tool-use at 77.3% on MCP-Atlas — all at the same $5/$25 per million input/output token pricing. If you run coding agents, document pipelines, or multi-step autonomous tasks, upgrade to 4.7. The exception: if you have production prompts carefully tuned for Opus 4.6&rsquo;s looser instruction-following, audit before you migrate — stricter literal compliance in 4.7 can silently break prompt logic. Stay on 4.6 for stable, business-critical systems until you&rsquo;ve run a proper regression. As for Mythos Preview: unless you work at one of the 12 companies in Project Glasswing (Amazon, Apple, Google, Microsoft, Nvidia, and seven others), it is not a choice available to you. It is a policy-gated research preview for defensive cybersecurity, not a general product.</p>
 <h2 id="the-three-models-at-a-glance-quick-comparison-table">The Three Models at a Glance (Quick Comparison Table)</h2>
