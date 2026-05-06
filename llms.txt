@@ -26,6 +26,7 @@ RockB specializes in:
 ## Article Categories
 
 ### AI Tool Reviews & Comparisons
+- [Gumloop Review 2026: AI-Native Workflow Automation Platform](https://baeseokjae.github.io/posts/gumloop-review-2026/) — Gumloop review 2026: AI-native automation platform, credit pricing, 125&#43; integrations, $50M Series B, and who should use it vs Zapier and n8n.
 - [AI Browser Agents Comparison 2026: Comet vs Browser-Use vs Operator](https://baeseokjae.github.io/posts/ai-browser-agents-comparison-2026/) — Comet, Browser-Use, and Operator compared head-to-head on benchmarks, pricing, real-world performance, and enterprise readiness in 2026.
 - [MCP Streamable HTTP Production Guide 2026: stdio vs Streamable HTTP](https://baeseokjae.github.io/posts/mcp-production-guide-streamable-http-2026/) — Complete guide to choosing and deploying MCP transports in 2026: stdio vs Streamable HTTP, auth, scaling, and platform recipes for Cloudflare, AWS ECS, and Kubernetes.
 - [Langflow Review 2026: Visual AI Workflow Builder for LLM Orchestration](https://baeseokjae.github.io/posts/langflow-review-2026/) — Langflow review 2026: 100K GitHub stars, MCP server export, RAG pipelines 10x faster — plus honest limits and alternatives.
@@ -280,6 +281,7 @@ RockB specializes in:
 - [How to Run AI Models Locally: Ollama vs LM Studio in 2026](https://baeseokjae.github.io/posts/ollama-vs-lm-studio-local-ai-2026/) — Ollama vs LM Studio 2026: Ollama for developers (52M monthly downloads), LM Studio for GUI. Both free—most power users run both.
 
 ### All Articles
+- [Gumloop Review 2026: AI-Native Workflow Automation Platform](https://baeseokjae.github.io/posts/gumloop-review-2026/) — Gumloop review 2026: AI-native automation platform, credit pricing, 125&#43; integrations, $50M Series B, and who should use it vs Zapier and n8n.
 - [AI Browser Agents Comparison 2026: Comet vs Browser-Use vs Operator](https://baeseokjae.github.io/posts/ai-browser-agents-comparison-2026/) — Comet, Browser-Use, and Operator compared head-to-head on benchmarks, pricing, real-world performance, and enterprise readiness in 2026.
 - [LangGraph TypeScript Guide: Build AI Agents in 2026](https://baeseokjae.github.io/posts/langgraph-typescript-guide-2026/) — Complete LangGraph TypeScript guide for 2026: StateGraph, streaming, checkpointing, HITL, and multi-agent systems with real code examples.
 - [MCP Streamable HTTP Production Guide 2026: stdio vs Streamable HTTP](https://baeseokjae.github.io/posts/mcp-production-guide-streamable-http-2026/) — Complete guide to choosing and deploying MCP transports in 2026: stdio vs Streamable HTTP, auth, scaling, and platform recipes for Cloudflare, AWS ECS, and Kubernetes.
